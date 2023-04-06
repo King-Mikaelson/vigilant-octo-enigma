@@ -1,0 +1,25 @@
+@import "../src/styles/abstracts/breakpoints";
+@import "../src/styles/abstracts/functions";
+@import "../src/styles/abstracts/mixins";
+@import "../src/styles/abstracts/placeholders";
+@import "../src/styles/abstracts/variables";
+
+@import "../src/styles/base/reset";
+@import "../src/styles/base/typography";
+
+@import "../src/styles/components/buttons";
+@import "../src/styles/components/inputs";
+@import "../src/styles/components/menu";
+@import "../src/styles/components/modals";
+@import "../src/styles/components/orders";
+@import "../src/styles/components/sidebar";
+
+@import "../src/styles/layout/authLayout";
+@import "../src/styles/layout/dashboardLayout";
+
+@import "../src/styles/pages/signup";
+@import "../src/styles/pages/login";
+@import "../src/styles/pages/forgotpwd";
+@import "../src/styles/pages/dashboard";
+
+@import "../src/styles/themes/theme";
