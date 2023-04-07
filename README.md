@@ -41,21 +41,22 @@ ContextAPI(useState + useReducer)
 
 ## Styling
 
-CSS/SASS
+CSS/SASS \
 Tailwind
 
 ### CSS naming conventions
 
-BEM (Block-Element-Modifier) convention. (e.g "navigation","navigation**wrapper","navigation**wrapper--left")
+BEM (Block-Element-Modifier) convention.\
+ (e.g "navigation","navigation-wrapper","navigation-wrapper--left")
 
 ## Code Formatting Tools
 
-Prettier
+Prettier \
 Github pre-commit hook
 
 ## Data Fetching Mechanisms
 
-Axios
+Axios \
 React-query
 
 ## Folder Structure
