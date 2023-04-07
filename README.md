@@ -28,3 +28,38 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+# Colaboration Guidelines
+
+## Languages
+
+REACTJS Framework + TYPESCRIPT
+
+## State Management Tool
+
+ContextAPI(useState + useReducer)
+
+## Styling
+
+CSS/SASS
+Tailwind
+
+### CSS naming conventions
+
+BEM (Block-Element-Modifier) convention. (e.g "navigation","navigation**wrapper","navigation**wrapper--left")
+
+## Code Formatting Tools
+
+Prettier
+Github pre-commit hook
+
+## Data Fetching Mechanisms
+
+Axios
+React-query
+
+## Folder Structure
+
+Public/
+src/
+(to be edited)
