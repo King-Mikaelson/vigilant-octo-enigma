@@ -1,16 +1,15 @@
 import AppLogout from "../../features/logout";
 import SideBar from "../../components/sidebar";
-import { Outlet } from "react-router-dom";
-
-export default function DashboardLayout() {
+import { ChildrenProp } from "../../types";
+export default function DashboardLayout({ children }: ChildrenProp) {
   return (
     <AppLogout>
-      <div>
-        <aside>
+      <section className="dashboardlayout">
+        <aside className="dashboardlayout__left">
           <SideBar />
         </aside>
-        <aside>{<Outlet />}</aside>
-      </div>
+        <aside className="dashboardlayout__right">{children}</aside>
+      </section>
     </AppLogout>
   );
 }

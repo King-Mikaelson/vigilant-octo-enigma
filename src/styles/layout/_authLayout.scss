@@ -1,0 +1,40 @@
+.authlayout {
+  @include flexCenter;
+  & > * {
+    height: 100vh;
+  }
+  &__left {
+    width: 45%;
+    background: url("../../assets/authImg.png") no-repeat center center;
+    background-size: cover;
+    padding: $xl-font $xxl-font;
+
+    a {
+      color: $white-color;
+      font-family: $space-grotesk-font;
+      font-weight: 700;
+      font-size: $sm-font;
+      margin-right: $xs-font;
+      line-height: 24px;
+      text-transform: capitalize;
+      &:hover {
+        color: $lighter-gray;
+      }
+    }
+  }
+  &__right {
+    width: 55%;
+    position: relative;
+    &--logo {
+      @include flexCenter;
+      gap: 0.2rem;
+      font-family: $space-grotesk-font;
+      font-weight: 500;
+      font-size: $xxs-font;
+      position: absolute;
+      bottom: $extra-font;
+      right: $sm-font2;
+      text-transform: capitalize;
+    }
+  }
+}

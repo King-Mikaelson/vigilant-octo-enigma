@@ -1,25 +1,52 @@
-//font variables
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+//FONT VARIABLES
 $xxl-font: 4rem;
 $xl-font: 3rem;
 $lg-font: 2.25rem;
 $md-font: 1.5rem;
 $sm-font: 1rem;
+$sm-font2: 2rem;
 $xs-font: 0.88rem;
 $xxs-font: 0.81rem;
 $extra-font: 1.25rem;
 
-//color variables
-$primary-color: #573cff;
-$secondary-color: #05ce6e;
+//PROJECT COLOR PALETTE
+$primary-color: #51145a;
+$secondary-color: #ec9c04;
+$light-purple: #ffebfb;
+$black-color: #332f32;
+$black-color2: #4a4549;
+$white-color: #ffffff;
+$gray-bg: #f5f5f5;
+$light-gray: #7b7579;
+$lighter-gray: #b1a9ad;
+$placeholder-gray: #ccc4c8;
+$red: #de3730;
+$green: #00c650;
+$linear-gradient-primary: linear-gradient(
+  90deg,
+  #561d5e -10.15%,
+  #873ec2 38.77%,
+  #f89a1c 142.64%
+);
+$linear-gradient-secondary: linear-gradient(
+  90deg,
+  #f89a1c 0%,
+  #f89a1c 20.31%,
+  rgba(255, 255, 255, 0) 100%
+);
+$dm-sans-font: "DM Sans", sans-serif;
+$inter-font: "Inter", sans-serif;
+$space-grotesk-font: "Space Grotesk", sans-serif;
+//PROJECT VARIABLES ends here
+
+//EXTRAS
 $warning-color: #e97316;
 $error-color: #ef444a;
 $success-color: #22c55e;
-$white-color: #ffffff;
-$black-color: #1b1c1d;
 $light-dark: #676868;
 $feint-light-dark: #414243;
-$lighter-gray: #8d8e8e;
-
 $fira-sans-font: "Fira Sans", sans-serif;
 
 //color maps
