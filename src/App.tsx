@@ -1,5 +1,6 @@
 import { QueryClientProvider, QueryClient } from "react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import DashboardLayout from "./layout/dashboardLayout";
 import ErrorPage from "./features/error404";
 import SignUp from "./features/authentication/signup";
 import Login from "./features/authentication/login";
