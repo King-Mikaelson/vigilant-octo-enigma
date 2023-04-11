@@ -1,0 +1,17 @@
+.button__element {
+  outline: none;
+  background-color: $primary-color;
+  color: $white-color;
+  padding: $xxs-font $extra-font;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: $sm-font;
+  font-weight: 700;
+  font-family: $space-grotesk-font;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba($primary-color, 0.8);
+  }
+}
