@@ -15,7 +15,7 @@
     }
   }
 
-  &__paragraph {
+  &__subHeading {
     color: $black-color;
     font-weight: 500;
     font-size: $extra-font;
@@ -23,6 +23,28 @@
     margin-bottom: $xxl-font;
   }
 
+  &__paragraph {
+    color: $black-color2;
+    font-family: $inter-font;
+    font-weight: 400;
+    font-size: $sm-font;
+    margin-bottom: $xxl-font;
+    max-width: 330px;
+    text-align: center;
+  }
+
+  &__links {
+    font-weight: 500;
+    color: $primary-color;
+    font-size: $extra-font;
+    font-family: $dm-sans-font;
+    margin-bottom: $md-font;
+    margin-top: $sm-font;
+    text-align: center;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   .form {
     display: flex;
     flex-direction: column;
@@ -35,6 +57,12 @@
     h3 {
       font-size: $sm-font;
       font-weight: 400;
+    }
+
+    .span {
+      font-size: $xxs-font;
+      font-weight: 300;
+      margin-top: $sm-font;
     }
 
     //LOG IN STYLES HERE
