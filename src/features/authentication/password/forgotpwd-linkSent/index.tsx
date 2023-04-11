@@ -5,7 +5,7 @@ export default function LinkSent() {
   return (
     <AuthLayout>
       <section className="auth">
-        <h1 className="auth__heading">Forgot password?</h1>
+        <h1 className="auth__heading  mt-4rem">Forgot password?</h1>
         <p className="auth__subHeading">Don’t worry. We can help.</p>
         <p className="auth__paragraph">
           You will receive an email with a link to reset your password. Please
