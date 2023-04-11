@@ -17,7 +17,7 @@ export default function ChangePassword() {
   return (
     <AuthLayout>
       <section className="auth">
-        <h1 className="auth__heading">Change password</h1>
+        <h1 className="auth__heading mt-4rem">Change password</h1>
 
         <form className="form mt-4">
           <label className="password__label">
