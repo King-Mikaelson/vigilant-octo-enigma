@@ -10,6 +10,9 @@
     background-clip: text;
     font-size: $sm-font2;
     margin-bottom: $sm-font1;
+    @include sm {
+      font-size: 1.85rem;
+    }
   }
 
   &__paragraph {
@@ -26,6 +29,9 @@
     align-items: stretch;
     gap: $extra-font;
     min-width: 400px;
+    @include sm {
+      min-width: 100%;
+    }
     h3 {
       font-size: $sm-font;
       font-weight: 400;

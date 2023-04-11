@@ -2,8 +2,12 @@
   @include flexCenter;
   & > * {
     height: 100vh;
+    max-height: 100vh;
   }
   &__left {
+    @include lg {
+      display: none;
+    }
     width: 45%;
     background: url("../../assets/authImg.png") no-repeat center center;
     background-size: cover;
@@ -25,6 +29,10 @@
   &__right {
     width: 55%;
     position: relative;
+    @include sm {
+      width: 100%;
+      padding: $sm-font2;
+    }
     &--logo {
       @include flexCenter;
       gap: 0.2rem;
