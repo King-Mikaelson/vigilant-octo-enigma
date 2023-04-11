@@ -10,9 +10,14 @@
     background-clip: text;
     font-size: $sm-font2;
     margin-bottom: $sm-font1;
+
     @include sm {
       font-size: 1.85rem;
     }
+  }
+
+  &__heading.mt-4rem {
+    margin-top: $xxl-font2;
   }
 
   &__subHeading {
@@ -31,6 +36,7 @@
     margin-bottom: $xxl-font;
     max-width: 330px;
     text-align: center;
+    align-self: center;
   }
 
   &__links {
