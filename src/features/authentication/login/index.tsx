@@ -13,7 +13,7 @@ export default function Login() {
     <AuthLayout>
       <section className="auth">
         <h1 className="auth__heading">Sign in to your account</h1>
-        <p className="auth__paragraph">welcome back</p>
+        <p className="auth__subHeading">welcome back</p>
         <form className="form">
           <label>
             <h3>Email address / Phone number</h3>
@@ -32,7 +32,7 @@ export default function Login() {
               <small>Remember me</small>
             </label>
 
-            <Link to={"/forgot-pwd"}>forgot password?</Link>
+            <Link to={"/input-email"}>forgot password?</Link>
           </aside>
 
           <Button text="sign in" onclick={(e) => e.preventDefault()} />
