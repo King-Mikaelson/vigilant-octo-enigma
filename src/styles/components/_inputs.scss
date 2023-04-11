@@ -1,0 +1,26 @@
+.input__element {
+  outline: none;
+  padding: $xxs-font $extra-font;
+  border: 1px solid $placeholder-gray;
+  box-shadow: 0px 2px 2px 2px rgba($placeholder-gray, 0.1);
+  border-radius: 4px;
+  font-family: $space-grotesk-font;
+  font-weight: 400;
+  line-height: $sm-font;
+  font-size: $xs-font;
+  background-color: transparent;
+  width: 100%;
+  &::placeholder {
+    color: $placeholder-gray;
+  }
+}
+
+.password__label {
+  position: relative;
+}
+.eyeIcon {
+  position: absolute;
+  right: $sm-font;
+  top: 32px;
+  cursor: pointer;
+}
