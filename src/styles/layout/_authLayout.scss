@@ -29,7 +29,7 @@
   &__right {
     width: 55%;
     position: relative;
-    @include sm {
+    @include lg {
       width: 100%;
       padding: $sm-font2;
     }
