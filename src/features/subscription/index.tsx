@@ -8,34 +8,34 @@ import { AiFillCheckCircle } from "react-icons/ai";
 
 export default function Subscribe() {
   return (
-    <main>
-      <div>
-        <div>
+    <main className="main-container">
+      <div className="sub-container">
+        <div className="sub-header">
           <h3>The Right Plan for Your Business</h3>
           <p>
-            We’ll be taking a <span>4%</span> commission of your monthly sales.
-            This way you don’t have to bother about a particular subscription
-            amount every month, we take just <span>4%</span> of whatever you
-            make monthly.
+            We’ll be taking a <span className="percent">4%</span> commission of
+            your monthly sales. This way you don’t have to bother about a
+            particular subscription amount every month, we take just{" "}
+            <span>4%</span> of whatever you make monthly.
           </p>
         </div>
-        <div>
+        <div className="sub-content">
           {/* Perks */}
-          <div>
-            <p>PERKs</p>
-            <div>
+          <div className="perks-container">
+            <p>PERKS</p>
+            <div className="sub-trial">
               <span>
                 <AiFillCheckCircle />
               </span>
               <p>Free 1 month trial for new user</p>
             </div>
-            <div>
+            <div className="sub-trial">
               <span>
                 <AiFillCheckCircle />
               </span>
               <p>Get reminded when your trial is about to end</p>
             </div>
-            <div>
+            <div className="sub-trial">
               <span>
                 <AiFillCheckCircle />
               </span>
@@ -43,56 +43,72 @@ export default function Subscribe() {
             </div>
           </div>
           {/* Card Details */}
-          <div>
+          <div className="billing-container">
             <h4>Billing Information</h4>
             <form>
               <div>
                 <label htmlFor="nameOnCard">
-                  <span>
-                    <BsPerson />
-                  </span>
-                  <input
-                    type="text"
-                    id="nameOnCard"
-                    placeholder="Name on Card"
-                    required
-                  />
+                  <p>NAME ON CARD</p>
+                  <div className="input-div">
+                    <span>
+                      <BsPerson className="input-icon" />
+                    </span>
+                    <input
+                      type="text"
+                      id="nameOnCard"
+                      placeholder="CC Achukwu "
+                      required
+                    />
+                  </div>
                 </label>
               </div>
               <div>
                 <label htmlFor="cardNumber">
-                  <span>
-                    <FiCreditCard />
-                  </span>
-                  <input
-                    type="text"
-                    id="cardNumber"
-                    placeholder="Card Number"
-                    required
-                  />
+                  <p>CARD NUMBER</p>
+                  <div className="input-div">
+                    <span>
+                      <FiCreditCard className="input-icon" />
+                    </span>
+                    <input
+                      type="text"
+                      id="cardNumber"
+                      placeholder="1234 1234 1234 1234"
+                      required
+                    />
+                  </div>
                 </label>
               </div>
-              <div>
-                <label htmlFor="expires">
-                  <span>
-                    <RiCalendarCheckFill />
-                  </span>
-                  <input
-                    type="text"
-                    id="expires"
-                    placeholder="MM/YYYY"
-                    required
-                  />
-                </label>
+
+              <div className="date-cvv">
+                <div>
+                  <label htmlFor="expires">
+                    <p>EXPIRES</p>
+                    <div className="input-div">
+                      <span>
+                        <RiCalendarCheckFill className="input-icon" />
+                      </span>
+                      <input
+                        type="text"
+                        id="expires"
+                        placeholder="MM/YYYY"
+                        required
+                      />
+                    </div>
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="cvv">
+                    <p>CVV</p>
+                    <div className="input-div">
+                      <span>
+                        <MdLockOutline />
+                      </span>
+                      <input type="text" id="cvv" placeholder="CVV" required />
+                    </div>
+                  </label>
+                </div>
               </div>
-              <div>
-                <label htmlFor="cvv">
-                  <span>
-                    <MdLockOutline />
-                  </span>
-                  <input type="text" id="cvv" placeholder="CVV" required />
-                </label>
-              </div>
+
               <Button
                 text="Start Free Trial"
                 onclick={(e) => e.preventDefault()}

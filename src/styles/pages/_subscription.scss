@@ -1,0 +1,123 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 4rem;
+
+    .sub-header {
+        text-align: center;
+    }
+
+    .sub-content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+
+        .perks-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+
+            p {
+                font-size: 1rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+
+            }
+
+            .sub-trial {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+
+                span {
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                    margin-right: 10px;
+                    color: $secondary-color;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .billing-container {
+            flex: 1;
+            margin-top: 50px;
+
+            h4 {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+                text-align: center;
+                line-height: 36px;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                div {
+                    display: flex;
+                    margin-bottom: 10px;
+
+                    p {
+                        font-size: 0.9rem;
+                        margin-bottom: 5px;
+                    }
+
+                    .input-div {
+                        display: flex;
+                        align-items: center;
+                        width: 400px;
+                        gap: 5px;
+                        border: 1px solid $lighter-gray;
+                        padding: 0.3rem;
+                        border-radius: 0.3rem;
+
+                        span {
+                            font-size: 1rem;
+                            margin-left: 5px;
+                            padding-top: 2px;
+                            color: $black-color;
+                        }
+
+                        input {
+
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                            font-size: 1rem;
+                            padding: 5px;
+                            font-size: 14px;
+
+                        }
+
+                        &::placeholder {
+                            color: $placeholder-gray;
+                        }
+                    }
+                }
+
+                .date-cvv {
+                    display: flex;
+                    width: 400px;
+                    gap: 20px;
+
+                    .input-div {
+                        width: 190px;
+                    }
+                }
+            }
+
+        }
+    }
+}
