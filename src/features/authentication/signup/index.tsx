@@ -63,8 +63,8 @@ export default function SignUp() {
               <Input type="checkbox" />
               <small>
                 By signing up, I agree to the
-                <span className="text__purple">Terms of Service</span> and
-                <span className="text__purple">Privacy Policy</span>
+                <span className="text__purple"> Terms of Service  </span> and 
+                 <span className="text__purple">  Privacy Policy </span>
               </small>
             </label>
           </aside>
