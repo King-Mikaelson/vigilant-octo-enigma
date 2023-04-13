@@ -5,9 +5,12 @@ import Button from "../../../components/ui/button";
 import AuthLayout from "../../../layout/authLayout";
 import SignInOptions from "../../../components/signup-options";
 
+
 export default function Login() {
   //TOGGLING PASSWORD HIDE/SHOW
   const [InputType, ToggleIcon] = useTogglePassword();
+
+  
 
   return (
     <AuthLayout>
@@ -37,7 +40,7 @@ export default function Login() {
 
           <Button text="sign in" onclick={(e) => e.preventDefault()} />
         </form>
-        <SignInOptions />
+        <SignInOptions info="login"/>
       </section>
     </AuthLayout>
   );
