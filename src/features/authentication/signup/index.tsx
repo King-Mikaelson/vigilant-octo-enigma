@@ -54,7 +54,7 @@ export default function SignUp() {
           <aside className="checkbox__label">
             <label>
               <Input type="checkbox" />
-              <small>By signing up, I agree to the Terms of Service and Privacy Policy</small>
+              <small>By signing up, I agree to the <span className="text__purple">Terms of Service</span> and <span className="text__purple">Privacy Policy</span></small>
             </label>
 
           </aside>
@@ -63,9 +63,9 @@ export default function SignUp() {
         </form>
         <section className="signup__options">
           <p>
-            <span>Don't have an account?</span>
-            <Link to={"signup"} className="createAccount">
-              Create Account
+            <span>Already a user?</span>
+            <Link to={"/"} className="createAccount">
+              Login
             </Link>{" "}
           </p>
           <div className="or">
@@ -77,7 +77,7 @@ export default function SignUp() {
             Sign in with Google
           </Link>
         </section>
-        
+
       </section>
     </AuthLayout>;
 }

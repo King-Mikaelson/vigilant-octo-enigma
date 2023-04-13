@@ -169,6 +169,8 @@
     padding: 0rem;
   }
 
+
+
   &__heading {
     background: $linear-gradient-primary;
     color: transparent;
@@ -287,6 +289,14 @@
         &:hover {
           text-decoration: underline;
         }
+      }
+
+      .text__purple{
+        color:$primary-color;
+        text-decoration: underline;
+        font-weight: 700;
+        font-size:$xxs-font
+        
       }
     }
   }
