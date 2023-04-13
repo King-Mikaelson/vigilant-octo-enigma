@@ -61,22 +61,6 @@ export default function SignUp() {
 
           <Button text="sign up" onclick={(e) => e.preventDefault()} />
         </form>
-        <section className="signup__options">
-          <p>
-            <span>Already a user?</span>
-            <Link to={"/"} className="createAccount">
-              Login
-            </Link>{" "}
-          </p>
-          <div className="or">
-            <span className="line"></span>
-            <h2>or</h2>
-          </div>
-          <Link to={"#"} className="google">
-            <img src={googleIcon} alt="google" />
-            Sign in with Google
-          </Link>
-        </section>
       </section>
     </AuthLayout>;
 }

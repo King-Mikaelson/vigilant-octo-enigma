@@ -10,7 +10,7 @@ import ForgotPwd from "../features/authentication/password/forgotpwd-email";
 import Subscribe from "../features/subscription";
 import Pos from "../features/pos";
 import ErrorPage from "../features/error404";
-import StyleGuides from "../stylesGuides";
+import StyleGuides from "../styleGuides";
 
 // Always navigate the "/test" path in your browser and render
 // your component in "styleGuides.js" to TEST while building
@@ -65,3 +65,4 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+
