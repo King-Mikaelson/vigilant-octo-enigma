@@ -4,45 +4,51 @@ import useTogglePassword from "../hooks/useTogglePassword";
 import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/button";
 import { useState } from "react";
-import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 import googleIcon from "../../../assets/google.png";
-
-
 
 export default function SignUp() {
   const [InputType, ToggleIcon] = useTogglePassword();
-  const [value, setValue] = useState<string>()
-  const [email, setEmail] = useState<string>("")
+  const [value, setValue] = useState<string>();
+  const [email, setEmail] = useState<string>("");
 
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.currentTarget.value);
+  };
 
-  console.log(value)
-
-  return <AuthLayout>
-   <section className="signup">
+  return (
+    <AuthLayout>
+      <section className="signup">
         <h1 className="signup__heading">Create Account</h1>
         <p className="signup__subHeading">Let's get you started </p>
-        <form  className="form">
-        <label>
+        <form className="form">
+          <label>
             <h3>Full Name</h3>
-            <Input type="email" placeholder="C.C Achukwu" />
+            <Input
+              email={email}
+              handleEmail={handleEmail}
+              type="email"
+              placeholder="C.C Achukwu"
+            />
           </label>
 
           <label>
             <h3>Email address</h3>
-            <Input  type="email" placeholder="yourname@email.com" />
+            <Input type="email" placeholder="yourname@email.com" />
           </label>
 
           <label>
-          <h3>Phone Number</h3>
-          <PhoneInput
-          placeholder="814 874 9415"
-          defaultCountry="NG"
-          international
-          countryCallingCodeEditable={false}
-          value={value}
-          className="PhoneInput"
-          onChange={setValue} />
+            <h3>Phone Number</h3>
+            <PhoneInput
+              placeholder="814 874 9415"
+              defaultCountry="NG"
+              international
+              countryCallingCodeEditable={false}
+              value={value}
+              className="PhoneInput"
+              onChange={setValue}
+            />
           </label>
 
           <label className="password__label">
@@ -54,9 +60,12 @@ export default function SignUp() {
           <aside className="checkbox__label">
             <label>
               <Input type="checkbox" />
-              <small>By signing up, I agree to the <span className="text__purple">Terms of Service</span> and <span className="text__purple">Privacy Policy</span></small>
+              <small>
+                By signing up, I agree to the
+                <span className="text__purple">Terms of Service</span> and
+                <span className="text__purple">Privacy Policy</span>
+              </small>
             </label>
-
           </aside>
 
           <Button text="sign up" onclick={(e) => e.preventDefault()} />
@@ -66,7 +75,7 @@ export default function SignUp() {
             <span>Already a user?</span>
             <Link to={"/"} className="createAccount">
               Login
-            </Link>{" "}
+            </Link>
           </p>
           <div className="or">
             <span className="line"></span>
@@ -77,7 +86,7 @@ export default function SignUp() {
             Sign in with Google
           </Link>
         </section>
-
       </section>
-    </AuthLayout>;
+    </AuthLayout>
+  );
 }
