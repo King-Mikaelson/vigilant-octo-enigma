@@ -3,7 +3,7 @@ import useTogglePassword from "../hooks/useTogglePassword";
 import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/button";
 import AuthLayout from "../../../layout/authLayout";
-import SignInOptions from "../../../components/signup-options";
+import googleIcon from "../../../assets/google.png";
 
 export default function Login() {
   //TOGGLING PASSWORD HIDE/SHOW
@@ -37,7 +37,23 @@ export default function Login() {
 
           <Button text="sign in" onclick={(e) => e.preventDefault()} />
         </form>
-        <SignInOptions />
+
+        <section className="signup__options">
+          <p>
+            <span>Don't have an account?</span>
+            <Link to={"signup"} className="createAccount">
+              Create Account
+            </Link>{" "}
+          </p>
+          <div className="or">
+            <span className="line"></span>
+            <h2>or</h2>
+          </div>
+          <Link to={"#"} className="google">
+            <img src={googleIcon} alt="google" />
+            Sign in with Google
+          </Link>
+        </section>
       </section>
     </AuthLayout>
   );
