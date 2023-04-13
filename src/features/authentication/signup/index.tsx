@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import useTogglePassword from "../hooks/useTogglePassword";
 import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/button";
-import SignInOptions from "../../../components/signup-options";
 import { useState } from "react";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import googleIcon from "../../../assets/google.png";
 
 
 
@@ -61,7 +61,22 @@ export default function SignUp() {
 
           <Button text="sign up" onclick={(e) => e.preventDefault()} />
         </form>
-        <SignInOptions info="signUp" />
+        <section className="signup__options">
+          <p>
+            <span>Already a user?</span>
+            <Link to={"/"} className="createAccount">
+              Login
+            </Link>{" "}
+          </p>
+          <div className="or">
+            <span className="line"></span>
+            <h2>or</h2>
+          </div>
+          <Link to={"#"} className="google">
+            <img src={googleIcon} alt="google" />
+            Sign in with Google
+          </Link>
+        </section>
       </section>
     </AuthLayout>;
 }
