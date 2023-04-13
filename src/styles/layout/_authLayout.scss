@@ -1,8 +1,8 @@
 .authlayout {
   @include flexCenter;
+
   & > * {
     height: 100vh;
-    max-height: 100vh;
   }
   &__left {
     @include lg {

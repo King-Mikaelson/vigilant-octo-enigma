@@ -9,13 +9,14 @@ import PhoneInput from "react-phone-number-input";
 import googleIcon from "../../../assets/google.png";
 
 export default function SignUp() {
-  const [InputType, ToggleIcon] = useTogglePassword();
-  const [value, setValue] = useState<string>();
-  const [email, setEmail] = useState<string>("");
+  const [InputType, ToggleIcon] = useTogglePassword()
+  const [value, setValue] = useState<string>()
+  const [email, setEmail] = useState<string>("")
 
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value);
-  };
+  }
+
 
   return (
     <AuthLayout>

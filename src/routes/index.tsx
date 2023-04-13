@@ -13,7 +13,7 @@ import ErrorPage from "../features/error404";
 import StyleGuides from "../styleGuides";
 
 // Always navigate the "/test" path in your browser and render
-// your component in "styleGuides.js" to TEST while building
+// your component in "styleGuides.tsx" to TEST while building
 // before importing for use where it's needed as discussed.
 
 const router = createBrowserRouter([
@@ -65,4 +65,3 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
-

@@ -3,7 +3,7 @@ type InputProps = {
   placeholder?: string;
   id?: string;
   email?: string;
-  handleEmail? : (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleEmail?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function Input({
