@@ -9,8 +9,14 @@ import PhoneInput from "react-phone-number-input";
 import googleIcon from "../../../assets/google.png";
 
 export default function SignUp() {
-  const [InputType, ToggleIcon] = useTogglePassword();
-  const [value, setValue] = useState<string>();
+  const [InputType, ToggleIcon] = useTogglePassword()
+  const [value, setValue] = useState<string>()
+  const [email, setEmail] = useState<string>("")
+
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.currentTarget.value);
+  }
+
 
   return (
     <AuthLayout>
@@ -20,7 +26,12 @@ export default function SignUp() {
         <form className="form">
           <label>
             <h3>Full Name</h3>
-            <Input type="email" placeholder="C.C Achukwu" />
+            <Input
+              email={email}
+              handleEmail={handleEmail}
+              type="email"
+              placeholder="C.C Achukwu"
+            />
           </label>
 
           <label>
@@ -51,9 +62,9 @@ export default function SignUp() {
             <label>
               <Input type="checkbox" />
               <small>
-                By signing up, I agree to the{" "}
-                <span className="text__purple">Terms of Service</span> and{" "}
-                <span className="text__purple">Privacy Policy</span>
+                By signing up, I agree to the
+                <span className="text__purple"> Terms of Service  </span> and 
+                 <span className="text__purple">  Privacy Policy </span>
               </small>
             </label>
           </aside>
@@ -65,7 +76,7 @@ export default function SignUp() {
             <span>Already a user?</span>
             <Link to={"/"} className="createAccount">
               Login
-            </Link>{" "}
+            </Link>
           </p>
           <div className="or">
             <span className="line"></span>

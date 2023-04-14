@@ -165,11 +165,11 @@
 
 //SIGN UP STYLES HERE
 .signup {
-  padding: 4rem 3rem;
+  padding: 1.5rem;
   @include flexCenter;
   flex-direction: column;
   font-family: $space-grotesk-font;
-
+  height: 100vh;
   @include sm {
     padding: 0rem;
   }
@@ -196,8 +196,7 @@
     font-weight: 500;
     font-size: $extra-font;
     text-transform: capitalize;
-    margin-bottom: $xxl-font;
-
+    margin-bottom: $sm-font;
     @include sm {
       margin-bottom: $sm-font;
     }
@@ -221,6 +220,9 @@
     align-items: stretch;
     gap: $extra-font;
     min-width: 400px;
+    @include lgh{
+      gap: 0rem;
+    }
     @include sm {
       min-width: 100%;
     }
@@ -305,7 +307,7 @@
     @include flexCenter;
     flex-direction: column;
     gap: $sm-font;
-    margin-top: $extra-font;
+    margin-top: $sm-font;
 
     @include sm {
       margin-top: $xs-font;
