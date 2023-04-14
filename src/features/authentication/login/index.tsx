@@ -4,6 +4,7 @@ import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/button";
 import AuthLayout from "../../../layout/authLayout";
 import SignInOptions from "../../../components/signInOptions";
+import Trademark from "../../../components/trademark/Trademark";
 
 export default function Login() {
   //TOGGLING PASSWORD HIDE/SHOW
@@ -43,6 +44,7 @@ export default function Login() {
           </form>
           <SignInOptions />
         </section>
+        <Trademark />
       </section>
     </AuthLayout>
   );

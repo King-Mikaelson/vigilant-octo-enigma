@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../../../components/ui/button";
 import AuthLayout from "../../../../layout/authLayout";
+import Trademark from "../../../../components/trademark/Trademark";
 
 export default function LinkExpired() {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export default function LinkExpired() {
             </Link>
           </form>
         </section>
+        <Trademark />
       </section>
     </AuthLayout>
   );

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import AuthLayout from "../../../../layout/authLayout";
+import Trademark from "../../../../components/trademark/Trademark";
 
 export default function LinkSent() {
   return (
@@ -19,6 +20,7 @@ export default function LinkSent() {
             Change email address
           </Link>
         </section>
+        <Trademark />
       </section>
     </AuthLayout>
   );
