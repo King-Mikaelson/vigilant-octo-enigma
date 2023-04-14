@@ -11,10 +11,20 @@ import googleIcon from "../../../assets/google.png";
 export default function SignUp() {
   const [InputType, ToggleIcon] = useTogglePassword()
   const [value, setValue] = useState<string>()
-  const [email, setEmail] = useState<string>("")
+  const [fullName, setFullName] = useState<string>(" ")
+  const [email, setEmail] = useState<string>(" ")
+  const [password, setPassword] = useState<string>(" ")
 
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value);
+  }
+
+  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFullName(e.currentTarget.value);
+  }
+
+  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.currentTarget.value);
   }
 
 
@@ -27,16 +37,18 @@ export default function SignUp() {
           <label>
             <h3>Full Name</h3>
             <Input
-              email={email}
-              handleEmail={handleEmail}
-              type="email"
+              fullName={fullName}
+              name="fullName"
+              handleName={handleName}
+              type="name"
               placeholder="C.C Achukwu"
             />
           </label>
 
           <label>
             <h3>Email address</h3>
-            <Input type="email" placeholder="yourname@email.com" />
+            <Input type="email" email={email} name="email"
+              handleEmail={handleEmail} placeholder="yourname@email.com"  />
           </label>
 
           <label>
@@ -54,7 +66,8 @@ export default function SignUp() {
 
           <label className="password__label">
             <h3>Enter password</h3>
-            <Input type={InputType} placeholder="Enter password" />
+            <Input password={password}
+              handlePassword={handlePassword} name="password" type={InputType} placeholder="Enter password"  />
             <div className="eyeIcon">{ToggleIcon}</div>
           </label>
 
