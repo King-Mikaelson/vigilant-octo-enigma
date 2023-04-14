@@ -1,5 +1,4 @@
 import { ChildrenProp } from "../../types";
-import logo from "../../assets/uppistLogo.png";
 
 export default function AuthLayout({ children }: ChildrenProp) {
   return (
@@ -12,13 +11,7 @@ export default function AuthLayout({ children }: ChildrenProp) {
           Contact us
         </a>
       </aside>
-      <aside className="authlayout__right">
-        {children}
-        <p className="authlayout__right--logo">
-          {/* //img should be a link */}
-          powered by <img src={logo} alt="logo" />
-        </p>
-      </aside>
+      <aside className="authlayout__right">{children}</aside>
     </section>
   );
 }
