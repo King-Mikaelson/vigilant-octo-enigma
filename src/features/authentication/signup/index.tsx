@@ -59,11 +59,20 @@ export default function SignUp() {
       setError("");
     }
 
-    if (passwordRegex.test(password.trim()) === false && password.trim().length === 0) {
+    if (
+      passwordRegex.test(password.trim()) === false &&
+      password.trim().length === 0
+    ) {
       setPasswordError("*Password can not blank");
-    } else if (passwordRegex.test(password.trim()) === false && password.trim().length > 0) {
+    } else if (
+      passwordRegex.test(password.trim()) === false &&
+      password.trim().length > 0
+    ) {
       setPasswordError("*Password must contain at least one letter or number");
-    } else if (passwordRegex.test(password.trim()) && password.trim().length < 4) {
+    } else if (
+      passwordRegex.test(password.trim()) &&
+      password.trim().length < 4
+    ) {
       setPasswordError("*Password must contain at least four characters");
     } else {
       setPasswordError("");
@@ -75,22 +84,19 @@ export default function SignUp() {
       setPhoneError("");
     }
 
-
     if (!emailRegex.test(email.trim()) && email.trim().length === 0) {
       setEmailError("*Email can not be blank");
-    }else if(!emailRegex.test(email.trim()) && email.trim().length > 0) {
-      setEmailError("*Email is not valid")
-    }else {
+    } else if (!emailRegex.test(email.trim()) && email.trim().length > 0) {
+      setEmailError("*Email is not valid");
+    } else {
       setEmailError("");
     }
-    
   };
 
   // This function runs on submit when a button in a form  is clicked
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     validate();
-
 
     if (
       error === "" &&

@@ -39,11 +39,20 @@ export default function Login() {
       setErrorValue("");
     }
 
-    if (Regex.test(passwordValue.trim()) === false && passwordValue.trim().length === 0) {
+    if (
+      Regex.test(passwordValue.trim()) === false &&
+      passwordValue.trim().length === 0
+    ) {
       setErrorPassword("*Password can not blank");
-    } else if (Regex.test(passwordValue.trim()) === false && passwordValue.trim().length > 0) {
+    } else if (
+      Regex.test(passwordValue.trim()) === false &&
+      passwordValue.trim().length > 0
+    ) {
       setErrorPassword("*Password must contain at least one letter or number");
-    } else if (Regex.test(passwordValue.trim()) && passwordValue.trim().length < 4) {
+    } else if (
+      Regex.test(passwordValue.trim()) &&
+      passwordValue.trim().length < 4
+    ) {
       setErrorPassword("*Password must contain at least four characters");
     } else {
       setErrorPassword("");
