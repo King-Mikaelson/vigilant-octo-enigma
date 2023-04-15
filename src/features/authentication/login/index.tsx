@@ -29,21 +29,21 @@ export default function Login() {
   // Regex for checking if there is a letter or a number and no empty strings
   const Regex = /[a-zA-Z0-9]/;
   const validate = () => {
-    if (!Regex.test(value) && value.length === 0) {
+    if (!Regex.test(value.trim()) && value.trim().length === 0) {
+      setErrorValue("*Input can not blank");
+    } else if (!Regex.test(value.trim()) && value.trim().length > 0) {
       setErrorValue("*Input must contain at least one letter");
-    } else if (!Regex.test(value) && value.length > 0) {
-      setErrorValue("*Input must contain at least one letter");
-    } else if (Regex.test(value) && value.length <= 4) {
+    } else if (Regex.test(value.trim()) && value.trim().length < 4) {
       setErrorValue("*Input must contain at least four characters");
     } else {
       setErrorValue("");
     }
 
-    if (Regex.test(value) === false && passwordValue.length === 0) {
+    if (Regex.test(passwordValue.trim()) === false && passwordValue.trim().length === 0) {
+      setErrorPassword("*Password can not blank");
+    } else if (Regex.test(passwordValue.trim()) === false && passwordValue.trim().length > 0) {
       setErrorPassword("*Password must contain at least one letter or number");
-    } else if (Regex.test(value) === false && passwordValue.length > 0) {
-      setErrorPassword("*Password must contain at least one letter or number");
-    } else if (Regex.test(value) && passwordValue.length <= 4) {
+    } else if (Regex.test(passwordValue.trim()) && passwordValue.trim().length < 4) {
       setErrorPassword("*Password must contain at least four characters");
     } else {
       setErrorPassword("");
@@ -57,11 +57,11 @@ export default function Login() {
 
     if (
       errorPassword === "" &&
-      passwordValue.length > 0 &&
-      Regex.test(passwordValue) &&
+      passwordValue.trim().length > 0 &&
+      Regex.test(passwordValue.trim()) &&
       errorValue === "" &&
-      value.length > 0 &&
-      Regex.test(value)
+      value.trim().length > 0 &&
+      Regex.test(value.trim())
     ) {
       // run Api call;
     }

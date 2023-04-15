@@ -49,21 +49,21 @@ export default function SignUp() {
 
   // Function that validates the input
   const validate = () => {
-    if (!nameRegex.test(fullName) && fullName.length === 0) {
+    if (!nameRegex.test(fullName.trim()) && fullName.trim().length === 0) {
+      setError("*Full name can not blank");
+    } else if (!nameRegex.test(fullName.trim()) && fullName.trim().length > 0) {
       setError("*Full name must contain at least one letter");
-    } else if (!nameRegex.test(fullName) && fullName.length > 0) {
-      setError("*Full name must contain at least one letter");
-    } else if (nameRegex.test(fullName) && fullName.length <= 4) {
+    } else if (nameRegex.test(fullName.trim()) && fullName.trim().length < 4) {
       setError("*Full name must contain at least four characters");
     } else {
       setError("");
     }
 
-    if (passwordRegex.test(password) === false && password.length === 0) {
+    if (passwordRegex.test(password.trim()) === false && password.trim().length === 0) {
+      setPasswordError("*Password can not blank");
+    } else if (passwordRegex.test(password.trim()) === false && password.trim().length > 0) {
       setPasswordError("*Password must contain at least one letter or number");
-    } else if (passwordRegex.test(password) === false && password.length > 0) {
-      setPasswordError("*Password must contain at least one letter or number");
-    } else if (passwordRegex.test(password) && password.length <= 4) {
+    } else if (passwordRegex.test(password.trim()) && password.trim().length < 4) {
       setPasswordError("*Password must contain at least four characters");
     } else {
       setPasswordError("");
@@ -75,11 +75,15 @@ export default function SignUp() {
       setPhoneError("");
     }
 
-    if (email.length === 0) {
-      setEmailError("*Email is not valid");
-    } else {
+
+    if (!emailRegex.test(email.trim()) && email.trim().length === 0) {
+      setEmailError("*Email can not be blank");
+    }else if(!emailRegex.test(email.trim()) && email.trim().length > 0) {
+      setEmailError("*Email is not valid")
+    }else {
       setEmailError("");
     }
+    
   };
 
   // This function runs on submit when a button in a form  is clicked
@@ -87,18 +91,13 @@ export default function SignUp() {
     e.preventDefault();
     validate();
 
-    if (!emailRegex.test(email)) {
-      setEmailError("*Email is not valid");
-    } else {
-      setEmailError("");
-    }
 
     if (
       error === "" &&
-      fullName.length > 0 &&
+      fullName.trim().length > 0 &&
       nameRegex.test(fullName) &&
       emailRegex.test(email) &&
-      password.length > 0 &&
+      password.trim().length > 0 &&
       passwordRegex.test(password) &&
       passwordError === "" &&
       value &&
