@@ -1,11 +1,9 @@
 import Subscribe from "./features/subscription";
 
-const styleGuides = () => {
+export default function StyleGuides() {
   return (
     <div>
       <Subscribe />
     </div>
   );
-};
-
-export default styleGuides;
+}

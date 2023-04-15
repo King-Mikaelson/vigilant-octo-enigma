@@ -1,10 +1,12 @@
 .authlayout {
   @include flexCenter;
-  & > * {
-    height: 100vh;
-    max-height: 100vh;
-  }
+
   &__left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 45%;
+    height: 100vh;
     @include lg {
       display: none;
     }
@@ -28,20 +30,24 @@
   }
   &__right {
     width: 55%;
+    margin-left: 45%;
+    min-height: 100vh;
     position: relative;
     @include lg {
       width: 100%;
-      padding: $sm-font2;
     }
     &--logo {
-      @include flexCenter;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 52vw;
       gap: 0.2rem;
+      position: absolute;
+      bottom: 0;
+      right: $sm-font2;
       font-family: $space-grotesk-font;
       font-weight: 500;
       font-size: $xxs-font;
-      position: absolute;
-      bottom: $extra-font;
-      right: $sm-font2;
       text-transform: capitalize;
     }
   }

@@ -1,162 +1,172 @@
-.auth {
-  @include containerPadding;
+.container {
   @include flexCenter;
   flex-direction: column;
-  font-family: $space-grotesk-font;
-
-  &__heading {
-    background: $linear-gradient-primary;
-    color: transparent;
-    background-clip: text;
-    font-size: $sm-font2;
-    margin-bottom: $sm-font1;
-    @include sm {
-      font-size: 1.85rem;
-    }
-  }
-
-  &__subHeading {
-    color: $black-color;
-    font-weight: 500;
-    font-size: $extra-font;
-    text-transform: capitalize;
-    margin-bottom: $xxl-font;
-  }
-
-  &__paragraph {
-    color: $black-color2;
-    font-family: $inter-font;
-    font-weight: 400;
-    font-size: $sm-font;
-    margin-bottom: $xxl-font;
-    max-width: 330px;
-    text-align: center;
-  }
-
-  &__links {
-    font-weight: 500;
-    color: $primary-color;
-    font-size: $extra-font;
-    font-family: $dm-sans-font;
-    margin-bottom: $md-font;
-    margin-top: $sm-font;
-    text-align: center;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  .form {
-    display: flex;
+  overflow-y: scroll;
+  min-height: 100vh;
+  .auth {
+    @include flexCenter;
     flex-direction: column;
-    align-items: stretch;
-    gap: $extra-font;
-    min-width: 400px;
-    @include sm {
-      min-width: 100%;
+    font-family: $space-grotesk-font;
+    width: 50%;
+    min-height: 100%;
+    margin: $xxl-font2 auto;
+
+    &__heading {
+      background: $linear-gradient-primary;
+      color: transparent;
+      background-clip: text;
+      font-size: $sm-font2;
+      margin-bottom: $sm-font1;
+      @include sm {
+        font-size: 1.85rem;
+      }
     }
-    h3 {
-      font-size: $sm-font;
+
+    &__subHeading {
+      color: $black-color;
+      font-weight: 500;
+      font-size: $extra-font;
+      text-transform: capitalize;
+      margin-bottom: $xxl-font;
+    }
+
+    &__paragraph {
+      color: $black-color2;
+      font-family: $inter-font;
       font-weight: 400;
+      font-size: $sm-font;
+      margin-bottom: $xxl-font;
+      max-width: 330px;
+      text-align: center;
     }
 
-    .span {
-      font-size: $xxs-font;
-      font-weight: 300;
+    &__links {
+      font-weight: 500;
+      color: $primary-color;
+      font-size: $extra-font;
+      font-family: $dm-sans-font;
       margin-top: $sm-font;
+      text-align: center;
+      &:hover {
+        text-decoration: underline;
+      }
     }
-
-    //LOG IN STYLES HERE
-    .checkbox__label {
-      align-self: flex-start;
-      margin-bottom: $sm-font;
+    .form {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      align-items: stretch;
+      gap: $extra-font;
       width: 100%;
-      font-size: $xs-font;
-
-      label {
-        @include flexCenter;
-        gap: $sm-font1;
+      @include sm {
+        min-width: 100%;
+      }
+      h3 {
+        font-size: $sm-font;
         font-weight: 400;
+        margin-bottom: 0.25rem;
       }
-      input {
-        width: fit-content;
+      .span {
+        font-size: $xxs-font;
+        font-weight: 300;
+        margin-top: $sm-font;
       }
-      a {
-        color: $red;
-        font-weight: 500;
-        &:hover {
+
+      //LOG IN STYLES HERE
+      .checkbox__label {
+        align-self: flex-start;
+        margin-bottom: $sm-font;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-size: $xs-font;
+
+        label {
+          @include flexCenter;
+          gap: $sm-font1;
+          font-weight: 400;
+        }
+        input {
+          width: fit-content;
+        }
+        a {
+          color: $red;
+          font-weight: 500;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .text__purple {
           text-decoration: underline;
+          color: $primary-color;
+          font-weight: 700;
         }
       }
     }
-  }
 
-  .signup__options {
-    @include flexCenter;
-    flex-direction: column;
-    gap: $sm-font;
-    margin-top: $extra-font;
-    span {
-      color: $light-gray;
-      font-size: $xxs-font;
-      font-weight: 500;
-      margin-right: 5px;
-    }
-    .createAccount {
-      font-weight: 700;
-      color: $primary-color;
-      text-decoration: underline;
-      font-size: $sm-font;
-    }
-
-    .or {
-      width: 100%;
-      height: 50px;
-      position: relative;
+    .signup__options {
       @include flexCenter;
-      .line {
-        width: 100%;
-        height: 2px;
-        background-image: linear-gradient(
-          to right,
-          $white-color,
-          $primary-color,
-          $white-color
-        );
+      flex-direction: column;
+      gap: $sm-font1;
+      margin-top: $extra-font;
+      span {
+        color: $light-gray;
+        font-size: $xxs-font;
+        font-weight: 500;
+        margin-right: 5px;
       }
-      h2 {
-        @include flexCenter;
+      .createAccount {
         font-weight: 700;
         color: $primary-color;
+        text-decoration: underline;
         font-size: $sm-font;
-        text-transform: capitalize;
-        background-color: $light-purple;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        z-index: 1;
-        position: absolute;
-        top: 13%;
-        left: 43%;
       }
-    }
 
-    .google {
-      border: 1px solid $placeholder-gray;
-      border-radius: 4px;
-      width: 100%;
-      @include flexCenter;
-      gap: 5px;
-      padding: $sm-font1;
-      color: $light-gray;
-      font-size: $xxs-font;
-      font-weight: 500;
+      .or {
+        width: 100%;
+        height: 50px;
+        position: relative;
+        @include flexCenter;
+        .line {
+          width: 100%;
+          height: 2px;
+          background-image: linear-gradient(
+            to right,
+            $white-color,
+            $primary-color,
+            $white-color
+          );
+        }
+        h2 {
+          @include flexCenter;
+          font-weight: 700;
+          color: $primary-color;
+          font-size: $sm-font;
+          text-transform: capitalize;
+          background-color: $light-purple;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          z-index: 1;
+          position: absolute;
+          top: 13%;
+          left: 43%;
+        }
+      }
+
+      .google {
+        border: 1px solid $placeholder-gray;
+        border-radius: 4px;
+        width: 100%;
+        @include flexCenter;
+        gap: 5px;
+        padding: $sm-font1;
+        color: $light-gray;
+        font-size: $xxs-font;
+        font-weight: 500;
+      }
     }
   }
 }
 
 //SIGN UP STYLES HERE
-
-//PASSWORD STYLES HERE

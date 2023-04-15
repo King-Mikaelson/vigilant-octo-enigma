@@ -1,3 +1,4 @@
+import Trademark from "../../../../components/trademark/Trademark";
 import Button from "../../../../components/ui/button";
 import AuthLayout from "../../../../layout/authLayout";
 import { useNavigate } from "react-router-dom";
@@ -10,12 +11,15 @@ export default function PwdUpdated() {
   };
   return (
     <AuthLayout>
-      <section className="auth">
-        <h1 className="auth__heading">Password Updated</h1>
-        <p className="auth__paragraph mt-2">Your password has been updated</p>
-        <form className="form">
-          <Button text="sign in" onclick={(e) => btnActions(e)} />
-        </form>
+      <section className="container">
+        <section className="auth">
+          <h1 className="auth__heading">Password Updated</h1>
+          <p className="auth__paragraph mt-2">Your password has been updated</p>
+          <form className="form">
+            <Button text="sign in" onclick={(e) => btnActions(e)} />
+          </form>
+        </section>
+        <Trademark />
       </section>
     </AuthLayout>
   );

@@ -4,6 +4,7 @@ import Input from "../../../../components/ui/Input";
 import Button from "../../../../components/ui/button";
 import AuthLayout from "../../../../layout/authLayout";
 import useTogglePassword from "../../hooks/useTogglePassword";
+import Trademark from "../../../../components/trademark/Trademark";
 
 export default function ChangePassword() {
   const navigate = useNavigate();
@@ -16,28 +17,31 @@ export default function ChangePassword() {
   const [InputType, ToggleIcon] = useTogglePassword();
   return (
     <AuthLayout>
-      <section className="auth">
-        <h1 className="auth__heading">Change password</h1>
+      <section className="container">
+        <section className="auth">
+          <h1 className="auth__heading">Change password</h1>
 
-        <form className="form mt-4">
-          <label className="password__label">
-            <h3>New password</h3>
-            <Input type={InputType} placeholder="Enter new password" />
-            <div className="eyeIcon">{ToggleIcon}</div>
-          </label>
+          <form className="form mt-4">
+            <label className="password__label">
+              <h3>New password</h3>
+              <Input type={InputType} placeholder="Enter new password" />
+              <div className="eyeIcon">{ToggleIcon}</div>
+            </label>
 
-          <label className="password__label mb-3">
-            <h3>Confirm password</h3>
-            <Input type={InputType} placeholder="Confirm new password" />
-            <div className="eyeIcon">{ToggleIcon}</div>
-          </label>
+            <label className="password__label mb-3">
+              <h3>Confirm password</h3>
+              <Input type={InputType} placeholder="Confirm new password" />
+              <div className="eyeIcon">{ToggleIcon}</div>
+            </label>
 
-          <Button text="submit" onclick={(e) => btnActions(e)} />
+            <Button text="submit" onclick={(e) => btnActions(e)} />
 
-          <Link to="/" className="auth__links">
-            Cancel
-          </Link>
-        </form>
+            <Link to="/" className="auth__links">
+              Cancel
+            </Link>
+          </form>
+        </section>
+        <Trademark />
       </section>
     </AuthLayout>
   );
