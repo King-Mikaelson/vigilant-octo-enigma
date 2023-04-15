@@ -10,6 +10,7 @@
   font-size: $xs-font;
   background-color: transparent;
   width: 100%;
+
   &::placeholder {
     color: $placeholder-gray;
   }
@@ -18,6 +19,7 @@
 .password__label {
   position: relative;
 }
+
 .eyeIcon {
   position: absolute;
   right: $sm-font;
@@ -34,7 +36,7 @@
 }
 
 // error message styles
-.input__error{
+.input__error {
   border: 1px solid $error-color;
   outline: none;
   padding: $sm-font $extra-font;

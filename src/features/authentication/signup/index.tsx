@@ -50,33 +50,33 @@ export default function SignUp() {
   // Function that validates the input
   const validate = () => {
     if (!nameRegex.test(fullName) && fullName.length === 0) {
-      setError("Full name must contain at least one letter");
+      setError("*Full name must contain at least one letter");
     } else if (!nameRegex.test(fullName) && fullName.length > 0) {
-      setError("Full name must contain at least one letter");
+      setError("*Full name must contain at least one letter");
     } else if (nameRegex.test(fullName) && fullName.length <= 4) {
-      setError("Full name must contain at least four characters");
+      setError("*Full name must contain at least four characters");
     } else {
       setError("");
     }
 
     if (passwordRegex.test(password) === false && password.length === 0) {
-      setPasswordError("Password must contain at least one letter or number");
+      setPasswordError("*Password must contain at least one letter or number");
     } else if (passwordRegex.test(password) === false && password.length > 0) {
-      setPasswordError("Password must contain at least one letter or number");
+      setPasswordError("*Password must contain at least one letter or number");
     } else if (passwordRegex.test(password) && password.length <= 4) {
-      setPasswordError("Password must contain at least four characters");
+      setPasswordError("*Password must contain at least four characters");
     } else {
       setPasswordError("");
     }
 
     if (isValidPhoneNumber(`${value}`) === false) {
-      setPhoneError("Phone Number must be at least 10 digits");
+      setPhoneError("*Phone Number must be at least 10 digits");
     } else {
       setPhoneError("");
     }
 
     if (email.length === 0) {
-      setEmailError("Email is not valid");
+      setEmailError("*Email is not valid");
     } else {
       setEmailError("");
     }
@@ -88,7 +88,7 @@ export default function SignUp() {
     validate();
 
     if (!emailRegex.test(email)) {
-      setEmailError("Email is not valid");
+      setEmailError("*Email is not valid");
     } else {
       setEmailError("");
     }

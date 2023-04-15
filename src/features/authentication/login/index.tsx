@@ -30,21 +30,21 @@ export default function Login() {
   const Regex = /[a-zA-Z0-9]/;
   const validate = () => {
     if (!Regex.test(value) && value.length === 0) {
-      setErrorValue("Input must contain at least one letter");
+      setErrorValue("*Input must contain at least one letter");
     } else if (!Regex.test(value) && value.length > 0) {
-      setErrorValue("Input must contain at least one letter");
+      setErrorValue("*Input must contain at least one letter");
     } else if (Regex.test(value) && value.length <= 4) {
-      setErrorValue("Input must contain at least four characters");
+      setErrorValue("*Input must contain at least four characters");
     } else {
       setErrorValue("");
     }
 
     if (Regex.test(value) === false && passwordValue.length === 0) {
-      setErrorPassword("Password must contain at least one letter or number");
+      setErrorPassword("*Password must contain at least one letter or number");
     } else if (Regex.test(value) === false && passwordValue.length > 0) {
-      setErrorPassword("Password must contain at least one letter or number");
+      setErrorPassword("*Password must contain at least one letter or number");
     } else if (Regex.test(value) && passwordValue.length <= 4) {
-      setErrorPassword("Password must contain at least four characters");
+      setErrorPassword("*Password must contain at least four characters");
     } else {
       setErrorPassword("");
     }
