@@ -1,123 +1,188 @@
 .main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // @include flexCenter;
+    // flex-direction: column;
     width: 80%;
     margin: 0 auto;
-    padding-top: 4rem;
+    padding: 2rem 0;
 
-    .sub-header {
-        text-align: center;
-    }
-
-    .sub-content {
+    .sub-container {
         display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 3rem;
-        flex-wrap: wrap;
+        flex-direction: column;
 
-        .perks-container {
-            display: flex;
+        .sub-header {
+            @include flexCenter;
             flex-direction: column;
-            justify-content: center;
-            flex: 1;
+            margin: 0 auto;
+            color: $primary-color;
+            font-family: $space-grotesk-font;
+            width: 540px;
 
             p {
-                font-size: 1rem;
-                font-weight: bold;
-                margin-bottom: 20px;
-
-            }
-
-            .sub-trial {
-                display: flex;
-                align-items: center;
-                margin-bottom: 10px;
+                font-family: $inter-font;
+                padding-top: 1rem;
+                color: $black-color2;
+                text-align: center;
 
                 span {
-                    font-size: 1rem;
-                    margin-bottom: 1rem;
-                    margin-right: 10px;
-                    color: $secondary-color;
-                }
-
-                p {
-                    font-size: 1rem;
+                    font-weight: 700;
                 }
             }
         }
 
-        .billing-container {
-            flex: 1;
-            margin-top: 50px;
+        .sub-content {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: 1rem auto;
+            flex-wrap: wrap;
 
-            h4 {
-                font-size: 1.2rem;
-                margin-bottom: 20px;
-                text-align: center;
-                line-height: 36px;
-            }
-
-            form {
+            .perks-container {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                justify-content: center;
+                flex: 2;
 
-                div {
-                    display: flex;
-                    margin-bottom: 10px;
-
-                    p {
-                        font-size: 0.9rem;
-                        margin-bottom: 5px;
-                    }
-
-                    .input-div {
-                        display: flex;
-                        align-items: center;
-                        width: 400px;
-                        gap: 5px;
-                        border: 1px solid $lighter-gray;
-                        padding: 0.3rem;
-                        border-radius: 0.3rem;
-
-                        span {
-                            font-size: 1rem;
-                            margin-left: 5px;
-                            padding-top: 2px;
-                            color: $black-color;
-                        }
-
-                        input {
-
-                            width: 100%;
-                            border: none;
-                            outline: none;
-                            font-size: 1rem;
-                            padding: 5px;
-                            font-size: 14px;
-
-                        }
-
-                        &::placeholder {
-                            color: $placeholder-gray;
-                        }
-                    }
+                .perks-header {
+                    padding: 10px 25px;
+                    width: 400px;
+                    color: $white-color;
+                    border-radius: 10px;
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                    background: $linear-gradient-secondary;
                 }
 
-                .date-cvv {
+                .sub-trial {
                     display: flex;
-                    width: 400px;
-                    gap: 20px;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
 
-                    .input-div {
-                        width: 190px;
+                    span {
+                        font-size: 1rem;
+                        margin-top: 3px;
+                        margin-right: 10px;
+                        color: $secondary-color;
+                    }
+
+                    p {
+                        font-size: 1rem;
                     }
                 }
             }
 
+            .billing-container {
+                flex: 1;
+                margin-top: 50px;
+
+                h4 {
+                    font-size: 1.2rem;
+                    margin-bottom: 2rem;
+                    text-align: center;
+                    line-height: 36px;
+                }
+
+                form {
+                    @include flexCenter;
+                    flex-direction: column;
+                    width: 350px;
+
+                    div {
+                        display: flex;
+                        margin-bottom: 10px;
+
+                        p {
+                            font-size: 0.9rem;
+                            margin-bottom: 5px;
+                        }
+
+                        .input-div {
+                            @include flexCenter;
+                            width: 350px;
+                            gap: 5px;
+                            border: 1px solid $lighter-gray;
+                            padding: 0.3rem;
+                            border-radius: 0.3rem;
+
+                            span {
+                                font-size: 1rem;
+                                margin-left: 5px;
+                                padding-top: 2px;
+                                color: $black-color;
+                            }
+
+                            input {
+                                width: 100%;
+                                border: none;
+                                outline: none;
+                                font-size: 1rem;
+                                padding: 5px;
+                                font-size: 14px;
+                            }
+
+                            &::placeholder {
+                                color: $placeholder-gray;
+                            }
+                        }
+                    }
+
+                    .date-cvv {
+                        display: flex;
+                        width: 350px;
+                        gap: 20px;
+
+                        .input-div {
+                            width: 165px;
+                        }
+                    }
+
+                    .trial-btn {
+                        width: 100%;
+                        outline: none;
+                        background-color: $primary-color;
+                        color: $white-color;
+                        padding: 10px;
+                        font-size: $sm-font;
+                        font-weight: 700;
+                        font-family: $space-grotesk-font;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: rgba($primary-color, 0.8);
+                        }
+                    }
+                }
+
+                .sub-link {
+                    @include flexCenter;
+                    font-weight: 500;
+                    color: $primary-color;
+                    font-size: $sm-font;
+                    font-family: $dm-sans-font;
+                    text-align: center;
+                    width: 100px;
+                    margin: $md-font auto;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+
+            }
         }
     }
+
+    .logo-div {
+        @include flexCenter;
+        font-size: 14px;
+        font-family: $space-grotesk-font;
+        gap: 5px;
+
+        .logo-img {
+            margin-top: 5px;
+        }
+    }
+
 }
