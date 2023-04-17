@@ -1,4 +1,3 @@
-import Input from "../ui/Input";
 import { CiSearch } from "react-icons/ci";
 
 type Props = {};
@@ -10,13 +9,14 @@ function TopBar({}: Props) {
   })}, ${current.toLocaleString("en-US", {
     month: "long",
   })} ${current.getDate()}, ${current.getFullYear()}`;
-  
+
   return (
     <div className="topbar__container">
-      <div className="search__container">
-        <CiSearch size={20} />
-        <Input type="text" />
+      <div className="topbar__search">
+        <CiSearch size={25} className="search__icon" />
+        <input type="text" placeholder="Search for food, drinks, etc..." />
       </div>
+
       <p>{date}</p>
     </div>
   );
