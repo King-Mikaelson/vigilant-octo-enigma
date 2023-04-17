@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../../../../components/ui/button";
 import AuthLayout from "../../../../layout/authLayout";
 import Input from "../../../../components/ui/Input";
-import Trademark from "../../../../components/trademark/Trademark";
 
 export default function ForgotPwd() {
   const navigate = useNavigate();
@@ -35,7 +34,6 @@ export default function ForgotPwd() {
             </Link>
           </form>
         </section>
-        <Trademark />
       </section>
     </AuthLayout>
   );

@@ -4,7 +4,6 @@ import Input from "../../../../components/ui/Input";
 import Button from "../../../../components/ui/button";
 import AuthLayout from "../../../../layout/authLayout";
 import useTogglePassword from "../../hooks/useTogglePassword";
-import Trademark from "../../../../components/trademark/Trademark";
 
 export default function ChangePassword() {
   const navigate = useNavigate();
@@ -41,7 +40,6 @@ export default function ChangePassword() {
             </Link>
           </form>
         </section>
-        <Trademark />
       </section>
     </AuthLayout>
   );
