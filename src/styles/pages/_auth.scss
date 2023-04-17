@@ -1,17 +1,17 @@
 .container {
-  @include flexCenter;
-  flex-direction: column;
-  overflow-y: scroll;
-  min-height: 100vh;
-
+  .auth.signup {
+    width: 80%;
+  }
   .auth {
     @include flexCenter;
     flex-direction: column;
     font-family: $space-grotesk-font;
-    width: 50%;
+    width: 40%;
     min-height: 100%;
-    margin: $xxl-font2 auto;
-
+    margin: $lg-font auto;
+    border: 1.5px solid rgba($primary-color, 0.5);
+    border-radius: 15px;
+    padding: $xxl-font;
     &__heading {
       background: $linear-gradient-primary;
       color: transparent;
@@ -57,6 +57,8 @@
 
     &__error {
       color: $error-color;
+      font-size: $xxs-font;
+      text-transform: lowercase;
     }
 
     .form {
@@ -116,6 +118,13 @@
           font-weight: 700;
         }
       }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 47% 47%;
+      gap: $sm-font2;
+      justify-content: center;
     }
 
     .signup__options {

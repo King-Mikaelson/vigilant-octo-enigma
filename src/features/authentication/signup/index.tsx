@@ -7,15 +7,14 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import googleIcon from "../../../assets/google.png";
-import Trademark from "../../../components/trademark/Trademark";
 import { Link } from "react-router-dom";
 
 export default function SignUp() {
   const [InputType, ToggleIcon] = useTogglePassword();
   const [value, setValue] = useState<string>();
-  const [fullName, setFullName] = useState<string>(" ");
-  const [email, setEmail] = useState<string>(" ");
-  const [password, setPassword] = useState<string>(" ");
+  const [fullName, setFullName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
   const [phoneError, setPhoneError] = useState<string>("");
@@ -128,81 +127,83 @@ export default function SignUp() {
   return (
     <AuthLayout>
       <section className="container">
-        <section className="auth">
+        <section className="auth signup">
           <h1 className="auth__heading">Create Account</h1>
           <p className="auth__subHeading">Let's get you started </p>
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
-            <label>
-              <h3>Full Name</h3>
-              <Input
-                fullName={fullName}
-                handleName={handleName}
-                type="name"
-                placeholder="C.C Achukwu"
-                handleNameFocus={handleNameFocus}
-                error={error}
-              />
-              {error ? <p className="auth__error">{error}</p> : " "}
-            </label>
-
-            <label>
-              <h3>Email address</h3>
-              <Input
-                type="email"
-                email={email}
-                handleEmail={handleEmail}
-                handleEmailFocus={handleEmailFocus}
-                placeholder="yourname@email.com"
-                emailError={emailError}
-              />
-              {emailError ? <p className="auth__error">{emailError}</p> : " "}
-            </label>
-
-            <label>
-              <h3>Phone Number</h3>
-              <PhoneInput
-                placeholder="814 874 9415"
-                defaultCountry="NG"
-                international
-                countryCallingCodeEditable={false}
-                value={value}
-                className="PhoneInput input__element"
-                onChange={setValue}
-              />
-              {phoneError ? <p className="auth__error">{phoneError}</p> : " "}
-            </label>
-
-            <label className="password__label">
-              <h3>Enter password</h3>
-              <Input
-                type={InputType}
-                placeholder="Enter password"
-                password={password}
-                handlePassword={handlePassword}
-                handlePasswordFocus={handlePasswordFocus}
-                passwordError={passwordError}
-              />
-              <div className="eyeIcon">{ToggleIcon}</div>
-              {passwordError ? (
-                <p className="auth__error">{passwordError}</p>
-              ) : (
-                " "
-              )}
-            </label>
-
-            <aside className="checkbox__label">
+            <aside className="grid">
               <label>
+                <h3>Full Name</h3>
                 <Input
-                  type="checkbox"
-                  checked={checked}
-                  handleChecked={handleChecked}
+                  fullName={fullName}
+                  handleName={handleName}
+                  type="name"
+                  placeholder="C.C Achukwu"
+                  handleNameFocus={handleNameFocus}
+                  error={error}
                 />
-                <small>
-                  By signing up, I agree to the
-                  <span className="text__purple"> Terms of Service </span> and
-                  <span className="text__purple"> Privacy Policy </span>
-                </small>
+                {error ? <p className="auth__error">{error}</p> : " "}
               </label>
+
+              <label>
+                <h3>Email address</h3>
+                <Input
+                  type="email"
+                  email={email}
+                  handleEmail={handleEmail}
+                  handleEmailFocus={handleEmailFocus}
+                  placeholder="yourname@email.com"
+                  emailError={emailError}
+                />
+                {emailError ? <p className="auth__error">{emailError}</p> : " "}
+              </label>
+
+              <label>
+                <h3>Phone Number</h3>
+                <PhoneInput
+                  placeholder="814 874 9415"
+                  defaultCountry="NG"
+                  international
+                  countryCallingCodeEditable={false}
+                  value={value}
+                  className="PhoneInput input__element"
+                  onChange={setValue}
+                />
+                {phoneError ? <p className="auth__error">{phoneError}</p> : " "}
+              </label>
+
+              <label className="password__label">
+                <h3>Enter password</h3>
+                <Input
+                  type={InputType}
+                  placeholder="Enter password"
+                  password={password}
+                  handlePassword={handlePassword}
+                  handlePasswordFocus={handlePasswordFocus}
+                  passwordError={passwordError}
+                />
+                <div className="eyeIcon">{ToggleIcon}</div>
+                {passwordError ? (
+                  <p className="auth__error">{passwordError}</p>
+                ) : (
+                  " "
+                )}
+              </label>
+
+              <aside className="checkbox__label">
+                <label>
+                  <Input
+                    type="checkbox"
+                    checked={checked}
+                    handleChecked={handleChecked}
+                  />
+                  <small>
+                    By signing up, I agree to the
+                    <span className="text__purple"> Terms of Service </span> and
+                    <span className="text__purple"> Privacy Policy </span>
+                  </small>
+                </label>
+              </aside>
             </aside>
 
             <Button text="sign up" />
@@ -224,7 +225,6 @@ export default function SignUp() {
             </Link>
           </section>
         </section>
-        <Trademark />
       </section>
     </AuthLayout>
   );

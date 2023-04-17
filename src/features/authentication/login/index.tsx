@@ -4,14 +4,13 @@ import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/button";
 import AuthLayout from "../../../layout/authLayout";
 import SignInOptions from "../../../components/signInOptions";
-import Trademark from "../../../components/trademark/Trademark";
 import { useState } from "react";
 
 export default function Login() {
   //TOGGLING PASSWORD HIDE/SHOW
   const [InputType, ToggleIcon] = useTogglePassword();
-  const [value, setValue] = useState<string>(" ");
-  const [passwordValue, setPasswordValue] = useState<string>(" ");
+  const [value, setValue] = useState<string>("");
+  const [passwordValue, setPasswordValue] = useState<string>("");
 
   const [errorValue, setErrorValue] = useState<string>("");
   const [errorPassword, setErrorPassword] = useState<string>("");
@@ -43,7 +42,7 @@ export default function Login() {
       Regex.test(passwordValue.trim()) === false &&
       passwordValue.trim().length === 0
     ) {
-      setErrorPassword("*Password can not blank");
+      setErrorPassword("*Password cannot blank");
     } else if (
       Regex.test(passwordValue.trim()) === false &&
       passwordValue.trim().length > 0
@@ -135,7 +134,6 @@ export default function Login() {
           </form>
           <SignInOptions />
         </section>
-        <Trademark />
       </section>
     </AuthLayout>
   );
