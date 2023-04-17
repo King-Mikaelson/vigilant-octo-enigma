@@ -55,6 +55,10 @@
       }
     }
 
+    &__error {
+      color: $error-color;
+    }
+
     .form {
       display: flex;
       flex-direction: column;
@@ -181,9 +185,4 @@
       }
     }
   }
-}
-
-//SIGN UP STYLES HERE
-.auth__error {
-  color: $error-color;
 }
