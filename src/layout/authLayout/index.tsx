@@ -1,3 +1,4 @@
+import Trademark from "../../components/trademark/Trademark";
 import { ChildrenProp } from "../../types";
 
 export default function AuthLayout({ children }: ChildrenProp) {
@@ -12,6 +13,9 @@ export default function AuthLayout({ children }: ChildrenProp) {
         </a>
       </aside>
       <aside className="authlayout__right">{children}</aside>
+      <aside className="authlayout__footer">
+        <Trademark />
+      </aside>
     </section>
   );
 }

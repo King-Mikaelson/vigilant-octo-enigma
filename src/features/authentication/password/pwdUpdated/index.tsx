@@ -1,4 +1,3 @@
-import Trademark from "../../../../components/trademark/Trademark";
 import Button from "../../../../components/ui/button";
 import AuthLayout from "../../../../layout/authLayout";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +18,6 @@ export default function PwdUpdated() {
             <Button text="sign in" onclick={(e) => btnActions(e)} />
           </form>
         </section>
-        <Trademark />
       </section>
     </AuthLayout>
   );

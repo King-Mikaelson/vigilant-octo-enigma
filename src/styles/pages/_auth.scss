@@ -1,17 +1,17 @@
 .container {
-  @include flexCenter;
-  flex-direction: column;
-  overflow-y: scroll;
-  min-height: 100vh;
-
+  .auth.signup {
+    width: 80%;
+  }
   .auth {
     @include flexCenter;
     flex-direction: column;
     font-family: $space-grotesk-font;
-    width: 50%;
+    width: 40%;
     min-height: 100%;
-    margin: $xxl-font2 auto;
-
+    margin: $lg-font auto;
+    border: 1.5px solid rgba($primary-color, 0.5);
+    border-radius: 15px;
+    padding: $xxl-font;
     &__heading {
       background: $linear-gradient-primary;
       color: transparent;
@@ -55,6 +55,12 @@
       }
     }
 
+    &__error {
+      color: $error-color;
+      font-size: $xxs-font;
+      text-transform: lowercase;
+    }
+
     .form {
       display: flex;
       flex-direction: column;
@@ -78,7 +84,6 @@
         margin-top: $sm-font;
       }
 
-      //LOG IN STYLES HERE
       .checkbox__label {
         align-self: flex-start;
         margin-bottom: $sm-font;
@@ -115,6 +120,13 @@
       }
     }
 
+    .grid {
+      display: grid;
+      grid-template-columns: 47% 47%;
+      gap: $sm-font2;
+      justify-content: center;
+    }
+
     .signup__options {
       @include flexCenter;
       flex-direction: column;
@@ -144,10 +156,12 @@
         .line {
           width: 100%;
           height: 2px;
-          background-image: linear-gradient(to right,
-              $white-color,
-              $primary-color,
-              $white-color );
+          background-image: linear-gradient(
+            to right,
+            $white-color,
+            $primary-color,
+            $white-color
+          );
         }
 
         h2 {
@@ -180,9 +194,4 @@
       }
     }
   }
-}
-
-//SIGN UP STYLES HERE
-.auth__error {
-  color: $error-color
 }
