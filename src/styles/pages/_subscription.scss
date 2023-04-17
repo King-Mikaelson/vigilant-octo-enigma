@@ -1,9 +1,11 @@
 .main-container {
-    // @include flexCenter;
-    // flex-direction: column;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 2rem 0 2rem 0;
+
+    @include lg {
+        width: 100%;
+    }
 
     .sub-container {
         display: flex;
@@ -14,8 +16,29 @@
             flex-direction: column;
             margin: 0 auto;
             color: $primary-color;
+            opacity: 0.96;
             font-family: $space-grotesk-font;
             width: 540px;
+
+            @include md {
+                width: 100%;
+                padding: 0 1rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-align: center;
+
+                @include lg {
+                    font-size: 1.2rem;
+                }
+
+                @include xs {
+                    font-size: 1rem;
+                }
+            }
+
 
             p {
                 font-family: $inter-font;
@@ -26,6 +49,10 @@
                 span {
                     font-weight: 700;
                 }
+
+                @include lg {
+                    font-size: 14px;
+                }
             }
         }
 
@@ -34,7 +61,12 @@
             justify-content: space-between;
             width: 90%;
             margin: 1rem auto;
-            flex-wrap: wrap;
+
+            @include md {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 2rem;
+            }
 
             .perks-container {
                 display: flex;
@@ -51,6 +83,15 @@
                     font-weight: 700;
                     margin-bottom: 20px;
                     background: $linear-gradient-secondary;
+
+                    @include lg {
+                        font-size: 16px;
+                        width: 350px;
+                    }
+
+                    @include xs {
+                        width: 300px;
+                    }
                 }
 
                 .sub-trial {
@@ -63,126 +104,174 @@
                         margin-top: 3px;
                         margin-right: 10px;
                         color: $secondary-color;
+
+                        @include lg {
+                            font-size: 0.9rem;
+                        }
+
+                        @include xs {
+                            font-size: 0.8rem;
+                        }
                     }
 
                     p {
                         font-size: 1rem;
+
+                        @include lg {
+                            font-size: 0.9rem;
+                        }
+
+                        @include xs {
+                            font-size: 0.8rem;
+                        }
                     }
                 }
             }
+        }
 
-            .billing-container {
-                flex: 1;
-                margin-top: 50px;
+        .billing-container {
+            flex: 1;
+            margin-top: 50px;
+            width: 350px;
 
-                h4 {
+            @include lg {
+                width: 340px;
+            }
+
+            @include md {
+                width: 350px;
+            }
+
+            @include xs {
+                margin-top: 20px;
+            }
+
+            h4 {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                text-align: center;
+                line-height: 36px;
+
+                @include xs {
                     font-size: 1.2rem;
-                    margin-bottom: 2rem;
-                    text-align: center;
-                    line-height: 36px;
+                }
+            }
+
+            form {
+                @include flexCenter;
+                flex-direction: column;
+                width: 350px;
+
+                @include xs {
+                    padding: 0 1rem;
                 }
 
-                form {
-                    @include flexCenter;
-                    flex-direction: column;
-                    width: 350px;
+                div {
+                    display: flex;
+                    margin-bottom: 10px;
 
-                    div {
-                        display: flex;
-                        margin-bottom: 10px;
-
-                        p {
-                            font-size: 0.9rem;
-                            margin-bottom: 5px;
-                        }
-
-                        .input-div {
-                            @include flexCenter;
-                            width: 350px;
-                            gap: 5px;
-                            border: 1px solid $lighter-gray;
-                            padding: 0.3rem;
-                            border-radius: 0.3rem;
-
-                            span {
-                                font-size: 1rem;
-                                margin-left: 5px;
-                                padding-top: 2px;
-                                color: $black-color;
-                            }
-
-                            input {
-                                width: 100%;
-                                border: none;
-                                outline: none;
-                                font-size: 1rem;
-                                padding: 5px;
-                                font-size: 14px;
-                            }
-
-                            &::placeholder {
-                                color: $placeholder-gray;
-                            }
-                        }
+                    p {
+                        font-size: 0.9rem;
+                        margin-bottom: 5px;
+                        font-weight: 400;
                     }
 
-                    .date-cvv {
-                        display: flex;
+                    .input-div {
+                        @include flexCenter;
                         width: 350px;
-                        gap: 20px;
+                        gap: 5px;
+                        border: 1px solid $lighter-gray;
+                        padding: 0.3rem;
+                        border-radius: 0.3rem;
 
-                        .input-div {
-                            width: 165px;
+                        span {
+                            font-size: 1rem;
+                            margin-left: 5px;
+                            padding-top: 2px;
+                            color: $black-color;
                         }
-                    }
 
-                    .trial-btn {
-                        width: 100%;
-                        outline: none;
-                        background-color: $primary-color;
-                        color: $white-color;
-                        padding: 10px;
-                        font-size: $sm-font;
-                        font-weight: 700;
-                        font-family: $space-grotesk-font;
-                        border: none;
-                        border-radius: 4px;
-                        cursor: pointer;
+                        input {
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                            font-size: 1rem;
+                            padding: 5px;
+                            font-size: 14px;
+                        }
 
-                        &:hover {
-                            background-color: rgba($primary-color, 0.8);
+                        &::placeholder {
+                            color: $placeholder-gray;
                         }
                     }
                 }
 
-                .sub-link {
-                    @include flexCenter;
-                    font-weight: 500;
-                    color: $primary-color;
+                .date-cvv {
+                    display: flex;
+                    width: 350px;
+                    gap: 20px;
+
+                    .input-div {
+                        width: 165px;
+                    }
+                }
+
+                .trial-btn {
+                    width: 100%;
+                    outline: none;
+                    background-color: $primary-color;
+                    color: $white-color;
+                    padding: 10px;
                     font-size: $sm-font;
-                    font-family: $dm-sans-font;
-                    text-align: center;
-                    width: 100px;
-                    margin: $md-font auto;
+                    font-weight: 700;
+                    font-family: $space-grotesk-font;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
 
                     &:hover {
-                        transform: scale(1.1);
+                        background-color: rgba($primary-color, 0.8);
+                    }
+
+                    @include xs {
+                        width: 350px;
                     }
                 }
-
             }
+
+            .sub-link {
+                @include flexCenter;
+                font-weight: 500;
+                color: $primary-color;
+                font-size: $sm-font;
+                font-family: $dm-sans-font;
+                text-align: center;
+                width: 100px;
+                margin: $md-font auto;
+                padding-top: 1rem;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+
         }
     }
+}
 
-    .logo-div {
-        @include flexCenter;
-        font-size: 14px;
-        font-family: $space-grotesk-font;
-        gap: 5px;
 
-        .logo-img {
-            margin-top: 5px;
-        }
+.logo-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: $space-grotesk-font;
+    gap: 3px;
+    color: $black-color;
+    font-weight: 500;
+    font-size: 12px;
+    padding-right: 2rem;
+
+    .logo-img {
+        margin-top: 5px;
     }
-
 }
