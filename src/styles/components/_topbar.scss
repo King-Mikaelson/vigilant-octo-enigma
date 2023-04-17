@@ -1,0 +1,9 @@
+.topbar__container{
+    display: flex;
+    justify-content: space-between;
+    .search__container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
