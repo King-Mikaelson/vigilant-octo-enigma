@@ -5,12 +5,14 @@ import DashboardLayout from "../../layout/dashboardLayout";
 export default function Pos() {
   return (
     <DashboardLayout>
-      <aside>
-        <Menu />
-      </aside>
-      <aside>
-        <Orders />
-      </aside>
+      <section className="pos">
+        <aside className="pos__left">
+          <Menu />
+        </aside>
+        <aside className="pos__right">
+          <Orders />
+        </aside>
+      </section>
     </DashboardLayout>
   );
 }

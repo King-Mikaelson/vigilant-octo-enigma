@@ -1,8 +1,6 @@
 import { CiSearch } from "react-icons/ci";
 
-type Props = {};
-
-function TopBar({}: Props) {
+function TopBar() {
   const current = new Date();
   const date = `${current.toLocaleString("en-US", {
     weekday: "long",
