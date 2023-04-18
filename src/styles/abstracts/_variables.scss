@@ -15,6 +15,7 @@ $extra-font: 1.25rem;
 
 //PROJECT COLOR PALETTE
 $primary-color: #51145a;
+$primary-color2: #6B2D72;
 $secondary-color: #ec9c04;
 $light-purple: #ffebfb;
 $black-color: #332f32;
@@ -34,9 +35,12 @@ $linear-gradient-secondary: linear-gradient(90deg,
     #f89a1c 0%,
     #f89a1c 20.31%,
     rgba(255, 255, 255, 0) 100%);
+
+//FONTS
 $dm-sans-font: "DM Sans", sans-serif;
 $inter-font: "Inter", sans-serif;
 $space-grotesk-font: "Space Grotesk", sans-serif;
+$fira-sans-font: "Fira Sans", sans-serif;
 //PROJECT VARIABLES ends here
 
 //EXTRAS
@@ -45,7 +49,6 @@ $error-color: #ef444a;
 $success-color: #22c55e;
 $light-dark: #676868;
 $feint-light-dark: #414243;
-$fira-sans-font: "Fira Sans", sans-serif;
 
 //color maps
 $colors: (
