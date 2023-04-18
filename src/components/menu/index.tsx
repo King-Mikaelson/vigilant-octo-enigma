@@ -1,11 +1,10 @@
-import TopBar from '../../components/topBar/index';
-
-
+import TopBar from "../../components/topBar/index";
 
 export default function Menu() {
   return (
-  <div>
-    <TopBar/>
-    Menu
-  </div>);
+    <div>
+      <TopBar />
+      Menu
+    </div>
+  );
 }
