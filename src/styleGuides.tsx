@@ -5,9 +5,9 @@ import TopBar from "./components/topBar/index";
 export default function StyleGuides() {
   return (
     <div>
+      <Pos />
       <TopBar />
       <Subscribe />
-      <Pos />
     </div>
   );
 }

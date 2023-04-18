@@ -1,6 +1,8 @@
 import Menu from "../../components/menu";
-import Orders from "../../components/orders";
+// import Orders from "../../components/orders";
+import AddItem from "../../components/items/addItem";
 import DashboardLayout from "../../layout/dashboardLayout";
+import EditItem from "../../components/items/editItem";
 export default function Pos() {
   return (
     <DashboardLayout>
@@ -12,7 +14,9 @@ export default function Pos() {
           <Menu />
         </aside>
         <aside className="pos__right">
-          <Orders />
+          {/* <Orders /> */}
+          <AddItem />
+          <EditItem />
         </aside>
       </div>
     </DashboardLayout>
