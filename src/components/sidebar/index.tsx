@@ -1,6 +1,7 @@
-import { MdOutlineTableChart, MdOutlineRestaurantMenu } from "react-icons/md";
+// import { MdOutlineTableChart} from "react-icons/md";
+// import { TfiReceipt } from "react-icons/tfi";
 import { BiLogOut } from "react-icons/bi";
-import { TfiReceipt } from "react-icons/tfi";
+import {MdOutlineRestaurantMenu } from "react-icons/md";
 import uppistLogo from "../../assets/uppistWhite.png";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";

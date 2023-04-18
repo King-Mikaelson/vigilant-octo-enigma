@@ -1,10 +1,9 @@
-import TopBar from '../../components/topBar/index';
-
-
+import TopBar from "../../components/topBar/index";
 
 export default function Menu() {
   return (
-  <div  className='menu'>
+
+<div  className='menu'>
     <TopBar/>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos praesentium perspiciatis necessitatibus delectus iure? Molestiae, facilis. Magni modi numquam earum quibusdam corporis perspiciatis voluptates, dolore fuga provident enim at nihil.
