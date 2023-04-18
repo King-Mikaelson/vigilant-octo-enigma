@@ -1,10 +1,12 @@
 import TopBar from "../../components/topBar/index";
+import Filters from "../../components/filters/index"
 
 export default function Menu() {
   return (
 
 <div  className='menu'>
     <TopBar/>
+    <Filters/>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos praesentium perspiciatis necessitatibus delectus iure? Molestiae, facilis. Magni modi numquam earum quibusdam corporis perspiciatis voluptates, dolore fuga provident enim at nihil.
       Expedita voluptatem qui inventore. Rem recusandae eius quas tenetur, sit ex incidunt aut facere quibusdam expedita dicta perspiciatis reiciendis eveniet enim quidem exercitationem quos beatae repellat! Eligendi cumque velit vitae!
