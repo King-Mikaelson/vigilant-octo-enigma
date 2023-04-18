@@ -2,7 +2,7 @@ import Menu from "../../components/menu";
 // import Orders from "../../components/orders";
 import AddItem from "../../components/items/addItem";
 import DashboardLayout from "../../layout/dashboardLayout";
-import EditItem from "../../components/items/editItem";
+
 export default function Pos() {
   return (
     <DashboardLayout>
@@ -14,9 +14,11 @@ export default function Pos() {
           <Menu />
         </aside>
         <aside className="pos__right">
+          {/* Orders and AddItem components would be rendered interchangeably based on the user. Admin or User
+             Orders && AddItem for Admin and Orders for users only
+          */}
           {/* <Orders /> */}
           <AddItem />
-          <EditItem />
         </aside>
       </div>
     </DashboardLayout>
