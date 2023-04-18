@@ -1,49 +1,49 @@
-.sidebar__container{
-    background-color: $primary-color;
+.sidebar__container {
+    background-color:$white-color;
     color: $white-color;
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  position: fixed;
-  height: 100vh;
-  padding: 0 $sm-font;
-  
-    .sidebar__logo {
-    align-self: center;
-    text-align: center;
+    flex-direction: column;
+    align-items: center;
     overflow-y: hidden;
     overflow-x: hidden;
-    width: 200px;
-    height: 100px;
-    border-radius: 5px;
-    margin-top: $sm-font2;
+    // position: fixed;
+    height: 100vh;
+    padding: 0 $sm-font;
 
-     img {
+    .sidebar__logo {
+        align-self: center;
+        text-align: center;
+        overflow-y: hidden;
+        overflow-x: hidden;
         width: 200px;
-        height: auto;
-      }
-  }
+        height: 100px;
+        border-radius: 5px;
+        margin-top: $sm-font2;
 
-  .sidebar__wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    .sidebar__link{
-        display: flex;
-        align-items: center;
-        padding: $md-font $md-font $xl-font $sm-font;
-        font-size: $sm-font;
-        margin-bottom: $sm-font1;
-        margin-left: $sm-font;
-        transition: all 0.4s ease;
-        overflow: hidden;
-        gap: $sm-font1;
-        justify-content: center;
-        color:$white-color;
+        img {
+            width: 200px;
+            height: auto;
+        }
     }
-  }
-  
+
+    .sidebar__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .sidebar__link {
+            display: flex;
+            align-items: center;
+            padding: $md-font $md-font $sm-font $sm-font;
+            font-size: $sm-font;
+            margin-bottom: $sm-font1;
+            margin-left: $sm-font;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            gap: $sm-font;
+            justify-content: center;
+            color: $black-color;
+        }
+    }
+
 }
