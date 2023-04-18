@@ -1,4 +1,26 @@
+// Added a new grid layout system for dashboard using grid template areas 
+// the dashboard occupies 250px column and 70px row while the other part dashboard LayoutLeft occupies the rest of the space
+// You dont to add position fixed to any class here because the grid layout system takes care of that
 .dashboardlayout {
   display: grid;
-  grid-template-columns: 1fr 6fr;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 70px 1fr;
+  height: 100vh;
+  grid-template-areas: "nav main"
+    "nav  main";
+  overflow-x: hidden;
+
+  &__left {
+    flex: 0 0 250px;
+    grid-area: nav;
+  }
+
+  &__right {
+    flex: 1;
+    grid-area: main;
+    padding: 0rem;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f4f7fa;
+  }
 }
