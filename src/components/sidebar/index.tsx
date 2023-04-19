@@ -11,7 +11,7 @@ import {AiOutlineSetting} from "react-icons/ai";
 
 
 export default function SideBar() {
-  const [activeTab, setActiveTab] = useState<string>("dashboard");
+  const [activeTab, setActiveTab] = useState<string>("menu");
 
   const activeStyle = {
     color: "#51145a",
