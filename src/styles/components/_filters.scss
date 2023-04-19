@@ -6,6 +6,10 @@
     padding: $xl-font $sm-font1;
     padding-bottom: 0rem;
     margin: 0rem $lg-font;
+
+    @include xl{
+        margin: 0rem $xxs-font; 
+    }
     &__list{
         display:flex;
         justify-content: space-around;
@@ -18,7 +22,8 @@
     font-weight: 500;
     font-size: $sm-font;
     color:$black-color;
-    padding-bottom: 0.5rem;
+    padding-bottom: $sm-font1;
+    border-bottom: 3px solid transparent;
     }
     &__icon{
         color:$lighter-gray;

@@ -12,6 +12,10 @@
         "main  nav";
     overflow-x: hidden;
 
+    @include xl{
+        grid-template-columns: 1fr 300px;
+    }
+
     @include lg {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 70px;
