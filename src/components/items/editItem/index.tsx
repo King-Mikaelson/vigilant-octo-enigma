@@ -17,7 +17,7 @@ const EditItem: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="item-pry-container">
       <div className="container-item">
         <div className="header">
           <h2>Edit Item</h2>
