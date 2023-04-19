@@ -3,12 +3,14 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid $placeholder-gray;
-    padding: $xl-font $sm-font1;
+    padding: $xl-font $lg-font;
     padding-bottom: 0rem;
-    margin: 0rem $lg-font;
-
+    position: sticky;
+    background-color: $gray-bg;
+    top: 5rem;
+    z-index: 4;
     @include xl{
-        margin: 0rem $xxs-font; 
+        padding: $xl-font $sm-font1;
     }
     &__list{
         display:flex;
@@ -24,9 +26,13 @@
     color:$black-color;
     padding-bottom: $sm-font1;
     border-bottom: 3px solid transparent;
+    cursor: pointer;
+
     }
     &__icon{
         color:$lighter-gray;
+        user-select: none;
+        cursor: pointer;
     }
     .filters__active{
      border-bottom: 3px solid $secondary-color;
