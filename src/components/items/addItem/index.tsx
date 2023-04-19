@@ -59,9 +59,9 @@ const AddItem: React.FC = () => {
           <button className="add-btn" type="submit">
             Add
           </button>
-          <Link to="/dashboard" className="cancel-btn" type="button">
+          <button className="cancel-btn" type="submit">
             Cancel
-          </Link>
+          </button>
         </div>
       </form>
       {isModalOpen && (
