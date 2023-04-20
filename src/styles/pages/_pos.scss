@@ -29,12 +29,13 @@
         padding: 0rem;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        background-color: #f4f7fa;
+        background-color: $bg-white;
     }
 
     &__right {
         flex: 0 0 250px;
         grid-area: nav;
+        background-color: $white-color;
 
         @include lg {
             display: none;
