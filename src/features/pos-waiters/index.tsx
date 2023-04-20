@@ -1,7 +1,7 @@
 import Menu from "../../components/menu";
 // import Orders from "../../components/orders";
-import AddItem from "../../components/items/addItem";
 import DashboardLayout from "../../layout/dashboardLayout";
+import Orders from "../../components/orders";
 
 export default function PosWaiters() {
   return (
@@ -11,7 +11,7 @@ export default function PosWaiters() {
           <Menu />
         </aside>
         <aside className="pos__right">
-          <AddItem />
+          <Orders />
         </aside>
       </div>
     </DashboardLayout>

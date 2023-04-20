@@ -1,14 +1,11 @@
-// import { MdOutlineTableChart} from "react-icons/md";
-// import { TfiReceipt } from "react-icons/tfi";
 import { BiLogOut } from "react-icons/bi";
-import {MdOutlineRestaurantMenu } from "react-icons/md";
+import { MdOutlineRestaurantMenu } from "react-icons/md";
 import uppistLogo from "../../assets/uppistWhite.png";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import {RxDashboard} from "react-icons/rx";
-import {HiOutlineChartSquareBar} from "react-icons/hi";
-import {AiOutlineSetting} from "react-icons/ai";
-
+import { RxDashboard } from "react-icons/rx";
+import { HiOutlineChartSquareBar } from "react-icons/hi";
+import { AiOutlineSetting } from "react-icons/ai";
 
 export default function SideBar() {
   const [activeTab, setActiveTab] = useState<string>("menu");
@@ -48,7 +45,6 @@ export default function SideBar() {
           Menu Manager
         </NavLink>
 
-
         <NavLink
           to={"/report"}
           style={activeTab === "report" ? activeStyle : undefined}
@@ -60,7 +56,6 @@ export default function SideBar() {
           <HiOutlineChartSquareBar size={20} />
           Report
         </NavLink>
-
 
         <NavLink
           to={"/settings"}
