@@ -16,9 +16,9 @@ const DeleteItem: React.FC = () => {
           <button className="del-btn" type="submit">
             Delete
           </button>
-          <Link to="/dashboard" className="cancel-btn" type="button">
+          <button className="cancel-btn" type="submit">
             Cancel
-          </Link>
+          </button>
         </div>
       </div>
     </div>

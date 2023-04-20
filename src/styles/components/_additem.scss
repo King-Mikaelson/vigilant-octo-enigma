@@ -122,6 +122,8 @@
 
             .cancel-btn {
                 @include flexCenter;
+                border: none;
+                background-color: transparent;
                 font-weight: 500;
                 color: $primary-color;
                 font-size: $sm-font;
@@ -130,6 +132,7 @@
                 width: 100px;
                 margin: $md-font auto;
                 padding-top: 1rem;
+                cursor: pointer;
 
                 &:hover {
                     transform: scale(1.1);
