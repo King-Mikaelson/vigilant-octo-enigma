@@ -1,12 +1,15 @@
 import { MdOutlineCancel } from "react-icons/md";
 
-const DeleteItem: React.FC = () => {
+type Props ={
+  setOpenDelete?:React.Dispatch<React.SetStateAction<boolean>>
+}
+const DeleteItem = ({setOpenDelete}:Props) => {
   const handleModalClose = () => {};
 
   return (
     <div className="del-container">
       <div className="del-content">
-        <span className="close-btn" onClick={handleModalClose}>
+        <span className="close-btn" onClick={ () => {handleModalClose(); setOpenDelete?.((prevValue) => !prevValue) }}>
           <MdOutlineCancel />
         </span>
         <p>Delete Item?</p>
@@ -15,7 +18,7 @@ const DeleteItem: React.FC = () => {
           <button className="del-btn" type="submit">
             Delete
           </button>
-          <button className="cancel-btn" type="submit">
+          <button onClick={() => {setOpenDelete?.((prevValue) => !prevValue)}} className="cancel-btn">
             Cancel
           </button>
         </div>

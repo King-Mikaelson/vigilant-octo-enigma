@@ -10,9 +10,18 @@
     "nav  main";
   overflow-x: hidden;
 
+  @include lg {
+    grid-template-areas: "main main"
+      "main  main";
+  }
+
   &__left {
     flex: 0 0 250px;
     grid-area: nav;
+
+    @include lg {
+      display: none;
+    }
   }
 
   &__right {

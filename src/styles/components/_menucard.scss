@@ -24,7 +24,7 @@
         background-color: $white-color;
         gap: $sm-font;
         width: fit-content;
-        padding: $md-font;
+        padding: $lg-font;
         padding-top: $xxl-font2;
         border-radius: 16px;
         position: relative;
@@ -71,7 +71,7 @@
         justify-content: space-around;
         align-items: center;
         width: 100%;
-        padding-top: $md-font;
+        padding-top: $sm-font1;
 
         .edit__parent {
             position: relative;
@@ -96,9 +96,9 @@
             content: "";
             background: $black-color2;
             position: absolute;
-            height: 2.7rem;
+            height: 2.5rem;
             width: 1px;
-            top: 0.2rem;
+            top: 0.1rem;
             left: $xl-font;
             bottom: 0;
         }

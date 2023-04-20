@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { FiEdit } from "react-icons/fi";
 
-const EditItem: React.FC = () => {
+type Props ={
+  setOpenEdit?:React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const EditItem = ({setOpenEdit}:Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -57,7 +61,7 @@ const EditItem: React.FC = () => {
             <button className="add-btn" type="submit">
               Save
             </button>
-            <button className="cancel-btn" type="submit">
+            <button className="cancel-btn" onClick={() => {setOpenEdit?.((prevValue) => !prevValue)}}>
               Cancel
             </button>
           </div>
