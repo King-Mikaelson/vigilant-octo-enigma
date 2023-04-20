@@ -59,7 +59,7 @@ const Profile = () => {
           <div className="logo-input">
             <input type="file" />
             <div>
-              <span className="profile-icon">
+              <span>
                 <BsLink45Deg size={18} />
               </span>
               Choose file

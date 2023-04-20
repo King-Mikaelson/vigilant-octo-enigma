@@ -1,3 +1,4 @@
+//PROFILE SETTINGS
 .profile-container {
     margin-top: 1rem;
     padding: 0 2rem;
@@ -160,13 +161,84 @@
                     gap: 10px;
                     font-size: 12px;
                     margin: 0 auto;
-
-                    .profile-icon {
-                        padding-left: 10px;
-                    }
                 }
             }
         }
     }
 
+}
+
+//EDIT PROFILE SETTINGS
+.container.edit-prof {
+    width: 100%;
+
+    .auth.edit-prof {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        border: none;
+        padding: 0 2rem 0 2rem;
+
+
+        .auth__heading.edit-prof {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: none;
+            color: black;
+            font-size: 20px;
+            margin-bottom: 3rem;
+
+            .edit-prof-icon {
+                color: $light-gray;
+                cursor: pointer;
+            }
+        }
+
+        .form.edit-prof {
+            padding: 0 3.5rem;
+
+            label {
+                display: flex;
+                justify-content: space-between;
+
+                h3 {
+                    padding-top: 1.5rem;
+                    min-width: 150px;
+                }
+
+                .input-element {
+                    width: 85%;
+                    min-width: 250px;
+                    padding: 0.5rem 0;
+                    border: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $black-color2;
+                    outline: none;
+                }
+
+            }
+        }
+
+        .cancel-btn {
+            @include flexCenter;
+            border: none;
+            background-color: transparent;
+            font-weight: 500;
+            color: $primary-color;
+            font-size: $sm-font;
+            font-family: $dm-sans-font;
+            text-align: center;
+            width: 100px;
+            margin: $md-font auto;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
 }
