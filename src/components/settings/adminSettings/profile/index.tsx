@@ -9,7 +9,7 @@ const Profile = () => {
       <div className="profile-header">
         <h3>Profile</h3>
         <button>
-          <Link to="/edit-profile">
+          <Link to="/edit-profile" className="profile-link-btn">
             <CiEdit />
             Edit Profile
           </Link>
@@ -19,21 +19,21 @@ const Profile = () => {
         <span>
           <BsPersonCircle />
         </span>
-        <p>John Doe</p>
-        <span>Company’s ID#12345678</span>
+        <h3>John Doe</h3>
+        <p>Company’s ID #12345678</p>
       </div>
       <div className="profile-body">
         <div className="body-email">
-          <span>email</span>
+          <span className="span1">Email</span>
           <p>ccachukwu@gmail.com</p>
         </div>
         <div className="body-phone">
-          <span>Phone Number</span>
+          <span className="span1">Phone Number</span>
           <p>(+234) 813 300 0000</p>
         </div>
         <div className="body-password">
           <span>Password</span>
-          <div>
+          <div className="change-password">
             <p>Change Password</p>
             <span>
               <RiArrowRightSLine />
@@ -54,14 +54,15 @@ const Profile = () => {
         </div>
         <div className="biz-logo">
           <span>Upload Business Logo</span>
-          <p>Accepted file types: img, png, jpeg. Max size: 5mb</p>
+          <p className="img-type">Accepted file types: img, png, jpeg.</p>
+          <p className="max-mb">Max size: 5mb</p>
           <div className="logo-input">
             <input type="file" />
             <div>
-              <span>Choose file</span>
-              <span>
-                <BsLink45Deg />
+              <span className="profile-icon">
+                <BsLink45Deg size={18} />
               </span>
+              Choose file
             </div>
           </div>
         </div>
