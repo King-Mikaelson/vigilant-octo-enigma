@@ -8,9 +8,10 @@ import ChangePassword from "../features/authentication/password/changePwd";
 import PwdUpdated from "../features/authentication/password/pwdUpdated";
 import ForgotPwd from "../features/authentication/password/forgotpwd-email";
 import Subscribe from "../features/subscription";
-import Pos from "../features/pos";
+import Admin from "../features/pos-admin";
 import ErrorPage from "../features/error404";
 import StyleGuides from "../styleGuides";
+import PosWaiters from "../features/pos-waiters";
 
 // Always navigate the "/test" path in your browser and render
 // your component in "styleGuides.tsx" to TEST while building
@@ -58,8 +59,13 @@ const router = createBrowserRouter([
     element: <Subscribe />,
   },
   {
-    path: "/dashboard",
-    element: <Pos />,
+    path: "/admin",
+    element: <Admin />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/pos-waiters",
+    element: <PosWaiters />,
     errorElement: <ErrorPage />,
   },
 ]);

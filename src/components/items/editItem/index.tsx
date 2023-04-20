@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FiEdit } from "react-icons/fi";
-import { Link } from "react-router-dom";
 
 const EditItem: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
