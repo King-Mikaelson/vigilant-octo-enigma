@@ -12,6 +12,7 @@ import Admin from "../features/pos-admin";
 import ErrorPage from "../features/error404";
 import StyleGuides from "../styleGuides";
 import PosWaiters from "../features/pos-waiters";
+import Settings from "../components/settings/adminSettings";
 
 // Always navigate the "/test" path in your browser and render
 // your component in "styleGuides.tsx" to TEST while building
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
     path: "/admin",
     element: <Admin />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/settings",
+    element: <Settings />,
   },
   {
     path: "/pos-waiters",
