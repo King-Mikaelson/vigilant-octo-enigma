@@ -50,7 +50,6 @@ export default function Input({
   handleValueFocus,
   handlePasswordValueFocus,
   error,
-  phoneError,
   passwordError,
   emailError,
   checked,
