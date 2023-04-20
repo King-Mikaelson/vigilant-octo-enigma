@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const AddItem: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,9 +58,9 @@ const AddItem: React.FC = () => {
           <button className="add-btn" type="submit">
             Add
           </button>
-          <Link to="/dashboard" className="cancel-btn" type="button">
+          <button className="cancel-btn" type="submit">
             Cancel
-          </Link>
+          </button>
         </div>
       </form>
       {isModalOpen && (
