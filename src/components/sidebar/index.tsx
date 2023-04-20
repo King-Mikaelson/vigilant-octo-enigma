@@ -1,5 +1,3 @@
-// import { MdOutlineTableChart} from "react-icons/md";
-// import { TfiReceipt } from "react-icons/tfi";
 import { BiLogOut } from "react-icons/bi";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import uppistLogo from "../../assets/uppistWhite.png";
