@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { FiEdit } from "react-icons/fi";
-import { Link } from "react-router-dom";
 
-const EditItem: React.FC = () => {
+type Props ={
+  setOpenEdit?:React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const EditItem = ({setOpenEdit}:Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -17,7 +20,7 @@ const EditItem: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="item-pry-container">
       <div className="container-item">
         <div className="header">
           <h2>Edit Item</h2>
@@ -58,9 +61,9 @@ const EditItem: React.FC = () => {
             <button className="add-btn" type="submit">
               Save
             </button>
-            <Link to="/dashboard" className="cancel-btn" type="button">
+            <button className="cancel-btn" onClick={() => {setOpenEdit?.((prevValue) => !prevValue)}}>
               Cancel
-            </Link>
+            </button>
           </div>
         </form>
         {isModalOpen && (

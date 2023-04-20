@@ -116,6 +116,10 @@
                 text-align: center;
                 width: 100px;
                 margin: $md-font auto;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                cursor: pointer;
                 // padding-top: 1rem;
 
                 &:hover {

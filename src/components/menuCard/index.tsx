@@ -18,22 +18,22 @@ function SingleCard({item}:Props){
 
   return(
     <>
-    {openEdit ? <EditItem/> : " "}
-    {openDelete ? <DeleteItem/> : " "}
-    <div className="menuCard__card" key={item.id}>
+    {openEdit ? <EditItem setOpenEdit={setOpenEdit} /> : " "}
+    {openDelete ? <DeleteItem setOpenDelete={setOpenDelete}/> : " "}
+    <div className="menuCard__card">
     {item.category === "Meals" ? <img src={mealImage} alt="meals"/> : item.category === "Wine" ? <img src={wineImage} alt="wines"/> : <img src={doughnut} alt="desserts"/>}
     <p className="menuCard__title">{item.name}</p>
     <p className="menuCard__price">{`₦${Number(item.price).toLocaleString()}`}</p>
     <div className="menuCard__icons">
       <div className="edit__parent">
       <div className="edit" onClick={() => setOpenEdit((prevValue) => !prevValue  )}>
-      <FaRegEdit size={30}/>
+      <FaRegEdit size={20}/>
       </div>
       <p>Edit</p>
       </div>
       <div className="delete__parent">
       <div className="delete" onClick={() => setOpenDelete((prevValue) => !prevValue  )}>
-      <AiOutlineDelete  size={25}/>
+      <AiOutlineDelete  size={20}/>
       </div>
       <p>Delete</p>
       </div>
@@ -49,7 +49,7 @@ function MenuCard() {
     <div className="menuCard">
       {
         Stock.map((item) => (
-          <SingleCard item={item}/>
+          <SingleCard key={item.id} item={item}/>
         ))
       }
     </div>

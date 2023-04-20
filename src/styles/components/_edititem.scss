@@ -1,4 +1,4 @@
-.container {
+.item-pry-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,6 +126,10 @@
                 width: 100px;
                 margin: $md-font auto;
                 padding-top: 1rem;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                cursor: pointer;
 
                 &:hover {
                     transform: scale(1.1);
