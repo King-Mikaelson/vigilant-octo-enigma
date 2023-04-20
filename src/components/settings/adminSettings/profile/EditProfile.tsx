@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Input from "../../../ui/Input";
 import Button from "../../../ui/button";
 import { MdArrowBackIos } from "react-icons/md";
+import SettingsLayout from "../layout";
 
 export default function EditProfile() {
   const [value, setValue] = useState<string>();
@@ -66,100 +67,102 @@ export default function EditProfile() {
   };
 
   return (
-    <section className="container edit-prof">
-      <section className="auth edit-prof">
-        <h3 className="auth__heading edit-prof">
-          <MdArrowBackIos className="edit-prof-icon" /> Edit Profile
-        </h3>
-        <form className="form edit-prof" onSubmit={(e) => handleSubmit(e)}>
-          <aside className="form-items">
-            <label>
-              <h3>Full Name</h3>
-              <div className="input-element">
-                <Input
-                  fullName={fullName}
-                  handleName={handleName}
-                  type="name"
-                  placeholder="C.C Achukwu"
-                  handleNameFocus={handleNameFocus}
-                  error={error}
-                />
-              </div>
-              {error ? <p className="auth__error">{error}</p> : " "}
-            </label>
+    <SettingsLayout>
+      <section className="container edit-prof">
+        <section className="auth edit-prof">
+          <h3 className="auth__heading edit-prof">
+            <MdArrowBackIos className="edit-prof-icon" /> Edit Profile
+          </h3>
+          <form className="form edit-prof" onSubmit={(e) => handleSubmit(e)}>
+            <aside className="form-items">
+              <label>
+                <h3>Full Name</h3>
+                <div className="input-element">
+                  <Input
+                    fullName={fullName}
+                    handleName={handleName}
+                    type="name"
+                    placeholder="C.C Achukwu"
+                    handleNameFocus={handleNameFocus}
+                    error={error}
+                  />
+                </div>
+                {error ? <p className="auth__error">{error}</p> : " "}
+              </label>
 
-            <label>
-              <h3>Email address</h3>
-              <div className="input-element">
-                <Input
-                  type="email"
-                  email={email}
-                  handleEmail={handleEmail}
-                  handleEmailFocus={handleEmailFocus}
-                  placeholder="yourname@email.com"
-                  emailError={emailError}
-                />
-              </div>
+              <label>
+                <h3>Email address</h3>
+                <div className="input-element">
+                  <Input
+                    type="email"
+                    email={email}
+                    handleEmail={handleEmail}
+                    handleEmailFocus={handleEmailFocus}
+                    placeholder="yourname@email.com"
+                    emailError={emailError}
+                  />
+                </div>
 
-              {emailError ? <p className="auth__error">{emailError}</p> : " "}
-            </label>
+                {emailError ? <p className="auth__error">{emailError}</p> : " "}
+              </label>
 
-            <label>
-              <h3>Phone Number</h3>
-              <div className="input-element">
-                <PhoneInput
-                  placeholder="814 874 9415"
-                  defaultCountry="NG"
-                  international
-                  countryCallingCodeEditable={false}
-                  value={value}
-                  className="PhoneInput input__element"
-                  onChange={setValue}
-                />
-              </div>
+              <label>
+                <h3>Phone Number</h3>
+                <div className="input-element">
+                  <PhoneInput
+                    placeholder="814 874 9415"
+                    defaultCountry="NG"
+                    international
+                    countryCallingCodeEditable={false}
+                    value={value}
+                    className="PhoneInput input__element"
+                    onChange={setValue}
+                  />
+                </div>
 
-              {phoneError ? <p className="auth__error">{phoneError}</p> : " "}
-            </label>
+                {phoneError ? <p className="auth__error">{phoneError}</p> : " "}
+              </label>
 
-            <label>
-              <h3>Business Name</h3>
-              <div className="input-element">
-                {" "}
-                <Input
-                  fullName={fullName}
-                  handleName={handleName}
-                  type="name"
-                  placeholder="C.C Achukwu"
-                  handleNameFocus={handleNameFocus}
-                  error={error}
-                />
-              </div>
+              <label>
+                <h3>Business Name</h3>
+                <div className="input-element">
+                  {" "}
+                  <Input
+                    fullName={fullName}
+                    handleName={handleName}
+                    type="name"
+                    placeholder="C.C Achukwu"
+                    handleNameFocus={handleNameFocus}
+                    error={error}
+                  />
+                </div>
 
-              {error ? <p className="auth__error">{error}</p> : " "}
-            </label>
+                {error ? <p className="auth__error">{error}</p> : " "}
+              </label>
 
-            <label>
-              <h3>Business Address</h3>
-              <div className="input-element">
-                <Input
-                  fullName={fullName}
-                  handleName={handleName}
-                  type="name"
-                  placeholder="C.C Achukwu"
-                  handleNameFocus={handleNameFocus}
-                  error={error}
-                />
-              </div>
+              <label>
+                <h3>Business Address</h3>
+                <div className="input-element">
+                  <Input
+                    fullName={fullName}
+                    handleName={handleName}
+                    type="name"
+                    placeholder="C.C Achukwu"
+                    handleNameFocus={handleNameFocus}
+                    error={error}
+                  />
+                </div>
 
-              {error ? <p className="auth__error">{error}</p> : " "}
-            </label>
-          </aside>
-          <Button text="Update" />
-          <button className="cancel-btn" type="submit">
-            Cancel
-          </button>
-        </form>
+                {error ? <p className="auth__error">{error}</p> : " "}
+              </label>
+            </aside>
+            <Button text="Update" />
+            <button className="cancel-btn" type="submit">
+              Cancel
+            </button>
+          </form>
+        </section>
       </section>
-    </section>
+    </SettingsLayout>
   );
 }
