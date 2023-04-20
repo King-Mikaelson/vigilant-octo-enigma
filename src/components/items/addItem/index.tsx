@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const AddItem: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
