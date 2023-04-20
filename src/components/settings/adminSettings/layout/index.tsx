@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { CgProfile } from "react-icons/cg";
+import { MdAddCard } from "react-icons/md";
+import { TbUsers } from "react-icons/tb";
 
 interface SettingsLayoutProps {
   children: React.ReactNode;
@@ -19,19 +22,28 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
             className={selectedItem === "profile" ? "selected" : ""}
             onClick={() => handleItemClick("profile")}
           >
+            <span className="layout-icon">
+              <CgProfile />
+            </span>
             Profile
           </li>
           <li
-            className={selectedItem === "manage" ? "selected" : ""}
-            onClick={() => handleItemClick("manage")}
+            className={selectedItem === "users" ? "selected" : ""}
+            onClick={() => handleItemClick("users")}
           >
-            Manage Account
+            <span className="layout-icon">
+              <TbUsers />
+            </span>
+            Manage Users
           </li>
           <li
-            className={selectedItem === "edit" ? "selected" : ""}
-            onClick={() => handleItemClick("edit")}
+            className={selectedItem === "subscriptions" ? "selected" : ""}
+            onClick={() => handleItemClick("subscriptions")}
           >
-            Edit
+            <span className="layout-icon">
+              <MdAddCard />
+            </span>
+            Manage Subscriptions
           </li>
         </ul>
       </div>
