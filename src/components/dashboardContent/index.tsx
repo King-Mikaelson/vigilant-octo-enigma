@@ -18,12 +18,12 @@ export default function DashboardContent() {
           </thead>
 
           <tbody>
-            {table.map((item) => (
-              <tr>
+            {table.map((item, index) => (
+              <tr key={index}>
                 <td>{item.orderNo}</td>
                 <td className="flex">
-                  {item.menu.map((item) => (
-                    <p>{item.name}</p>
+                  {item.menu.map((item, index) => (
+                    <p key={index}>{item.name}</p>
                   ))}
                 </td>
                 <td>₦{item.totalPayment.toLocaleString()}</td>
