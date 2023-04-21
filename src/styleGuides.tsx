@@ -12,6 +12,7 @@ import DashboardCard from "./components/dashboardCard"
 import DashboardContent from "./components/dashboardContent";
 
 
+import EditProfile from "./components/settings/adminSettings/profile/EditProfile";
 
 export default function StyleGuides() {
   return (
@@ -20,6 +21,7 @@ export default function StyleGuides() {
       <DashboardCard/>
       <TopMenu />
       <DashboardAdmin />
+      <EditProfile />
       <MenuCard />
       <Filters />
       <Admin />

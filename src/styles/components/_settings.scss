@@ -1,0 +1,244 @@
+//PROFILE SETTINGS
+.profile-container {
+    margin-top: 1rem;
+    padding: 0 2rem;
+
+    .profile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+
+        button {
+            border-radius: 20px;
+            font-family: $inter-font;
+            background: none;
+            border: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 0.5rem 1rem;
+            border: 1px solid $secondary-color;
+            cursor: pointer;
+
+            .profile-link-btn {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .profile-name {
+        @include flexCenter;
+        flex-direction: column;
+
+        span {
+            font-size: 4rem;
+            color: $light-gray;
+        }
+
+        h3 {
+            padding-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 24px;
+            color: $primary-color2;
+        }
+
+        p {
+            font-weight: 500;
+            color: $black-color2;
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    .profile-body {
+
+        .body-email,
+        .body-phone {
+            padding-bottom: 14px;
+
+            p {
+                color: $black-color2;
+                font-weight: 500;
+                padding-top: 5px;
+            }
+        }
+
+        .span1 {
+            font-size: 14px;
+            color: $dark-gray;
+        }
+
+        .body-password {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 6px;
+
+            span {
+                color: $black-color2;
+                font-weight: 500;
+                padding-top: 5px
+            }
+
+            .change-password {
+                display: flex;
+                align-items: center;
+                color: $secondary-color;
+                gap: 10px;
+                cursor: pointer;
+
+                p {
+                    font-size: 14px;
+                }
+
+                span {
+                    font-size: 24px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+
+    .profile-hr {
+        border: 1px solid $placeholder-gray;
+        margin: 1rem 0;
+    }
+
+    .business-body {
+        padding-top: 5px;
+
+        .biz-name,
+        .biz-address {
+            padding-bottom: 1rem;
+
+            p {
+                color: $black-color2;
+                font-weight: 500;
+                padding-top: 5px;
+            }
+
+            span {
+                font-size: 14px;
+                color: $dark-gray;
+            }
+        }
+
+        .biz-logo {
+            font-weight: 400;
+            font-size: 14px;
+            width: 300px;
+
+            .img-type {
+                font-weight: 400;
+                font-size: 14px;
+                padding-top: 5px;
+            }
+
+            .max-mb {
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 10px;
+            }
+
+            .logo-input {
+                display: flex;
+                align-items: center;
+                border: 2px dashed $secondary-color;
+                border-radius: 5px;
+                padding: 5px;
+                width: 300px;
+
+                input[type="file"] {
+                    display: none;
+                }
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    text-align: center;
+                    gap: 10px;
+                    font-size: 12px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+}
+
+//EDIT PROFILE SETTINGS
+.container.edit-prof {
+    width: 100%;
+
+    .auth.edit-prof {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        border: none;
+        padding: 0 2rem 0 2rem;
+
+
+        .auth__heading.edit-prof {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: none;
+            color: black;
+            font-size: 20px;
+            margin-bottom: 3rem;
+
+            .edit-prof-icon {
+                color: $light-gray;
+                cursor: pointer;
+            }
+        }
+
+        .form.edit-prof {
+            padding: 0 3.5rem;
+
+            label {
+                display: flex;
+                justify-content: space-between;
+
+                h3 {
+                    padding-top: 1.5rem;
+                    min-width: 150px;
+                }
+
+                .input-element {
+                    width: 85%;
+                    min-width: 250px;
+                    padding: 0.5rem 0;
+                    border: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $black-color2;
+                    outline: none;
+                }
+
+            }
+        }
+
+        .cancel-btn {
+            @include flexCenter;
+            border: none;
+            background-color: transparent;
+            font-weight: 500;
+            color: $primary-color;
+            font-size: $sm-font;
+            font-family: $dm-sans-font;
+            text-align: center;
+            width: 100px;
+            margin: $md-font auto;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
