@@ -16,6 +16,10 @@
     padding: $sm-font;
     grid-template-columns: 1fr 500px;
 
+    @include xl {
+        grid-template-columns: 1fr 300px;
+    }
+
     @include md {
         display: flex;
         flex-direction: column;
@@ -28,7 +32,7 @@
         height: 64vh;
         overflow-y: scroll;
         padding: $md-font;
-        margin: 0 $sm-font;
+        margin: 0;
 
         @include md {
             order: 2;
@@ -65,10 +69,15 @@
 
         th,
         td {
-            width: 400px;
+            width: 300px;
             padding: $extra-font 0rem;
-            border-bottom: 1px solid #CCC4C8;
-            border-bottom: 1px solid #CCC4C8;
+            border-bottom: 1px solid $placeholder-gray;
+            border-bottom: 1px solid $placeholder-gray;
+
+            @include xl {
+                width: 250px;
+
+            }
         }
 
         td {
@@ -92,7 +101,8 @@
         background-color: $white-color;
         height: 64vh;
         padding: $md-font;
-        margin: 0 $sm-font;
+        margin: 0 $xs-font;
+        overflow-y: auto;
 
         @include md {
             order: 1;
@@ -109,7 +119,7 @@
             line-height: 140%;
             color: $black-color;
             padding-bottom: $sm-font;
-            border-bottom: 1px solid #CCC4C8;
+            border-bottom: 1px solid $placeholder-gray;
 
         }
 
@@ -168,9 +178,13 @@
 .dashboardAdminCard {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    padding: $xl-font $lg-font;
+    padding: $xl-font $extra-font;
     gap: $md-font;
     padding-bottom: $md-font;
+
+    @include xl {
+        gap: $sm-font;
+    }
 
     @include lg {
         gap: $sm-font1;
