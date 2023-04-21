@@ -1,3 +1,162 @@
+type Menu = {
+  name: string;
+};
+type Table = {
+  orderNo: string;
+  menu: Menu[];
+  totalPayment: Number;
+};
+
+type Sides = {
+    name: string;
+    order: string;
+
+}
+
+export const orders:Sides[] = [ 
+    {
+        name: "Salted Pasta with mushroom sauce",
+        order: "150 orders"
+    },
+    {
+        name: "Hot spicy fried rice",
+        order: "126 orders"
+    },
+    {
+        name: "Robertson sweet wine",
+        order: "150 orders"
+    },
+    {
+        name: "Chivita",
+        order: "126 orders"
+    },
+    {
+        name: "Salted Pasta with mushroom sauce",
+        order: "150 orders"
+    },
+]
+
+export const table: Table[] = [
+  {
+    orderNo: "#000010",
+    menu: [
+      { name: "Salted Pasta with mushroom sauce" },
+      { name: "Robertson sweet wine" },
+    ],
+    totalPayment: 12000,
+  },
+  {
+    orderNo: "#000009",
+    menu: [
+      { name: "Hot spicy fried rice " },
+      { name: "Fanta" },
+      { name: "Chivita" },
+    ],
+    totalPayment: 4000,
+  },
+  {
+    orderNo: "#000008",
+    menu: [
+      { name: "Salted Pasta with mushroom sauce" },
+      { name: "Robertson sweet wine" },
+    ],
+    totalPayment: 12000,
+  },
+  {
+    orderNo: "#000007",
+    menu: [
+      { name: "Hot spicy fried rice " },
+      { name: "Fanta" },
+      { name: "Chivita" },
+    ],
+    totalPayment: 4000,
+  },
+
+  {
+    orderNo: "#000006",
+    menu: [
+      { name: "Salted Pasta with mushroom sauce" },
+      { name: "Robertson sweet wine" },
+    ],
+    totalPayment: 12000,
+  },
+  {
+    orderNo: "#000005",
+    menu: [
+      { name: "Hot spicy fried rice " },
+      { name: "Fanta" },
+      { name: "Chivita" },
+    ],
+    totalPayment: 4000,
+  },
+
+  {
+    orderNo: "#000004",
+    menu: [
+      { name: "Salted Pasta with mushroom sauce" },
+      { name: "Robertson sweet wine" },
+    ],
+    totalPayment: 12000,
+  },
+  {
+    orderNo: "#000003",
+    menu: [
+      { name: "Hot spicy fried rice " },
+      { name: "Fanta" },
+      { name: "Chivita" },
+    ],
+    totalPayment: 4000,
+  },
+
+  {
+    orderNo: "#000002",
+    menu: [
+      { name: "Salted Pasta with mushroom sauce" },
+      { name: "Robertson sweet wine" },
+    ],
+    totalPayment: 12000,
+  },
+  {
+    orderNo: "#000001",
+    menu: [
+      { name: "Hot spicy fried rice " },
+      { name: "Fanta" },
+      { name: "Chivita" },
+    ],
+    totalPayment: 4000,
+  },
+];
+
+
+
+
+type Card ={
+  title: string;
+  amount: Number;
+}
+
+export const card:Card[] = [
+{
+  title: "Total Orders",
+  amount: 40
+},
+{
+  title: "Total Revenue",
+  amount: 148800
+},
+
+{title: "Cash Payments",
+amount: 1700
+},
+{title: "POS Payments",
+amount: 118500
+},
+{title: "Transfer Payments",
+amount: 28600
+},
+
+
+]
 
 export interface Store {
   id:string,

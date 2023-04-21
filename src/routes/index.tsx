@@ -12,6 +12,7 @@ import Admin from "../features/pos-admin";
 import ErrorPage from "../features/error404";
 import StyleGuides from "../styleGuides";
 import PosWaiters from "../features/pos-waiters";
+import DashboardAdmin from "../features/dashboard-admin";
 import Settings from "../components/settings/adminSettings";
 import EditProfile from "../components/settings/adminSettings/profile/EditProfile";
 
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/dashboard-admin",
+    element: <DashboardAdmin />,
     errorElement: <ErrorPage />,
   },
   {
