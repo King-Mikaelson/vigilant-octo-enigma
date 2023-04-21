@@ -9,12 +9,15 @@ export default function DashboardContent() {
         <h2>Order List</h2>
 
         <table>
+            <thead>
           <tr>
             <th>Order no.</th>
             <th>Menu</th>
             <th>Total Payment</th>
           </tr>
+          </thead>
 
+        <tbody>
           {table.map((item) => (
             <tr>
               <td>{item.orderNo}</td>
@@ -26,6 +29,7 @@ export default function DashboardContent() {
               <td>₦{item.totalPayment.toLocaleString()}</td>
             </tr>
           ))}
+          </tbody>
         </table>
       </div>
 

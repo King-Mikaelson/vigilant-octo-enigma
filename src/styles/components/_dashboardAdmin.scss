@@ -54,6 +54,8 @@
         table {
             border-collapse: separate;
             border-spacing: 0 15px;
+            table-layout: fixed;
+            width: 100%;
         }
 
         th {
@@ -69,15 +71,10 @@
 
         th,
         td {
-            width: 300px;
             padding: $extra-font 0rem;
             border-bottom: 1px solid $placeholder-gray;
             border-bottom: 1px solid $placeholder-gray;
 
-            @include xl {
-                width: 250px;
-
-            }
         }
 
         td {
