@@ -22,7 +22,7 @@ export default function SideBar() {
       </div>
       <div className="sidebar__wrapper">
         <NavLink
-          to={"/dashboard"}
+          to={"/dashboard-admin"}
           style={activeTab === "dashboard" ? activeStyle : undefined}
           onClick={() => {
             setActiveTab("dashboard");

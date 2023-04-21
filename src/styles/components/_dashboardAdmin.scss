@@ -1,0 +1,226 @@
+// Description: Styles for the dashboard admin page
+
+// Dashboard Layout && Container
+.dashboardAdmin {
+    height: 100vh;
+    overflow: hidden;
+
+    @include md {
+        overflow-y: scroll;
+    }
+}
+
+
+.dashboardContent {
+    display: grid;
+    padding: $sm-font;
+    grid-template-columns: 1fr 500px;
+
+    @include md {
+        display: flex;
+        flex-direction: column;
+        gap: $md-font;
+    }
+
+    .dashboardContent__main {
+        -webkit-overflow-scrolling: touch;
+        background-color: $white-color;
+        height: 64vh;
+        overflow-y: scroll;
+        padding: $md-font;
+        margin: 0 $sm-font;
+
+        @include md {
+            order: 2;
+            margin: 0;
+            height: auto;
+            overflow: auto;
+
+        }
+
+        h2 {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: $extra-font;
+            line-height: 140%;
+            color: $black-color;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+
+        th {
+            color: $black-color;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: $xs-font;
+            line-height: 140%;
+            text-align: left;
+
+        }
+
+        th,
+        td {
+            width: 400px;
+            padding: $extra-font 0rem;
+            border-bottom: 1px solid #CCC4C8;
+            border-bottom: 1px solid #CCC4C8;
+        }
+
+        td {
+            color: $black-color;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: $xs-font;
+            line-height: 140%;
+            text-align: left;
+        }
+
+        td.flex {
+            display: flex;
+            flex-direction: column;
+            gap: $sm-font1;
+        }
+    }
+
+    .dashboardContent__side {
+        background-color: $white-color;
+        height: 64vh;
+        padding: $md-font;
+        margin: 0 $sm-font;
+
+        @include md {
+            order: 1;
+            margin: 0;
+            height: auto;
+
+        }
+
+        h2 {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: $extra-font;
+            line-height: 140%;
+            color: $black-color;
+            padding-bottom: $sm-font;
+            border-bottom: 1px solid #CCC4C8;
+
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+
+            &__child {
+                display: flex;
+                align-items: center;
+                padding: $sm-font 0rem;
+                gap: $sm-font;
+
+                img {
+                    width: 64px;
+                    height: 64px;
+                }
+
+                h4 {
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: $xs-font;
+                    line-height: 130%;
+                    color: $black-color;
+                }
+
+                p {
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: $xxs-font;
+                    line-height: 130%;
+                    color: $light-gray;
+                }
+            }
+
+            &__text {
+                display: flex;
+                flex-direction: column;
+                gap: $vs-font;
+            }
+        }
+
+
+    }
+}
+
+
+
+
+
+
+
+//Dashboard Card Designs
+.dashboardAdminCard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: $xl-font $lg-font;
+    gap: $md-font;
+    padding-bottom: $md-font;
+
+    @include lg {
+        gap: $sm-font1;
+
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: $xxl-font;
+        background-color: $white-color;
+        padding: $sm-font;
+        padding-bottom: $md-font;
+        border-radius: 16px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        border-left: 5px solid $purple-border;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+
+        @include lg {
+            padding: $sm-font1;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        h3 {
+            margin-top: auto;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: $extra-font;
+            line-height: 1.375rem;
+            letter-spacing: 0.0015em;
+            color: $gray-text;
+        }
+
+        p {
+            margin-bottom: auto;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: $md-font;
+            line-height: 29px;
+            letter-spacing: 0.0025em;
+            color: $primary-color;
+        }
+    }
+
+}
