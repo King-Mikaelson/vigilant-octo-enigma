@@ -34,7 +34,7 @@ export default function SideBar() {
         </NavLink>
 
         <NavLink
-          to={"/menu"}
+          to={"/admin"}
           style={activeTab === "menu" ? activeStyle : undefined}
           onClick={() => {
             setActiveTab("menu");

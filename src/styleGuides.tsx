@@ -6,10 +6,12 @@ import TopBar from "./components/topBar/index";
 import Filters from "./components/filters";
 import MenuCard from "./components/menuCard";
 import Admin from "./features/pos-admin";
+import EditProfile from "./components/settings/adminSettings/profile/EditProfile";
 
 export default function StyleGuides() {
   return (
     <div>
+      <EditProfile />
       <MenuCard />
       <Filters />
       <Admin />
