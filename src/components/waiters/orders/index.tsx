@@ -1,5 +1,5 @@
-import Payment from "../modals/Payment";
-import Button from "../ui/button";
+import Payment from "../../modals/Payment";
+import Button from "../../ui/button";
 import { AiOutlineDelete } from "react-icons/ai";
 
 export default function Orders() {

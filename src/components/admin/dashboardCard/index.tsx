@@ -1,6 +1,5 @@
-import { card } from "../../frontendData/frontendData";
-
-function dashboardCard() {
+import { card } from "../../../frontendData/frontendData";
+function DashboardCard() {
   return (
     <div className="dashboardAdminCard">
       {card.map((item, index) => (
@@ -17,4 +16,4 @@ function dashboardCard() {
   );
 }
 
-export default dashboardCard;
+export default DashboardCard;
