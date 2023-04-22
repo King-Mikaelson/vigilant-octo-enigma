@@ -64,7 +64,7 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
-    errorElement: <ErrorPage />,
+    children: [],
   },
   {
     path: "/dashboard-admin",
@@ -74,9 +74,15 @@ const router = createBrowserRouter([
   {
     path: "/settings",
     element: <Settings />,
+    children: [
+      // {
+      //   path: "/settings/editprofile",
+      //   element: <EditProfile />,
+      // },
+    ],
   },
   {
-    path: "/editprofile",
+    path: "/settings/editprofile",
     element: <EditProfile />,
   },
   {

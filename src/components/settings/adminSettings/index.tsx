@@ -6,9 +6,6 @@ const Settings = () => {
   return (
     <div>
       <SettingsLayout children={undefined} />
-      <EditProfile />
-
-      <Profile />
     </div>
   );
 };
