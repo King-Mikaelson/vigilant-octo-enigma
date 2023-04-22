@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import { MdAddCard } from "react-icons/md";
 import { TbUsers } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
-import Profile from "../profile";
 
 interface SettingsLayoutProps {
   children: React.ReactNode;
@@ -15,10 +14,6 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
   const handleItemClick = (item: string) => {
     setSelectedItem(item);
   };
-  useEffect(() => {
-    setSelectedItem("profile");
-  }, []);
-
   return (
     <>
       <div className="settings-layout">
@@ -35,7 +30,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
           </NavLink>
 
           <NavLink
-            to="/manageusers"
+            to="/settings/manageusers"
             className={selectedItem === "users" ? "selected" : ""}
             onClick={() => handleItemClick("users")}
           >
@@ -45,7 +40,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
             Manage Users
           </NavLink>
           <NavLink
-            to="/managesubscriptions"
+            to="/settings/managesubscriptions"
             className={selectedItem === "subscriptions" ? "selected" : ""}
             onClick={() => handleItemClick("subscriptions")}
           >
@@ -55,10 +50,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
             Manage Subscriptions
           </NavLink>
         </div>
-        <div className="settings-content">
-          {selectedItem === "profile" && <Profile />}
-          {children}
-        </div>
+        <div className="settings-content">{children}</div>
       </div>
     </>
   );

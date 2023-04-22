@@ -1,4 +1,10 @@
+import SettingsLayout from "../layout";
+
 const ManageSubs = () => {
-  return <div>ManageSubs</div>;
+  return (
+    <SettingsLayout>
+      <div>Manage Subs</div>
+    </SettingsLayout>
+  );
 };
 export default ManageSubs;

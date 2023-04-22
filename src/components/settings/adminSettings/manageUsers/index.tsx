@@ -1,4 +1,10 @@
+import SettingsLayout from "../layout";
+
 const ManageUsers = () => {
-  return <div>ManageUsers</div>;
+  return (
+    <SettingsLayout>
+      <div>ManageUsers</div>
+    </SettingsLayout>
+  );
 };
 export default ManageUsers;

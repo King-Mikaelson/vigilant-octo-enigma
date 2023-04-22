@@ -15,6 +15,8 @@ import PosWaiters from "../features/pos-waiters";
 import DashboardAdmin from "../features/dashboard-admin";
 import Settings from "../components/settings/adminSettings";
 import EditProfile from "../components/settings/adminSettings/profile/EditProfile";
+import ManageUsers from "../components/settings/adminSettings/manageUsers";
+import ManageSubs from "../components/settings/adminSettings/manageSub";
 
 // Always navigate the "/test" path in your browser and render
 // your component in "styleGuides.tsx" to TEST while building
@@ -74,16 +76,18 @@ const router = createBrowserRouter([
   {
     path: "/settings",
     element: <Settings />,
-    children: [
-      // {
-      //   path: "/settings/editprofile",
-      //   element: <EditProfile />,
-      // },
-    ],
   },
   {
     path: "/settings/editprofile",
     element: <EditProfile />,
+  },
+  {
+    path: "/settings/manageusers",
+    element: <ManageUsers />,
+  },
+  {
+    path: "/settings/managesubscriptions",
+    element: <ManageSubs />,
   },
   {
     path: "/pos-waiters",
