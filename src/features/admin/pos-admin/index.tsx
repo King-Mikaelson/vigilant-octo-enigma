@@ -1,7 +1,7 @@
-import Menu from "../../components/menu";
+import Menu from "../../../components/menu";
 // import Orders from "../../components/orders";
-import AddItem from "../../components/items/addItem";
-import DashboardLayout from "../../layout/dashboardLayout";
+import AddItem from "../../../components/admin/items/addItem";
+import DashboardLayout from "../../../layout/dashboardLayout";
 
 export default function Admin() {
   return (

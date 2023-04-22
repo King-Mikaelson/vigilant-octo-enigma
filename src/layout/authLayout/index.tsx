@@ -1,5 +1,5 @@
-import Trademark from "../../components/trademark/Trademark";
 import { ChildrenProp } from "../../types";
+import Trademark from "../../components/authentication/trademark/Trademark";
 
 export default function AuthLayout({ children }: ChildrenProp) {
   return (

@@ -2,9 +2,8 @@ import { useState } from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { isValidPhoneNumber } from "react-phone-number-input";
-import { Link } from "react-router-dom";
-import Input from "../../../ui/Input";
-import Button from "../../../ui/button";
+import Input from "../../../../ui/Input";
+import Button from "../../../../ui/button";
 import { MdArrowBackIos } from "react-icons/md";
 import SettingsLayout from "../layout";
 
