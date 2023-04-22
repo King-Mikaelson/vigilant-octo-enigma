@@ -2,7 +2,7 @@ import { useState } from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { isValidPhoneNumber } from "react-phone-number-input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../../ui/Input";
 import Button from "../../../ui/button";
 import { MdArrowBackIos } from "react-icons/md";
@@ -65,13 +65,17 @@ export default function EditProfile() {
   const handleEmailFocus = () => {
     setEmailError("");
   };
-
+  const navigate = useNavigate();
+  const handleEdit = () => {
+    navigate("/settings");
+  };
   return (
     <SettingsLayout>
       <section className="container edit-prof">
         <section className="auth edit-prof">
           <h3 className="auth__heading edit-prof">
-            <MdArrowBackIos className="edit-prof-icon" /> Edit Profile
+            <MdArrowBackIos className="edit-prof-icon" onClick={handleEdit} />{" "}
+            Edit Profile
           </h3>
           <form className="form edit-prof" onSubmit={(e) => handleSubmit(e)}>
             <aside className="form-items">
