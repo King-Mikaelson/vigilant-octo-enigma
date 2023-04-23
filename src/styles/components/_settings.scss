@@ -200,6 +200,7 @@
         .form.edit-prof {
             padding: 0 3.5rem;
 
+
             label {
                 display: flex;
                 justify-content: space-between;
@@ -218,27 +219,37 @@
                     font-weight: 500;
                     color: $black-color2;
                     outline: none;
+
+                    .edit-error {
+                        padding-top: 5px;
+                    }
                 }
 
             }
         }
 
-        .cancel-btn {
-            @include flexCenter;
-            border: none;
-            background-color: transparent;
-            font-weight: 500;
-            color: $primary-color;
-            font-size: $sm-font;
-            font-family: $dm-sans-font;
-            text-align: center;
-            width: 100px;
-            margin: $md-font auto;
-            cursor: pointer;
+        .cancel-btn-div {
+            margin-bottom: 4rem;
 
-            &:hover {
-                transform: scale(1.1);
+            .cancel-btn {
+                @include flexCenter;
+                border: none;
+                background-color: transparent;
+                font-weight: 500;
+                color: $primary-color;
+                font-size: $sm-font;
+                font-family: $dm-sans-font;
+                text-align: center;
+                width: 100px;
+                margin: $md-font auto;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
+
+
     }
 }

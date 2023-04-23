@@ -1,29 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
 import { MdAddCard } from "react-icons/md";
 import { TbUsers } from "react-icons/tb";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import DashboardLayout from "../../../../layout/dashboardLayout";
 
 interface SettingsLayoutProps {
   children: React.ReactNode;
 }
-
 export default function SettingsLayout({ children }: SettingsLayoutProps) {
-  const [selectedItem, setSelectedItem] = useState("profile");
+  const location = useLocation();
+  const [selectedItem, setSelectedItem] = useState("");
 
-  const handleItemClick = (item: string) => {
-    setSelectedItem(item);
-  };
+  useEffect(() => {
+    const path = location.pathname.split("/")[2];
+    setSelectedItem(path);
+  }, [location]);
+
   return (
     <>
       <DashboardLayout>
         <div className="settings-layout">
           <div className="settings-sidebar">
             <NavLink
-              to="/settings"
+              to="/settings/profile"
               className={selectedItem === "profile" ? "selected" : ""}
-              onClick={() => handleItemClick("profile")}
             >
               <span className="layout-icon">
                 <CgProfile />
@@ -33,18 +34,19 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
 
             <NavLink
               to="/settings/manageusers"
-              className={selectedItem === "users" ? "selected" : ""}
-              onClick={() => handleItemClick("users")}
+              className={selectedItem === "manageusers" ? "selected" : ""}
             >
               <span className="layout-icon">
                 <TbUsers />
               </span>
               Manage Users
             </NavLink>
+
             <NavLink
               to="/settings/managesubscriptions"
-              className={selectedItem === "subscriptions" ? "selected" : ""}
-              onClick={() => handleItemClick("subscriptions")}
+              className={
+                selectedItem === "managesubscriptions" ? "selected" : ""
+              }
             >
               <span className="layout-icon">
                 <MdAddCard />

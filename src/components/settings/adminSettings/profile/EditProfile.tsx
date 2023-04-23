@@ -2,19 +2,24 @@ import { useState } from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { isValidPhoneNumber } from "react-phone-number-input";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Input from "../../../ui/Input";
 import Button from "../../../ui/button";
 import { MdArrowBackIos } from "react-icons/md";
 import SettingsLayout from "../layout";
 
 export default function EditProfile() {
+  const navigate = useNavigate();
   const [value, setValue] = useState<string>();
   const [fullName, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [bizName, setBizName] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [phoneError, setPhoneError] = useState<string>("");
   const [emailError, setEmailError] = useState<string>("");
+  const [bizNameError, setBizNameError] = useState<string>("");
+  const [addressError, setAddressError] = useState<string>("");
 
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value);
@@ -24,6 +29,13 @@ export default function EditProfile() {
     setFullName(e.currentTarget.value);
   };
 
+  const handleBizName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setBizName(e.currentTarget.value);
+  };
+
+  const handleAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress(e.currentTarget.value);
+  };
   const nameRegex = /[a-zA-Z]/;
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
@@ -36,6 +48,26 @@ export default function EditProfile() {
       setError("*Full name must contain at least four characters");
     } else {
       setError("");
+    }
+
+    if (!nameRegex.test(bizName.trim()) && bizName.trim().length === 0) {
+      setBizNameError("*Please enter your business name!");
+    } else if (!nameRegex.test(bizName.trim()) && bizName.trim().length > 0) {
+      setBizNameError("*Business name must contain at least 1 letter!");
+    } else if (nameRegex.test(bizName.trim()) && bizName.trim().length < 4) {
+      setBizNameError("*Business name must contain at least 4 characters!");
+    } else {
+      setBizNameError("");
+    }
+
+    if (!nameRegex.test(address.trim()) && address.trim().length === 0) {
+      setAddressError("*Please enter a valid address!");
+    } else if (!nameRegex.test(address.trim()) && address.trim().length > 0) {
+      setAddressError("*Address must contain at least 1 letter!");
+    } else if (nameRegex.test(address.trim()) && address.trim().length < 6) {
+      setAddressError("*Address must contain at least 6 characters!");
+    } else {
+      setAddressError("");
     }
 
     if (isValidPhoneNumber(`${value}`) === false) {
@@ -62,19 +94,32 @@ export default function EditProfile() {
     setError("");
   };
 
+  const handleBizNameFocus = () => {
+    setError("");
+  };
+
+  const handleAddressFocus = () => {
+    setError("");
+  };
+
   const handleEmailFocus = () => {
     setEmailError("");
   };
-  const navigate = useNavigate();
-  const handleEdit = () => {
-    navigate("/settings");
+  const handleBack = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    navigate("/settings/profile");
   };
+  const handleCancelEdit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    navigate("/settings/profile");
+  };
+
   return (
     <SettingsLayout>
       <section className="container edit-prof">
         <section className="auth edit-prof">
           <h3 className="auth__heading edit-prof">
-            <MdArrowBackIos className="edit-prof-icon" onClick={handleEdit} />{" "}
+            <MdArrowBackIos className="edit-prof-icon" onClick={handleBack} />{" "}
             Edit Profile
           </h3>
           <form className="form edit-prof" onSubmit={(e) => handleSubmit(e)}>
@@ -90,8 +135,12 @@ export default function EditProfile() {
                     handleNameFocus={handleNameFocus}
                     error={error}
                   />
+                  {error ? (
+                    <p className="auth__error edit-error">{error}</p>
+                  ) : (
+                    " "
+                  )}
                 </div>
-                {error ? <p className="auth__error">{error}</p> : " "}
               </label>
 
               <label>
@@ -105,9 +154,12 @@ export default function EditProfile() {
                     placeholder="yourname@email.com"
                     emailError={emailError}
                   />
+                  {emailError ? (
+                    <p className="auth__error edit-error">{emailError}</p>
+                  ) : (
+                    " "
+                  )}
                 </div>
-
-                {emailError ? <p className="auth__error">{emailError}</p> : " "}
               </label>
 
               <label>
@@ -122,48 +174,62 @@ export default function EditProfile() {
                     className="PhoneInput input__element"
                     onChange={setValue}
                   />
+                  {phoneError ? (
+                    <p className="auth__error edit-error">{phoneError}</p>
+                  ) : (
+                    " "
+                  )}
                 </div>
-
-                {phoneError ? <p className="auth__error">{phoneError}</p> : " "}
               </label>
 
               <label>
                 <h3>Business Name</h3>
                 <div className="input-element">
-                  {" "}
                   <Input
-                    fullName={fullName}
-                    handleName={handleName}
-                    type="name"
-                    placeholder="C.C Achukwu"
-                    handleNameFocus={handleNameFocus}
+                    bizName={bizName}
+                    handleBizName={handleBizName}
+                    type="bizName"
+                    placeholder="Enter name of business"
+                    handleBizNameFocus={handleBizNameFocus}
                     error={error}
                   />
+                  {bizNameError ? (
+                    <p className="auth__error edit-error">{bizNameError}</p>
+                  ) : (
+                    " "
+                  )}
                 </div>
-
-                {error ? <p className="auth__error">{error}</p> : " "}
               </label>
 
               <label>
                 <h3>Business Address</h3>
                 <div className="input-element">
                   <Input
-                    fullName={fullName}
-                    handleName={handleName}
-                    type="name"
-                    placeholder="C.C Achukwu"
-                    handleNameFocus={handleNameFocus}
+                    address={address}
+                    handleAddress={handleAddress}
+                    type="address"
+                    placeholder="Enter a new address"
+                    handleAddressFocus={handleAddressFocus}
                     error={error}
                   />
+                  {addressError ? (
+                    <p className="auth__error edit-error">{addressError}</p>
+                  ) : (
+                    " "
+                  )}
                 </div>
-
-                {error ? <p className="auth__error">{error}</p> : " "}
               </label>
             </aside>
             <Button text="Update" />
-            <button className="cancel-btn" type="submit">
-              Cancel
-            </button>
+            <div className="cancel-btn-div">
+              <button
+                className="cancel-btn"
+                type="submit"
+                onClick={handleCancelEdit}
+              >
+                Cancel
+              </button>
+            </div>
           </form>
         </section>
       </section>
