@@ -5,8 +5,8 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 import { useNavigate } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import SettingsLayout from "../layout";
-import Input from "../../../../ui/Input";
-import Button from "../../../../ui/button";
+import Input from "../../../ui/Input";
+import Button from "../../../ui/button";
 
 export default function EditProfile() {
   const navigate = useNavigate();

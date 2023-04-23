@@ -142,25 +142,17 @@
             }
 
             .logo-input {
-                display: flex;
-                align-items: center;
                 border: 2px dashed $secondary-color;
                 border-radius: 5px;
-                padding: 5px;
-                width: 300px;
+                width: "300px";
 
-                input[type="file"] {
-                    display: none;
-                }
-
-                div {
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-                    text-align: center;
-                    gap: 10px;
-                    font-size: 12px;
-                    margin: 0 auto;
+                .logo-input-file {
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                    position: "absolute";
+                    top: 0;
+                    left: 0;
                 }
             }
         }

@@ -3,7 +3,7 @@ import { CgProfile } from "react-icons/cg";
 import { MdAddCard } from "react-icons/md";
 import { TbUsers } from "react-icons/tb";
 import { NavLink, useLocation } from "react-router-dom";
-import DashboardLayout from "../../../../../layout/dashboardLayout";
+import DashboardLayout from "../../../../layout/dashboardLayout";
 interface SettingsLayoutProps {
   children: React.ReactNode;
 }

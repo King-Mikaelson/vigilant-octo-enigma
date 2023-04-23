@@ -13,10 +13,10 @@ import ErrorPage from "../features/error404";
 import StyleGuides from "../styleGuides";
 import PosWaiters from "../features/waiters/pos-waiters";
 import DashboardAdmin from "../features/admin/dashboard-admin";
-import Settings from "../components/admin/settings/adminSettings";
-import EditProfile from "../components/admin/settings/adminSettings/profile/EditProfile";
-import ManageUsers from "../components/admin/settings/adminSettings/manageUsers";
-import ManageSubs from "../components/admin/settings/adminSettings/manageSub";
+import Settings from "../components/admin/settings";
+import EditProfile from "../components/admin/settings/profile/EditProfile";
+import ManageUsers from "../components/admin/settings/manageUsers";
+import ManageSubs from "../components/admin/settings/manageSub";
 const router = createBrowserRouter([
   {
     path: "/test",
