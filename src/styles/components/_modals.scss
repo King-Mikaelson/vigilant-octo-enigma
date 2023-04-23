@@ -10,6 +10,7 @@
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    z-index: 99999;
 
     p {
       font-size: 1.5rem;
@@ -123,140 +124,202 @@
   }
 }
 
-//PAYMENT MODAL{
+//PAYMENT MODAL
 .payment__wrapper {
   background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
   right: 0;
-  height: 100vh;
   width: 31.2vw;
   z-index: 2;
   font-family: $inter-font;
-  .payment {
-    margin-top: 30vh;
-    background-color: $white-color;
-    height: 70vh;
-    padding: $md-font;
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    flex-direction: column;
-    &__top {
-      header {
+  height: 30vh;
+}
+
+.payment {
+  background-color: $white-color;
+  height: 70vh;
+  padding: $md-font;
+  margin-top: 28vh;
+  position: fixed;
+  top: 1rem;
+  right: 0;
+  z-index: 2;
+  width: 31.2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+  &__top {
+    header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: $sm-font;
+      margin-bottom: $sm-font;
+      h1 {
+        font-weight: 600;
+        color: $black-color;
+        font-size: $md-font;
+      }
+    }
+    small {
+      font-weight: 500;
+      font-size: $sm-font;
+      color: $lighter-gray;
+      padding-bottom: $sm-font;
+      display: block;
+      border-bottom: 1px solid $placeholder-gray;
+    }
+  }
+  &__mid {
+    align-self: stretch;
+    .amount {
+      text-align: center;
+
+      small {
+        font-size: $sm-font;
+        font-weight: 400;
+        color: $light-gray;
+        text-transform: capitalize;
+        margin-bottom: $sm-font;
+      }
+      h4 {
+        font-size: $sm-font2;
+        color: $primary-color;
+        margin-bottom: $lg-font;
+      }
+    }
+
+    .payment__methods {
+      h5 {
+        color: $black-color;
+        font-size: $extra-font;
+        margin-bottom: $sm-font;
+        text-transform: capitalize;
+      }
+      .methods {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        gap: $sm-font;
-        margin-bottom: $sm-font;
-        h1 {
-          font-weight: 600;
-          color: $black-color;
-          font-size: $md-font;
-        }
-      }
-      small {
-        font-weight: 500;
-        font-size: $sm-font;
-        color: $lighter-gray;
-        padding-bottom: $sm-font;
-        display: block;
-        border-bottom: 1px solid $placeholder-gray;
-      }
-    }
-    &__mid {
-      align-self: stretch;
-      .amount {
-        text-align: center;
+        text-transform: capitalize;
+        gap: $sm-font1;
 
-        small {
-          font-size: $sm-font;
-          font-weight: 400;
-          color: $light-gray;
-          text-transform: capitalize;
-          margin-bottom: $sm-font;
-        }
-        h4 {
-          font-size: $sm-font2;
-          color: $primary-color;
-          margin-bottom: $lg-font;
-        }
-      }
-
-      .payment__methods {
-        h5 {
-          color: $black-color;
-          font-size: $extra-font;
-          margin-bottom: $sm-font;
-          text-transform: capitalize;
-        }
-        .methods {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          text-transform: capitalize;
-          gap: $sm-font1;
-
-          & > * {
-            @include flexCenter;
-            flex-direction: column;
-            gap: $sm-font1;
-            color: $light-gray;
-            border: 1px solid $light-gray;
-            border-radius: 7px;
-            width: 80px;
-            height: 62px;
-          }
-
-          .activePayment {
-            border: 1px solid $primary-color;
-            color: $primary-color;
-            font-weight: 600;
-            position: relative;
-            .none {
-              display: none;
-            }
-            .icon-display {
-              position: absolute;
-              top: 0.2rem;
-              right: 0.2rem;
-            }
-          }
-        }
-      }
-    }
-
-    &__bottom {
-      &--input {
-        text-align: center;
-        margin-bottom: $sm-font;
-
-        h3 {
-          font-weight: 400;
-          font-size: $extra-font;
-          text-transform: capitalize;
-          margin-bottom: $sm-font;
-        }
-      }
-      &--btns {
-        align-self: stretch;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         & > * {
-          width: 46%;
-          text-align: center;
-          text-transform: capitalize;
-          font-family: $inter-font;
-          font-size: $xxs-font;
-          font-weight: 500;
+          @include flexCenter;
+          flex-direction: column;
+          gap: $sm-font1;
+          color: $light-gray;
+          border: 1px solid $light-gray;
+          border-radius: 7px;
+          width: 80px;
+          height: 62px;
+        }
+
+        .activePayment {
           border: 1px solid $primary-color;
-          border-radius: 5px;
-          cursor: pointer;
+          color: $primary-color;
+          font-weight: 600;
+          position: relative;
+          .none {
+            display: none;
+          }
+          .icon-display {
+            position: absolute;
+            top: 0.2rem;
+            right: 0.2rem;
+          }
         }
-        span {
-          padding: $xxs-font 0;
-        }
+      }
+    }
+  }
+
+  &__bottom {
+    &--input {
+      text-align: center;
+      margin-bottom: $sm-font;
+
+      h3 {
+        font-weight: 400;
+        font-size: $extra-font;
+        text-transform: capitalize;
+        margin-bottom: $sm-font;
+      }
+    }
+    &--btns {
+      align-self: stretch;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & > * {
+        width: 46%;
+        text-align: center;
+        text-transform: capitalize;
+        font-family: $inter-font;
+        font-size: $xxs-font;
+        font-weight: 500;
+        border: 1px solid $primary-color;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      span {
+        padding: $xxs-font 0;
+      }
+    }
+  }
+}
+
+//CONFIRM PAYMENT CENTER
+.modal__center {
+  @include flexCenter;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: $xxl-font $xxl-font2;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  & > * {
+    width: 100%;
+  }
+  h1 {
+    font-weight: 600;
+    font-size: $extra-font;
+    margin-top: $lg-font;
+    margin-bottom: $xxl-font;
+  }
+
+  button {
+    font-family: $inter-font;
+    font-weight: 500;
+    font-size: $xxs-font;
+    text-transform: capitalize;
+    &:last-child {
+      background-color: $white-color;
+      margin-top: $md-font;
+      color: $primary-color;
+      border: 1px solid $primary-color;
+    }
+  }
+
+  .time__date {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: $md-font;
+    h4 {
+      font-family: $inter-font;
+      text-transform: capitalize;
+      font-size: $xxs-font;
+      font-weight: 600;
+      &:first-child {
+        margin-bottom: $sm-font1;
+      }
+      span {
+        font-weight: 400;
       }
     }
   }

@@ -1,8 +1,19 @@
+import { useState } from "react";
 import Payment from "../../modals/Payment";
 import Button from "../../ui/button";
 import { AiOutlineDelete } from "react-icons/ai";
+import ConfirmPayment from "../../modals/ConfirmPayment";
 
 export default function Orders() {
+  const [openModal, setOpenModal] = useState(false);
+  const [confirmPayment, setConfirmPayment] = useState(false);
+  console.log(confirmPayment);
+  const handleModalClose = () => {
+    setOpenModal(!openModal);
+  };
+  const handleConfirmModal = () => {
+    setConfirmPayment(!confirmPayment);
+  };
   const itemName1 = "Salted Pasta with mushroom sauce";
 
   function truncate(str: string, max: number) {
@@ -10,7 +21,27 @@ export default function Orders() {
   }
   return (
     <section className="orders">
-      <Payment />
+      {openModal && (
+        <>
+          <div
+            className={openModal ? "payment__wrapper" : ""}
+            onClick={handleModalClose}
+          ></div>
+          <Payment
+            closeModal={handleModalClose}
+            closeConfirmPayment={handleConfirmModal}
+          />
+        </>
+      )}
+      {confirmPayment && (
+        <>
+          <div
+            className={confirmPayment ? "modal" : ""}
+            onClick={handleConfirmModal}
+          ></div>
+          <ConfirmPayment closeConfirmPayment={handleConfirmModal} />
+        </>
+      )}
       {/* FIXED HEADER */}
       <section className="orders__header">
         <aside className="heading">
@@ -65,7 +96,7 @@ export default function Orders() {
               <span>Grand total</span>
               <h3>₦0</h3>
             </div>
-            <Button text="continue to payment" />
+            <Button text="continue to payment" onclick={handleModalClose} />
           </aside>
         </section>
       </section>
