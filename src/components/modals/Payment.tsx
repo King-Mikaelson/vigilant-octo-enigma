@@ -1,11 +1,33 @@
 import { MdArrowBackIos } from "react-icons/md";
+import { HiCheckCircle } from "react-icons/hi";
 import naira from "../../assets/naira.svg";
 import pos from "../../assets/pos.svg";
 import transfer from "../../assets/transfer.svg";
-import Input from "../ui/Input";
 import Button from "../ui/button";
+import { useState } from "react";
+
+interface MethodType {
+  img: any;
+  text: string;
+}
 
 export default function Payment() {
+  const paymentsMethods: MethodType[] = [
+    {
+      img: naira,
+      text: "cash",
+    },
+    {
+      img: pos,
+      text: "POS",
+    },
+    {
+      img: transfer,
+      text: "transfer",
+    },
+  ];
+  const [activePayment, setActivePayment] = useState("");
+
   return (
     <section className="payment__wrapper">
       <div className="payment">
@@ -26,26 +48,39 @@ export default function Payment() {
           <div className="payment__methods">
             <h5>Payment Method</h5>
             <aside className="methods">
-              <div>
-                <img src={naira} alt="naira" />
-                <small>cash</small>
-              </div>
-              <div>
-                <img src={pos} alt="pos" />
-                <small>pos</small>
-              </div>
-              <div>
-                <img src={transfer} alt="transfer" />
-                <small>transfer</small>
-              </div>
+              {paymentsMethods.map((pay, index) => {
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setActivePayment(pay.text)}
+                    className={
+                      activePayment === pay.text ? "activePayment" : ""
+                    }
+                  >
+                    <img src={pay.img} alt={pay.text} />
+                    <small>{pay.text}</small>
+                    {activePayment === pay.text && (
+                      <HiCheckCircle
+                        color="#ec9c04"
+                        className={
+                          activePayment === pay.text ? "icon-display" : "none"
+                        }
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </aside>
           </div>
         </aside>
 
         <form className="payment__bottom">
-          <h3>enter amount received</h3>
-          <Input type="number" />
-          <div>
+          <div className="payment__bottom--input">
+            <h3>enter amount received:</h3>
+            <input type="number" className="input__ordinary" />
+          </div>
+
+          <div className="payment__bottom--btns">
             <span>cancel</span>
             <Button text="confirm payment" />
           </div>

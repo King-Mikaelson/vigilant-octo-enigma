@@ -8,20 +8,15 @@ import ChangePassword from "../features/authentication/password/changePwd";
 import PwdUpdated from "../features/authentication/password/pwdUpdated";
 import ForgotPwd from "../features/authentication/password/forgotpwd-email";
 import Subscribe from "../features/subscription";
-import Admin from "../features/pos-admin";
+import Admin from "../features/admin/pos-admin";
 import ErrorPage from "../features/error404";
 import StyleGuides from "../styleGuides";
-import PosWaiters from "../features/pos-waiters";
-import DashboardAdmin from "../features/dashboard-admin";
-import Settings from "../components/settings/adminSettings";
-import EditProfile from "../components/settings/adminSettings/profile/EditProfile";
-import ManageUsers from "../components/settings/adminSettings/manageUsers";
-import ManageSubs from "../components/settings/adminSettings/manageSub";
-
-// Always navigate the "/test" path in your browser and render
-// your component in "styleGuides.tsx" to TEST while building
-// before importing for use where it's needed as discussed.
-
+import PosWaiters from "../features/waiters/pos-waiters";
+import DashboardAdmin from "../features/admin/dashboard-admin";
+import Settings from "../components/admin/settings/adminSettings";
+import EditProfile from "../components/admin/settings/adminSettings/profile/EditProfile";
+import ManageUsers from "../components/admin/settings/adminSettings/manageUsers";
+import ManageSubs from "../components/admin/settings/adminSettings/manageSub";
 const router = createBrowserRouter([
   {
     path: "/test",
@@ -66,7 +61,6 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
-    children: [],
   },
   {
     path: "/dashboard-admin",

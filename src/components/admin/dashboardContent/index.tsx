@@ -1,6 +1,6 @@
-import mealImage from "../../assets/mealImage.png";
-import wineImage from "../../assets/wineImage.png";
-import { orders, table } from "../../frontendData/frontendData";
+import mealImage from "../../../assets/mealImage.png";
+import wineImage from "../../../assets/wineImage.png";
+import { orders, table } from "../../../frontendData/frontendData";
 
 export default function DashboardContent() {
   return (

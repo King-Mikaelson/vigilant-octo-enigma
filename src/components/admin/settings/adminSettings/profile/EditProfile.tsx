@@ -3,10 +3,10 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { useNavigate } from "react-router-dom";
-import Input from "../../../ui/Input";
-import Button from "../../../ui/button";
 import { MdArrowBackIos } from "react-icons/md";
 import SettingsLayout from "../layout";
+import Input from "../../../../ui/Input";
+import Button from "../../../../ui/button";
 
 export default function EditProfile() {
   const navigate = useNavigate();

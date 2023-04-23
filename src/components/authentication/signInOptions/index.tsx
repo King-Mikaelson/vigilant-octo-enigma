@@ -1,4 +1,4 @@
-import googleIcon from "../../assets/google.png";
+import googleIcon from "../../../assets/google.png";
 import { Link } from "react-router-dom";
 
 export default function SignInOptions() {
