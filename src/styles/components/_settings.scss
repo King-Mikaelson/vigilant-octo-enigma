@@ -1,7 +1,7 @@
 //PROFILE SETTINGS
 .profile-container {
     margin-top: 1rem;
-    padding: 0 2rem;
+    padding: 0 2rem 2rem 2rem;
 
     .profile-header {
         display: flex;
@@ -142,25 +142,17 @@
             }
 
             .logo-input {
-                display: flex;
-                align-items: center;
                 border: 2px dashed $secondary-color;
                 border-radius: 5px;
-                padding: 5px;
-                width: 300px;
+                width: "300px";
 
-                input[type="file"] {
-                    display: none;
-                }
-
-                div {
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-                    text-align: center;
-                    gap: 10px;
-                    font-size: 12px;
-                    margin: 0 auto;
+                .logo-input-file {
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                    position: "absolute";
+                    top: 0;
+                    left: 0;
                 }
             }
         }
@@ -200,6 +192,7 @@
         .form.edit-prof {
             padding: 0 3.5rem;
 
+
             label {
                 display: flex;
                 justify-content: space-between;
@@ -218,27 +211,37 @@
                     font-weight: 500;
                     color: $black-color2;
                     outline: none;
+
+                    .edit-error {
+                        padding-top: 5px;
+                    }
                 }
 
             }
         }
 
-        .cancel-btn {
-            @include flexCenter;
-            border: none;
-            background-color: transparent;
-            font-weight: 500;
-            color: $primary-color;
-            font-size: $sm-font;
-            font-family: $dm-sans-font;
-            text-align: center;
-            width: 100px;
-            margin: $md-font auto;
-            cursor: pointer;
+        .cancel-btn-div {
+            margin-bottom: 4rem;
 
-            &:hover {
-                transform: scale(1.1);
+            .cancel-btn {
+                @include flexCenter;
+                border: none;
+                background-color: transparent;
+                font-weight: 500;
+                color: $primary-color;
+                font-size: $sm-font;
+                font-family: $dm-sans-font;
+                text-align: center;
+                width: 100px;
+                margin: $md-font auto;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
+
+
     }
 }

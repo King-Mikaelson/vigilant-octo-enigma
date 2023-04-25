@@ -10,7 +10,7 @@ import DashboardAdmin from "./features/admin/dashboard-admin";
 import TopMenu from "./components/topMenu";
 import DashboardCard from "./components/admin/dashboardCard";
 import DashboardContent from "./components/admin/dashboardContent";
-import EditProfile from "./components/admin/settings/adminSettings/profile/EditProfile";
+import EditProfile from "./components/admin/settings/profile/EditProfile";
 export default function StyleGuides() {
   return (
     <div>

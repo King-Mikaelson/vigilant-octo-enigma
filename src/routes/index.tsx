@@ -13,12 +13,10 @@ import ErrorPage from "../features/error404";
 import StyleGuides from "../styleGuides";
 import PosWaiters from "../features/waiters/pos-waiters";
 import DashboardAdmin from "../features/admin/dashboard-admin";
-import Settings from "../components/admin/settings/adminSettings";
-import EditProfile from "../components/admin/settings/adminSettings/profile/EditProfile";
-// Always navigate the "/test" path in your browser and render
-// your component in "styleGuides.tsx" to TEST while building
-// before importing for use where it's needed as discussed.
-
+import Settings from "../components/admin/settings";
+import EditProfile from "../components/admin/settings/profile/EditProfile";
+import ManageUsers from "../components/admin/settings/manageUsers";
+import ManageSubs from "../components/admin/settings/manageSub";
 const router = createBrowserRouter([
   {
     path: "/test",
@@ -63,7 +61,6 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
-    errorElement: <ErrorPage />,
   },
   {
     path: "/dashboard-admin",
@@ -71,12 +68,20 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/settings",
+    path: "/settings/profile",
     element: <Settings />,
   },
   {
-    path: "/editprofile",
+    path: "/settings/editprofile",
     element: <EditProfile />,
+  },
+  {
+    path: "/settings/manageusers",
+    element: <ManageUsers />,
+  },
+  {
+    path: "/settings/managesubscriptions",
+    element: <ManageSubs />,
   },
   {
     path: "/pos-waiters",
