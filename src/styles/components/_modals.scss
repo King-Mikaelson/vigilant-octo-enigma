@@ -130,7 +130,7 @@
   top: 0;
   right: 0;
   height: 100vh;
-  width: 31.3vw;
+  width: 31.2vw;
   z-index: 2;
   font-family: $inter-font;
   .payment {
@@ -162,6 +162,101 @@
         padding-bottom: $sm-font;
         display: block;
         border-bottom: 1px solid $placeholder-gray;
+      }
+    }
+    &__mid {
+      align-self: stretch;
+      .amount {
+        text-align: center;
+
+        small {
+          font-size: $sm-font;
+          font-weight: 400;
+          color: $light-gray;
+          text-transform: capitalize;
+          margin-bottom: $sm-font;
+        }
+        h4 {
+          font-size: $sm-font2;
+          color: $primary-color;
+          margin-bottom: $lg-font;
+        }
+      }
+
+      .payment__methods {
+        h5 {
+          color: $black-color;
+          font-size: $extra-font;
+          margin-bottom: $sm-font;
+          text-transform: capitalize;
+        }
+        .methods {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          text-transform: capitalize;
+          gap: $sm-font1;
+
+          & > * {
+            @include flexCenter;
+            flex-direction: column;
+            gap: $sm-font1;
+            color: $light-gray;
+            border: 1px solid $light-gray;
+            border-radius: 7px;
+            width: 80px;
+            height: 62px;
+          }
+
+          .activePayment {
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            font-weight: 600;
+            position: relative;
+            .none {
+              display: none;
+            }
+            .icon-display {
+              position: absolute;
+              top: 0.2rem;
+              right: 0.2rem;
+            }
+          }
+        }
+      }
+    }
+
+    &__bottom {
+      &--input {
+        text-align: center;
+        margin-bottom: $sm-font;
+
+        h3 {
+          font-weight: 400;
+          font-size: $extra-font;
+          text-transform: capitalize;
+          margin-bottom: $sm-font;
+        }
+      }
+      &--btns {
+        align-self: stretch;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & > * {
+          width: 46%;
+          text-align: center;
+          text-transform: capitalize;
+          font-family: $inter-font;
+          font-size: $xxs-font;
+          font-weight: 500;
+          border: 1px solid $primary-color;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        span {
+          padding: $xxs-font 0;
+        }
       }
     }
   }

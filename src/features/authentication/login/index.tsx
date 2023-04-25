@@ -3,9 +3,8 @@ import useTogglePassword from "../hooks/useTogglePassword";
 import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/button";
 import AuthLayout from "../../../layout/authLayout";
-import SignInOptions from "../../../components/signInOptions";
 import { useState } from "react";
-
+import SignInOptions from "../../../components/authentication/signInOptions";
 export default function Login() {
   //TOGGLING PASSWORD HIDE/SHOW
   const [InputType, ToggleIcon] = useTogglePassword();

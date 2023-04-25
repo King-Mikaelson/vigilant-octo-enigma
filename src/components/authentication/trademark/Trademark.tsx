@@ -1,4 +1,4 @@
-import logo from "../../assets/uppistLogo.png";
+import logo from "../../../assets/uppistLogo.png";
 
 export default function Trademark() {
   return (
