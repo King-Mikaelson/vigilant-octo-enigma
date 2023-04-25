@@ -1,8 +1,9 @@
 
-
-
 export default function GeneralReport() {
   return (
-    <div>GeneralReport</div>
+    <div>
+
+      GeneralReport
+    </div>
   )
 }

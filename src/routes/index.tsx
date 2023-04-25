@@ -15,6 +15,8 @@ import PosWaiters from "../features/waiters/pos-waiters";
 import DashboardAdmin from "../features/admin/dashboard-admin";
 import Settings from "../components/admin/settings/adminSettings";
 import EditProfile from "../components/admin/settings/adminSettings/profile/EditProfile";
+import  Report from  "../features/report/index";
+import DashboardLayout from "../layout/dashboardLayout";
 // Always navigate the "/test" path in your browser and render
 // your component in "styleGuides.tsx" to TEST while building
 // before importing for use where it's needed as discussed.
@@ -60,28 +62,40 @@ const router = createBrowserRouter([
     path: "/subscribe",
     element: <Subscribe />,
   },
+
   {
-    path: "/admin",
-    element: <Admin />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/dashboard-admin",
-    element: <DashboardAdmin />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/settings",
-    element: <Settings />,
-  },
-  {
-    path: "/editprofile",
-    element: <EditProfile />,
-  },
-  {
-    path: "/pos-waiters",
-    element: <PosWaiters />,
-    errorElement: <ErrorPage />,
+    element: <DashboardLayout/>,
+    children: [
+      {
+        path: "/admin",
+        element: <Admin />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/dashboard-admin",
+        element: <DashboardAdmin />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/settings",
+        element: <Settings />,
+      },
+      {
+        path: "/editprofile",
+        element: <EditProfile />,
+      },
+      {
+        path: "/pos-waiters",
+        element: <PosWaiters />,
+        errorElement: <ErrorPage />,
+      },
+    
+      {
+        path: "/report",
+        element: <Report />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
 ]);
 
