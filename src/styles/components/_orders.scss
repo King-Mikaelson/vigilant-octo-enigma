@@ -109,6 +109,11 @@
         justify-content: center;
         gap: $xs-font;
         flex-direction: column;
+        button {
+          font-family: $inter-font;
+          font-weight: 500;
+          font-size: $xxs-font;
+        }
         .calc {
           @include flexSpaceCenter;
           span {
