@@ -15,8 +15,10 @@ import PosWaiters from "../features/waiters/pos-waiters";
 import DashboardAdmin from "../features/admin/dashboard-admin";
 import Settings from "../components/admin/settings/adminSettings";
 import EditProfile from "../components/admin/settings/adminSettings/profile/EditProfile";
-import  Report from  "../features/report/index";
+import ReportLayout from "../features/report/index";
 import DashboardLayout from "../layout/dashboardLayout";
+import IndividualReport from "../features/report/individual-report/index";
+import GeneralReport from "../features/report/general-report/index";
 // Always navigate the "/test" path in your browser and render
 // your component in "styleGuides.tsx" to TEST while building
 // before importing for use where it's needed as discussed.
@@ -64,7 +66,7 @@ const router = createBrowserRouter([
   },
 
   {
-    element: <DashboardLayout/>,
+    element: <DashboardLayout />,
     children: [
       {
         path: "/admin",
@@ -89,11 +91,21 @@ const router = createBrowserRouter([
         element: <PosWaiters />,
         errorElement: <ErrorPage />,
       },
-    
+
       {
-        path: "/report",
-        element: <Report />,
-        errorElement: <ErrorPage />,
+        element: <ReportLayout />,
+        children: [
+          {
+            path: "/individual-report",
+            element: <IndividualReport />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/general-report",
+            element: <GeneralReport />,
+            errorElement: <ErrorPage />,
+          },
+        ],
       },
     ],
   },

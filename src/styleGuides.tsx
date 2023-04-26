@@ -11,9 +11,15 @@ import TopMenu from "./components/topMenu";
 import DashboardCard from "./components/admin/dashboardCard";
 import DashboardContent from "./components/admin/dashboardContent";
 import EditProfile from "./components/admin/settings/adminSettings/profile/EditProfile";
+import ReportLayout from "./features/report/index";
+import IndividualReport from "./features/report/individual-report";
+import GeneralReport from "./features/report/general-report";
 export default function StyleGuides() {
   return (
     <div>
+      <ReportLayout />
+      <IndividualReport />
+      <GeneralReport />
       <DashboardContent />
       <DashboardCard />
       <TopMenu />

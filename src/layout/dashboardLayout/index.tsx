@@ -9,7 +9,9 @@ export default function DashboardLayout() {
         <aside className="dashboardlayout__left">
           <SideBar />
         </aside>
-        <aside className="dashboardlayout__right"><Outlet /></aside>
+        <aside className="dashboardlayout__right">
+          <Outlet />
+        </aside>
       </section>
     </AppLogout>
   );
