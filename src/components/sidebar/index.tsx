@@ -46,7 +46,7 @@ export default function SideBar() {
         </NavLink>
 
         <NavLink
-          to={"/report"}
+          to={"/reports/individual-report"}
           style={activeTab === "report" ? activeStyle : undefined}
           onClick={() => {
             setActiveTab("report");
@@ -58,7 +58,7 @@ export default function SideBar() {
         </NavLink>
 
         <NavLink
-          to={"/settings"}
+          to={"/settings/profile"}
           style={activeTab === "settings" ? activeStyle : undefined}
           onClick={() => {
             setActiveTab("settings");

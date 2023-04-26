@@ -26,7 +26,7 @@ export default function ReportLayout() {
                 <CgProfile />
               </span>
 
-              <Link to="/individual-report">Individual Report</Link>
+              <Link to="/reports/individual-report">Individual Report</Link>
             </li>
             <li
               className={selectedItem === "general" ? "selected" : ""}
@@ -35,7 +35,7 @@ export default function ReportLayout() {
               <span className="layout-icon">
                 <TbUsers />
               </span>
-              <Link to="/general-report">General Report</Link>
+              <Link to="/reports/general-report">General Report</Link>
             </li>
           </ul>
         </div>

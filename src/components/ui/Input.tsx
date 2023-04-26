@@ -5,6 +5,8 @@ type InputProps = {
   name?: string;
   fullName?: string;
   email?: string;
+  bizName?: string;
+  address?: string;
   password?: string;
   error?: string;
   value?: string;
@@ -12,15 +14,21 @@ type InputProps = {
   passwordError?: string;
   emailError?: string;
   phoneError?: string;
+  bizNameError?: string;
+  addressError?: string;
   errorValue?: string;
   errorPassword?: string;
   checked?: boolean;
   handleName?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBizName?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleAddress?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleValue?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handlePasswordValue?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleEmail?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handlePassword?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChecked?: () => void;
+  handleBizNameFocus?: () => void;
+  handleAddressFocus?: () => void;
   handleNameFocus?: () => void;
   handleValueFocus?: () => void;
   handlePasswordValueFocus?: () => void;
@@ -33,14 +41,20 @@ export default function Input({
   placeholder,
   id,
   handleName,
+  handleBizName,
+  handleAddress,
   handleEmail,
   handlePassword,
   email,
   password,
   fullName,
+  bizName,
+  address,
   value,
   passwordValue,
   name,
+  handleAddressFocus,
+  handleBizNameFocus,
   handleNameFocus,
   handleEmailFocus,
   handlePasswordFocus,
@@ -52,6 +66,8 @@ export default function Input({
   error,
   passwordError,
   emailError,
+  bizNameError,
+  addressError,
   checked,
   errorValue,
   errorPassword,
@@ -63,16 +79,32 @@ export default function Input({
       id={id}
       name={name}
       className={
-        error || passwordError || emailError || errorValue || errorPassword
+        error ||
+        passwordError ||
+        emailError ||
+        bizNameError ||
+        addressError ||
+        errorValue ||
+        errorPassword
           ? `input__error`
           : `input__element`
       }
       checked={checked}
-      value={email || password || fullName || value || passwordValue}
+      value={
+        email ||
+        password ||
+        fullName ||
+        bizName ||
+        address ||
+        value ||
+        passwordValue
+      }
       onChange={(e) => {
         handlePassword?.(e);
         handleEmail?.(e);
         handleName?.(e);
+        handleAddress?.(e);
+        handleBizName?.(e);
         handleChecked?.();
         handleValue?.(e);
         handlePasswordValue?.(e);
@@ -82,6 +114,8 @@ export default function Input({
         handleEmailFocus?.();
         handlePasswordFocus?.();
         handleValueFocus?.();
+        handleAddressFocus?.();
+        handleBizNameFocus?.();
         handlePasswordValueFocus?.();
       }}
     />
