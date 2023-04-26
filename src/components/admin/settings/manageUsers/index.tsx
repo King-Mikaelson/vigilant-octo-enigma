@@ -6,7 +6,7 @@ const ManageUsers = () => {
       <h3>Manage Users</h3>
       <div className="links-container">
         <div className="user-link">
-          <Link to="/manageusers/add-users" className="user-link1">
+          <Link to="/settings/manageusers/add-users" className="user-link1">
             Add Users
           </Link>
         </div>

@@ -7,20 +7,20 @@ import Button from "../../../../ui/button";
 export default function AddUsers() {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate("/settings/manageusers");
-    }, 2000);
+    setIsModalOpen(true);
+    const form = e.currentTarget;
+    form.reset();
+  };
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    navigate("/settings/manageusers");
   };
 
   const handleBack = (e: { preventDefault: () => void }) => {
@@ -44,7 +44,7 @@ export default function AddUsers() {
           To add new user, input their email address in the space provided below
           and select a role, a link would be sent to them to create an account.
         </p>
-        <form className="form edit-prof" onSubmit={(e) => handleSubmit(e)}>
+        <form className="form edit-prof" onSubmit={handleSubmit}>
           <aside className="form-items">
             <label htmlFor="email">
               <h3>Email address</h3>
@@ -69,7 +69,7 @@ export default function AddUsers() {
             </div>
           </aside>
 
-          <Button text={isLoading ? "Sending..." : "Send Link"} />
+          <Button text="Send Link" />
 
           <div className="cancel-btn-div">
             <button
@@ -81,6 +81,16 @@ export default function AddUsers() {
             </button>
           </div>
         </form>
+        {isModalOpen && (
+          <div className="user-modal">
+            <div className="modal-content">
+              <p>A link has been sent to the email address you provided!</p>
+              <button className="close-btn" onClick={handleModalClose}>
+                Okay
+              </button>
+            </div>
+          </div>
+        )}
       </section>
     </section>
   );
