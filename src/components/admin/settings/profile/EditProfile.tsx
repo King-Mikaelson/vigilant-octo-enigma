@@ -4,7 +4,6 @@ import PhoneInput from "react-phone-number-input";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { useNavigate } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
-import SettingsLayout from "../layout";
 import Input from "../../../ui/Input";
 import Button from "../../../ui/button";
 
@@ -115,7 +114,6 @@ export default function EditProfile() {
   };
 
   return (
-    <SettingsLayout>
       <section className="container edit-prof">
         <section className="auth edit-prof">
           <h3 className="auth__heading edit-prof">
@@ -233,6 +231,5 @@ export default function EditProfile() {
           </form>
         </section>
       </section>
-    </SettingsLayout>
   );
 }
