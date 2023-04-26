@@ -1,8 +1,5 @@
 import Subscribe from "./features/subscription";
 import TopBar from "./components/topBar/index";
-//import DeleteItem from "./components/items/deleteItem";
-// import EditItem from "./components/items/editItem";
-// import AddItem from "./components/items/addItem";
 import Filters from "./components/filters";
 import MenuCard from "./components/menuCard";
 import Admin from "./features/admin/pos-admin";
@@ -15,10 +12,12 @@ import IndividualReport from "./features/report/individual-report";
 import GeneralReport from "./features/report/general-report";
 import EditProfile from "./components/admin/settings/profile/EditProfile";
 import AddUsers from "./components/admin/settings/manageUsers/addUsers";
+import UserLists from "./components/admin/settings/manageUsers/userLists";
 
 export default function StyleGuides() {
   return (
     <div>
+      <UserLists />
       <AddUsers />
       <ReportLayout />
       <IndividualReport />
@@ -31,10 +30,6 @@ export default function StyleGuides() {
       <MenuCard />
       <Filters />
       <Admin />
-      {/* <DeleteItem /> */}
-      {/* Commented this out because the background effect affects the ENTIRE screen */}
-      {/* <EditItem /> */}
-      {/* <AddItem /> */}
       <TopBar />
       <Subscribe />
     </div>
