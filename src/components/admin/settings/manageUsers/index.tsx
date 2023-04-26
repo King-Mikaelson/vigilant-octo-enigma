@@ -1,7 +1,22 @@
+import { Link } from "react-router-dom";
 
 const ManageUsers = () => {
   return (
-      <div>ManageUsers</div>
+    <div className="manage-container">
+      <h3>Manage Users</h3>
+      <div className="links-container">
+        <div className="user-link">
+          <Link to="/manageusers/add-users" className="user-link1">
+            Add Users
+          </Link>
+        </div>
+        <div className="user-link">
+          <Link to="/manageusers/users-list" className="user-link1">
+            Users List
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 export default ManageUsers;

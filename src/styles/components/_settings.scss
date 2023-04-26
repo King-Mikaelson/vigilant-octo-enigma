@@ -245,3 +245,108 @@
 
     }
 }
+
+// MANAGE USERS
+.manage-container {
+    padding: 2rem;
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .links-container {
+        @include flexCenter;
+        flex-direction: column;
+        margin-top: 3rem;
+        gap: 3rem;
+
+        .user-link {
+            .user-link1 {
+                text-decoration: none;
+                color: $dark-gray;
+                border: 1px solid $lighter-gray;
+                padding: 0.6rem 8rem;
+                border-radius: 0.8rem;
+                text-align: center;
+                margin-bottom: 1.5rem;
+                font-size: 14px;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: $primary-color;
+                    border: none;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+// Add User
+
+.addNewUser {
+    .h3 {
+        font-family: $inter-font;
+
+        .add-new-user {
+            font-size: 16px;
+            font-weight: 400;
+            font-family: $inter-font;
+        }
+
+    }
+
+    .adduser-text {
+        font-family: $inter-font;
+        color: $black-color;
+        opacity: 0.68;
+        line-height: 19px;
+        margin-bottom: 2rem;
+    }
+
+    .adduser-field {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 0 1.5rem 0;
+
+        label {
+            margin-bottom: 0.5rem;
+            color: $black-color;
+            font-weight: 400;
+            font-size: 16px;
+            padding-top: 10px;
+            min-width: 150px;
+        }
+
+        select {
+            width: 85%;
+            min-width: 250px;
+            border-radius: 0.25rem;
+            outline: none;
+            border: 1px solid $placeholder-gray;
+            box-sizing: border-box;
+            font-size: 14px;
+            padding: 1rem 1.5rem;
+            font-family: $inter-font;
+        }
+
+
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.5rem;
+            color: $placeholder-gray;
+
+            option {
+                color: black;
+
+                &:first-child {
+                    color: $placeholder-gray;
+                }
+            }
+        }
+    }
+}

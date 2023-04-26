@@ -14,9 +14,12 @@ import ReportLayout from "./features/report/index";
 import IndividualReport from "./features/report/individual-report";
 import GeneralReport from "./features/report/general-report";
 import EditProfile from "./components/admin/settings/profile/EditProfile";
+import AddUsers from "./components/admin/settings/manageUsers/addUsers";
+
 export default function StyleGuides() {
   return (
     <div>
+      <AddUsers />
       <ReportLayout />
       <IndividualReport />
       <GeneralReport />
