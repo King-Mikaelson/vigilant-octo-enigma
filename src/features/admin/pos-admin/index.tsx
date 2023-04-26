@@ -1,11 +1,9 @@
 import Menu from "../../../components/menu";
-// import Orders from "../../components/orders";
 import AddItem from "../../../components/admin/items/addItem";
-import DashboardLayout from "../../../layout/dashboardLayout";
+
 
 export default function Admin() {
   return (
-    <DashboardLayout>
       <div className="pos">
         <aside className="pos__left">
           <Menu />
@@ -14,6 +12,5 @@ export default function Admin() {
           <AddItem />
         </aside>
       </div>
-    </DashboardLayout>
   );
 }

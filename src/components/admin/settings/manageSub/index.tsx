@@ -1,4 +1,7 @@
+
 const ManageSubs = () => {
-  return <div>ManageSubs</div>;
+  return (
+      <div>Manage Subs</div>
+  );
 };
 export default ManageSubs;

@@ -1,0 +1,61 @@
+.individualReports {
+    h1 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: $extra-font;
+        line-height: 140%;
+        color: $black-color;
+        padding: $sm-font2;
+    }
+
+    .waiters {
+        @include flexCenter;
+        flex-direction: column;
+
+        h2 {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: $sm-font;
+            line-height: 140%;
+            color: $black-color2;
+            padding-top: $xl-font;
+        }
+
+        .waiters__list {
+            @include flexCenter;
+            flex-direction: column;
+            width: 100%;
+            gap: $sm-font2;
+            padding-top: $sm-font2;
+
+            .waiters__link {
+                @include flexCenter;
+                border: 1px solid $lighter-gray;
+                border-radius: 11.8264px;
+                width: 35%;
+                padding: $sm-font $xxl-font1;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+                color: $gray-text;
+            }
+        }
+    }
+}
+
+
+.generalReports {
+    h1 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: $extra-font;
+        line-height: 140%;
+        color: $black-color;
+        padding: $sm-font2;
+    }
+}

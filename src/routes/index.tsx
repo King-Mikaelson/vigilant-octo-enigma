@@ -13,11 +13,16 @@ import ErrorPage from "../features/error404";
 import StyleGuides from "../styleGuides";
 import PosWaiters from "../features/waiters/pos-waiters";
 import DashboardAdmin from "../features/admin/dashboard-admin";
-import Settings from "../components/admin/settings/adminSettings";
-import EditProfile from "../components/admin/settings/adminSettings/profile/EditProfile";
-// Always navigate the "/test" path in your browser and render
-// your component in "styleGuides.tsx" to TEST while building
-// before importing for use where it's needed as discussed.
+import ReportLayout from "../features/report/index";
+import DashboardLayout from "../layout/dashboardLayout";
+import IndividualReport from "../features/report/individual-report/index";
+import GeneralReport from "../features/report/general-report/index";
+import Settings from "../components/admin/settings";
+import EditProfile from "../components/admin/settings/profile/EditProfile";
+import ManageUsers from "../components/admin/settings/manageUsers";
+import ManageSubs from "../components/admin/settings/manageSub";
+import SettingsLayout from "../components/admin/settings/layout";
+// Always navigate the "/test" path in your browser and render your component in "styleGuides.tsx" to TEST while building before importing for use where it's needed as discussed.
 
 const router = createBrowserRouter([
   {
@@ -60,28 +65,64 @@ const router = createBrowserRouter([
     path: "/subscribe",
     element: <Subscribe />,
   },
+
   {
-    path: "/admin",
-    element: <Admin />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/dashboard-admin",
-    element: <DashboardAdmin />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/settings",
-    element: <Settings />,
-  },
-  {
-    path: "/editprofile",
-    element: <EditProfile />,
-  },
-  {
-    path: "/pos-waiters",
-    element: <PosWaiters />,
-    errorElement: <ErrorPage />,
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/admin",
+        element: <Admin />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/dashboard-admin",
+        element: <DashboardAdmin />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/pos-waiters",
+        element: <PosWaiters />,
+        errorElement: <ErrorPage />,
+      },
+
+      {
+        element: <SettingsLayout />,
+        children: [
+          {
+            path: "/settings/profile",
+            element: <Settings />,
+          },
+          {
+            path: "/settings/editprofile",
+            element: <EditProfile />,
+          },
+          {
+            path: "/settings/manageusers",
+            element: <ManageUsers />,
+          },
+          {
+            path: "/settings/managesubscriptions",
+            element: <ManageSubs />,
+          },
+        ],
+      },
+
+      {
+        element: <ReportLayout />,
+        children: [
+          {
+            path: "/reports/individual-report",
+            element: <IndividualReport />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/reports/general-report",
+            element: <GeneralReport />,
+            errorElement: <ErrorPage />,
+          },
+        ],
+      },
+    ],
   },
 ]);
 
