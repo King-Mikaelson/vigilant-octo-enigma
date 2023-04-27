@@ -386,18 +386,18 @@ interface UserList {
   id: string;
   name: string;
   email: string;
-  phone: number;
+  phone: string;
   role: string;
   status: string;
   action: string;
 }
 
-export const UserLists: UserList[] = [
+export const UsersList: UserList[] = [
   {
     id: "1",
     name: "John Doe",
     email: "johndoe@gmail.com",
-    phone: 8004567890,
+    phone: "08044567890",
     role: "Admin",
     status: "Active",
     action: "Suspend",
@@ -406,7 +406,7 @@ export const UserLists: UserList[] = [
     id: "2",
     name: "Joy Madu",
     email: "joymadu4@yahoo.com",
-    phone: 8145678903,
+    phone: "08044567890",
     role: "Waiter",
     status: "Inactive",
     action: "Suspend",
@@ -415,7 +415,7 @@ export const UserLists: UserList[] = [
     id: "3",
     name: "Blessing seun",
     email: "seunkuti77@gmail.com",
-    phone: 9034567890,
+    phone: "08044567890",
     role: "Waiter",
     status: "Inactive",
     action: "Suspend",
@@ -424,7 +424,7 @@ export const UserLists: UserList[] = [
     id: "4",
     name: "James Smith",
     email: "smaith4jy@gmail.com",
-    phone: 8004567890,
+    phone: "08044567890",
     role: "Waiter",
     status: "Active",
     action: "Suspend",

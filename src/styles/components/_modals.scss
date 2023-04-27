@@ -93,13 +93,24 @@
         background-color: transparent;
         border: none;
         outline: none;
-        // padding-top: 1rem;
         cursor: pointer;
 
         &:hover {
           transform: scale(1.1);
         }
       }
+
+      .cancel-btn.suspend-cancel-btn {
+        border: 1px solid $primary-color;
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+
+        &:hover {
+          transform: scale(0.95);
+        }
+      }
+
     }
   }
 }
