@@ -11,7 +11,7 @@ const ManageUsers = () => {
           </Link>
         </div>
         <div className="user-link">
-          <Link to="/manageusers/users-list" className="user-link1">
+          <Link to="/settings/manageusers/users-list" className="user-link1">
             Users List
           </Link>
         </div>

@@ -95,22 +95,21 @@ const router = createBrowserRouter([
             element: <Settings />,
           },
           {
-            path: "/settings/editprofile",
+            path: "/settings/profile/editprofile",
             element: <EditProfile />,
           },
           {
             path: "/settings/manageusers",
             element: <ManageUsers />,
-            children: [
-              {
-                path: "/settings/manageusers/add-users",
-                element: <AddUsers />,
-              },
-              {
-                path: "/settings/manageusers/users-list",
-                element: <UserLists />,
-              },
-            ],
+          },
+
+          {
+            path: "/settings/manageusers/add-users",
+            element: <AddUsers />,
+          },
+          {
+            path: "/settings/manageusers/users-list",
+            element: <UserLists />,
           },
           {
             path: "/settings/managesubscriptions",

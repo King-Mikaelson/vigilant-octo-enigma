@@ -8,10 +8,10 @@ export default function AddUsers() {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value);
   };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsModalOpen(true);
@@ -23,13 +23,10 @@ export default function AddUsers() {
     navigate("/settings/manageusers");
   };
 
-  const handleBack = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+  const handleBack = () => {
     navigate("/settings/manageusers");
   };
-
-  const handleCancelEdit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+  const handleCancelEdit = () => {
     navigate("/settings/manageusers");
   };
 
@@ -44,7 +41,7 @@ export default function AddUsers() {
           To add new user, input their email address in the space provided below
           and select a role, a link would be sent to them to create an account.
         </p>
-        <form className="form edit-prof" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form edit-prof">
           <aside className="form-items">
             <label htmlFor="email">
               <h3>Email address</h3>
@@ -70,7 +67,6 @@ export default function AddUsers() {
           </aside>
 
           <Button text="Send Link" />
-
           <div className="cancel-btn-div">
             <button
               className="cancel-btn"
