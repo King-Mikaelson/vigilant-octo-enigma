@@ -22,6 +22,8 @@ import EditProfile from "../components/admin/settings/profile/EditProfile";
 import ManageUsers from "../components/admin/settings/manageUsers";
 import ManageSubs from "../components/admin/settings/manageSub";
 import SettingsLayout from "../components/admin/settings/layout";
+import AddUsers from "../components/admin/settings/manageUsers/addUsers";
+import UserLists from "../components/admin/settings/manageUsers/userLists";
 // Always navigate the "/test" path in your browser and render your component in "styleGuides.tsx" to TEST while building before importing for use where it's needed as discussed.
 
 const router = createBrowserRouter([
@@ -93,12 +95,21 @@ const router = createBrowserRouter([
             element: <Settings />,
           },
           {
-            path: "/settings/editprofile",
+            path: "/settings/profile/editprofile",
             element: <EditProfile />,
           },
           {
             path: "/settings/manageusers",
             element: <ManageUsers />,
+          },
+
+          {
+            path: "/settings/manageusers/add-users",
+            element: <AddUsers />,
+          },
+          {
+            path: "/settings/manageusers/users-list",
+            element: <UserLists />,
           },
           {
             path: "/settings/managesubscriptions",

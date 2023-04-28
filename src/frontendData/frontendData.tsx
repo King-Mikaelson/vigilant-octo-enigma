@@ -8,33 +8,32 @@ type Table = {
 };
 
 type Sides = {
-    name: string;
-    order: string;
+  name: string;
+  order: string;
+};
 
-}
-
-export const orders:Sides[] = [ 
-    {
-        name: "Salted Pasta with mushroom sauce",
-        order: "150 orders"
-    },
-    {
-        name: "Hot spicy fried rice",
-        order: "126 orders"
-    },
-    {
-        name: "Robertson sweet wine",
-        order: "150 orders"
-    },
-    {
-        name: "Chivita",
-        order: "126 orders"
-    },
-    {
-        name: "Salted Pasta with mushroom sauce",
-        order: "150 orders"
-    },
-]
+export const orders: Sides[] = [
+  {
+    name: "Salted Pasta with mushroom sauce",
+    order: "150 orders",
+  },
+  {
+    name: "Hot spicy fried rice",
+    order: "126 orders",
+  },
+  {
+    name: "Robertson sweet wine",
+    order: "150 orders",
+  },
+  {
+    name: "Chivita",
+    order: "126 orders",
+  },
+  {
+    name: "Salted Pasta with mushroom sauce",
+    order: "150 orders",
+  },
+];
 
 export const table: Table[] = [
   {
@@ -127,45 +126,34 @@ export const table: Table[] = [
   },
 ];
 
-
-
-
-type Card ={
+type Card = {
   title: string;
   amount: Number;
-}
+};
 
-export const card:Card[] = [
-{
-  title: "Total Orders",
-  amount: 40
-},
-{
-  title: "Total Revenue",
-  amount: 148800
-},
+export const card: Card[] = [
+  {
+    title: "Total Orders",
+    amount: 40,
+  },
+  {
+    title: "Total Revenue",
+    amount: 148800,
+  },
 
-{title: "Cash Payments",
-amount: 1700
-},
-{title: "POS Payments",
-amount: 118500
-},
-{title: "Transfer Payments",
-amount: 28600
-},
-
-
-]
+  { title: "Cash Payments", amount: 1700 },
+  { title: "POS Payments", amount: 118500 },
+  { title: "Transfer Payments", amount: 28600 },
+];
 
 export interface Store {
-  id:string,
-  name:string,
-  price:string,
-  category:string
+  id: string;
+  name: string;
+  price: string;
+  category: string;
 }
 
-export const active:any = {
+export const active: any = {
   "0": "All",
   "1": "Meals",
   "2": "Drinks",
@@ -173,228 +161,223 @@ export const active:any = {
   "4": "Sides",
   "5": "Grills",
   "6": "Desserts",
-} 
+};
 
-export const Stock:Store[] = [
+export const Stock: Store[] = [
   {
-    id:"1",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "1",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"2",
-    name:"Salted with Rice pasta",
-    price:"10000",
-    category:"Wine"
+    id: "2",
+    name: "Salted with Rice pasta",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"3",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "3",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
   {
-    id:"4",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "4",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"5",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Wine"
+    id: "5",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"6",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "6",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
   {
-    id:"7",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "7",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"8",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Wine"
+    id: "8",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"9",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "9",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
   {
-    id:"10",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "10",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"11",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Wine"
+    id: "11",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"12",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "12",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
   {
-    id:"13",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "13",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"14",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Wine"
+    id: "14",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"15",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "15",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
   {
-    id:"16",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "16",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"17",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Wine"
+    id: "17",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"18",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "18",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
   {
-    id:"19",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "19",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"20",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Wine"
+    id: "20",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"21",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "21",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
   {
-    id:"22",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "22",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"23",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Wine"
+    id: "23",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"24",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "24",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
   {
-    id:"25",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "25",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"26",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Wine"
+    id: "26",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"27",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "27",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
   {
-    id:"28",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Meals"
+    id: "28",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Meals",
   },
   {
-    id:"29",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Wine"
+    id: "29",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Wine",
   },
   {
-    id:"30",
-    name:"Salted Pasta with mushroom sauce",
-    price:"10000",
-    category:"Desserts"
+    id: "30",
+    name: "Salted Pasta with mushroom sauce",
+    price: "10000",
+    category: "Desserts",
   },
-]
-
-
-
+];
 
 interface Product {
-    id: string;
-    name: string;
-  }
-  
-
+  id: string;
+  name: string;
+}
 
 export const Items: Product[] = [
-    {
-      id: "1",
-      name: "All",
-    },
-    {
-      id: "2",
-      name: "Meals",
-    },
-    {
-      id: "3",
-      name: "Drinks",
-    },
-    {
-      id: "4",
-      name: "Pastries",
-    },
-    {
-      id: "5",
-      name: "Sides",
-    },
-    {
-      id: "6",
-      name: "Grills",
-    },
-    {
-      id: "7",
-      name: "Desserts",
-    },
-  ];
+  {
+    id: "1",
+    name: "All",
+  },
+  {
+    id: "2",
+    name: "Meals",
+  },
+  {
+    id: "3",
+    name: "Drinks",
+  },
+  {
+    id: "4",
+    name: "Pastries",
+  },
+  {
+    id: "5",
+    name: "Sides",
+  },
+  {
+    id: "6",
+    name: "Grills",
+  },
+  {
+    id: "7",
+    name: "Desserts",
+  },
+];

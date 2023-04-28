@@ -31,7 +31,7 @@ const Profile = () => {
       <div className="profile-header">
         <h3>Profile</h3>
         <button>
-          <Link to="/settings/editprofile" className="profile-link-btn">
+          <Link to="/settings/profile/editprofile" className="profile-link-btn">
             <CiEdit />
             Edit Profile
           </Link>

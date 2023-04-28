@@ -9,3 +9,12 @@ export type HeroType = {
   name: string;
   alterEgo: string;
 };
+
+export interface UserListProps {
+  name: string;
+  email: string;
+  phone: string;
+  role: string;
+  status: string;
+  action: string;
+}
