@@ -55,6 +55,14 @@
       text-align: center;
     }
 
+    .suspend-p {
+      font-size: 18px;
+
+      span {
+        font-weight: 400;
+      }
+    }
+
     .buttons {
       display: flex;
       flex-direction: column;

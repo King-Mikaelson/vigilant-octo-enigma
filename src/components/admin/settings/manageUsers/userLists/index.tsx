@@ -44,10 +44,11 @@ export default function UserLists() {
   const [selectedUser, setSelectedUser] = useState<
     (typeof UsersList)[number] | null
   >(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  const handleSuspend = () => {
-    setIsModalOpen(true);
-  };
+  const handleSuspend = () => {};
+  const handleDelete = () => {};
+
   const handleModalClose = () => {
     setSelectedUser(null);
     setIsModalOpen(false);
@@ -56,6 +57,15 @@ export default function UserLists() {
   const handleSuspendUser = (user: (typeof UsersList)[number]) => {
     setSelectedUser(user);
     setIsModalOpen(true);
+  };
+  const handleDeleteUser = (user: (typeof UsersList)[number]) => {
+    setSelectedUser(user);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleDeleteModalClose = () => {
+    setSelectedUser(null);
+    setIsDeleteModalOpen(false);
   };
 
   const handleBack = () => {
@@ -102,7 +112,10 @@ export default function UserLists() {
                   >
                     {user.action}
                   </button>
-                  <button className="del-user_btn">
+                  <button
+                    className="del-user_btn"
+                    onClick={() => handleDeleteUser(user)}
+                  >
                     <AiOutlineDelete className="delete-icon" />
                   </button>
                 </td>
@@ -122,7 +135,9 @@ export default function UserLists() {
               >
                 <MdOutlineCancel />
               </span>
-              <p>Suspend {selectedUser?.name}?</p>
+              <p className="suspend-p">
+                Suspend <span>{selectedUser?.name}</span>?
+              </p>
 
               <div className="buttons">
                 <button className="del-btn" onClick={handleSuspend}>
@@ -132,6 +147,37 @@ export default function UserLists() {
                   className="cancel-btn suspend-cancel-btn"
                   onClick={() => {
                     handleModalClose();
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+        {isDeleteModalOpen && (
+          <div className="del-container">
+            <div className="del-content">
+              <span
+                className="close-btn"
+                onClick={() => {
+                  handleDeleteModalClose();
+                }}
+              >
+                <MdOutlineCancel />
+              </span>
+              <p className="suspend-p">
+                Delete <span>{selectedUser?.name}</span> as a user?
+              </p>
+
+              <div className="buttons">
+                <button className="del-btn" onClick={handleDelete}>
+                  Delete
+                </button>
+                <button
+                  className="cancel-btn suspend-cancel-btn"
+                  onClick={() => {
+                    handleDeleteModalClose();
                   }}
                 >
                   Cancel
