@@ -32,6 +32,24 @@
   z-index: 99999;
 }
 
+@mixin cancelBtn {
+  @include flexCenter;
+  border: none;
+  background-color: transparent;
+  font-weight: 500;
+  color: $primary-color;
+  font-size: $sm-font;
+  font-family: $dm-sans-font;
+  text-align: center;
+  width: 100px;
+  margin: $md-font auto;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
 @mixin positionSticky {
   position: sticky;
   top: 0;
