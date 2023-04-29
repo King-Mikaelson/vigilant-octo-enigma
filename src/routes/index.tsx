@@ -60,6 +60,10 @@ const router = createBrowserRouter([
     element: <ChangePassword />,
   },
   {
+    path: "/settings/profile/changepassword",
+    element: <ChangePassword />,
+  },
+  {
     path: "/pwd-updated",
     element: <PwdUpdated />,
   },
