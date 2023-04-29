@@ -10,7 +10,7 @@ import DashboardContent from "./components/admin/dashboardContent";
 import ReportLayout from "./features/report/index";
 import IndividualReport from "./features/report/individual-report";
 import GeneralReport from "./features/report/general-report";
-import EditProfile from "./components/admin/settings/profile/EditProfile";
+import EditProfile from "./components/admin/settings/profile/editProfile";
 import AddUsers from "./components/admin/settings/manageUsers/addUsers";
 import UserLists from "./components/admin/settings/manageUsers/userLists";
 
