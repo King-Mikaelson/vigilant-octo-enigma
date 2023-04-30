@@ -4,8 +4,6 @@ import CardDetails from "../cardDetails";
 import { TbCurrencyNaira } from "react-icons/tb";
 
 const ManageSubs = () => {
-  function handleModalClose() {}
-
   return (
     <div className="sub-container">
       <h4>Manage Subscriptions</h4>
@@ -14,33 +12,22 @@ const ManageSubs = () => {
       <div className="sub-body">
         <span>4% Monthly</span>
         <p className="sub-body-p">We take 4% of your monthly sales</p>
-        <button
-          className="subs-cancel-btn"
-          onClick={() => {
-            handleModalClose();
-          }}
-        >
-          Cancel
-        </button>
-        <p>Your plan renews on July 31, 2023</p>
+        <button className="subs-cancel-btn">Cancel Plan</button>
+        <p className="renew-date">Your plan renews on July 31, 2023</p>
         <div className="payment-method">
           <p>Payment Method</p>
-          <div className="addcard-link">
-            <span>
-              <IoIosAdd />
-            </span>
+          <div className="addcard-div">
+            <IoIosAdd className="icon" />
             <Link to="">Add New Card</Link>
           </div>
         </div>
       </div>
       <hr />
-      <div className="Card-details-div">
-        <CardDetails />
-      </div>
-      <span>
+      <div className="card-details-div">{/* <CardDetails /> */}</div>
+      <p className="charge-date">
         Cards will be charged at the end of the month. All major credit / debit
         cards are accepted.
-      </span>
+      </p>
       <div className="billing-history">
         <p>Billing History</p>
         <table className="table">
