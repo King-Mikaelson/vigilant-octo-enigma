@@ -522,7 +522,87 @@
         margin: 0.2rem 0 2rem 0;
     }
 
-    .card-details-div {}
+    .card-details-div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .card-details {
+            @include boxShadow;
+            width: 300px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .card-details-header {
+            display: flex;
+            justify-content: space-between;
+
+
+            h4 {
+                font-size: 16px;
+                font-weight: 500;
+                color: $black-color;
+                padding-bottom: 10px;
+                margin-bottom: 0;
+            }
+
+            .del-icon {
+                button {
+                    border: 1px solid $error-color;
+                    background-color: transparent;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    padding: 1px;
+
+                    &:hover {
+                        transform: scale(0.9);
+                    }
+                }
+
+                .icon {
+                    color: $error-color;
+                    display: flex;
+                    align-items: center;
+                }
+
+            }
+        }
+
+        .card-details-body {
+            p {
+                font-size: 11px;
+                font-weight: 400;
+                color: $card-gray;
+
+            }
+
+            .addcard-link {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 10px;
+
+                a {
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                    color: $secondary-color;
+                    text-decoration: underline;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+
+                img {
+                    width: 35px;
+                    height: 20px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
 
     .charge-date {
         font-size: 12px;

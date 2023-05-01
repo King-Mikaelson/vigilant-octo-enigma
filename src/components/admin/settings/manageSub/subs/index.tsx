@@ -23,7 +23,9 @@ const ManageSubs = () => {
         </div>
       </div>
       <hr />
-      <div className="card-details-div">{/* <CardDetails /> */}</div>
+      <div className="card-details-div">
+        <CardDetails />
+      </div>
       <p className="charge-date">
         Cards will be charged at the end of the month. All major credit / debit
         cards are accepted.
