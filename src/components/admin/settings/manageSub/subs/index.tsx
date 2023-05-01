@@ -3,6 +3,26 @@ import { IoIosAdd } from "react-icons/io";
 import CardDetails from "../cardDetails";
 import { TbCurrencyNaira } from "react-icons/tb";
 
+const tabledata = [
+  {
+    id: 1,
+    date: "May 31, 2023",
+    amount: "120,000",
+    plan: "4% monthly",
+  },
+  {
+    id: 2,
+    date: "June 31, 2023",
+    amount: "200,000",
+    plan: "4% monthly",
+  },
+  {
+    id: 3,
+    date: "July 31, 2023",
+    amount: "100,000",
+    plan: "4% monthly",
+  },
+];
 const ManageSubs = () => {
   return (
     <div className="sub-container">
@@ -32,6 +52,7 @@ const ManageSubs = () => {
       </p>
       <div className="billing-history">
         <p>Billing History</p>
+
         <table className="table">
           <thead>
             <tr>
@@ -40,16 +61,18 @@ const ManageSubs = () => {
               <th>Subscription Plan</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>May 31, 2023</td>
-              <td>
-                <TbCurrencyNaira />
-                120,000
-              </td>
-              <td>4% monthly</td>
-            </tr>
-          </tbody>
+          {tabledata.map((data) => (
+            <tbody key={data.id}>
+              <tr>
+                <td>{data.date}</td>
+                <td>
+                  <TbCurrencyNaira />
+                  {data.amount}
+                </td>
+                <td>{data.plan}</td>
+              </tr>
+            </tbody>
+          ))}
         </table>
       </div>
     </div>
