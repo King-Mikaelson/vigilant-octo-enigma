@@ -22,6 +22,7 @@ import EditProfile from "../components/admin/settings/profile/editProfile";
 import ManageUsers from "../components/admin/settings/manageUsers/manageUsers";
 import ManageSubs from "../components/admin/settings/manageSub";
 import SettingsLayout from "../components/admin/settings/layout";
+import UserReports from "../features/report/individual-report/user-report/index";
 import AddUsers from "../components/admin/settings/manageUsers/addUsers";
 import UserLists from "../components/admin/settings/manageUsers/userLists";
 import ProfileChangePassword from "../components/admin/settings/profile/changePassword";
@@ -135,6 +136,11 @@ const router = createBrowserRouter([
             element: <GeneralReport />,
             errorElement: <ErrorPage />,
           },
+          {
+            path: "/reports/individual-report/:id",
+            element: <UserReports />,
+            errorElement: <ErrorPage />,
+          }
         ],
       },
     ],

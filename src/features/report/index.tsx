@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { CgProfile } from "react-icons/cg";
-import { TbUsers } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import TopMenu from "../../components/topMenu";
+import { useNavigate } from "react-router-dom";
+import { HiOutlineChartSquareBar } from "react-icons/hi";
+
 
 export default function ReportLayout() {
   const [selectedItem, setSelectedItem] = useState("individual");
+  const navigate = useNavigate();
 
   const handleItemClick = (item: string) => {
     setSelectedItem(item);
@@ -20,20 +22,20 @@ export default function ReportLayout() {
           <ul>
             <li
               className={selectedItem === "individual" ? "selected" : ""}
-              onClick={() => handleItemClick("individual")}
+              onClick={() => {handleItemClick("individual"); navigate("/reports/individual-report")}}
             >
               <span className="layout-icon">
-                <CgProfile />
+                <HiOutlineChartSquareBar/>
               </span>
 
               <Link to="/reports/individual-report">Individual Report</Link>
             </li>
             <li
               className={selectedItem === "general" ? "selected" : ""}
-              onClick={() => handleItemClick("general")}
+              onClick={() => {handleItemClick("general"); navigate("/reports/general-report")}}
             >
               <span className="layout-icon">
-                <TbUsers />
+                <HiOutlineChartSquareBar />
               </span>
               <Link to="/reports/general-report">General Report</Link>
             </li>
