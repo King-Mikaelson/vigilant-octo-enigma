@@ -17,14 +17,14 @@ import ReportLayout from "../features/report/index";
 import DashboardLayout from "../layout/dashboardLayout";
 import IndividualReport from "../features/report/individual-report/index";
 import GeneralReport from "../features/report/general-report/index";
-import Settings from "../components/admin/settings";
-import EditProfile from "../components/admin/settings/profile/EditProfile";
-import ManageUsers from "../components/admin/settings/manageUsers";
+import Settings from "../components/admin/settings/settings";
+import EditProfile from "../components/admin/settings/profile/editProfile";
+import ManageUsers from "../components/admin/settings/manageUsers/manageUsers";
 import ManageSubs from "../components/admin/settings/manageSub";
 import SettingsLayout from "../components/admin/settings/layout";
 import AddUsers from "../components/admin/settings/manageUsers/addUsers";
 import UserLists from "../components/admin/settings/manageUsers/userLists";
-// Always navigate the "/test" path in your browser and render your component in "styleGuides.tsx" to TEST while building before importing for use where it's needed as discussed.
+import ProfileChangePassword from "../components/admin/settings/profile/changePassword";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: "/change-pwd",
     element: <ChangePassword />,
+  },
+  {
+    path: "/settings/profile/changepassword",
+    element: <ProfileChangePassword />,
   },
   {
     path: "/pwd-updated",

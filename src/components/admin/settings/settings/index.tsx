@@ -1,9 +1,9 @@
-import Profile from "./profile";
+import Profile from "../profile/profile";
 
 const Settings = () => {
   return (
     <div>
-        <Profile />
+      <Profile />
     </div>
   );
 };
