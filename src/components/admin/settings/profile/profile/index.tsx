@@ -56,10 +56,15 @@ const Profile = () => {
         <div className="body-password">
           <span>Password</span>
           <div className="change-password">
-            <p>Change Password</p>
-            <span>
-              <RiArrowRightSLine />
-            </span>
+            <Link
+              to="/settings/profile/changepassword"
+              className="password-link-btn"
+            >
+              <p>Change Password</p>
+              <span>
+                <RiArrowRightSLine />
+              </span>
+            </Link>
           </div>
         </div>
       </div>
