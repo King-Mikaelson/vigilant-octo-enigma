@@ -7,6 +7,14 @@ type Table = {
   totalPayment: Number;
 };
 
+
+type FilterTable = {
+  name: string;
+  price:Number
+  quantity: string;
+  subTotal: Number;
+};
+
 type Sides = {
     name: string;
     order: string;
@@ -126,6 +134,76 @@ export const table: Table[] = [
     totalPayment: 4000,
   },
 ];
+
+export const filterTable: FilterTable[] = [
+  {
+    name: "Salted Pasta with mushroom sauce",
+    price: 10000,
+    quantity: "2",
+    subTotal: 20000,
+  },
+  {
+    name: "Robertson sweet wine",
+    price: 2000,
+    quantity: "1",
+    subTotal: 2000,
+  },
+  {
+    name: "Hot spicy fried rice",
+    price: 10000,
+    quantity: "2",
+    subTotal: 20000,
+  },
+  {
+    name: "Fanta",
+    price: 2000,
+    quantity: "1",
+    subTotal: 2000,
+  },
+  {
+    name: "Chivita",
+    price: 2000,
+    quantity: "1",
+    subTotal: 2000,
+  },
+  {
+    name: "Salted Pasta with mushroom sauce",
+    price: 10000,
+    quantity: "2",
+    subTotal: 20000,
+  },
+  {
+    name: "Robertson sweet wine",
+    price: 2000,
+    quantity: "1",
+    subTotal: 2000,
+  },
+  {
+    name: "Hot spicy fried rice",
+    price: 10000,
+    quantity: "2",
+    subTotal: 20000,
+  },
+  {
+    name: "Fanta",
+    price: 2000,
+    quantity: "1",
+    subTotal: 2000,
+  },
+  {
+    name: "Chivita",
+    price: 2000,
+    quantity: "1",
+    subTotal: 2000,
+  },
+  {
+    name: "Salted Pasta with mushroom sauce",
+    price: 10000,
+    quantity: "2",
+    subTotal: 20000,
+  }
+
+]
 
 
 

@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { createTheme } from "@mui/material/styles";
 import * as React from "react";
@@ -6,11 +7,10 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import { Dayjs } from "dayjs";
 import { useState } from "react";
-import {filterTable} from "../../../frontendData/frontendData";
-
+import {filterTable} from "../../../../frontendData/frontendData";
+import { useNavigate } from "react-router-dom";
 // When using TypeScript 4.x and above
 import type {} from "@mui/x-date-pickers/themeAugmentation";
-import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
   components: {
@@ -37,16 +37,17 @@ const theme = createTheme({
   },
 });
 
-export default function GeneralReport() {
+export default function UserReport() {
   const navigate = useNavigate()
+  const params = useParams();
   const [filter, setFilter] = useState<boolean>(false);
   const [value, setValue] = React.useState<Dayjs | null>(null);
   const [value1, setValue1] = React.useState<Dayjs | null>(null);
-
   const current = new Date();
   const date = `${current.getDate()}/${current.toLocaleString("en-US",{month:"2-digit",
   })}/${current.getFullYear()}`;
 
+  // console.log(value?.toLocaleString());
   const valueString = new Date(`${value?.toDate()}`)
   const valueString1 = new Date(`${value1?.toDate()}`)
 
@@ -55,12 +56,15 @@ export default function GeneralReport() {
 const date3 =`${valueString1.getDate()}-${valueString1.toLocaleString("en-US",{month:"long",
 })}-${valueString1.getFullYear()}`
 
+
+
+
   return (
     <div className="singleReports">
       <div className="header">
         <div className="flex">
-          <IoIosArrowBack onClick={() => navigate(-1)} size={30} color="#B1A9AD" />
-          <h1>General Report</h1>
+          <IoIosArrowBack size={30} onClick={() => navigate(-1)} color="#B1A9AD" />
+          <h1>Individual Report</h1>
         </div>
 
         <div className="date">
@@ -147,12 +151,12 @@ const date3 =`${valueString1.getDate()}-${valueString1.toLocaleString("en-US",{m
         <main className="singleReports__content">
 
           <div className="singleReports__content--header">
-            <div className="flex">
-              <h2><span className="bold">General Report</span></h2>
+          <div className="flex">
+              <h2>Name of Waiter: <span className="bold">Alucard</span></h2>
               <p>Date: <span className="bold">{date}</span></p>
             </div>
 
-            <p>Total Amount:<span className="bold">₦250,000</span></p>
+            <p>Total Amount: <span className="bold">₦250,000</span></p>
             <p>Period of Report: <span className="bold">From {date2} To {date3}</span></p>
           </div>
 

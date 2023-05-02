@@ -22,6 +22,7 @@ import EditProfile from "../components/admin/settings/profile/EditProfile";
 import ManageUsers from "../components/admin/settings/manageUsers";
 import ManageSubs from "../components/admin/settings/manageSub";
 import SettingsLayout from "../components/admin/settings/layout";
+import UserReports from "../features/report/individual-report/user-report/index";
 // Always navigate the "/test" path in your browser and render your component in "styleGuides.tsx" to TEST while building before importing for use where it's needed as discussed.
 
 const router = createBrowserRouter([
@@ -120,6 +121,11 @@ const router = createBrowserRouter([
             element: <GeneralReport />,
             errorElement: <ErrorPage />,
           },
+          {
+            path: "/reports/individual-report/:id",
+            element: <UserReports />,
+            errorElement: <ErrorPage />,
+          }
         ],
       },
     ],
