@@ -120,6 +120,28 @@
           font-weight: 700;
         }
       }
+
+      // Profile Change password class
+      .p-link_box {
+        display: flex;
+        justify-content: flex-end;
+
+        .p-link {
+          font-size: .7rem;
+          color: $red;
+          font-weight: 500;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .cancel-btn-div {
+        .cancel-btn {
+          @include cancelBtn
+        }
+      }
     }
 
     .grid {

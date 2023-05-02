@@ -8,6 +8,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 0;
+        margin-bottom: 2rem;
 
         button {
             border-radius: 20px;
@@ -81,20 +82,21 @@
                 padding-top: 5px
             }
 
-            .change-password {
+            .password-link-btn {
                 display: flex;
                 align-items: center;
                 color: $secondary-color;
                 gap: 10px;
                 cursor: pointer;
+                text-decoration: none;
 
                 p {
                     font-size: 14px;
                 }
 
                 span {
-                    font-size: 24px;
-                    margin-top: 5px;
+                    font-size: 28px;
+                    margin-top: 2px;
                 }
             }
         }
