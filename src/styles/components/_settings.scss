@@ -435,3 +435,237 @@
         }
     }
 }
+
+// MANAGE SUBSCRIPTIONS
+.sub-container {
+    padding: 2rem;
+
+    h4 {
+        font-size: 20px;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 600;
+        color: $black-color2;
+        padding-bottom: 10px;
+    }
+
+    hr {
+        border: 1px solid $placeholder-gray;
+        margin-bottom: 2rem;
+    }
+
+    .sub-body {
+        span {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .sub-body-p {
+            font-size: 14px;
+            font-weight: 400;
+            color: $black-color2;
+            padding: 5px 0 14px 0;
+        }
+
+        .subs-cancel-btn {
+            @include cancelBtnBorder;
+        }
+
+        .renew-date {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: $black-color2;
+            line-height: 1rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .payment-method {
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                font-weight: 600;
+                font-size: 14px;
+                color: $black-color2;
+            }
+
+            .addcard-div {
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid $secondary-color;
+                margin-bottom: 10px;
+
+                .icon {
+                    margin-bottom: 0;
+                    color: $secondary-color;
+                }
+
+                a {
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                    color: $secondary-color;
+                }
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+    hr {
+        border: 1px solid $placeholder-gray;
+        margin: 0.2rem 0 2rem 0;
+    }
+
+    .card-details-div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .card-details {
+            @include boxShadow;
+            width: 300px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .card-details-header {
+            display: flex;
+            justify-content: space-between;
+
+
+            h4 {
+                font-size: 16px;
+                font-weight: 500;
+                color: $black-color;
+                padding-bottom: 10px;
+                margin-bottom: 0;
+            }
+
+            .del-icon {
+                button {
+                    border: 1px solid $error-color;
+                    background-color: transparent;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    padding: 1px;
+
+                    &:hover {
+                        transform: scale(0.9);
+                    }
+                }
+
+                .icon {
+                    color: $error-color;
+                    display: flex;
+                    align-items: center;
+                }
+
+            }
+        }
+
+        .card-details-body {
+            p {
+                font-size: 11px;
+                font-weight: 400;
+                color: $card-gray;
+
+            }
+
+            .addcard-link {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 10px;
+
+                a {
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                    color: $secondary-color;
+                    text-decoration: underline;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+
+                img {
+                    width: 35px;
+                    height: 20px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    .charge-date {
+        font-size: 12px;
+        font-weight: 400;
+        color: $black-color2;
+        padding: 1.5rem 0;
+    }
+
+    .billing-history {
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            color: $black-color2;
+            padding-bottom: 0;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+
+            th {
+                padding: 13px 0 12px 0;
+                font-size: 12px;
+                text-align: left;
+                color: $black-color;
+                border-bottom: 1px solid $lighter-gray;
+
+                &:nth-child(2) {
+                    text-align: center;
+                }
+
+                &:nth-child(3) {
+                    text-align: center;
+                }
+            }
+
+            tbody {
+                tr {
+                    border-bottom: 1px solid #ece9e9;
+
+                    td {
+                        padding: 0.3rem 0;
+                        text-align: left;
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 16px;
+
+                        &:nth-child(2) {
+                            // padding-right: 3rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        &:nth-child(3) {
+                            text-align: center;
+                            // padding-right: 2.2rem;
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+}

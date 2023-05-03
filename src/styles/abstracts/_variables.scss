@@ -29,6 +29,7 @@ $gray-bg: #f5f5f5;
 $dark-gray: #625d60;
 $light-gray: #7b7579;
 $lighter-gray: #b1a9ad;
+$card-gray: #968F93;
 $placeholder-gray: #ccc4c8;
 $red: #de3730;
 $delete: #d31717;
@@ -40,18 +41,14 @@ $gray-text: #625d60;
 $purple-border: #85468c;
 
 $green: #00c650;
-$linear-gradient-primary: linear-gradient(
-  90deg,
-  #561d5e -10.15%,
-  #873ec2 38.77%,
-  #f89a1c 142.64%
-);
-$linear-gradient-secondary: linear-gradient(
-  90deg,
-  #f89a1c 0%,
-  #f89a1c 20.31%,
-  rgba(255, 255, 255, 0) 100%
-);
+$linear-gradient-primary: linear-gradient(90deg,
+    #561d5e -10.15%,
+    #873ec2 38.77%,
+    #f89a1c 142.64%);
+$linear-gradient-secondary: linear-gradient(90deg,
+    #f89a1c 0%,
+    #f89a1c 20.31%,
+    rgba(255, 255, 255, 0) 100%);
 
 //FONTS
 $dm-sans-font: "DM Sans", sans-serif;
@@ -67,6 +64,7 @@ $success-color: #22c55e;
 $light-dark: #676868;
 $feint-light-dark: #414243;
 
+$box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
 //color maps
 $colors: (
   "primary": $primary-color,
@@ -78,7 +76,8 @@ $colors: (
   "black": $black-color,
 );
 
-@each $key, $val in $colors {
+@each $key,
+$val in $colors {
   .sb-text-#{$key} {
     color: $val;
   }

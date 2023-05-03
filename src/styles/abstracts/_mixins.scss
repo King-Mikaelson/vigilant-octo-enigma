@@ -32,6 +32,7 @@
   z-index: 99999;
 }
 
+//CANCEL BTN WITHOUT BORDER 
 @mixin cancelBtn {
   @include flexCenter;
   border: none;
@@ -47,6 +48,24 @@
 
   &:hover {
     transform: scale(1.1);
+  }
+}
+
+//CANCEL BTN WITH BORDER
+@mixin cancelBtnBorder {
+  border: 1px solid $primary-color;
+  background-color: transparent;
+  font-weight: 500;
+  color: $primary-color;
+  font-size: 14px;
+  padding: 10px 24px;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color;
+    color: white;
   }
 }
 
@@ -72,4 +91,8 @@
   @include lg {
     padding: 8rem 0rem 3rem;
   }
+}
+
+@mixin boxShadow {
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
 }
