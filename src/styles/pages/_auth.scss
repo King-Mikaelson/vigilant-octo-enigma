@@ -161,6 +161,18 @@
         }
       }
 
+      .auth__btns {
+        @include flexSpaceCenter;
+        & > * {
+          width: 42%;
+        }
+        button:first-child {
+          background-color: $white-color;
+          color: $primary-color;
+          border: 1px solid $primary-color;
+        }
+      }
+
       // Profile Change password class
       .p-link_box {
         display: flex;
@@ -185,10 +197,9 @@
     }
 
     .grid {
-      display: grid;
-      grid-template-columns: 47% 47%;
-      gap: $sm-font2;
-      justify-content: center;
+      .input__container {
+        margin-bottom: $md-font;
+      }
     }
 
     .signup__options {
@@ -209,52 +220,6 @@
         color: $primary-color;
         text-decoration: underline;
         font-size: $sm-font;
-      }
-
-      .or {
-        width: 100%;
-        height: 50px;
-        position: relative;
-        @include flexCenter;
-
-        .line {
-          width: 100%;
-          height: 2px;
-          background-image: linear-gradient(
-            to right,
-            $white-color,
-            $primary-color,
-            $white-color
-          );
-        }
-
-        h2 {
-          @include flexCenter;
-          font-weight: 700;
-          color: $primary-color;
-          font-size: $sm-font;
-          text-transform: capitalize;
-          background-color: $light-purple;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          z-index: 1;
-          position: absolute;
-          top: 13%;
-          left: 43%;
-        }
-      }
-
-      .google {
-        border: 1px solid $placeholder-gray;
-        border-radius: 4px;
-        width: 100%;
-        @include flexCenter;
-        gap: 5px;
-        padding: $sm-font1;
-        color: $light-gray;
-        font-size: $xxs-font;
-        font-weight: 500;
       }
     }
   }
