@@ -20,12 +20,13 @@ import GeneralReport from "../features/report/general-report/index";
 import Settings from "../components/admin/settings/settings";
 import EditProfile from "../components/admin/settings/profile/editProfile";
 import ManageUsers from "../components/admin/settings/manageUsers/manageUsers";
-import ManageSubs from "../components/admin/settings/manageSub";
+import ManageSubs from "../components/admin/settings/manageSub/subs";
 import SettingsLayout from "../components/admin/settings/layout";
 import UserReports from "../features/report/individual-report/user-report/index";
 import AddUsers from "../components/admin/settings/manageUsers/addUsers";
 import UserLists from "../components/admin/settings/manageUsers/userLists";
 import ProfileChangePassword from "../components/admin/settings/profile/changePassword";
+import SelectStore from "../features/authentication/select-store";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
+    element: <SelectStore />,
+  },
+  {
+    path: "/login",
     element: <Login />,
   },
   {
@@ -140,7 +145,7 @@ const router = createBrowserRouter([
             path: "/reports/individual-report/:id",
             element: <UserReports />,
             errorElement: <ErrorPage />,
-          }
+          },
         ],
       },
     ],
