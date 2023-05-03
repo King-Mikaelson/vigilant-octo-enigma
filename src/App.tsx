@@ -3,6 +3,8 @@ import { RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Routes from "./routes";
+import { AuthProvider } from "./features/authentication/context/AuthContext";
+import { AppProvider } from "./context/AppContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,12 +20,16 @@ const queryClient = new QueryClient({
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <RouterProvider router={Routes} />
-        <ToastContainer />
-      </div>
-    </QueryClientProvider>
+    <AuthProvider>
+      <AppProvider>
+        <QueryClientProvider client={queryClient}>
+          <div className="App">
+            <RouterProvider router={Routes} />
+            <ToastContainer />
+          </div>
+        </QueryClientProvider>
+      </AppProvider>
+    </AuthProvider>
   );
 }
 

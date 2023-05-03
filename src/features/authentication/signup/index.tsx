@@ -6,7 +6,7 @@ import { useState } from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { isValidPhoneNumber } from "react-phone-number-input";
-import googleIcon from "../../../assets/google.png";
+import progressBar1 from "../../../assets/singleStoreProg1.png";
 import { Link } from "react-router-dom";
 
 export default function SignUp() {
@@ -127,7 +127,16 @@ export default function SignUp() {
   return (
     <AuthLayout>
       <section className="container">
+        <div style={{ textAlign: "center", marginTop: "4rem" }}>
+          <img src={progressBar1} alt="progress" />
+        </div>
         <section className="auth signup">
+          <p className="auth__changeAcc">
+            <span>Create account as a single store</span>
+            <Link to={"/"} className="changeAccount">
+              Change
+            </Link>
+          </p>
           <h1 className="auth__heading">Create Account</h1>
           <p className="auth__subHeading">Let's get you started </p>
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
@@ -210,19 +219,11 @@ export default function SignUp() {
           </form>
           <section className="signup__options">
             <p>
-              <span>Don't have an account?</span>
+              <span>Already a user?</span>
               <Link to={"/"} className="createAccount">
                 Log In
               </Link>{" "}
             </p>
-            <div className="or">
-              <span className="line"></span>
-              <h2>or</h2>
-            </div>
-            <Link to={"#"} className="google">
-              <img src={googleIcon} alt="google" />
-              Sign in with Google
-            </Link>
           </section>
         </section>
       </section>

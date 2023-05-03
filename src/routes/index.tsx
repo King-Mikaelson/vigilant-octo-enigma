@@ -26,6 +26,7 @@ import UserReports from "../features/report/individual-report/user-report/index"
 import AddUsers from "../components/admin/settings/manageUsers/addUsers";
 import UserLists from "../components/admin/settings/manageUsers/userLists";
 import ProfileChangePassword from "../components/admin/settings/profile/changePassword";
+import SelectStore from "../features/authentication/select-store";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
+    element: <SelectStore />,
+  },
+  {
+    path: "/login",
     element: <Login />,
   },
   {
@@ -140,7 +145,7 @@ const router = createBrowserRouter([
             path: "/reports/individual-report/:id",
             element: <UserReports />,
             errorElement: <ErrorPage />,
-          }
+          },
         ],
       },
     ],
