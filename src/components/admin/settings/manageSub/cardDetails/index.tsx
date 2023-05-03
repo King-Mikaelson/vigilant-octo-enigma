@@ -20,18 +20,24 @@ const carddata = [
 ];
 const CardDetails = () => {
   const navigate = useNavigate();
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const handleDeleteCard = () => {
     setIsDeleteModalOpen(true);
   };
 
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-
   const handleDeleteModal = () => {
     setIsDeleteModalOpen(false);
   };
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    navigate("/settings/managesubscriptions");
+  };
 
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    setIsDeleteModalOpen(false);
+    setIsModalOpen(true);
+  };
   return (
     <>
       {carddata.map((card) => (
@@ -76,6 +82,16 @@ const CardDetails = () => {
                 Go Back
               </button>
             </div>
+          </div>
+        </div>
+      )}
+      {isModalOpen && (
+        <div className="user-modal">
+          <div className="modal-content">
+            <p>Card has been deleted from the system!</p>
+            <button className="close-btn" onClick={handleModalClose}>
+              Okay
+            </button>
           </div>
         </div>
       )}
