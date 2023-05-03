@@ -4,8 +4,11 @@ type InputProps = {
   id?: string;
   name?: string;
   fullName?: string;
+  userName?: string;
   email?: string;
   bizName?: string;
+  businessName?: string;
+  businessAddress?: string;
   address?: string;
   password?: string;
   error?: string;
@@ -20,6 +23,9 @@ type InputProps = {
   errorPassword?: string;
   checked?: boolean;
   handleName?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleUserName?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBusinessName?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBusinessAddress?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleBizName?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleAddress?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleValue?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -28,6 +34,8 @@ type InputProps = {
   handlePassword?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChecked?: () => void;
   handleBizNameFocus?: () => void;
+  handleBusinessFocus?: () => void;
+  handleUserNameFocus?: () => void;
   handleAddressFocus?: () => void;
   handleNameFocus?: () => void;
   handleValueFocus?: () => void;
@@ -41,6 +49,7 @@ export default function Input({
   placeholder,
   id,
   handleName,
+  handleUserName,
   handleBizName,
   handleAddress,
   handleEmail,
@@ -48,6 +57,9 @@ export default function Input({
   email,
   password,
   fullName,
+  userName,
+  businessName,
+  businessAddress,
   bizName,
   address,
   value,
@@ -63,6 +75,7 @@ export default function Input({
   handlePasswordValue,
   handleValueFocus,
   handlePasswordValueFocus,
+  handleUserNameFocus,
   error,
   passwordError,
   emailError,
@@ -95,6 +108,7 @@ export default function Input({
         password ||
         fullName ||
         bizName ||
+        userName ||
         address ||
         value ||
         passwordValue
@@ -103,6 +117,7 @@ export default function Input({
         handlePassword?.(e);
         handleEmail?.(e);
         handleName?.(e);
+        handleUserName?.(e);
         handleAddress?.(e);
         handleBizName?.(e);
         handleChecked?.();
@@ -112,6 +127,7 @@ export default function Input({
       onFocus={() => {
         handleNameFocus?.();
         handleEmailFocus?.();
+        handleUserNameFocus?.();
         handlePasswordFocus?.();
         handleValueFocus?.();
         handleAddressFocus?.();

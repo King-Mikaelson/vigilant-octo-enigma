@@ -16,6 +16,13 @@
   }
 }
 
+.disabled {
+  background-color: $border-color;
+  color: #afafaf;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .btn__cart {
   @include flexCenter;
   outline: none;

@@ -27,6 +27,7 @@ import AddUsers from "../components/admin/settings/manageUsers/addUsers";
 import UserLists from "../components/admin/settings/manageUsers/userLists";
 import ProfileChangePassword from "../components/admin/settings/profile/changePassword";
 import SelectStore from "../features/authentication/select-store";
+import SignUp2 from "../features/authentication/signup/SignUp2";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/signup2",
+    element: <SignUp2 />,
   },
   {
     path: "/input-email",

@@ -17,27 +17,12 @@ interface ContextProp {
 const AuthContext = createContext<ContextProp>(null!);
 export default AuthContext;
 export const AuthProvider = ({ children }: ContextProp) => {
-  //LOCAL STORAGE TYPES
-  // function identity<T>(arg: T): T {
-  //   return arg;
-  // }
-
-  // function setTypedStorageItem<T extends keyof UserSchema>(
-  //   key: T,
-  //   value: UserSchema[T]
-  // ): void {
-  //   window.localStorage.setItem(key, JSON.stringify(value));
-  // }
-
-  // function getTypedStorageItem<T extends keyof UserSchema>(
-  //   key: T
-  // ): UserSchema[T] | null {
-  //   return JSON.parse(localStorage.getItem(key) || "") as UserSchema[T];
-  // }
-
   // AUTHENTICATICATION
-  const [user, setUser] = useState("ada");
-  //CONTEXT DATA
+  const [user, setUser] = useState(() =>
+    localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user") || "{}")
+      : null
+  ); //CONTEXT DATA
   const contextData: any = { user };
 
   return (
