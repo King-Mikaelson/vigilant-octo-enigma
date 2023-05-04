@@ -40,6 +40,18 @@
           }
           &.selected {
             background-color: $light-purple;
+
+            .report__links{
+              color: $primary-color;
+            }
+
+            .report__icons{
+              color: $primary-color;
+            }
+          }
+
+          .report__links{
+            color: $black-color;
           }
         }
       }

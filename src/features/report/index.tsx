@@ -21,23 +21,23 @@ export default function ReportLayout() {
         <div className="reports-sidebar">
           <ul>
             <li
-              className={selectedItem === "individual" ? "selected" : ""}
+              className={selectedItem === "individual" ? "selected" : "base"}
               onClick={() => {handleItemClick("individual"); navigate("/reports/individual-report")}}
             >
               <span className="layout-icon">
-                <HiOutlineChartSquareBar/>
+                <HiOutlineChartSquareBar className="report__icons"/>
               </span>
 
-              <Link to="/reports/individual-report">Individual Report</Link>
+              <Link className="report__links" to="/reports/individual-report">Individual Report</Link>
             </li>
             <li
-              className={selectedItem === "general" ? "selected" : ""}
+              className={selectedItem === "general" ? "selected" : "base"}
               onClick={() => {handleItemClick("general"); navigate("/reports/general-report")}}
             >
               <span className="layout-icon">
-                <HiOutlineChartSquareBar />
+                <HiOutlineChartSquareBar className="report__icons" />
               </span>
-              <Link to="/reports/general-report">General Report</Link>
+              <Link className="report__links" to="/reports/general-report">General Report</Link>
             </li>
           </ul>
         </div>
