@@ -28,6 +28,7 @@ import UserLists from "../components/admin/settings/manageUsers/userLists";
 import ProfileChangePassword from "../components/admin/settings/profile/changePassword";
 import SelectStore from "../features/authentication/select-store";
 import SignUp2 from "../features/authentication/signup/SignUp2";
+import AddCard from "../components/admin/settings/manageSub/addCard";
 
 const router = createBrowserRouter([
   {
@@ -129,6 +130,10 @@ const router = createBrowserRouter([
           {
             path: "/settings/managesubscriptions",
             element: <ManageSubs />,
+          },
+          {
+            path: "/settings/managesubscriptions/add_card",
+            element: <AddCard />,
           },
         ],
       },

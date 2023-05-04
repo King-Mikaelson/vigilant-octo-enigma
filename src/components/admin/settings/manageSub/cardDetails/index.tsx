@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MasterCard from "../../../../../assets/mastercard.png";
 import Visa from "../../../../../assets/visacard.png";
 
@@ -19,8 +19,25 @@ const carddata = [
   },
 ];
 const CardDetails = () => {
-  const handleDeleteUser = () => {};
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const handleDeleteCard = () => {
+    setIsDeleteModalOpen(true);
+  };
 
+  const handleDeleteModal = () => {
+    setIsDeleteModalOpen(false);
+  };
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    navigate("/settings/managesubscriptions");
+  };
+
+  const handleDelete = () => {
+    setIsDeleteModalOpen(false);
+    setIsModalOpen(true);
+  };
   return (
     <>
       {carddata.map((card) => (
@@ -30,7 +47,7 @@ const CardDetails = () => {
             <span className="del-icon">
               <button
                 className="del-user_btn"
-                onClick={() => handleDeleteUser()}
+                onClick={() => handleDeleteCard()}
               >
                 <AiOutlineDelete className="icon" />
               </button>
@@ -48,6 +65,36 @@ const CardDetails = () => {
           </div>
         </div>
       ))}
+      {isDeleteModalOpen && (
+        <div className="del-container">
+          <div className="del-content">
+            <p className="suspend-p">Delete Card?</p>
+            <div className="buttons">
+              <button className="del-btn" onClick={handleDelete}>
+                Delete
+              </button>
+              <button
+                className="cancel-btn suspend-cancel-btn"
+                onClick={() => {
+                  handleDeleteModal();
+                }}
+              >
+                Go Back
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {isModalOpen && (
+        <div className="user-modal">
+          <div className="modal-content">
+            <p>Card has been deleted from the system!</p>
+            <button className="close-btn" onClick={handleModalClose}>
+              Okay
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

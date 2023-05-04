@@ -38,7 +38,9 @@ const ManageSubs = () => {
           <p>Payment Method</p>
           <div className="addcard-div">
             <IoIosAdd className="icon" />
-            <Link to="">Add New Card</Link>
+            <Link to="/settings/managesubscriptions/add_card">
+              Add New Card
+            </Link>
           </div>
         </div>
       </div>
