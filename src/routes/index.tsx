@@ -29,6 +29,7 @@ import ProfileChangePassword from "../components/admin/settings/profile/changePa
 import SelectStore from "../features/authentication/select-store";
 import SignUp2 from "../features/authentication/signup/SignUp2";
 import AddCard from "../components/admin/settings/manageSub/addCard";
+import EditCard from "../components/admin/settings/manageSub/editCard";
 
 const router = createBrowserRouter([
   {
@@ -134,6 +135,10 @@ const router = createBrowserRouter([
           {
             path: "/settings/managesubscriptions/add_card",
             element: <AddCard />,
+          },
+          {
+            path: "/settings/managesubscriptions/edit_card",
+            element: <EditCard />,
           },
         ],
       },

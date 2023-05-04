@@ -57,7 +57,10 @@ const CardDetails = () => {
             <p>Master {card.cardNumber}</p>
             <p>Expires {card.expires}</p>
             <div className="addcard-link">
-              <Link to=""> Edit Card Info</Link>
+              <Link to="/settings/managesubscriptions/edit_card">
+                {" "}
+                Edit Card Info
+              </Link>
               <span>
                 <img src={card.cardType} alt="master card" />
               </span>
