@@ -54,8 +54,9 @@ const CancelSubscription = () => {
               ))}
             </form>
             <button type="submit" disabled={!selectedReason}>
-              Continue
+              {selectedReason ? "Cancel Subscription" : "Continue"}
             </button>
+            <button className="subs_cancel-btn">Go Back </button>
           </section>
         </section>
       </AuthLayout>
