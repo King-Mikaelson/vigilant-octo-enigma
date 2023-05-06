@@ -30,6 +30,7 @@ import SelectStore from "../features/authentication/select-store";
 import SignUp2 from "../features/authentication/signup/SignUp2";
 import AddCard from "../components/admin/settings/manageSub/addCard";
 import EditCard from "../components/admin/settings/manageSub/editCard";
+import CancelSubscription from "../components/admin/settings/manageSub/cancelSub";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
   {
     path: "/subscribe",
     element: <Subscribe />,
+  },
+  {
+    path: "/cancel_subscription",
+    element: <CancelSubscription />,
   },
 
   {

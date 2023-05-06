@@ -32,7 +32,9 @@ const ManageSubs = () => {
       <div className="sub-body">
         <span>4% Monthly</span>
         <p className="sub-body-p">We take 4% of your monthly sales</p>
-        <button className="subs-cancel-btn">Cancel Plan</button>
+        <button className="subs-cancel-btn">
+          <Link to="/cancel_subscription"> Cancel Plan</Link>
+        </button>
         <p className="renew-date">Your plan renews on July 31, 2023</p>
         <div className="payment-method">
           <p>Payment Method</p>
