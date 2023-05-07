@@ -9,6 +9,7 @@ import Button from "../../../../ui/button";
 
 export default function EditProfile() {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState<string>();
   const [fullName, setFullName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -87,6 +88,7 @@ export default function EditProfile() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     validate();
+    setIsModalOpen(true);
   };
 
   const handleNameFocus = () => {
@@ -112,6 +114,16 @@ export default function EditProfile() {
     e.preventDefault();
     navigate("/settings/profile");
   };
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    navigate("/settings/profile");
+  };
+  const disabledBtn =
+    fullName === "" ||
+    bizName === "" ||
+    email === "" ||
+    value === undefined ||
+    address === "";
 
   return (
     <section className="container edit-prof">
@@ -218,7 +230,11 @@ export default function EditProfile() {
               </div>
             </label>
           </aside>
-          <Button text="Update" />
+          {disabledBtn ? (
+            <button className="button__element disabled">Update</button>
+          ) : (
+            <Button text="Update" />
+          )}
           <div className="cancel-btn-div">
             <button
               className="cancel-btn"
@@ -229,8 +245,17 @@ export default function EditProfile() {
             </button>
           </div>
         </form>
+        {isModalOpen && (
+          <div className="user-modal">
+            <div className="modal-content">
+              <p>Your profile has been updated!</p>
+              <button className="close-btn" onClick={handleModalClose}>
+                Okay
+              </button>
+            </div>
+          </div>
+        )}
       </section>
     </section>
   );
 }
-
