@@ -28,10 +28,11 @@ const CancelSubscription = () => {
 
   const handleModalClose = () => {
     setIsModalOpen(false);
+    navigate("/settings/managesubscriptions");
   };
 
-  const handleCancel = () => {
-    navigate("/settings/profile");
+  const handleBack = () => {
+    navigate("/settings/managesubscriptions");
   };
 
   return (
@@ -42,7 +43,7 @@ const CancelSubscription = () => {
             <h1 className="auth__heading sub_header">Why are you canceling?</h1>
             <form onSubmit={handleSubmit} className="sub_form">
               {reasons.map((reason) => (
-                <button
+                <div
                   key={reason}
                   className={`cancel-option ${
                     selectedReason === reason ? "active" : ""
@@ -50,14 +51,26 @@ const CancelSubscription = () => {
                   onClick={() => handleReasonSelection(reason)}
                 >
                   {reason}
-                </button>
+                </div>
               ))}
+              <button type="submit" disabled={!selectedReason}>
+                {selectedReason ? "Cancel Subscription" : "Continue"}
+              </button>
             </form>
-            <button type="submit" disabled={!selectedReason}>
-              {selectedReason ? "Cancel Subscription" : "Continue"}
+            <button className="subs_cancel-btn" onClick={handleBack}>
+              Go Back
             </button>
-            <button className="subs_cancel-btn">Go Back </button>
           </section>
+          {isModalOpen && (
+            <div className="user-modal">
+              <div className="modal-content">
+                <p>Your subscription plan has been cancelled!</p>
+                <button className="close-btn" onClick={handleModalClose}>
+                  Okay
+                </button>
+              </div>
+            </div>
+          )}
         </section>
       </AuthLayout>
     </>
@@ -65,16 +78,3 @@ const CancelSubscription = () => {
 };
 
 export default CancelSubscription;
-
-//  {
-//    isModalOpen && (
-//      <div className="user-modal">
-//        <div className="modal-content">
-//          <p>Password Changed Successfully!</p>
-//          <button className="close-btn" onClick={handleModalClose}>
-//            Okay
-//          </button>
-//        </div>
-//      </div>
-//    );
-//  }
