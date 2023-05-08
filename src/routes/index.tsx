@@ -31,6 +31,7 @@ import SignUp2 from "../features/authentication/signup/SignUp2";
 import AddCard from "../components/admin/settings/manageSub/addCard";
 import EditCard from "../components/admin/settings/manageSub/editCard";
 import CancelSubscription from "../components/admin/settings/manageSub/cancelSub";
+import DeleteAccount from "../components/admin/settings/profile/deleteAccount";
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
   {
     path: "/cancel_subscription",
     element: <CancelSubscription />,
+  },
+  {
+    path: "/delete_account",
+    element: <DeleteAccount />,
   },
 
   {
