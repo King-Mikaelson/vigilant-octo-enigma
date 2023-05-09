@@ -69,6 +69,7 @@ const Profile = () => {
         </div>
       </div>
       <hr className="profile-hr" />
+
       {/* business deeets */}
       <div className="business-body">
         <div className="biz-name">
@@ -120,6 +121,35 @@ const Profile = () => {
           </form>
           <span id="file-name"></span>
         </div>
+      </div>
+      <hr className="profile-hr" />
+
+      {/* About Container */}
+      <div className="about-profile_container">
+        <div className="about_details">
+          <p>About Us</p>
+          <Link to="/about_us">
+            <RiArrowRightSLine size={25} className="icon" />
+          </Link>
+        </div>
+
+        <div className="about_details">
+          <p>Contact Us</p>
+          <Link to="/contact_us">
+            <RiArrowRightSLine size={25} className="icon" />
+          </Link>
+        </div>
+
+        <div className="about_details">
+          <p>Privacy Policy</p>
+          <Link to="/privacy_policy">
+            <RiArrowRightSLine size={25} className="icon" />
+          </Link>
+        </div>
+      </div>
+      <hr className="profile-hr" />
+      <div className="profile-delete_account">
+        <Link to="/delete_account">Delete Account</Link>
       </div>
     </div>
   );

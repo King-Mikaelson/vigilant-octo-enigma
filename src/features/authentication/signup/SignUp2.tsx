@@ -4,38 +4,27 @@ import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/button";
 import { useState } from "react";
 import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import { isValidPhoneNumber } from "react-phone-number-input";
-import progressBar1 from "../../../assets/singleStoreProg1.png";
+import progressBar2 from "../../../assets/singleStoreProg2.png";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp2() {
   const [InputType, ToggleIcon] = useTogglePassword();
-  const [value, setValue] = useState<string>();
-  const [fullName, setFullName] = useState<string>("");
-  const [userName, setUserName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+  const [businessName, setBusinessName] = useState<string>("");
+  const [businessAddress, setBusinessAddress] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
-  const [phoneError, setPhoneError] = useState<string>("");
-  const [emailError, setEmailError] = useState<string>("");
   const [checked, setChecked] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  // This function code updates the state of the email input
-  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.currentTarget.value);
+  // This function code updates the state of the business name input
+  const handleBusinessName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setBusinessName(e.currentTarget.value);
   };
 
   // This function code updates the state of the name input
-  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFullName(e.currentTarget.value);
-  };
-
-  // This function code updates the state of the name input
-  const handleUserName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserName(e.currentTarget.value);
+  const handleBusinessAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setBusinessAddress(e.currentTarget.value);
   };
 
   // This function code updates the state of the password input
@@ -49,18 +38,27 @@ export default function SignUp2() {
   };
 
   // Regex for name,email and phone Validation
-  const nameRegex = /[a-zA-Z]/;
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  const businessNameRegex = /[a-zA-Z]/;
+  const buinessAddressRegex = /[a-zA-Z]/;
   const passwordRegex = /[a-zA-Z0-9]/;
 
   // Function that validates the input
   const validate = () => {
-    if (!nameRegex.test(fullName.trim()) && fullName.trim().length === 0) {
+    if (
+      !businessNameRegex.test(businessName.trim()) &&
+      businessName.trim().length === 0
+    ) {
       setError("*Full name can not blank");
-    } else if (!nameRegex.test(fullName.trim()) && fullName.trim().length > 0) {
+    } else if (
+      !businessNameRegex.test(businessName.trim()) &&
+      businessName.trim().length > 0
+    ) {
       setError("*Full name must contain at least one letter");
-    } else if (nameRegex.test(fullName.trim()) && fullName.trim().length < 4) {
-      setError("*Full name must contain at least four characters");
+    } else if (
+      businessNameRegex.test(businessName.trim()) &&
+      businessName.trim().length < 2
+    ) {
+      setError("*Business name must contain at least 2 characters");
     } else {
       setError("");
     }
@@ -83,20 +81,6 @@ export default function SignUp2() {
     } else {
       setPasswordError("");
     }
-
-    if (isValidPhoneNumber(`${value}`) === false) {
-      setPhoneError("*Phone Number must be at least 10 digits");
-    } else {
-      setPhoneError("");
-    }
-
-    if (!emailRegex.test(email.trim()) && email.trim().length === 0) {
-      setEmailError("*Email can not be blank");
-    } else if (!emailRegex.test(email.trim()) && email.trim().length > 0) {
-      setEmailError("*Email is not valid");
-    } else {
-      setEmailError("");
-    }
   };
 
   // This function runs on submit when a button in a form  is clicked
@@ -108,14 +92,11 @@ export default function SignUp2() {
 
     if (
       error === "" &&
-      fullName.trim().length > 0 &&
-      nameRegex.test(fullName) &&
-      emailRegex.test(email) &&
+      businessName.trim().length > 0 &&
+      businessNameRegex.test(businessName) &&
       password.trim().length > 0 &&
       passwordRegex.test(password) &&
       passwordError === "" &&
-      value &&
-      phoneError === "" &&
       checked
     ) {
       navigate("/signup2");
@@ -123,25 +104,22 @@ export default function SignUp2() {
   };
 
   // OnFocus code  is to remove the error warnings and red borders when the user clicks the input again
-  const handleNameFocus = () => {
+  const handleBusinessFocus = () => {
     setError("");
   };
   const handlePasswordFocus = () => {
     setPasswordError("");
   };
-  const handleEmailFocus = () => {
-    setEmailError("");
-  };
 
   //Sign up button disabled
   const disabledBtn =
-    fullName === "" || userName === "" || email === "" || value === undefined;
+    businessName === "" || businessAddress === "" || password === "";
 
   return (
     <AuthLayout>
       <section className="container">
         <div style={{ textAlign: "center", marginTop: "4rem" }}>
-          <img src={progressBar1} alt="progress" />
+          <img src={progressBar2} alt="progress" />
         </div>
         <section className="auth">
           <p className="auth__changeAcc">
@@ -155,31 +133,31 @@ export default function SignUp2() {
           <form className="form" onSubmit={(e) => handleDefault(e)}>
             <aside className="grid">
               <div className="input__container">
-                <h3>Full Name</h3>
+                <h3>Business Name</h3>
                 <Input
-                  fullName={fullName}
-                  handleName={handleName}
+                  businessName={businessName}
+                  handleBusinessName={handleBusinessName}
                   type="name"
-                  placeholder="fullname"
-                  handleNameFocus={handleNameFocus}
+                  placeholder="your business name"
+                  handleBusinessFocus={handleBusinessFocus}
                   error={error}
                 />
                 {error ? <p className="auth__error">{error}</p> : " "}
               </div>
 
               <div className="input__container">
-                <h3>Username</h3>
+                <h3>Business Address</h3>
                 <Input
-                  userName={userName}
-                  handleUserName={handleUserName}
+                  businessAddress={businessAddress}
+                  handleBusinessAddress={handleBusinessAddress}
                   type="name"
-                  placeholder="username"
+                  placeholder="your business address"
                   error={error}
                 />
                 {error ? <p className="auth__error">{error}</p> : " "}
               </div>
 
-              <div className="input__container">
+              {/* <div className="input__container">
                 <h3>Email address</h3>
                 <Input
                   type="email"
@@ -190,9 +168,9 @@ export default function SignUp2() {
                   emailError={emailError}
                 />
                 {emailError ? <p className="auth__error">{emailError}</p> : " "}
-              </div>
+              </div> */}
 
-              <div className="input__container">
+              {/* <div className="input__container">
                 <h3>Phone Number</h3>
                 <PhoneInput
                   placeholder="814 874 9415"
@@ -204,9 +182,9 @@ export default function SignUp2() {
                   onChange={setValue}
                 />
                 {phoneError ? <p className="auth__error">{phoneError}</p> : " "}
-              </div>
+              </div> */}
 
-              {/* <div className="password__label input__container">
+              <div className="password__label input__container">
                 <h3>Enter password</h3>
                 <Input
                   type={InputType}
@@ -222,14 +200,32 @@ export default function SignUp2() {
                 ) : (
                   " "
                 )}
-              </div> */}
+              </div>
+
+              <aside className="checkbox__label">
+                <div>
+                  <Input
+                    type="checkbox"
+                    checked={checked}
+                    handleChecked={handleChecked}
+                  />
+                  <small>
+                    By signing up, I agree to the
+                    <span className="text__purple"> Terms of Service </span> and
+                    <span className="text__purple"> Privacy Policy </span>
+                  </small>
+                </div>
+              </aside>
             </aside>
 
-            {disabledBtn ? (
-              <button className="button__element disabled">next</button>
-            ) : (
-              <Button text="Next" />
-            )}
+            <aside className="auth__btns">
+              <Button text="go back" onclick={() => navigate(-1)} />
+              {disabledBtn ? (
+                <button className="button__element disabled">next</button>
+              ) : (
+                <Button text="Next" />
+              )}
+            </aside>
           </form>
           <section className="signup__options">
             <p>

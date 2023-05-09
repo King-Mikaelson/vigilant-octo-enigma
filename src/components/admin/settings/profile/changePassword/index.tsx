@@ -9,35 +9,29 @@ import { useState } from "react";
 export default function ProfileChangePassword() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [passwordValue, setPasswordValue] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
   const [InputType, ToggleIcon] = useTogglePassword();
-  const [errorPassword, setErrorPassword] = useState<string>("");
-  const handlePasswordValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPasswordValue(e.currentTarget.value);
-  };
-  const handlePasswordValueFocus = () => {
-    setErrorPassword("");
-  };
-  // Regex for checking if there is a letter or a number and no empty strings
-  const Regex = /[a-zA-Z0-9]/;
+
+  const passwordRegex = /[a-zA-Z0-9]/;
   const validate = () => {
     if (
-      Regex.test(passwordValue.trim()) === false &&
-      passwordValue.trim().length === 0
+      passwordRegex.test(password.trim()) === false &&
+      password.trim().length === 0
     ) {
-      setErrorPassword("*Password cannot blank");
+      setPasswordError("*Password can not blank");
     } else if (
-      Regex.test(passwordValue.trim()) === false &&
-      passwordValue.trim().length > 0
+      passwordRegex.test(password.trim()) === false &&
+      password.trim().length > 0
     ) {
-      setErrorPassword("*Password must contain at least one letter or number");
+      setPasswordError("*Password must contain at least one letter or number");
     } else if (
-      Regex.test(passwordValue.trim()) &&
-      passwordValue.trim().length < 6
+      passwordRegex.test(password.trim()) &&
+      password.trim().length < 4
     ) {
-      setErrorPassword("*Password must contain at least 6 characters");
+      setPasswordError("*Password must contain at least four characters");
     } else {
-      setErrorPassword("");
+      setPasswordError("");
     }
   };
 
@@ -46,9 +40,9 @@ export default function ProfileChangePassword() {
     validate();
 
     if (
-      errorPassword === "" &&
-      passwordValue.trim().length > 0 &&
-      Regex.test(passwordValue.trim())
+      password.trim().length > 0 &&
+      passwordRegex.test(password) &&
+      passwordError === ""
     ) {
       // run Api call;
     }
@@ -57,7 +51,13 @@ export default function ProfileChangePassword() {
     e.preventDefault();
     setIsModalOpen(true);
   };
+  const handlePasswordFocus = () => {
+    setPasswordError("");
+  };
 
+  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.currentTarget.value);
+  };
   const handleModalClose = () => {
     setIsModalOpen(false);
     navigate("/settings/profile");
@@ -66,6 +66,8 @@ export default function ProfileChangePassword() {
   const handleCancel = () => {
     navigate("/settings/profile");
   };
+
+  const disabledBtn = password === "";
 
   return (
     <AuthLayout>
@@ -78,15 +80,15 @@ export default function ProfileChangePassword() {
               <h3>Current Password</h3>
               <Input
                 type={InputType}
-                passwordValue={passwordValue}
-                handlePasswordValue={handlePasswordValue}
-                handlePasswordValueFocus={handlePasswordValueFocus}
-                errorPassword={errorPassword}
+                password={password}
+                handlePassword={handlePassword}
+                handlePasswordFocus={handlePasswordFocus}
+                passwordError={passwordError}
                 placeholder="* * * * * * * * * *"
               />
               <div className="eyeIcon">{ToggleIcon}</div>
-              {errorPassword ? (
-                <p className="auth__error">{errorPassword}</p>
+              {passwordError ? (
+                <p className="auth__error">{passwordError}</p>
               ) : (
                 " "
               )}
@@ -99,17 +101,45 @@ export default function ProfileChangePassword() {
             </aside>
             <label className="password__label">
               <h3>New Password</h3>
-              <Input type={InputType} placeholder="* * * * * * * * * *" />
+              <Input
+                type={InputType}
+                password={password}
+                handlePassword={handlePassword}
+                handlePasswordFocus={handlePasswordFocus}
+                passwordError={passwordError}
+                placeholder="* * * * * * * * * *"
+              />
               <div className="eyeIcon">{ToggleIcon}</div>
+              {passwordError ? (
+                <p className="auth__error">{passwordError}</p>
+              ) : (
+                " "
+              )}
             </label>
 
             <label className="password__label mb-3">
               <h3>Confirm Password</h3>
-              <Input type={InputType} placeholder="* * * * * * * * * *" />
+              <Input
+                type={InputType}
+                password={password}
+                handlePassword={handlePassword}
+                handlePasswordFocus={handlePasswordFocus}
+                passwordError={passwordError}
+                placeholder="* * * * * * * * * *"
+              />
               <div className="eyeIcon">{ToggleIcon}</div>
+              {passwordError ? (
+                <p className="auth__error">{passwordError}</p>
+              ) : (
+                " "
+              )}
             </label>
 
-            <Button text="submit" onclick={(e) => handleChangePassword(e)} />
+            {disabledBtn ? (
+              <button className="button__element disabled">Submit</button>
+            ) : (
+              <Button text="Submit" onclick={(e) => handleChangePassword(e)} />
+            )}
 
             <div className="cancel-btn-div">
               <button
