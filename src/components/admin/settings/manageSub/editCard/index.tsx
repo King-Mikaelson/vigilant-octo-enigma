@@ -8,7 +8,7 @@ import { RiCalendarCheckFill } from "react-icons/ri";
 import { FiCreditCard } from "react-icons/fi";
 import { BsPerson } from "react-icons/bs";
 
-export default function AddCard() {
+export default function EditCard() {
   const navigate = useNavigate();
   const [value, setValue] = useState<string>();
   const [fullName, setFullName] = useState<string>("");
@@ -18,11 +18,6 @@ export default function AddCard() {
   const handleModalClose = () => {
     setIsModalOpen(false);
     navigate("/settings/managesubscriptions");
-  };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    validate();
-    setIsModalOpen(true);
   };
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFullName(e.currentTarget.value);
@@ -43,6 +38,12 @@ export default function AddCard() {
     }
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    validate();
+    setIsModalOpen(true);
+  };
+
   const handleBack = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     navigate("/settings/managesubscriptions");
@@ -55,7 +56,7 @@ export default function AddCard() {
         Manage Subscriptions
       </h3>
       <div className="billing_container">
-        <h4>Add New Card</h4>
+        <h4>Edit Card Info</h4>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="nameOnCard">
@@ -109,7 +110,7 @@ export default function AddCard() {
             </div>
           </div>
 
-          <button className="trial-btn">Add Card</button>
+          <button className="trial-btn">Update Card</button>
           <div className="cancel-btn-div">
             <button className="cancel-btn" onClick={handleBack}>
               Go Back
@@ -119,7 +120,7 @@ export default function AddCard() {
         {isModalOpen && (
           <div className="user-modal">
             <div className="modal-content">
-              <p>Card added successfully!</p>
+              <p>Card updated successfully!</p>
               <button className="close-btn" onClick={handleModalClose}>
                 Okay
               </button>
