@@ -165,9 +165,9 @@ export default function Login() {
               <Link to={"/input-email"}>Forgot Password?</Link>
             </aside>
             {disabled ? (
-              <button className="button__element disabled">sign in</button>
+              <button className="button__element disabled">log in</button>
             ) : (
-              <Button text="sign in" onclick={() => navigate("/admin")} />
+              <Button text="log in" onclick={() => navigate("/admin")} />
             )}
           </form>
           <SignInOptions />
