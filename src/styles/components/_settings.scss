@@ -97,6 +97,7 @@
                 span {
                     font-size: 28px;
                     margin-top: 2px;
+                    color: $secondary-color;
                 }
             }
         }
@@ -108,7 +109,7 @@
     }
 
     .business-body {
-        padding-top: 5px;
+        padding: 5px 0;
 
         .biz-name,
         .biz-address {
@@ -160,6 +161,46 @@
         }
     }
 
+    .about-profile_container {
+        padding-top: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .about_details {
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                font-weight: 500;
+                color: $black-color2;
+                font-family: $inter-font;
+            }
+
+            .icon {
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .profile-delete_account {
+        @include flexCenter;
+        padding-top: 10px;
+
+
+        a {
+            color: $error-color;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: $inter-font;
+            font-weight: 500;
+            border-bottom: 1px solid $error-color;
+
+            &:hover {
+                transform: scale(0.9);
+            }
+        }
+    }
 }
 
 //EDIT PROFILE SETTINGS
@@ -221,6 +262,8 @@
 
             }
         }
+
+
 
         .cancel-btn-div {
             margin-bottom: 4rem;
@@ -470,9 +513,27 @@
             padding: 5px 0 14px 0;
         }
 
-        .subs-cancel-btn {
-            @include cancelBtnBorder;
+        .cancel_div {
+            margin: 10px 0 20px 0;
+
+            .subs-cancel-btn {
+                @include cancelBtnBorder;
+
+                a {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $primary-color;
+                    text-decoration: none;
+                    width: 100%;
+
+                    &:hover {
+                        color: $white-color;
+                    }
+                }
+
+            }
         }
+
 
         .renew-date {
             font-size: 0.75rem;
@@ -651,7 +712,6 @@
                         line-height: 16px;
 
                         &:nth-child(2) {
-                            // padding-right: 3rem;
                             display: flex;
                             align-items: center;
                             justify-content: center;
@@ -659,7 +719,6 @@
 
                         &:nth-child(3) {
                             text-align: center;
-                            // padding-right: 2.2rem;
                         }
 
                     }
