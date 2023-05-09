@@ -1,6 +1,6 @@
 .input__element {
   outline: none;
-  padding: $xxs-font $extra-font;
+  padding: $sm-font $extra-font;
   border: 1px solid $placeholder-gray;
   box-shadow: 0px 2px 2px 2px rgba($placeholder-gray, 0.1);
   border-radius: 4px;
@@ -10,6 +10,24 @@
   font-size: $xs-font;
   background-color: transparent;
   width: 100%;
+
+  &::placeholder {
+    color: $placeholder-gray;
+  }
+  &:focus {
+    border: 1px solid $primary-color;
+  }
+}
+
+.input__ordinary {
+  outline: none;
+  border: 1px solid $placeholder-gray;
+  box-shadow: 0px 2px 2px 2px rgba($placeholder-gray, 0.1);
+  border-radius: 4px;
+  background-color: transparent;
+  font-family: $inter-font;
+  font-size: $extra-font;
+
   &::placeholder {
     color: $placeholder-gray;
   }
@@ -18,9 +36,57 @@
 .password__label {
   position: relative;
 }
+
 .eyeIcon {
   position: absolute;
   right: $sm-font;
-  top: 32px;
+  top: 40px;
   cursor: pointer;
+}
+
+//  phone input number style
+.PhoneInput input {
+  outline: inherit;
+  border: none;
+  font-family: inherit;
+  background-color: inherit;
+}
+
+// error message styles
+.input__error {
+  border: 1px solid $error-color;
+  outline: none;
+  padding: $sm-font $extra-font;
+  box-shadow: 0px 2px 2px 2px rgba($placeholder-gray, 0.1);
+  border-radius: 4px;
+  font-family: $space-grotesk-font;
+  font-weight: 400;
+  line-height: $sm-font;
+  font-size: $xs-font;
+  background-color: transparent;
+  width: 100%;
+}
+
+//Checkbox Input
+// input[type="checkbox"] {
+//   border: 1px solid red;
+//   /* Add if not using autoprefixer */
+//   -webkit-appearance: none;
+//   appearance: none;
+//   padding: 0.5rem;
+//   width: 1rem;
+//   height: 1rem;
+// }
+
+input[type="password"] {
+  @include flexCenter;
+  font-family: Verdana;
+  font-size: 1rem;
+  color: $placeholder-gray;
+  letter-spacing: 3px;
+  &::placeholder {
+    font-size: $xxs-font;
+    font-family: $space-grotesk-font;
+    letter-spacing: normal;
+  }
 }

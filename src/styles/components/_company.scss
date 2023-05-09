@@ -1,0 +1,9 @@
+.company__wrapper {
+  @include flexCenter;
+
+  gap: $md-font;
+  aside {
+    font-size: $xxs-font;
+    font-weight: 400;
+  }
+}

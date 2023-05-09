@@ -1,0 +1,136 @@
+.menuCard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: $md-font;
+  margin: 0rem $xxl-font;
+
+  @include xl {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $md-font;
+    padding-top: $sm-font;
+  }
+
+  @include lg {
+    gap: $sm-font1;
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $white-color;
+    gap: $sm-font;
+    width: fit-content;
+    padding: $lg-font;
+    padding-top: $xxl-font2;
+    border-radius: 16px;
+    position: relative;
+    margin-top: $xl-font;
+
+    @include lg {
+      margin-top: $xl-font;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: $xs-font;
+    line-height: 130%;
+    word-wrap: break-word;
+    width: 16ch;
+    text-align: center;
+  }
+
+  &__price {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: $sm-font;
+    line-height: 19px;
+    letter-spacing: 0.0025em;
+  }
+
+  img {
+    position: absolute;
+    top: -$md-font;
+  }
+
+  &__price {
+    font-size: $sm-font;
+    font-weight: 700;
+    position: relative;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding-top: $sm-font1;
+
+    .edit__parent {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: $vs-font;
+
+      p {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: $xxs-font;
+        line-height: 130%;
+        color: $light-gray;
+      }
+    }
+
+    .edit__parent:after {
+      content: "";
+      background: $black-color2;
+      position: absolute;
+      height: 2.5rem;
+      width: 1px;
+      top: 0.1rem;
+      left: $xl-font;
+      bottom: 0;
+    }
+
+    .edit * {
+      color: $secondary-color;
+    }
+
+    .delete__parent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: $vs-font;
+
+      .delete {
+        border: 1px solid $delete;
+        border-radius: 5px;
+        width: fit-content;
+
+        * {
+          color: $delete;
+        }
+      }
+
+      p {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: $xxs-font;
+        line-height: 130%;
+        color: $light-gray;
+      }
+    }
+  }
+}

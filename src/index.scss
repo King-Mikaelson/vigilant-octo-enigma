@@ -14,9 +14,24 @@
 @import "../src/styles/components/modals";
 @import "../src/styles/components/orders";
 @import "../src/styles/components/sidebar";
+@import "../src/styles/components/topbar";
+@import "../src/styles/components/filters";
+@import "../src/styles/components/additem";
+@import "../src/styles/components/edititem";
+@import "../src/styles/components/menucard";
+@import "../src/styles/components/dashboardAdmin";
+@import "../src/styles/components/settings";
+@import "../src/styles/components/company";
+@import "../src/styles/components/receiptorders";
+@import "../src/styles/components/reports";
+@import "../src/styles/components/addCard";
+@import "../src/styles/components/cancelSubs";
 
 @import "../src/styles/layout/authLayout";
 @import "../src/styles/layout/dashboardLayout";
+@import "../src/styles/layout/settingsLayout";
+@import "../src/styles/layout/reportsLayout";
 
 @import "../src/styles/pages/auth";
 @import "../src/styles/pages/pos";
+@import "../src/styles/pages/subscription";

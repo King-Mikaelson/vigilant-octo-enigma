@@ -1,0 +1,68 @@
+.container.subs_container {
+    .auth.subs_auth {
+        padding: 1rem;
+
+        .sub_header {
+            font-size: 20px;
+        }
+
+        .sub_form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid $border-gray;
+            border-radius: 6px;
+            margin-top: 10px;
+
+            .cancel-option {
+                padding: 15px 0;
+                border: none;
+                cursor: pointer;
+                text-align: left;
+                font-family: $inter-font;
+                padding-left: 1rem;
+                font-size: 14px;
+                background-color: #fff;
+                border-bottom: 1px solid $border-gray;
+
+                &.active {
+                    background-color: $light-purple2;
+                    color: $purple-border;
+                    font-weight: 500;
+                    border: 1px solid $primary-color;
+                }
+            }
+
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: $primary-color;
+            color: $white-color;
+            border: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.2s ease-in-out;
+            font-family: $space-grotesk-font;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            &:disabled {
+                background-color: $border-gray;
+                cursor: not-allowed;
+                color: $disabled;
+            }
+        }
+
+        .subs_cancel-btn {
+            @include cancelBtn;
+            margin-bottom: 0;
+            padding-bottom: 0.5rem;
+        }
+    }
+}

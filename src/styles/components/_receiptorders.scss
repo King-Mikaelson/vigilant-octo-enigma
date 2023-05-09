@@ -1,0 +1,48 @@
+.receiptOrders__wrapper {
+  .titles {
+    @include flexSpaceCenter;
+    border-bottom: 1px solid $placeholder-gray;
+    padding: $sm-font1 0;
+    margin-bottom: $sm-font;
+    margin-top: $xl-font;
+    & > * {
+      width: 30%;
+    }
+    h2 {
+      font-weight: 600;
+      font-size: $sm-font;
+      &:nth-child(2),
+      &:nth-child(3) {
+        text-align: center;
+      }
+    }
+  }
+  .orderSection {
+    .orderItem {
+      @include flexSpaceCenter;
+      height: 37px;
+      margin-bottom: $sm-font1;
+      &:last-child {
+        border-top: 1px solid $placeholder-gray;
+        margin-top: $lg-font;
+      }
+      & > * {
+        width: 30%;
+      }
+      h3 {
+        font-weight: 500;
+        font-size: $xxs-font;
+        small {
+          color: $light-gray;
+          font-size: 0.7rem;
+        }
+      }
+
+      h4 {
+        font-size: $sm-font;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+  }
+}

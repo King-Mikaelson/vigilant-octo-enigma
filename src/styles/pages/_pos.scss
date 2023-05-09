@@ -1,0 +1,45 @@
+// Added a  grid layout system for the pos screen using grid template areas 
+// the menu pos_left occupies 1fr column and 1fr row while the other part dashboard LayoutLeft occupies the rest of the space
+// You dont to add position fixed to any class here because the grid layout system takes care of that
+
+
+.pos {
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    grid-template-rows: 1fr 70px;
+    height: 100vh;
+    grid-template-areas: "main nav"
+        "main  nav";
+    overflow-x: hidden;
+
+    @include xl{
+        grid-template-columns: 1fr 300px;
+    }
+
+    @include lg {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 70px;
+        grid-template-areas: "main"
+            "main";
+    }
+
+    &__left {
+        flex: 1;
+        grid-area: main;
+        padding: 0rem;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        background-color: $bg-white;
+    }
+
+    &__right {
+        flex: 0 0 250px;
+        grid-area: nav;
+        background-color: $white-color;
+
+        @include lg {
+            display: none;
+        }
+    }
+}
+

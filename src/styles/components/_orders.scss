@@ -1,0 +1,137 @@
+.orders {
+  border-left: 1px solid $placeholder-gray;
+  height: 100vh;
+  position: relative;
+  font-family: $inter-font;
+  padding: $sm-font2 $extra-font;
+
+  &__header {
+    @include positionSticky;
+    .heading {
+      @include flexSpaceCenter;
+      margin-bottom: $xxl-font;
+      h1 {
+        font-weight: 600;
+        font-size: $extra-font;
+      }
+      span {
+        font-weight: 400;
+        font-size: $sm-font;
+      }
+    }
+
+    .titles {
+      @include flexSpaceCenter;
+      border-bottom: 1px solid $placeholder-gray;
+      padding: $sm-font1 0;
+      margin-bottom: $md-font;
+      & > * {
+        width: 30%;
+      }
+      h2 {
+        font-weight: 600;
+        font-size: $sm-font;
+        &:nth-child(2),
+        &:nth-child(3) {
+          padding-left: $md-font;
+        }
+      }
+    }
+  }
+
+  &__cart {
+    .top {
+      &__empty {
+        font-size: $sm-font2;
+        font-weight: 500;
+        color: $light-gray;
+        text-align: center;
+        text-transform: capitalize;
+        padding: $sm-font;
+        border-bottom: 1px solid $placeholder-gray;
+      }
+
+      &__cartDetails {
+        overflow-y: scroll;
+        height: 50vh;
+        .cartItem {
+          @include flexSpaceCenter;
+          & > * {
+            width: 30%;
+          }
+          margin-bottom: $sm-font;
+          h3 {
+            font-weight: 500;
+            font-size: $xxs-font;
+            small {
+              color: $light-gray;
+              font-size: 0.7rem;
+            }
+          }
+
+          span {
+            @include flexSpaceCenter;
+            width: 18%;
+            h1 {
+              font-size: $sm-font;
+              font-weight: 500;
+            }
+          }
+
+          h1 {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: $sm-font;
+            font-size: $sm-font;
+            font-weight: 500;
+            .delIcon {
+              border: 1px solid $delete;
+              border-radius: 6px;
+              padding: $vs-font;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      border-top: 2px solid $placeholder-gray;
+      background-color: $white-color;
+      &__invoice {
+        margin: $md-font $lg-font $md-font $extra-font;
+        display: flex;
+        justify-content: center;
+        gap: $xs-font;
+        flex-direction: column;
+        button {
+          font-family: $inter-font;
+          font-weight: 500;
+          font-size: $xxs-font;
+        }
+        .calc {
+          @include flexSpaceCenter;
+          span {
+            font-weight: 400;
+            font-size: $xxs-font;
+            color: $light-gray;
+          }
+          h3 {
+            font-weight: 500;
+            font-size: $sm-font;
+            color: $black-color;
+          }
+
+          &:nth-child(3) {
+            margin-bottom: $sm-font;
+          }
+        }
+      }
+    }
+  }
+}

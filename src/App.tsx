@@ -1,16 +1,10 @@
 import { QueryClientProvider, QueryClient } from "react-query";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "./features/error404";
-import SignUp from "./features/authentication/signup";
-import Login from "./features/authentication/login";
-import Subscribe from "./features/subscription";
-import InputEmail from "./features/authentication/password/forgotpwd-email";
-import Pos from "./features/pos";
-import LinkSent from "./features/authentication/password/forgotpwd-linkSent";
-import LinkResent from "./features/authentication/password/forgotpwd-resentLink";
-import LinkExpired from "./features/authentication/password/forgotpwd-linkExpired";
-import ChangePassword from "./features/authentication/password/changePwd";
-import PwdUpdated from "./features/authentication/password/pwdUpdated";
+import { RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Routes from "./routes";
+import { AuthProvider } from "./features/authentication/context/AuthContext";
+import { AppProvider } from "./context/AppContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,58 +18,18 @@ const queryClient = new QueryClient({
   },
 });
 
-//TO BE TRANSFERRED TO ROUTES FOLDER
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <SignUp />,
-  },
-  {
-    path: "/input-email",
-    element: <InputEmail />,
-  },
-  {
-    path: "/forgot-pwdlink",
-    element: <LinkSent />,
-  },
-  {
-    path: "/forgot-pwdlink-resent",
-    element: <LinkResent />,
-  },
-  {
-    path: "/forgot-pwdlink-expired",
-    element: <LinkExpired />,
-  },
-  {
-    path: "/change-pwd",
-    element: <ChangePassword />,
-  },
-  {
-    path: "/pwd-updated",
-    element: <PwdUpdated />,
-  },
-  {
-    path: "/subscribe",
-    element: <Subscribe />,
-  },
-  {
-    path: "/dashboard",
-    element: <Pos />,
-    errorElement: <ErrorPage />,
-  },
-]);
-
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <RouterProvider router={router} />
-      </div>
-    </QueryClientProvider>
+    <AuthProvider>
+      <AppProvider>
+        <QueryClientProvider client={queryClient}>
+          <div className="App">
+            <RouterProvider router={Routes} />
+            <ToastContainer />
+          </div>
+        </QueryClientProvider>
+      </AppProvider>
+    </AuthProvider>
   );
 }
 

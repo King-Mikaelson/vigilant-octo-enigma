@@ -1,0 +1,730 @@
+//PROFILE SETTINGS
+.profile-container {
+    margin-top: 1rem;
+    padding: 0 2rem 2rem 2rem;
+
+    .profile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+
+        button {
+            border-radius: 20px;
+            font-family: $inter-font;
+            background: none;
+            border: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 0.5rem 1rem;
+            border: 1px solid $secondary-color;
+            cursor: pointer;
+
+            .profile-link-btn {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .profile-name {
+        @include flexCenter;
+        flex-direction: column;
+
+        span {
+            font-size: 4rem;
+            color: $light-gray;
+        }
+
+        h3 {
+            padding-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 24px;
+            color: $primary-color2;
+        }
+
+        p {
+            font-weight: 500;
+            color: $black-color2;
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    .profile-body {
+
+        .body-email,
+        .body-phone {
+            padding-bottom: 14px;
+
+            p {
+                color: $black-color2;
+                font-weight: 500;
+                padding-top: 5px;
+            }
+        }
+
+        .span1 {
+            font-size: 14px;
+            color: $dark-gray;
+        }
+
+        .body-password {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 6px;
+
+            span {
+                color: $black-color2;
+                font-weight: 500;
+                padding-top: 5px
+            }
+
+            .password-link-btn {
+                display: flex;
+                align-items: center;
+                color: $secondary-color;
+                gap: 10px;
+                cursor: pointer;
+                text-decoration: none;
+
+                p {
+                    font-size: 14px;
+                }
+
+                span {
+                    font-size: 28px;
+                    margin-top: 2px;
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+
+    .profile-hr {
+        border: 1px solid $placeholder-gray;
+        margin: 1rem 0;
+    }
+
+    .business-body {
+        padding: 5px 0;
+
+        .biz-name,
+        .biz-address {
+            padding-bottom: 1rem;
+
+            p {
+                color: $black-color2;
+                font-weight: 500;
+                padding-top: 5px;
+            }
+
+            span {
+                font-size: 14px;
+                color: $dark-gray;
+            }
+        }
+
+        .biz-logo {
+            font-weight: 400;
+            font-size: 14px;
+            width: 300px;
+
+            .img-type {
+                font-weight: 400;
+                font-size: 14px;
+                padding-top: 5px;
+            }
+
+            .max-mb {
+                font-weight: 400;
+                font-size: 14px;
+                padding-bottom: 10px;
+            }
+
+            .logo-input {
+                border: 2px dashed $secondary-color;
+                border-radius: 5px;
+                width: "300px";
+
+                .logo-input-file {
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                    position: "absolute";
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    .about-profile_container {
+        padding-top: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .about_details {
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                font-weight: 500;
+                color: $black-color2;
+                font-family: $inter-font;
+            }
+
+            .icon {
+                color: $secondary-color;
+            }
+        }
+    }
+
+    .profile-delete_account {
+        @include flexCenter;
+        padding-top: 10px;
+
+
+        a {
+            color: $error-color;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: $inter-font;
+            font-weight: 500;
+            border-bottom: 1px solid $error-color;
+
+            &:hover {
+                transform: scale(0.9);
+            }
+        }
+    }
+}
+
+//EDIT PROFILE SETTINGS
+.container.edit-prof {
+    width: 100%;
+
+    .auth.edit-prof {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        border: none;
+        padding: 0 2rem 0 2rem;
+
+
+        .auth__heading.edit-prof {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: none;
+            color: black;
+            font-size: 20px;
+            margin-bottom: 3rem;
+
+            .edit-prof-icon {
+                color: $light-gray;
+                cursor: pointer;
+            }
+        }
+
+        .form.edit-prof {
+            padding: 0 3.5rem;
+
+
+            label {
+                display: flex;
+                justify-content: space-between;
+
+                h3 {
+                    padding-top: 1.5rem;
+                    min-width: 150px;
+                }
+
+                .input-element {
+                    width: 85%;
+                    min-width: 250px;
+                    padding: 0.5rem 0;
+                    border: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $black-color2;
+                    outline: none;
+
+                    .edit-error {
+                        padding-top: 5px;
+                    }
+                }
+
+            }
+        }
+
+
+
+        .cancel-btn-div {
+            margin-bottom: 4rem;
+
+            .cancel-btn {
+                @include flexCenter;
+                border: none;
+                background-color: transparent;
+                font-weight: 500;
+                color: $primary-color;
+                font-size: $sm-font;
+                font-family: $dm-sans-font;
+                text-align: center;
+                width: 100px;
+                margin: $md-font auto;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+
+    }
+}
+
+// MANAGE USERS
+.manage-container {
+    padding: 2rem;
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .links-container {
+        @include flexCenter;
+        flex-direction: column;
+        margin-top: 3rem;
+        gap: 3rem;
+
+        .user-link {
+            .user-link1 {
+                text-decoration: none;
+                color: $dark-gray;
+                border: 1px solid $lighter-gray;
+                padding: 0.6rem 8rem;
+                border-radius: 0.8rem;
+                text-align: center;
+                margin-bottom: 1.5rem;
+                font-size: 14px;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: $primary-color;
+                    border: none;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+// Add User
+
+.addNewUser {
+    .h3 {
+        font-family: $inter-font;
+
+        .add-new-user {
+            font-size: 16px;
+            font-weight: 400;
+            font-family: $inter-font;
+        }
+
+    }
+
+    .adduser-text {
+        font-family: $inter-font;
+        color: $black-color;
+        opacity: 0.68;
+        line-height: 19px;
+        margin-bottom: 2rem;
+        padding-left: 3rem;
+    }
+
+    .adduser-field {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 0 1.5rem 0;
+
+        label {
+            margin-bottom: 0.5rem;
+            color: $black-color;
+            font-weight: 400;
+            font-size: 16px;
+            padding-top: 10px;
+            min-width: 150px;
+        }
+
+        select {
+            width: 85%;
+            min-width: 250px;
+            border-radius: 0.25rem;
+            outline: none;
+            border: 1px solid $placeholder-gray;
+            box-sizing: border-box;
+            font-size: 14px;
+            padding: 1rem 1.5rem;
+            font-family: $inter-font;
+        }
+
+
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.5rem;
+            color: $placeholder-gray;
+
+            option {
+                color: black;
+
+                &:first-child {
+                    color: $placeholder-gray;
+                }
+            }
+        }
+    }
+}
+
+// Users List
+.users-list {
+    padding: 2rem;
+
+    .header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        margin-bottom: 2rem;
+        margin-left: 0.8rem;
+
+        .icon {
+            color: $light-gray;
+            cursor: pointer;
+        }
+
+        .add-new-user {
+            font-size: 16px;
+            font-weight: 400;
+            font-family: $inter-font;
+        }
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th {
+            padding: 12px 0 24px 0;
+            margin: 0 2rem;
+            font-size: 14px;
+            text-align: left;
+            border-bottom: 1px solid $lighter-gray;
+        }
+
+        tbody {
+            tr {
+                border-bottom: 1px solid #ece9e9;
+
+                td {
+                    padding: 1rem 0;
+                    text-align: left;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 16px;
+
+                    &:last-child {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                    }
+
+                    .suspend-btn {
+                        margin-right: 16px;
+                        border: none;
+                        background-color: transparent;
+                        cursor: pointer;
+                        color: $secondary-color;
+                    }
+
+                    .del-user_btn {
+                        border: 1px solid $error-color;
+                        border-radius: 4px;
+                        background-color: transparent;
+                        cursor: pointer;
+                        color: $error-color;
+
+                        .delete-icon {
+                            padding-top: 3px;
+                        }
+                    }
+                }
+
+                tr:last-child td {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+// MANAGE SUBSCRIPTIONS
+.sub-container {
+    padding: 2rem;
+
+    h4 {
+        font-size: 20px;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 600;
+        color: $black-color2;
+        padding-bottom: 10px;
+    }
+
+    hr {
+        border: 1px solid $placeholder-gray;
+        margin-bottom: 2rem;
+    }
+
+    .sub-body {
+        span {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .sub-body-p {
+            font-size: 14px;
+            font-weight: 400;
+            color: $black-color2;
+            padding: 5px 0 14px 0;
+        }
+
+        .cancel_div {
+            margin: 10px 0 20px 0;
+
+            .subs-cancel-btn {
+                @include cancelBtnBorder;
+
+                a {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $primary-color;
+                    text-decoration: none;
+                    width: 100%;
+
+                    &:hover {
+                        color: $white-color;
+                    }
+                }
+
+            }
+        }
+
+
+        .renew-date {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: $black-color2;
+            line-height: 1rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .payment-method {
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                font-weight: 600;
+                font-size: 14px;
+                color: $black-color2;
+            }
+
+            .addcard-div {
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid $secondary-color;
+                margin-bottom: 10px;
+
+                .icon {
+                    margin-bottom: 0;
+                    color: $secondary-color;
+                }
+
+                a {
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                    color: $secondary-color;
+                }
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+    hr {
+        border: 1px solid $placeholder-gray;
+        margin: 0.2rem 0 2rem 0;
+    }
+
+    .card-details-div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .card-details {
+            @include boxShadow;
+            width: 300px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .card-details-header {
+            display: flex;
+            justify-content: space-between;
+
+
+            h4 {
+                font-size: 16px;
+                font-weight: 500;
+                color: $black-color;
+                padding-bottom: 10px;
+                margin-bottom: 0;
+            }
+
+            .del-icon {
+                button {
+                    border: 1px solid $error-color;
+                    background-color: transparent;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    padding: 1px;
+
+                    &:hover {
+                        transform: scale(0.9);
+                    }
+                }
+
+                .icon {
+                    color: $error-color;
+                    display: flex;
+                    align-items: center;
+                }
+
+            }
+        }
+
+        .card-details-body {
+            p {
+                font-size: 11px;
+                font-weight: 400;
+                color: $card-gray;
+
+            }
+
+            .addcard-link {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 10px;
+
+                a {
+                    font-size: 12px;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                    color: $secondary-color;
+                    text-decoration: underline;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+
+                img {
+                    width: 35px;
+                    height: 20px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    .charge-date {
+        font-size: 12px;
+        font-weight: 400;
+        color: $black-color2;
+        padding: 1.5rem 0;
+    }
+
+    .billing-history {
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            color: $black-color2;
+            padding-bottom: 0;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+
+            th {
+                padding: 13px 0 12px 0;
+                font-size: 12px;
+                text-align: left;
+                color: $black-color;
+                border-bottom: 1px solid $lighter-gray;
+
+                &:nth-child(2) {
+                    text-align: center;
+                }
+
+                &:nth-child(3) {
+                    text-align: center;
+                }
+            }
+
+            tbody {
+                tr {
+                    border-bottom: 1px solid #ece9e9;
+
+                    td {
+                        padding: 0.3rem 0;
+                        text-align: left;
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 16px;
+
+                        &:nth-child(2) {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        &:nth-child(3) {
+                            text-align: center;
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+}

@@ -1,367 +1,283 @@
-.auth {
-  @include containerPadding;
-  @include flexCenter;
-  flex-direction: column;
-  font-family: $space-grotesk-font;
-
-  &__heading {
-    background: $linear-gradient-primary;
-    color: transparent;
-    background-clip: text;
-    font-size: $sm-font2;
-    margin-bottom: $sm-font1;
-
-    @include sm {
-      font-size: 1.85rem;
-    }
+.container {
+  .auth.signup {
+    width: 65%;
   }
 
-  &__heading.mt-4rem {
-    margin-top: $xxl-font2;
-  }
-
-  &__subHeading {
-    color: $black-color;
-    font-weight: 500;
-    font-size: $extra-font;
-    text-transform: capitalize;
-    margin-bottom: $xxl-font;
-  }
-
-  &__paragraph {
-    color: $black-color2;
-    font-family: $inter-font;
-    font-weight: 400;
-    font-size: $sm-font;
-    margin-bottom: $xxl-font;
-    max-width: 330px;
-    text-align: center;
-    align-self: center;
-  }
-
-  &__links {
-    font-weight: 500;
-    color: $primary-color;
-    font-size: $extra-font;
-    font-family: $dm-sans-font;
-    margin-bottom: $md-font;
-    margin-top: $sm-font;
-    text-align: center;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  .form {
-    display: flex;
+  .auth {
+    @include flexCenter;
     flex-direction: column;
-    align-items: stretch;
-    gap: $extra-font;
-    min-width: 400px;
-    @include sm {
-      min-width: 100%;
-    }
-    h3 {
-      font-size: $sm-font;
-      font-weight: 400;
-    }
+    font-family: $space-grotesk-font;
+    width: 40%;
+    min-height: 100%;
+    margin: $lg-font auto;
+    border: 1.5px solid rgba($primary-color, 0.5);
+    border-radius: 20px;
+    padding: $xxl-font;
 
-    .span {
-      font-size: $xxs-font;
-      font-weight: 300;
-      margin-top: $sm-font;
-    }
+    &__heading {
+      background: $linear-gradient-primary;
+      color: transparent;
+      background-clip: text;
+      font-size: $sm-font2;
+      margin-bottom: $sm-font1;
 
-    //LOG IN STYLES HERE
-    .checkbox__label {
-      align-self: flex-start;
-      margin-bottom: $sm-font;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      font-size: $xs-font;
-
-      label {
-        @include flexCenter;
-        gap: $sm-font1;
-        font-weight: 400;
+      @include sm {
+        font-size: 1.85rem;
       }
-      input {
-        width: fit-content;
+    }
+
+    &__subHeading {
+      color: $black-color;
+      font-weight: 500;
+      font-size: $extra-font;
+      margin-bottom: $lg-font;
+    }
+
+    &__paragraph {
+      color: $black-color2;
+      font-family: $inter-font;
+      font-weight: 400;
+      font-size: $sm-font;
+      margin-bottom: $xxl-font;
+      max-width: 330px;
+      text-align: center;
+    }
+    &__paragraph.otp {
+      max-width: 100%;
+      margin-top: $sm-font2;
+    }
+
+    &__changeAcc {
+      font-size: $xxs-font;
+      margin-bottom: $lg-font;
+      span {
+        font-weight: 500;
+        color: $dark-gray;
+        margin-right: 5px;
       }
       a {
-        color: $red;
-        font-weight: 500;
+        text-transform: capitalize;
+        text-decoration: underline;
+        color: $primary-color;
+        font-weight: 700;
         &:hover {
-          text-decoration: underline;
+          color: rgba($primary-color, 0.5);
         }
       }
     }
-  }
 
-  .signup__options {
-    @include flexCenter;
-    flex-direction: column;
-    gap: $sm-font;
-    margin-top: $extra-font;
-    span {
-      color: $light-gray;
-      font-size: $xxs-font;
-      font-weight: 500;
-      margin-right: 5px;
-    }
-    .createAccount {
-      font-weight: 700;
-      color: $primary-color;
-      text-decoration: underline;
-      font-size: $sm-font;
-    }
-
-    .or {
+    &__loginSwitch {
+      margin-bottom: $lg-font;
       width: 100%;
-      height: 50px;
+      height: 56px;
+      border-radius: 50px;
+      padding: 8px;
+      background-color: #f1eef0;
       position: relative;
-      @include flexCenter;
-      .line {
-        width: 100%;
-        height: 2px;
-        background-image: linear-gradient(
-          to right,
-          $white-color,
-          $primary-color,
-          $white-color
-        );
-      }
-      h2 {
-        @include flexCenter;
-        font-weight: 700;
-        color: $primary-color;
-        font-size: $sm-font;
-        text-transform: capitalize;
-        background-color: $light-purple;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        z-index: 1;
+      .slider {
+        background-color: $white-color;
         position: absolute;
-        top: 13%;
-        left: 43%;
+        top: 8px;
+        left: 8px;
+        bottom: 8px;
+        border-radius: 50px;
+        width: 50%;
+        transition: 0.3s all ease;
       }
-    }
-
-    .google {
-      border: 1px solid $placeholder-gray;
-      border-radius: 4px;
-      width: 100%;
-      @include flexCenter;
-      gap: 5px;
-      padding: $sm-font1;
-      color: $light-gray;
-      font-size: $xxs-font;
-      font-weight: 500;
-    }
-  }
-}
-
-//SIGN UP STYLES HERE
-.signup {
-  padding: 4rem 3rem;
-  @include flexCenter;
-  flex-direction: column;
-  font-family: $space-grotesk-font;
-
-  @include sm {
-    padding: 0rem;
-  }
-
-  &__heading {
-    background: $linear-gradient-primary;
-    color: transparent;
-    background-clip: text;
-    font-size: $sm-font2;
-    margin-bottom: $sm-font1;
-
-    @include sm {
-      font-size: 1.5rem;
-      padding: 0rem;
-    }
-  }
-
-  &__heading.mt-4rem {
-    margin-top: $xxl-font2;
-
-  }
-
-  &__subHeading {
-    color: $black-color;
-    font-weight: 500;
-    font-size: $extra-font;
-    text-transform: capitalize;
-    margin-bottom: $xxl-font;
-    
-    @include sm {
-      margin-bottom: $sm-font;
-    }
-  }
-
-
-  &__links {
-    font-weight: 500;
-    color: $primary-color;
-    font-size: $extra-font;
-    font-family: $dm-sans-font;
-    margin-bottom: $md-font;
-    margin-top: $sm-font;
-    text-align: center;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: $extra-font;
-    min-width: 400px;
-    @include sm {
-      min-width: 100%;
-    }
-    h3 {
-      font-size: $sm-font;
-      font-weight: 400;
-    }
-
-    .span {
-      font-size: $xxs-font;
-      font-weight: 300;
-      margin-top: $sm-font;
-    }
-
-     label .PhoneInput{
-      outline: none;
-      padding: $xxs-font $extra-font;
-      border: 1px solid $placeholder-gray;
-      box-shadow: 0px 2px 2px 2px rgba($placeholder-gray, 0.1);
-      border-radius: 4px;
-      font-family: $space-grotesk-font;
-      font-weight: 400;
-      line-height: $sm-font;
-      font-size: $xs-font;
-      background-color: transparent;
-      width: 100%;
-     }
-
-    .PhoneInput input{
-      outline: none;
-      border: none;
-      font-family: $space-grotesk-font;
-      font-weight: 400;
-      line-height: $sm-font;
-      font-size: $xs-font;
-      background-color: transparent;
-      width: 100%;
-      &::placeholder {
-        color: $placeholder-gray;
+      .slider.selectedUsername {
+        transform: translateX(92%);
       }
-  }
 
-    //LOG IN STYLES HERE
-    .checkbox__label {
-      align-self: flex-start;
-      margin-bottom: $sm-font;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      font-size: $xs-font;
-
-      @include sm{
-        margin-bottom: 0rem;
-      }
-      label {
+      .options {
+        position: absolute;
+        width: 100%;
         @include flexCenter;
-        gap: $sm-font1;
-        font-weight: 400;
-      }
-      input{
-        width: fit-content;
-      }
-      a {
-        color: $red;
-        font-weight: 500;
-        &:hover {
-          text-decoration: underline;
+        top: 8px;
+        bottom: 8px;
+        left: 0;
+        z-index: 2;
+        span {
+          width: 47%;
+          text-align: center;
+          font-weight: 400;
+          color: $card-gray;
+          font-size: $xs-font;
+          padding: $sm-font 0;
+          cursor: pointer;
         }
       }
     }
-  }
 
-  .signup__options {
-    @include flexCenter;
-    flex-direction: column;
-    gap: $sm-font;
-    margin-top: $extra-font;
-
-    @include sm {
-      margin-top: $xs-font
-    }
-    span {
-      color: $light-gray;
-      font-size: $xxs-font;
-      font-weight: 500;
-      margin-right: 5px;
-    }
-    .createAccount {
-      font-weight: 700;
-      color: $primary-color;
-      text-decoration: underline;
-      font-size: $sm-font;
-    }
-
-    .or {
-      width: 100%;
-      height: 50px;
-      position: relative;
+    &__storeType {
       @include flexCenter;
-      .line {
-        width: 100%;
-        height: 2px;
-        background-image: linear-gradient(
-          to right,
-          $white-color,
-          $primary-color,
-          $white-color
-        );
-      }
-      h2 {
+      gap: $xxl-font;
+      margin: $md-font $md-font 0;
+      width: 100%;
+      p {
         @include flexCenter;
+        border: 1px solid #7b7579;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: $extra-font;
+        text-transform: uppercase;
+        width: 50%;
+        height: 200px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: $light-gray;
+        &:hover {
+          background-color: $primary-color;
+          transform: scale(1.05);
+          color: $white-color;
+        }
+      }
+    }
+
+    &__links {
+      font-weight: 500;
+      color: $primary-color;
+      font-size: $extra-font;
+      font-family: $dm-sans-font;
+      margin-top: $sm-font;
+      text-align: center;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &__links.otp {
+      margin-top: 0;
+    }
+
+    &__error {
+      color: $error-color;
+      font-size: $xxs-font;
+      text-transform: lowercase;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: $extra-font;
+      width: 100%;
+
+      @include sm {
+        min-width: 100%;
+      }
+
+      h3 {
+        font-size: $sm-font;
+        font-weight: 400;
+        margin-bottom: 0.25rem;
+      }
+
+      .span {
+        font-size: $xxs-font;
+        font-weight: 300;
+        margin-top: $sm-font;
+      }
+
+      .checkbox__label {
+        align-self: flex-start;
+        margin-bottom: $sm-font;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-size: $xs-font;
+
+        label {
+          @include flexCenter;
+          gap: $sm-font1;
+          font-weight: 400;
+        }
+
+        input {
+          width: fit-content;
+        }
+
+        a {
+          color: $red;
+          font-weight: 500;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .text__purple {
+          text-decoration: underline;
+          color: $primary-color;
+          font-weight: 700;
+        }
+      }
+
+      .auth__btns {
+        @include flexSpaceCenter;
+        & > * {
+          width: 42%;
+        }
+        button:first-child {
+          background-color: $white-color;
+          color: $primary-color;
+          border: 1px solid $primary-color;
+        }
+      }
+
+      // Profile Change password class
+      .p-link_box {
+        display: flex;
+        justify-content: flex-end;
+
+        .p-link {
+          font-size: 0.7rem;
+          color: $red;
+          font-weight: 500;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .cancel-btn-div {
+        .cancel-btn {
+          @include cancelBtn;
+        }
+      }
+    }
+
+    .grid {
+      .input__container {
+        margin-bottom: $md-font;
+      }
+    }
+
+    .signup__options {
+      @include flexCenter;
+      flex-direction: column;
+      gap: $sm-font1;
+      margin-top: $extra-font;
+
+      span {
+        color: $light-gray;
+        font-size: $xxs-font;
+        font-weight: 500;
+        margin-right: 5px;
+      }
+
+      .createAccount {
         font-weight: 700;
         color: $primary-color;
+        text-decoration: underline;
         font-size: $sm-font;
-        text-transform: capitalize;
-        background-color: $light-purple;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        z-index: 1;
-        position: absolute;
-        top: 13%;
-        left: 43%;
       }
     }
+  }
 
-    .google {
-      border: 1px solid $placeholder-gray;
-      border-radius: 4px;
-      width: 100%;
-      @include flexCenter;
-      gap: 5px;
-      padding: $sm-font1;
-      color: $light-gray;
-      font-size: $xxs-font;
-      font-weight: 500;
-    }
+  .auth.storeType {
+    width: 55%;
+    padding: $xxl-font;
   }
 }
-
-//PASSWORD STYLES HERE
