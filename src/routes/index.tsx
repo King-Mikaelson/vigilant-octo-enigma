@@ -32,6 +32,7 @@ import AddCard from "../components/admin/settings/manageSub/addCard";
 import EditCard from "../components/admin/settings/manageSub/editCard";
 import CancelSubscription from "../components/admin/settings/manageSub/cancelSub";
 import DeleteAccount from "../components/admin/settings/profile/deleteAccount";
+import Otp from "../features/authentication/otp";
 
 const router = createHashRouter([
   {
@@ -53,6 +54,10 @@ const router = createHashRouter([
   {
     path: "/signup2",
     element: <SignUp2 />,
+  },
+  {
+    path: "/otp",
+    element: <Otp />,
   },
   {
     path: "/input-email",

@@ -225,7 +225,7 @@ export default function SignUp2() {
               {disabledBtn ? (
                 <button className="button__element disabled">sign up</button>
               ) : (
-                <Button text="sign up" onclick={() => navigate("/admin")} />
+                <Button text="sign up" onclick={() => navigate("/otp")} />
               )}
             </aside>
           </form>

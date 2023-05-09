@@ -7,6 +7,8 @@ interface ContextProp {
   setStoreType?: React.Dispatch<React.SetStateAction<string>>;
   loginOption?: string;
   setLoginOption?: React.Dispatch<React.SetStateAction<string>>;
+  otpState?: string;
+  setOtpState?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const AppContext = createContext<ContextProp>(null!);
@@ -18,6 +20,8 @@ export const AppProvider = ({ children }: ContextProp) => {
   const [storeType, setStoreType] = useState("");
   //login options(email or username)
   const [loginOption, setLoginOption] = useState("email");
+  //otp screens conditional render
+  const [otpState, setOtpState] = useState("");
 
   //CONTEXT DATA
   const contextData: any = {
@@ -29,6 +33,9 @@ export const AppProvider = ({ children }: ContextProp) => {
     //login
     loginOption,
     setLoginOption,
+    //otp
+    otpState,
+    setOtpState,
   };
 
   return (

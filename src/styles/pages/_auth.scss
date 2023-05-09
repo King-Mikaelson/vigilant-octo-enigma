@@ -42,6 +42,10 @@
       max-width: 330px;
       text-align: center;
     }
+    &__paragraph.otp {
+      max-width: 100%;
+      margin-top: $sm-font2;
+    }
 
     &__changeAcc {
       font-size: $xxs-font;
@@ -136,10 +140,13 @@
       font-family: $dm-sans-font;
       margin-top: $sm-font;
       text-align: center;
-
+      cursor: pointer;
       &:hover {
         text-decoration: underline;
       }
+    }
+    &__links.otp {
+      margin-top: 0;
     }
 
     &__error {
