@@ -115,6 +115,8 @@ export default function SignUp2() {
   const disabledBtn =
     businessName === "" || businessAddress === "" || password === "";
 
+  console.log(businessName, businessAddress, password);
+
   return (
     <AuthLayout>
       <section className="container">
@@ -221,16 +223,16 @@ export default function SignUp2() {
             <aside className="auth__btns">
               <Button text="go back" onclick={() => navigate(-1)} />
               {disabledBtn ? (
-                <button className="button__element disabled">next</button>
+                <button className="button__element disabled">sign up</button>
               ) : (
-                <Button text="Next" />
+                <Button text="sign up" onclick={() => navigate("/admin")} />
               )}
             </aside>
           </form>
           <section className="signup__options">
             <p>
               <span>Already a user?</span>
-              <Link to={"/"} className="createAccount">
+              <Link to={"/login"} className="createAccount">
                 Log In
               </Link>{" "}
             </p>

@@ -228,13 +228,13 @@ export default function SignUp2() {
             {disabledBtn ? (
               <button className="button__element disabled">next</button>
             ) : (
-              <Button text="Next" />
+              <Button text="Next" onclick={() => navigate("/signup2")} />
             )}
           </form>
           <section className="signup__options">
             <p>
               <span>Already a user?</span>
-              <Link to={"/"} className="createAccount">
+              <Link to={"/login"} className="createAccount">
                 Log In
               </Link>{" "}
             </p>
