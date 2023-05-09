@@ -19,7 +19,7 @@ export default function SelectStore() {
   return (
     <AuthLayout>
       <section className="container">
-        <section className="auth">
+        <section className="auth storeType">
           <h1 className="auth__heading">Create your Account</h1>
           <p className="auth__subHeading">
             Select the kind of store you operate
@@ -27,7 +27,7 @@ export default function SelectStore() {
 
           <aside className="auth__storeType">
             <p onClick={singleStoreActions}>single store</p>
-            <p onClick={multiStoreActions}>multi store</p>
+            <p onClick={multiStoreActions}>multiple store</p>
           </aside>
         </section>
       </section>

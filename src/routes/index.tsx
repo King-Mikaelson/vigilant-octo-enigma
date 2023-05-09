@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import Login from "../features/authentication/login";
 import SignUp from "../features/authentication/signup";
 import LinkSent from "../features/authentication/password/forgotpwd-linkSent";
@@ -29,7 +29,7 @@ import ProfileChangePassword from "../components/admin/settings/profile/changePa
 import SelectStore from "../features/authentication/select-store";
 import SignUp2 from "../features/authentication/signup/SignUp2";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/test",
     element: <StyleGuides />,
