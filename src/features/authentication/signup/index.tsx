@@ -427,7 +427,7 @@ const FormTwo = () => {
           <section className="signup__options">
             <p>
               <span>Already a user?</span>
-              <Link to={"/"} className="createAccount">
+              <Link to={"/login"} className="createAccount">
                 Log In
               </Link>{" "}
             </p>

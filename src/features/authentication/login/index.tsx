@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useTogglePassword from "../hooks/useTogglePassword";
 import Input from "../../../components/ui/Input";
 import Button from "../../../components/ui/button";
 import AuthLayout from "../../../layout/authLayout";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import SignInOptions from "../../../components/authentication/signInOptions";
+import AppContext from "../../../context/AppContext";
 export default function Login() {
   //TOGGLING PASSWORD HIDE/SHOW
   const [InputType, ToggleIcon] = useTogglePassword();
@@ -14,6 +15,7 @@ export default function Login() {
   const [errorValue, setErrorValue] = useState<string>("");
   const [errorPassword, setErrorPassword] = useState<string>("");
 
+  const navigate = useNavigate();
   // This function code updates the state of the input
   const handleValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value);
@@ -82,21 +84,55 @@ export default function Login() {
     setErrorPassword("");
   };
 
+  //Login Option from context
+  const { loginOption, setLoginOption } = useContext(AppContext);
+  //Active Option
+  const activeOption = {
+    color: "#332F32",
+  };
+
+  //disabled button state
+  const disabled = value === "" || passwordValue === "";
   return (
     <AuthLayout>
       <section className="container">
         <section className="auth">
-          <h1 className="auth__heading">Sign in to your Account</h1>
-          <p className="auth__subHeading">welcome back</p>
+          <h1 className="auth__heading">Log into your Account</h1>
+          <p className="auth__subHeading">Welcome Back</p>
+          <aside className="auth__loginSwitch">
+            <div className="options">
+              <span
+                onClick={() => setLoginOption?.("email")}
+                style={loginOption === "email" ? activeOption : undefined}
+              >
+                Email
+              </span>
+              <span
+                onClick={() => setLoginOption?.("username")}
+                style={loginOption === "username" ? activeOption : undefined}
+              >
+                Username
+              </span>
+            </div>
+            <span
+              className={
+                loginOption === "email" ? "slider" : "slider selectedUsername"
+              }
+            ></span>
+          </aside>
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <label>
-              <h3>Email address / Phone number</h3>
+              <h3>{loginOption === "email" ? "Email address" : "Username"}</h3>
               <Input
                 type="text"
                 value={value}
                 handleValue={handleValue}
                 handleValueFocus={handleValueFocus}
-                placeholder="yourname@email.com/phone number"
+                placeholder={
+                  loginOption === "email"
+                    ? "yourname@email.com/phone number"
+                    : "username"
+                }
                 errorValue={errorValue}
               />
               {errorValue ? <p className="auth__error">{errorValue}</p> : " "}
@@ -126,10 +162,13 @@ export default function Login() {
                 <small>Remember me</small>
               </label>
 
-              <Link to={"/input-email"}>forgot password?</Link>
+              <Link to={"/input-email"}>Forgot Password?</Link>
             </aside>
-
-            <Button text="sign in" />
+            {disabled ? (
+              <button className="button__element disabled">log in</button>
+            ) : (
+              <Button text="log in" onclick={() => navigate("/admin")} />
+            )}
           </form>
           <SignInOptions />
         </section>

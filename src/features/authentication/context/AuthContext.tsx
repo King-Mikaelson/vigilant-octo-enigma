@@ -40,6 +40,11 @@ ContextProp) => {
   );
 
 
+  useEffect(() => {
+    if(localStorage.getItem('form')){
+    setForm1(`${localStorage.getItem('form')}`);
+    }
+  },[])
 
   useEffect(() => {
     localStorage.setItem('form', form1);
