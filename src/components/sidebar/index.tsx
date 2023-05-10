@@ -21,6 +21,7 @@ export default function SideBar() {
         <img src={uppistLogo} alt="" width={"100%"} />
       </div>
       <div className="sidebar__wrapper">
+        <div  className={activeTab === "dashboard" ? "active__parent" : "sidebar__parent"}>
         <NavLink
           to={"/dashboard-admin"}
           style={activeTab === "dashboard" ? activeStyle : undefined}
@@ -32,8 +33,11 @@ export default function SideBar() {
           <RxDashboard size={20} />
           Dashboard
         </NavLink>
+        </div>
 
-        <NavLink
+
+          <div className={activeTab === "menu" ?  "active__parent" : "sidebar__parent"}>
+          <NavLink
           to={"/admin"}
           style={activeTab === "menu" ? activeStyle : undefined}
           onClick={() => {
@@ -44,7 +48,9 @@ export default function SideBar() {
           <MdOutlineRestaurantMenu size={20} />
           Menu Manager
         </NavLink>
-
+          </div>
+        
+        <div className={activeTab === "report" ?  "active__parent" : "sidebar__parent"}>
         <NavLink
           to={"/reports/individual-report"}
           style={activeTab === "report" ? activeStyle : undefined}
@@ -56,7 +62,9 @@ export default function SideBar() {
           <HiOutlineChartSquareBar size={20} />
           Report
         </NavLink>
+        </div>
 
+        <div  className={activeTab === "settings" ?  "active__parent" : "sidebar__parent"}>
         <NavLink
           to={"/settings/profile"}
           style={activeTab === "settings" ? activeStyle : undefined}
@@ -68,7 +76,10 @@ export default function SideBar() {
           <AiOutlineSetting size={20} />
           Settings
         </NavLink>
+        </div>
 
+
+        <div className={activeTab === "logOut" ?  "active__parent" : "sidebar__parent"}>
         <NavLink
           to={"/logOut"}
           style={activeTab === "logOut" ? activeStyle : undefined}
@@ -80,6 +91,7 @@ export default function SideBar() {
           <BiLogOut size={20} />
           Log Out
         </NavLink>
+        </div>
       </div>
     </div>
   );

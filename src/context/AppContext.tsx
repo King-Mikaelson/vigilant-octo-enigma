@@ -23,6 +23,7 @@ export const AppProvider = ({ children }: ContextProp) => {
   //otp screens conditional render
   const [otpState, setOtpState] = useState("");
 
+
   //CONTEXT DATA
   const contextData: any = {
     //User from auth context
