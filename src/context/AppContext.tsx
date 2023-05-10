@@ -14,8 +14,9 @@ export const AppProvider = ({ children }: ContextProp) => {
   //STATES
   const [storeType, setStoreType] = useState("");
 
+
   //CONTEXT DATA
-  const contextData: any = { user, storeType, setStoreType };
+  const contextData: any = { user, storeType, setStoreType};
 
   return (
     <AppContext.Provider value={contextData}>{children}</AppContext.Provider>
