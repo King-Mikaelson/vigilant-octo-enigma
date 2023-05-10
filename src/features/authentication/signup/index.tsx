@@ -10,9 +10,153 @@ import progressBar1 from "../../../assets/singleStoreProg1.png";
 import progressBar2 from "../../../assets/progressBar2.png"
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../../features/authentication/context/AuthContext";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
+
+const FormYup = () => {
+
+
+interface Values{
+  email?:string,
+  password?:string,
+  userName?:string,
+  fullName?:string
+
+}
+
+
+
+const initialValues:Values = {
+  email: "",
+  password: "",
+  userName:"",
+  fullName:""
+};
+
+const SignInSchema = Yup.object().shape({
+  email: Yup.string().email().required("Email is required"),
+  password: Yup.string().required("Password is required").min(4, "Password is too short - should be 4 chars minimum"),
+  userName:Yup.string().required("Username is Required").min(3, "Username is too short - should be 3 chars minimum"),
+  fullName:Yup.string().required("fullName is Required").min(7, "fullName is too short - should be 7 chars minimum")
+});
+
+
+const submitForm = (values:Values) => {
+  console.log(values);
+};
+
+
+  return (
+    <Formik
+    initialValues={initialValues}
+    validationSchema={SignInSchema}
+    onSubmit={submitForm}
+    >
+      {(formik) => {
+         const { errors, touched, isValid, dirty } = formik;;
+        return (
+          <div className="container">
+            <h1>Sign in to continue</h1>
+            <Form>
+              <div className="form-row">
+                <label htmlFor="email">Email</label>
+                <Field
+                  type="email"
+                  name="email"
+                  id="email"
+                  className={errors.email && touched.email ? 
+                  "input-error" : null }
+                />
+                <ErrorMessage name="email" component="span" className="error" />
+              </div>
+
+              <div className="form-row">
+                <label htmlFor="password">Password</label>
+                <Field
+                  type="password"
+                  name="password"
+                  id="password"
+                  className={
+                    errors.password && touched.password ? "input-error" : null
+                  }
+                />
+                <ErrorMessage
+                  name="password"
+                  component="span"
+                  className="error"
+                />
+              </div>
+
+              <div className="form-row">
+                <label htmlFor="userName">Full Name</label>
+                <Field
+                  type="fullName"
+                  name="fullName"
+                  id="fullName"
+                  className={errors.fullName && touched.fullName ? 
+                  "input-error" : null }
+                />
+                <ErrorMessage name="fullName" component="span" className="error" />
+              </div>
+
+              <div className="form-row">
+                <label htmlFor="userName">User Name</label>
+                <Field
+                  type="userName"
+                  name="userName"
+                  id="userName"
+                  className={errors.userName && touched.userName ? 
+                  "input-error" : null }
+                />
+                <ErrorMessage name="userName" component="span" className="error" />
+              </div>
+
+              <button
+                type="submit"
+                className={!(dirty && isValid) ? "disabled-btn" : ""}
+                disabled={!(dirty && isValid)}
+              >
+                Sign In
+              </button>
+            </Form>
+          </div>
+        );
+      }}
+    </Formik>
+  );
+};
 
 
 const FormOne = () => {
+
+
+
+interface Values{
+  email?:string,
+  userName?:string,
+  fullName?:string
+
+}
+
+
+
+const initialValues:Values = {
+  email: "",
+  userName:"",
+  fullName:""
+};
+
+const SignInSchema = Yup.object().shape({
+  email: Yup.string().email().required("Email is required"),
+  userName:Yup.string().required("Username is Required").min(3, "Username is too short - should be 3 chars minimum"),
+  fullName:Yup.string().required("fullName is Required").min(7, "fullName is too short - should be 7 chars minimum")
+});
+
+
+const submitForm = (values:Values) => {
+  console.log(values);
+};
   
   const [InputType, ToggleIcon] = useTogglePassword();
   const [fullName, setFullName] = useState<string>("");
@@ -23,7 +167,7 @@ const FormOne = () => {
   const [disableFirstBtn, setDisableFirstBtn] = useState<boolean>(false);
 
 
-  const{form1, setForm1} = useContext(AuthContext);
+  const{ setSingleStoreState} = useContext(AuthContext );
 
   const navigate = useNavigate();
 
@@ -111,83 +255,93 @@ const FormOne = () => {
   }, [fullName, userName, email])
 
   function changePage(){
-    setForm1?.("two")
+    setSingleStoreState?.("two")
   }
 
   return (
     <AuthLayout>
       <>
-      <section className="container">
-        <div style={{ textAlign: "center", marginTop: "4rem" }}>
-          <img src={progressBar1} alt="progress" />
-        </div>
-        <section className="auth">
-          <p className="auth__changeAcc">
-            <span>Create account as a single store</span>
-            <Link to={"/"} className="changeAccount">
-              Change
-            </Link>
-          </p>
-          <h1 className="auth__heading">Create Account</h1>
-          <p className="auth__subHeading">Let's get you started </p>
-          <form className="form" onSubmit={(e) => handleDefault(e)}>
-            <aside className="grid">
-              <div className="input__container">
-                <h3>Full Name</h3>
-                <Input
-                  fullName={fullName}
-                  handleName={handleName}
-                  type="name"
-                  placeholder="fullname"
-                  handleNameFocus={handleNameFocus}
-                  error={error}
-                />
-                {error ? <p className="auth__error">{error}</p> : " "}
-              </div>
-
-              <div className="input__container">
-                <h3>Username</h3>
-                <Input
-                  userName={userName}
-                  handleUserName={handleUserName}
-                  type="name"
-                  placeholder="username"
-                  error={error}
-                />
-                {error ? <p className="auth__error">{error}</p> : " "}
-              </div>
-
-              <div className="input__container">
-                <h3>Email address</h3>
-                <Input
-                  type="email"
-                  email={email}
-                  handleEmail={handleEmail}
-                  handleEmailFocus={handleEmailFocus}
-                  placeholder="yourname@email.com"
-                  emailError={emailError}
-                />
-                {emailError ? <p className="auth__error">{emailError}</p> : " "}
-              </div>
-
-            </aside>
-
-            {disableFirstBtn ? (
-              <Button changePage={changePage}  text="Next" />
-              ) : (
-              <button className="button__element disabled">next</button>
-            )}
-          </form>
-          <section className="signup__options">
-            <p>
-              <span>Already a user?</span>
-              <Link to={"/"} className="createAccount">
-                Log In
-              </Link>{" "}
+      <Formik initialValues={initialValues}
+    validationSchema={SignInSchema}
+    onSubmit={submitForm} >
+    {(formik: { errors: any; touched: any; isValid: any; dirty: any; }) => {
+         const { errors, touched, isValid, dirty } = formik;
+        return (
+          <section className="container">
+          <div style={{ textAlign: "center", marginTop: "4rem" }}>
+            <img src={progressBar1} alt="progress" />
+          </div>
+          <section className="auth">
+            <p className="auth__changeAcc">
+              <span>Create account as a multiple store</span>
+              <Link to={"/"} className="changeAccount">
+                Change
+              </Link>
             </p>
+            <h1 className="auth__heading">Create Account</h1>
+            <p className="auth__subHeading">Let's get you started </p>
+            <Form className="form">
+              <aside className="grid">
+                <div className="input__container">
+                  <h3>Full Name</h3>
+                  <Input
+                    fullName={fullName}
+                    handleName={handleName}
+                    type="name"
+                    placeholder="fullname"
+                    handleNameFocus={handleNameFocus}
+                    error={error}
+                  />
+                  {error ? <p className="auth__error">{error}</p> : " "}
+                </div>
+  
+                <div className="input__container">
+                  <h3>Username</h3>
+                  <Input
+                    userName={userName}
+                    handleUserName={handleUserName}
+                    type="name"
+                    placeholder="username"
+                    error={error}
+                  />
+                  {error ? <p className="auth__error">{error}</p> : " "}
+                </div>
+  
+                <div className="input__container">
+                  <h3>Email address</h3>
+                  <Input
+                    type="email"
+                    email={email}
+                    handleEmail={handleEmail}
+                    handleEmailFocus={handleEmailFocus}
+                    placeholder="yourname@email.com"
+                    emailError={emailError}
+                  />
+                  {emailError ? <p className="auth__error">{emailError}</p> : " "}
+                </div>
+  
+              </aside>
+  
+              {disableFirstBtn ? (
+                <Button changePage={changePage}  text="Next" />
+                ) : (
+                <button className="button__element disabled">next</button>
+              )}
+            </Form>
+            <section className="signup__options">
+              <p>
+                <span>Already a user?</span>
+                <Link to={"/"} className="createAccount">
+                  Log In
+                </Link>{" "}
+              </p>
+            </section>
           </section>
         </section>
-      </section>
+        );
+      }}
+
+      </Formik>
       </>
     
     </AuthLayout>
@@ -209,7 +363,7 @@ const FormTwo = () => {
 
   const navigate = useNavigate();
 
-  const{form1, setForm1} = useContext(AuthContext );
+  const{ setSingleStoreState} = useContext(AuthContext );
 
 
   // This function code updates the state of the name input
@@ -344,7 +498,7 @@ const FormTwo = () => {
         </div>
         <section className="auth">
           <p className="auth__changeAcc">
-            <span>Create account as a single store</span>
+            <span>Create account as a multiple store</span>
             <Link to={"/"} className="changeAccount">
               Change
             </Link>
@@ -414,11 +568,11 @@ const FormTwo = () => {
               </aside>
 
               <aside className="auth__btns">
-              <Button text="go back" onclick={() => navigate(-1)} />
+              <Button text="go back" onclick={() => {setSingleStoreState?.("one")} }/>
               {disableSecondBtn ? (
-                <Button text="Create Account" />
+                <Button onclick={() => {navigate("/admin"); setSingleStoreState?.("one") }} text="Create Account" />
               ) : (
-                <button className="button__element disabled">Create Account</button>
+                <button  className="button__element disabled">Create Account</button>
               )}
             </aside>
             </aside>
@@ -442,10 +596,10 @@ const FormTwo = () => {
 
 
 const  SignUp = () => {
-  const{form1, setForm1, formOne, setFormOne} = useContext(AuthContext );
+  const{ singleStoreState} = useContext(AuthContext );
   return (
   <>
-  {form1 === "one" ? <FormOne/> : <FormTwo/>}
+  {singleStoreState === "one" ? <FormOne/> : <FormTwo/>}
   </>
   );
 }

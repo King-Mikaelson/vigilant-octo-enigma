@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Login from "../features/authentication/login";
 import SignUp from "../features/authentication/signup";
 import LinkSent from "../features/authentication/password/forgotpwd-linkSent";
@@ -34,7 +34,7 @@ import CancelSubscription from "../components/admin/settings/manageSub/cancelSub
 import DeleteAccount from "../components/admin/settings/profile/deleteAccount";
 import Otp from "../features/authentication/otp";
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/test",
     element: <StyleGuides />,

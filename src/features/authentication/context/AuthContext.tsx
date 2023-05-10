@@ -3,10 +3,10 @@ import { useEffect } from "react";
 
 interface ContextProp {
   children?: React.ReactNode;
-  form1?: string | null;
-  setForm1?: React.Dispatch<React.SetStateAction<string>>;
-  formOne?: string;
-  setFormOne?: React.Dispatch<React.SetStateAction<string>>;
+  singleStoreState?: string | null;
+  setSingleStoreState?: React.Dispatch<React.SetStateAction<string>>;
+  multipleStoreState?: string;
+  setMultipleStoreState?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 //USER TYPE
@@ -24,13 +24,16 @@ export default AuthContext;
 export const AuthProvider = ({ children }: 
 ContextProp) => {
 
-  const [form1, setForm1]:any =useState(() =>
-  localStorage.getItem("form")
-    ? localStorage.getItem("form") || "one"
-    : null
+  const [singleStoreState, setSingleStoreState]:any =useState(() =>
+  localStorage.getItem("singleStore")
+    ? localStorage.getItem("singleStore") || "one"
+    : "one"
 )
-  const [formOne, setFormOne] = useState("one");
-  //  localStorage.setItem('form',form1);
+  const [multipleStoreState, setMultipleStoreState] = useState(() =>
+  localStorage.getItem("multipleStore")
+    ? localStorage.getItem("multipleStore") || "one"
+    : "one"
+);
 
   // AUTHENTICATICATION
   const [user, setUser] = useState(() =>
@@ -41,21 +44,32 @@ ContextProp) => {
 
 
   useEffect(() => {
-    if(localStorage.getItem('form')){
-    setForm1(`${localStorage.getItem('form')}`);
+    if(localStorage.getItem("singleStore")){
+    setSingleStoreState(`${localStorage.getItem("singleStore")}`);
     }
   },[])
 
   useEffect(() => {
-    localStorage.setItem('form', form1);
-  },[form1])
+    localStorage.setItem("singleStore", singleStoreState);
+  },[singleStoreState])
+
+
+  useEffect(() => {
+    if(localStorage.getItem("multipleStore")){
+    setMultipleStoreState(`${localStorage.getItem("multipleStore")}`);
+    }
+  },[])
+
+  useEffect(() => {
+    localStorage.setItem("multipleStore", multipleStoreState);
+  },[multipleStoreState])
 
 
 
 
 
   //CONTEXT DATA
-  const contextData: any = { user, form1, setForm1, formOne, setFormOne };
+  const contextData: any = { user, singleStoreState, setSingleStoreState, multipleStoreState, setMultipleStoreState };
 
   return (
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
