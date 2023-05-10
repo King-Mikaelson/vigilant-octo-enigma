@@ -149,7 +149,7 @@ const Profile = () => {
       </div>
       <hr className="profile-hr" />
       <div className="profile-delete_account">
-        <Link to="/delete_account">Delete Account</Link>
+        <Link to="/confirm_delete_account">Delete Account</Link>
       </div>
     </div>
   );

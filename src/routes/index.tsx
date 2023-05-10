@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Login from "../features/authentication/login";
 import SignUp from "../features/authentication/signup";
 import LinkSent from "../features/authentication/password/forgotpwd-linkSent";
@@ -32,8 +32,9 @@ import AddCard from "../components/admin/settings/manageSub/addCard";
 import EditCard from "../components/admin/settings/manageSub/editCard";
 import CancelSubscription from "../components/admin/settings/manageSub/cancelSub";
 import DeleteAccount from "../components/admin/settings/profile/deleteAccount";
+import ConfirmDelete from "../components/admin/settings/profile/deleteAccount/ConfirmDelete";
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/test",
     element: <StyleGuides />,
@@ -89,6 +90,10 @@ const router = createHashRouter([
   {
     path: "/cancel_subscription",
     element: <CancelSubscription />,
+  },
+  {
+    path: "/confirm_delete_account",
+    element: <ConfirmDelete />,
   },
   {
     path: "/delete_account",
