@@ -33,6 +33,7 @@ import EditCard from "../components/admin/settings/manageSub/editCard";
 import CancelSubscription from "../components/admin/settings/manageSub/cancelSub";
 import DeleteAccount from "../components/admin/settings/profile/deleteAccount";
 import ConfirmDelete from "../components/admin/settings/profile/deleteAccount/ConfirmDelete";
+import MigrateStore from "../components/admin/settings/profile/migrateStore";
 
 const router = createBrowserRouter([
   {
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
   {
     path: "/delete_account",
     element: <DeleteAccount />,
+  },
+  {
+    path: "/migrate_store",
+    element: <MigrateStore />,
   },
 
   {

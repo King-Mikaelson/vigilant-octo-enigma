@@ -1,11 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CiEdit } from "react-icons/ci";
 import { BsLink45Deg, BsPersonCircle } from "react-icons/bs";
 import { RiArrowRightSLine } from "react-icons/ri";
+import Button from "../../../../ui/button";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+  };
+
+  const handleAccountMigration = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    navigate("/migrate_store");
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -146,6 +153,14 @@ const Profile = () => {
             <RiArrowRightSLine size={25} className="icon" />
           </Link>
         </div>
+      </div>
+
+      <hr className="profile-hr" />
+      <div className="profile-delete_account migrate">
+        <Button
+          text="Migrate to a multiple store account"
+          onclick={(e) => handleAccountMigration(e)}
+        />
       </div>
       <hr className="profile-hr" />
       <div className="profile-delete_account">

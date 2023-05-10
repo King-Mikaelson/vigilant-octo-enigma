@@ -200,6 +200,11 @@
                 transform: scale(0.9);
             }
         }
+
+    }
+
+    .profile-delete_account.migrate {
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -726,5 +731,135 @@
                 }
             }
         }
+    }
+}
+
+//Migrate Multistore
+.container.migrate-store {
+    width: 100%;
+    margin: 0 auto;
+    font-family: $inter-font;
+
+    .auth.migrate-store {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: none;
+        padding: 0 2rem;
+
+        .header-text1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header-text2 {
+            margin-bottom: 1rem;
+        }
+
+        .form.edit-prof {
+            width: 70%;
+
+            label {
+                display: flex;
+                justify-content: space-between;
+
+                h3 {
+                    padding-top: 1.5rem;
+                    min-width: 150px;
+                }
+
+                .input-element {
+                    width: 85%;
+                    min-width: 300px;
+                    padding: 0.5rem 0;
+                    border: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $black-color2;
+                    outline: none;
+
+                    .edit-error {
+                        padding-top: 5px;
+                    }
+                }
+
+            }
+
+            .add-admin {
+                padding: 1rem 0;
+            }
+
+            .select-role {
+                display: flex;
+                justify-content: space-between;
+                margin: 1rem 0 1.5rem 0;
+
+                label {
+                    margin-bottom: 0.5rem;
+                    color: $black-color;
+                    font-weight: 400;
+                    font-size: 16px;
+                    padding-top: 10px;
+                    min-width: 150px;
+                }
+
+                select {
+                    width: 85%;
+                    min-width: 250px;
+                    border-radius: 0.25rem;
+                    outline: none;
+                    border: 1px solid $placeholder-gray;
+                    box-sizing: border-box;
+                    font-size: 14px;
+                    padding: 1rem 1.5rem;
+                    font-family: $inter-font;
+                }
+
+
+
+                select {
+                    appearance: none;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    background-position: right 0.5rem center;
+                    background-size: 1.5rem;
+                    color: $placeholder-gray;
+
+                    option {
+                        color: black;
+
+                        &:first-child {
+                            color: $placeholder-gray;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        .cancel-btn-div {
+            margin-bottom: 4rem;
+
+            .cancel-btn {
+                @include flexCenter;
+                border: none;
+                background-color: transparent;
+                font-weight: 500;
+                color: $primary-color;
+                font-size: $sm-font;
+                font-family: $dm-sans-font;
+                text-align: center;
+                width: 100px;
+                margin: $md-font auto;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+
     }
 }
