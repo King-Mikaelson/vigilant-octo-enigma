@@ -14,7 +14,7 @@ export default function SelectStore() {
   //MULTISTORE
   const multiStoreActions = () => {
     setStoreType?.("multi");
-    navigate("/signup");
+    navigate("/signup2");
   };
   return (
     <AuthLayout>

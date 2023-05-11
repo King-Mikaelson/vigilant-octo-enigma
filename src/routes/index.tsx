@@ -32,6 +32,7 @@ import AddCard from "../components/admin/settings/manageSub/addCard";
 import EditCard from "../components/admin/settings/manageSub/editCard";
 import CancelSubscription from "../components/admin/settings/manageSub/cancelSub";
 import DeleteAccount from "../components/admin/settings/profile/deleteAccount";
+import Otp from "../features/authentication/otp";
 import ConfirmDelete from "../components/admin/settings/profile/deleteAccount/ConfirmDelete";
 import MigrateStore from "../components/admin/settings/profile/migrateStore";
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: "/signup2",
     element: <SignUp2 />,
+  },
+  {
+    path: "/otp",
+    element: <Otp />,
   },
   {
     path: "/input-email",

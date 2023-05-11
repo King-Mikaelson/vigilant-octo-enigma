@@ -7,7 +7,6 @@
     overflow-y: hidden;
     overflow-x: hidden;
     height: 100vh;
-    padding: 0 $sm-font;
 
     .sidebar__logo {
         align-self: center;
@@ -29,6 +28,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
 
         .sidebar__link {
             display: flex;
@@ -40,8 +40,35 @@
             transition: all 0.4s ease;
             overflow: hidden;
             gap: $sm-font;
-            justify-content: center;
             color: $black-color;
+            width: 100%;
+        }
+
+        .sidebar__parent{
+            width: 100%;
+            padding-left: $sm-font;
+            display: flex;
+            flex-direction: row;
+            align-items: center ;
+        }
+
+        .active__parent{
+            width: 100%;
+            padding-left: $sm-font;
+            display: flex;
+            flex-direction: row;
+            align-items: center ;
+        }
+
+        .active__parent::after{
+            content: "";
+            width: 6.66px;
+            height: 19.98px;
+            right: -15px;
+            top:0;
+            background: $secondary-color;
+            border-radius: 4.16319px 0px 0px 4.16319px
+
         }
     }
 

@@ -13,3 +13,29 @@
 .mb-3 {
   margin-bottom: $xl-font;
 }
+
+.otp-group {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 360px;
+  column-gap: 10px;
+  margin-bottom: $lg-font;
+}
+
+.otp-input {
+  width: 100%;
+  height: 52.97px;
+  border: 1px solid $placeholder-gray;
+  border-radius: 4px;
+  text-align: center;
+  font-size: $xxs-font;
+  font-weight: 400;
+  font-family: $space-grotesk-font;
+  line-height: 17.86px;
+  outline: none;
+  &:focus {
+    border: 1px solid #a15ea7;
+  }
+}
+
