@@ -166,11 +166,12 @@
         min-width: 100%;
       }
 
-      h3 {
+      h3,label {
         font-size: $sm-font;
         font-weight: 400;
         margin-bottom: 0.25rem;
       }
+
 
       .span {
         font-size: $xxs-font;
@@ -251,6 +252,8 @@
     .grid {
       .input__container {
         margin-bottom: $md-font;
+        flex-direction: column;
+        display: flex
       }
     }
 
