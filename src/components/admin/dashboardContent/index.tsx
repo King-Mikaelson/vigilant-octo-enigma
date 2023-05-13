@@ -23,7 +23,9 @@ export default function DashboardContent() {
                 <td>{item.orderNo}</td>
                 <td className="flex">
                   {item.menu.map((item, index) => (
-                    <p key={index}>{item.name}</p>
+                    <p key={index} className="order-name">
+                      {item.name}
+                    </p>
                   ))}
                 </td>
                 <td>₦{item.totalPayment.toLocaleString()}</td>

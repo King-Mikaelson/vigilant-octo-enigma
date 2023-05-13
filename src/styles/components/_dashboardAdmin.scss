@@ -12,13 +12,8 @@
 
 
 .dashboardContent {
-    display: grid;
+    display: flex;
     padding: $sm-font;
-    grid-template-columns: 1fr 500px;
-
-    @include xl {
-        grid-template-columns: 1fr 300px;
-    }
 
     @include md {
         display: flex;
@@ -31,8 +26,9 @@
         background-color: $white-color;
         height: 64vh;
         overflow-y: scroll;
-        padding: $md-font;
+        padding: $sm-font $md-font;
         margin: 0;
+        flex: 4;
 
         @include md {
             order: 2;
@@ -43,11 +39,9 @@
         }
 
         h2 {
-            font-family: 'Inter';
-            font-style: normal;
+            font-family: $inter-font;
             font-weight: 600;
-            font-size: $extra-font;
-            line-height: 140%;
+            font-size: 1.2rem;
             color: $black-color;
         }
 
@@ -56,48 +50,64 @@
             border-spacing: 0 15px;
             table-layout: fixed;
             width: 100%;
-        }
 
-        th {
-            color: $black-color;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 600;
-            font-size: $xs-font;
-            line-height: 140%;
-            text-align: left;
+            th {
+                color: $black-color;
+                font-family: $inter-font;
+                font-style: normal;
+                font-weight: 600;
+                font-size: $xs-font;
+                line-height: 140%;
+                text-align: left;
 
-        }
+                &:first-child {
+                    width: 20%;
+                }
 
-        th,
-        td {
-            padding: $extra-font 0rem;
-            border-bottom: 1px solid $placeholder-gray;
-        }
+                &:nth-child(2) {
+                    width: 60%;
+                }
 
-        td {
-            color: $black-color;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-size: $xs-font;
-            line-height: 140%;
-            text-align: left;
-        }
+                &:nth-child(3) {
+                    width: 30%;
+                }
+            }
 
-        td.flex {
-            display: flex;
-            flex-direction: column;
-            gap: $sm-font1;
+            th,
+            td {
+                padding: 0.3rem 0;
+                border-bottom: 1px solid $placeholder-gray;
+            }
+
+            td {
+                color: $black-color;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 140%;
+                text-align: left;
+            }
+
+            td.flex {
+                display: flex;
+                flex-direction: column;
+                gap: $sm-font1;
+
+                .order-name {
+                    font-size: 12px;
+                }
+            }
         }
     }
 
     .dashboardContent__side {
         background-color: $white-color;
         height: 64vh;
-        padding: $md-font;
+        padding: $md-font $sm-font;
         margin: 0 $xs-font;
         overflow-y: auto;
+        flex: 2;
 
         @include md {
             order: 1;
@@ -107,10 +117,10 @@
         }
 
         h2 {
-            font-family: 'Inter';
+            font-family: $inter-font;
             font-style: normal;
             font-weight: 600;
-            font-size: $extra-font;
+            font-size: $sm-font;
             line-height: 140%;
             color: $black-color;
             padding-bottom: $sm-font;
@@ -129,15 +139,15 @@
                 gap: $sm-font;
 
                 img {
-                    width: 64px;
-                    height: 64px;
+                    width: 48px;
+                    height: 48px;
                 }
 
                 h4 {
-                    font-family: 'Inter';
+                    font-family: $inter-font;
                     font-style: normal;
                     font-weight: 600;
-                    font-size: $xs-font;
+                    font-size: 12px;
                     line-height: 130%;
                     color: $black-color;
                 }
@@ -178,7 +188,6 @@
 
     @include lg {
         gap: $sm-font1;
-
     }
 
     &__card {
@@ -190,7 +199,6 @@
         border-radius: 16px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         cursor: pointer;
-        border-left: 5px solid $purple-border;
         border-radius: 8px;
         transition: all 0.3s ease-in-out;
 
@@ -204,7 +212,7 @@
 
         h3 {
             margin-top: auto;
-            font-family: 'Inter';
+            font-family: $inter-font;
             font-style: normal;
             font-weight: 500;
             font-size: 1rem;
@@ -212,6 +220,14 @@
             letter-spacing: 0.0015em;
             color: $gray-text;
             text-align: center;
+
+            @include lg {
+                font-size: 0.9rem;
+            }
+
+            @include md {
+                font-size: 0.8rem;
+            }
         }
 
         p {
@@ -224,6 +240,14 @@
             letter-spacing: 0.0025em;
             color: $primary-color;
             text-align: center;
+
+            @include lg {
+                font-size: 1.2rem;
+            }
+
+            @include md {
+                font-size: 0.88rem;
+            }
         }
     }
 

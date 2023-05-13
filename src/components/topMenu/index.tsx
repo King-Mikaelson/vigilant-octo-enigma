@@ -1,8 +1,9 @@
 type Props = {
-    name?: string;
-    };
+  name?: string;
+  branch?: string;
+};
 
-function TopMenu({name}:Props) {
+function TopMenu({ name, branch }: Props) {
   const current = new Date();
   const date = `${current.toLocaleString("en-US", {
     weekday: "long",
@@ -13,7 +14,9 @@ function TopMenu({name}:Props) {
   return (
     <div className="topbar__container">
       <div className="topbar__search">
-        <h1>{name}</h1>
+        <h1>
+          {name} <span>- {branch}</span>
+        </h1>
       </div>
 
       <p>{date}</p>
