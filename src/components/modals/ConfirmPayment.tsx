@@ -1,4 +1,4 @@
-import { HiCheckCircle } from "react-icons/hi";
+import { FaCheckCircle } from "react-icons/fa";
 import Button from "../ui/button";
 import { useState, Dispatch, SetStateAction } from "react";
 import Company from "../waiters/company";
@@ -19,6 +19,8 @@ export default function ConfirmPayment({ closeConfirmPayment }: ModalClose) {
       {mode === "receipt" && <Receipt setMode={setMode} />}
       {mode === "email" && <Email setMode={setMode} />}
       {mode === "whatsapp" && <Whatsapp setMode={setMode} />}
+      {mode === "successE" && <SuccessE setMode={setMode} />}
+      {mode === "successW" && <SuccessW setMode={setMode} />}
     </>
   );
 }
@@ -27,7 +29,7 @@ export default function ConfirmPayment({ closeConfirmPayment }: ModalClose) {
 const Confirm = ({ closeConfirmPayment, setMode }: ModalClose) => {
   return (
     <div className="modal__center">
-      <HiCheckCircle size={100} color="#00C650" />
+      <FaCheckCircle size={100} color="#00C650" />
       <h1>Payment Method Confirmed</h1>
       <Button text="print receipt" onclick={() => setMode?.("receipt")} />
       <Button
@@ -59,16 +61,16 @@ const Receipt = ({ setMode }: ModalClose) => {
     hour12: true,
   });
   return (
-    <div className="modal__center" style={{ padding: "2rem" }}>
-      <h4>Receipt</h4>
+    <div className="modal__center receipt" style={{ padding: "2rem 1.5rem 0" }}>
+      <h4 className="receipt__header">Receipt</h4>
       <Company />
       <aside className="time__date">
-        <div>
+        <div className="time__date--left">
           <h4>
             waiter's name: <span>Joy</span>
           </h4>
 
-          <h4>
+          <h4 className="time__date--right">
             Date: <span>{date}</span>
           </h4>
         </div>
@@ -81,9 +83,9 @@ const Receipt = ({ setMode }: ModalClose) => {
       </aside>
       <ReceiptOrders />
 
-      <div>
+      <div className="receipt__btns">
         <Button text="go back" onclick={() => setMode?.("default")} />
-        <Button text="print" />
+        <Button text="print receipt" />
       </div>
     </div>
   );
@@ -95,7 +97,7 @@ const Email = ({ setMode }: ModalClose) => {
     <div className="modal__center share">
       <aside className="share__top">
         <h5>Share via Email </h5>
-        <span>x</span>
+        <span onClick={() => setMode?.("default")}>x</span>
       </aside>
 
       <aside className="share__mid">
@@ -109,7 +111,7 @@ const Email = ({ setMode }: ModalClose) => {
 
       <aside className="share__btm">
         <Button text="go back" onclick={() => setMode?.("default")} />
-        <Button text="share" />
+        <Button text="share" onclick={() => setMode?.("successE")} />
       </aside>
     </div>
   );
@@ -121,7 +123,7 @@ const Whatsapp = ({ setMode }: ModalClose) => {
     <div className="modal__center share">
       <aside className="share__top">
         <h5>Share via Whatsapp </h5>
-        <span>x</span>
+        <span onClick={() => setMode?.("default")}>x</span>
       </aside>
 
       <aside className="share__mid">
@@ -135,8 +137,28 @@ const Whatsapp = ({ setMode }: ModalClose) => {
 
       <aside className="share__btm">
         <Button text="go back" onclick={() => setMode?.("default")} />
-        <Button text="share" />
+        <Button text="share" onclick={() => setMode?.("successW")} />
       </aside>
+    </div>
+  );
+};
+
+//SUCCESS EMAIL
+const SuccessE = ({ setMode }: ModalClose) => {
+  return (
+    <div className="modal__center success">
+      <h3>Receipt has been sent via email successsfully</h3>
+      <Button text="Okay" onclick={() => setMode?.("default")} />
+    </div>
+  );
+};
+
+//SUCCESS WHATSAPP
+const SuccessW = ({ setMode }: ModalClose) => {
+  return (
+    <div className="modal__center success">
+      <h3>Receipt has been sent via whatsapp successsfully</h3>
+      <Button text="Okay" onclick={() => setMode?.("default")} />
     </div>
   );
 };

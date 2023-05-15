@@ -39,7 +39,7 @@ function SingleCard({ item }: Props) {
               className="edit"
               onClick={() => setOpenEdit((prevValue) => !prevValue)}
             >
-              <FaRegEdit size={20} />
+              <FaRegEdit size={25} />
             </div>
             <p>Edit</p>
           </div>
