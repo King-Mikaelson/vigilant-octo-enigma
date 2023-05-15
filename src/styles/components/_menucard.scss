@@ -1,10 +1,10 @@
 .menuCard {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-content: center;
   gap: $md-font;
-  margin: 0rem $xxl-font;
+  padding: $md-font;
 
   @include xl {
     grid-template-columns: repeat(2, 1fr);
@@ -17,18 +17,23 @@
   }
 
   &__card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter;
     flex-direction: column;
     background-color: $white-color;
     gap: $sm-font;
-    width: fit-content;
+    width: 184px;
+    height: 231px;
     padding: $lg-font;
     padding-top: $xxl-font2;
     border-radius: 16px;
     position: relative;
-    margin-top: $xl-font;
+    margin-top: $sm-font2;
+    cursor: pointer;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
 
     @include lg {
       margin-top: $xl-font;
@@ -68,7 +73,7 @@
 
   &__icons {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding-top: $sm-font1;
