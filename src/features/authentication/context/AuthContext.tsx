@@ -27,7 +27,7 @@ ContextProp) => {
   const [form1, setForm1]:any =useState(() =>
   localStorage.getItem("form")
     ? localStorage.getItem("form") || "one"
-    : null
+    : "one"
 )
   const [formOne, setFormOne] = useState("one");
   //  localStorage.setItem('form',form1);
@@ -40,11 +40,11 @@ ContextProp) => {
   );
 
 
-  useEffect(() => {
-    if(localStorage.getItem('form')){
-    setForm1(`${localStorage.getItem('form')}`);
-    }
-  },[])
+  // useEffect(() => {
+  //   if(localStorage.getItem('form')){
+  //   setForm1(`${localStorage.getItem('form')}`);
+  //   }
+  // },[])
 
   useEffect(() => {
     localStorage.setItem('form', form1);
