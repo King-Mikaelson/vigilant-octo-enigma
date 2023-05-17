@@ -21,76 +21,94 @@ export default function SideBar() {
         <img src={uppistLogo} alt="" width={"100%"} />
       </div>
       <div className="sidebar__wrapper">
-        <div  className={activeTab === "dashboard" ? "active__parent" : "sidebar__parent"}>
-        <NavLink
-          to={"/dashboard-admin"}
-          style={activeTab === "dashboard" ? activeStyle : undefined}
-          onClick={() => {
-            setActiveTab("dashboard");
-          }}
-          className="sidebar__link"
+        <div
+          className={
+            activeTab === "dashboard" ? "active__parent" : "sidebar__parent"
+          }
         >
-          <RxDashboard size={20} />
-          Dashboard
-        </NavLink>
-        </div>
-
-
-          <div className={activeTab === "menu" ?  "active__parent" : "sidebar__parent"}>
           <NavLink
-          to={"/admin"}
-          style={activeTab === "menu" ? activeStyle : undefined}
-          onClick={() => {
-            setActiveTab("menu");
-          }}
-          className="sidebar__link"
-        >
-          <MdOutlineRestaurantMenu size={20} />
-          Menu Manager
-        </NavLink>
-          </div>
-        
-        <div className={activeTab === "report" ?  "active__parent" : "sidebar__parent"}>
-        <NavLink
-          to={"/reports/individual-report"}
-          style={activeTab === "report" ? activeStyle : undefined}
-          onClick={() => {
-            setActiveTab("report");
-          }}
-          className="sidebar__link"
-        >
-          <HiOutlineChartSquareBar size={20} />
-          Report
-        </NavLink>
+            to={"/dashboard"}
+            style={activeTab === "dashboard" ? activeStyle : undefined}
+            onClick={() => {
+              setActiveTab("dashboard");
+            }}
+            className="sidebar__link"
+          >
+            <RxDashboard size={20} />
+            Dashboard
+          </NavLink>
         </div>
 
-        <div  className={activeTab === "settings" ?  "active__parent" : "sidebar__parent"}>
-        <NavLink
-          to={"/settings/profile"}
-          style={activeTab === "settings" ? activeStyle : undefined}
-          onClick={() => {
-            setActiveTab("settings");
-          }}
-          className="sidebar__link"
+        <div
+          className={
+            activeTab === "menu" ? "active__parent" : "sidebar__parent"
+          }
         >
-          <AiOutlineSetting size={20} />
-          Settings
-        </NavLink>
+          <NavLink
+            to={"/menu_manager"}
+            style={activeTab === "menu" ? activeStyle : undefined}
+            onClick={() => {
+              setActiveTab("menu");
+            }}
+            className="sidebar__link"
+          >
+            <MdOutlineRestaurantMenu size={20} />
+            Menu Manager
+          </NavLink>
         </div>
 
-
-        <div className={activeTab === "logOut" ?  "active__parent" : "sidebar__parent"}>
-        <NavLink
-          to={"/logOut"}
-          style={activeTab === "logOut" ? activeStyle : undefined}
-          onClick={() => {
-            setActiveTab("logOut");
-          }}
-          className="sidebar__link"
+        <div
+          className={
+            activeTab === "report" ? "active__parent" : "sidebar__parent"
+          }
         >
-          <BiLogOut size={20} />
-          Log Out
-        </NavLink>
+          <NavLink
+            to={"/reports/individual-report"}
+            style={activeTab === "report" ? activeStyle : undefined}
+            onClick={() => {
+              setActiveTab("report");
+            }}
+            className="sidebar__link"
+          >
+            <HiOutlineChartSquareBar size={20} />
+            Report
+          </NavLink>
+        </div>
+
+        <div
+          className={
+            activeTab === "settings" ? "active__parent" : "sidebar__parent"
+          }
+        >
+          <NavLink
+            to={"/settings/profile"}
+            style={activeTab === "settings" ? activeStyle : undefined}
+            onClick={() => {
+              setActiveTab("settings");
+            }}
+            className="sidebar__link"
+          >
+            <AiOutlineSetting size={20} />
+            Settings
+          </NavLink>
+        </div>
+
+        <div
+          className={
+            activeTab === "logOut" ? "active__parent" : "sidebar__parent"
+          }
+        >
+          <NavLink
+            to={"/logOut"}
+            style={activeTab === "logOut" ? activeStyle : undefined}
+            onClick={() => {
+              setActiveTab("logOut");
+            }}
+            className="sidebar__link"
+          >
+            <BiLogOut size={20} />
+            Log Out
+          </NavLink>
         </div>
       </div>
     </div>
