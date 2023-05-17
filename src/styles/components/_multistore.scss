@@ -1,0 +1,107 @@
+.add_store {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+
+    @include lg {
+        left: 50%;
+    }
+
+    span {
+
+        font-weight: 600;
+    }
+
+    span,
+    p {
+        font-size: 20px;
+        text-align: center;
+
+        @include lg {
+            font-size: 18px;
+        }
+    }
+
+    div {
+        @include flexCenter;
+
+        button {
+
+            @include flexCenter;
+            @include primaryBTN;
+            padding: 0.5rem 2rem;
+            font-size: 18px;
+            font-weight: 500;
+            font-family: $inter-font;
+        }
+    }
+}
+
+//Stores Card
+
+.store_link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 2rem 2rem 0 2rem;
+
+    .store_link-btn {
+        display: flex;
+        align-items: center;
+        color: $secondary-color;
+        gap: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        border-bottom: 1px solid $secondary-color;
+
+        p {
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+}
+
+.stores_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+
+
+
+    .store_card {
+        background: #fff;
+        width: 280px;
+        height: 200px;
+        padding: 2rem 2rem 0 2rem;
+        margin: 0 auto;
+
+        p {
+            text-align: center;
+            //padding: 1rem;
+        }
+
+        div {
+            @include flexCenter;
+            padding-top: 3rem;
+            padding-bottom: 0;
+            margin-bottom: 0;
+
+            button {
+                @include primaryBTN;
+                font-size: 14px;
+                font-family: $inter-font;
+                padding: 0.5rem 2rem;
+            }
+        }
+    }
+
+
+}
