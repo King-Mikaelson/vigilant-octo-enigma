@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Login from "../features/authentication/login";
 import SignUp from "../features/authentication/signup";
 import LinkSent from "../features/authentication/password/forgotpwd-linkSent";
@@ -32,8 +32,12 @@ import AddCard from "../components/admin/settings/manageSub/addCard";
 import EditCard from "../components/admin/settings/manageSub/editCard";
 import CancelSubscription from "../components/admin/settings/manageSub/cancelSub";
 import DeleteAccount from "../components/admin/settings/profile/deleteAccount";
+import Otp from "../features/authentication/otp";
+import ConfirmDelete from "../components/admin/settings/profile/deleteAccount/ConfirmDelete";
+import MigrateStore from "../components/admin/settings/profile/migrateStore";
+import IndividualReportResults from "../features/report/individual-report/individual-report-results/index";
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/test",
     element: <StyleGuides />,
@@ -53,6 +57,10 @@ const router = createHashRouter([
   {
     path: "/signup2",
     element: <SignUp2 />,
+  },
+  {
+    path: "/otp",
+    element: <Otp />,
   },
   {
     path: "/input-email",
@@ -91,8 +99,16 @@ const router = createHashRouter([
     element: <CancelSubscription />,
   },
   {
+    path: "/confirm_delete_account",
+    element: <ConfirmDelete />,
+  },
+  {
     path: "/delete_account",
     element: <DeleteAccount />,
+  },
+  {
+    path: "/migrate_store",
+    element: <MigrateStore />,
   },
 
   {
@@ -169,6 +185,11 @@ const router = createHashRouter([
           {
             path: "/reports/individual-report/:id",
             element: <UserReports />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/reports/individual-report/results",
+            element: <IndividualReportResults />,
             errorElement: <ErrorPage />,
           },
         ],

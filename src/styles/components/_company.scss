@@ -1,9 +1,15 @@
-.company__wrapper {
+.company {
   @include flexCenter;
 
   gap: $md-font;
   aside {
     font-size: $xxs-font;
     font-weight: 400;
+  }
+  &__detail {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: $xxs-font;
   }
 }

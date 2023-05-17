@@ -178,9 +178,9 @@
         border-radius: 8px;
         padding: $md-font $sm-font;
         padding-bottom: 0rem;
-        height: 57vh;
-        overflow-y: scroll;
+        height: auto;
 
+        
         &--header {
             position: sticky;
             top: -1.5rem;

@@ -212,7 +212,7 @@
         text-transform: capitalize;
         gap: $sm-font1;
 
-        &>* {
+        & > * {
           @include flexCenter;
           flex-direction: column;
           gap: $sm-font1;
@@ -268,7 +268,7 @@
       justify-content: space-between;
       align-items: center;
 
-      &>* {
+      & > * {
         width: 46%;
         text-align: center;
         text-transform: capitalize;
@@ -301,7 +301,7 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
   z-index: 2;
 
-  &>* {
+  & > * {
     width: 100%;
   }
 
@@ -329,23 +329,49 @@
   .time__date {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-end;
     margin-top: $md-font;
+    &--left {
+      display: flex;
+      flex-direction: column;
+      gap: $xs-font;
+    }
 
     h4 {
       font-family: $inter-font;
       text-transform: capitalize;
       font-size: $xxs-font;
       font-weight: 600;
-
-      &:first-child {
-        margin-bottom: $sm-font1;
-      }
+      margin-bottom: 0;
 
       span {
         font-weight: 400;
       }
     }
+  }
+
+  .receipt__btns {
+    @include flexSpaceCenter;
+    & > * {
+      width: 48%;
+      &:first-child {
+        background-color: transparent;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+      }
+      &:last-child {
+        background-color: $primary-color;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+//PRINT RECEIPT MODAL
+.receipt {
+  width: 400px;
+  &__header {
+    margin-bottom: $sm-font2;
   }
 }
 
@@ -353,7 +379,7 @@
 .share {
   padding: $xl-font;
 
-  &>* {
+  & > * {
     width: 400px;
   }
 
@@ -388,7 +414,37 @@
   }
 
   &__btm {
-    text-align: end;
+    display: flex;
+    justify-content: flex-end;
+    gap: $sm-font;
+    button {
+      margin-bottom: 0;
+      width: 100px;
+      &:first-child {
+        background-color: transparent;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+      }
+      &:last-child {
+        background-color: $primary-color;
+        color: $white-color;
+      }
+    }
+  }
+}
+.modal__center.success {
+  width: 50%;
+  text-align: center;
+  padding: $xl-font 0 $md-font;
+  button {
+    background-color: $primary-color;
+    color: $white-color;
+    width: 200px;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: $extra-font;
+    margin-bottom: $xl-font;
   }
 }
 

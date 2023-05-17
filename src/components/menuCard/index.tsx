@@ -1,8 +1,8 @@
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
-import mealImage from "../../assets/mealImage.png";
-import wineImage from "../../assets/wineImage.png";
-import doughnut from "../../assets/doughnut.png";
+import mealImage from "../../assets/foodPic.png";
+import wineImage from "../../assets/winePic.png";
+import doughnut from "../../assets/donoughtPic.png";
 import { Stock, Store } from "../../frontendData/frontendData";
 
 import EditItem from "../admin/items/editItem";
@@ -39,7 +39,7 @@ function SingleCard({ item }: Props) {
               className="edit"
               onClick={() => setOpenEdit((prevValue) => !prevValue)}
             >
-              <FaRegEdit size={20} />
+              <FaRegEdit size={25} />
             </div>
             <p>Edit</p>
           </div>

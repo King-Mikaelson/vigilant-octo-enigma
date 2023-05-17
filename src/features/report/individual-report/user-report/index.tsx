@@ -5,10 +5,12 @@ import * as React from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
-import { Dayjs } from "dayjs";
+// import { Dayjs } from "dayjs";
 import { useState } from "react";
 import { filterTable } from "../../../../frontendData/frontendData";
 import { useNavigate } from "react-router-dom";
+import { useContext} from "react";
+import AuthContext from "../../../../context/AppContext"
 // When using TypeScript 4.x and above
 import type {} from "@mui/x-date-pickers/themeAugmentation";
 
@@ -41,8 +43,7 @@ export default function UserReport() {
   const navigate = useNavigate();
   // const params = useParams();
   const [filter, setFilter] = useState<boolean>(false);
-  const [value, setValue] = React.useState<Dayjs | null>(null);
-  const [value1, setValue1] = React.useState<Dayjs | null>(null);
+  const {value1, setValue1, value, setValue} = useContext(AuthContext)
   const current = new Date();
   const date = `${current.getDate()}/${current.toLocaleString("en-US", {
     month: "2-digit",
@@ -97,7 +98,7 @@ export default function UserReport() {
                     },
                   }}
                   value={value}
-                  onChange={(newValue) => setValue(newValue)}
+                  onChange={(newValue) => setValue?.(newValue)}
                 />
               </LocalizationProvider>
             </div>
@@ -126,7 +127,7 @@ export default function UserReport() {
                     },
                   }}
                   value={value1}
-                  onChange={(newValue) => setValue1(newValue)}
+                  onChange={(newValue) => setValue1?.(newValue)}
                 />
               </LocalizationProvider>
             </div>
@@ -138,8 +139,8 @@ export default function UserReport() {
             className={value && value1 ? `cancel` : `no-display`}
             onClick={() => {
               setFilter(false);
-              setValue(null);
-              setValue1(null);
+              setValue?.(null);
+              setValue1?.(null);
             }}
           >
             Cancel
@@ -149,6 +150,7 @@ export default function UserReport() {
             onClick={() => {
               if (value && value1) {
                 setFilter(true);
+                navigate("/reports/individual-report/results")
               }
             }}
           >
@@ -156,56 +158,10 @@ export default function UserReport() {
           </p>
         </div>
       </div>
-      {value && value1 && filter ? (
-        <main className="singleReports__content">
-          <div className="singleReports__content--header">
-            <div className="flex">
-              <h2>
-                Name of Waiter: <span className="bold">Alucard</span>
-              </h2>
-              <p>
-                Date: <span className="bold">{date}</span>
-              </p>
-            </div>
-
-            <p>
-              Total Amount: <span className="bold">₦250,000</span>
-            </p>
-            <p>
-              Period of Report:{" "}
-              <span className="bold">
-                From {date2} To {date3}
-              </span>
-            </p>
-          </div>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Sub-Total</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {filterTable.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.name}</td>
-                  <td> ₦{item.price.toLocaleString()}</td>
-                  <td>{item.quantity.toLocaleString()}</td>
-                  <td>₦{item.subTotal.toLocaleString()}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </main>
-      ) : (
+    
         <main className="singleReports__emptyContent">
           <p>Select a Date Range to See Report</p>
         </main>
-      )}
     </div>
   );
 }
