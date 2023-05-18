@@ -15,17 +15,17 @@ type Props ={
 }
 
 const ReportTable = () => { 
-  const {
-    individualReportFromDate,
-    individualReportToDate,
-    } = useContext(AuthContext);
+    const {
+        generalReportFromDate,
+        generalReportToDate,
+        } = useContext(AuthContext);
   const current = new Date();
   const date = `${current.getDate()}/${current.toLocaleString("en-US", {
     month: "2-digit",
   })}/${current.getFullYear()}`;
 
-  const valueString = new Date(`${individualReportFromDate?.toDate()}`);
-  const valueString1 = new Date(`${individualReportToDate?.toDate()}`);
+  const valueString = new Date(`${generalReportFromDate?.toDate()}`);
+  const valueString1 = new Date(`${generalReportToDate?.toDate()}`);
 
   const date2 = `${valueString.getDate()} ${valueString.toLocaleString(
     "en-US",
@@ -40,8 +40,8 @@ const ReportTable = () => {
     <main className="singleReports__content">
     <div className="singleReports__content--header">
       <div className="flex">
-        <h2>
-          Name of Waiter: <span className="bold">Alucard</span>
+        <h2 className="bold-heading">
+          General Report
         </h2>
         <p>
           Date: <span className="bold">{date}</span>
@@ -103,7 +103,7 @@ const PrintModal = ({setOpenPrintModal}:Props) => {
         <div>
           <p>Hot n’ Spicy Restaurant</p>
         </div>
-          <h2>Individual Report</h2>
+          <h2>General Report</h2>
         </div>
         </div>
         <hr />
@@ -114,7 +114,7 @@ const PrintModal = ({setOpenPrintModal}:Props) => {
 }
 
 
-const IndividualReportResults = () => {
+const GeneralReportResults = () => {
     const [selected, setSelected] = useState(" ");
     const [openEmail, setOpenEmail] = useState<boolean>(false);
     const [openWhatsapp, setOpenWhatsapp] = useState<boolean>(false);
@@ -162,7 +162,7 @@ const IndividualReportResults = () => {
               onClick={() => navigate(-1)}
               color="#B1A9AD"
             />
-            <h1>Individual Report</h1>
+            <h1>General Report</h1>
             </div>
 
             <div className="flex-wrapper">
@@ -191,4 +191,4 @@ const IndividualReportResults = () => {
     );
 }
 
-export default IndividualReportResults
+export default GeneralReportResults

@@ -64,7 +64,52 @@
         .flex {
             display: flex;
             align-items: center;
-            gap: $sm-font1
+            gap: $sm-font1;
+            cursor: pointer;
+
+        }
+
+        .flex-wrapper {
+            display: flex;
+            align-items: center;
+            gap: $sm-font;
+            justify-content: space-between;
+            padding: $sm-font1;
+        }
+
+        .print{
+        border-radius: 8px;
+        border: 1px solid $placeholder-gray;
+        padding: $sm-font1;
+        cursor: pointer;
+        p{
+            color: $light-gray;
+            font-size: $sm-font;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+        }
+
+        .download{
+            border-radius: 8px;
+            border: 1px solid $placeholder-gray;
+            padding: $xxs-font; 
+        }
+        
+        .select{
+            color: $light-gray;
+            font-size: $sm-font;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+
+        }
+        .options{
+            color: $black-color;
+            font-size: $sm-font;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            padding: $sm-font;
         }
 
         h1 {
@@ -80,6 +125,7 @@
             display: flex;
             justify-content: space-between;
             padding-top: $sm-font;
+            cursor: pointer;
 
             &__title {
                 font-family: 'Inter';
@@ -108,6 +154,8 @@
                 width: fit-content;
                 padding-top: $sm-font;
                 gap: $sm-font2;
+                cursor: pointer;
+
 
                 .apply {
                     font-family: 'Inter';
@@ -180,7 +228,7 @@
         padding-bottom: 0rem;
         height: auto;
 
-        
+
         &--header {
             position: sticky;
             top: -1.5rem;
@@ -197,12 +245,21 @@
                 line-height: 140%;
                 color:$black-color2;
             }
-
+            
             .bold{
                 font-family: 'Inter';
                 font-style: normal;
                 font-weight: 600;  
                 color: $black-color;
+            }
+
+            .bold-heading{
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 600;
+                font-size: $extra-font;
+                line-height: 140%;
+                color:$black-color2;
             }
 
             .flex {

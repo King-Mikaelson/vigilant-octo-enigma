@@ -11,10 +11,14 @@ interface ContextProp {
   setLoginOption?: React.Dispatch<React.SetStateAction<string>>;
   otpState?: string;
   setOtpState?: React.Dispatch<React.SetStateAction<string>>;
-  value?:Dayjs | null,
-  value1?:Dayjs | null,
-  setValue?: React.Dispatch<React.SetStateAction<Dayjs | null>>,
-  setValue1?:React.Dispatch<React.SetStateAction<Dayjs | null>>
+  generalReportFromDate?:Dayjs | null,
+  generalReportToDate?:Dayjs | null,
+  setGeneralReportFromDate?: React.Dispatch<React.SetStateAction<Dayjs | null>>,
+  setGeneralReportToDate?:React.Dispatch<React.SetStateAction<Dayjs | null>>,
+  individualReportFromDate?:Dayjs | null,
+  individualReportToDate?:Dayjs | null,
+  setIndividualReportFromDate?: React.Dispatch<React.SetStateAction<Dayjs | null>>,
+  setIndividualReportToDate?:React.Dispatch<React.SetStateAction<Dayjs | null>>
 }
 
 const AppContext = createContext<ContextProp>(null!);
@@ -29,9 +33,10 @@ export const AppProvider = ({ children }: ContextProp) => {
   //otp screens conditional render
   const [otpState, setOtpState] = useState("");
   // UseState for choosing a From and To Date in the Individual Reports
-  const [value, setValue] = useState<Dayjs | null>(null);
-  const [value1, setValue1] = useState<Dayjs | null>(null);
-
+  const [generalReportFromDate, setGeneralReportFromDate] = useState<Dayjs | null>(null);
+  const [generalReportToDate, setGeneralReportToDate] = useState<Dayjs | null>(null);
+  const [individualReportFromDate, setIndividualReportFromDate] = useState<Dayjs | null>(null);
+  const [individualReportToDate, setIndividualReportToDate] = useState<Dayjs | null>(null);
 
   //CONTEXT DATA
   const contextData: any = {
@@ -46,10 +51,14 @@ export const AppProvider = ({ children }: ContextProp) => {
     //otp
     otpState,
     setOtpState,
-    value,
-    setValue,
-    value1,
-    setValue1
+    generalReportFromDate, 
+    setGeneralReportFromDate,
+    generalReportToDate,
+    setGeneralReportToDate,
+    individualReportFromDate,
+    setIndividualReportFromDate,
+    individualReportToDate,
+    setIndividualReportToDate,
   };
 
   return (
