@@ -21,7 +21,7 @@ function SingleCard({ item }: Props) {
     <>
       {openEdit ? <EditItem setOpenEdit={setOpenEdit} /> : " "}
       {openDelete ? <DeleteItem setOpenDelete={setOpenDelete} /> : " "}
-      <div className="menuCard__card">
+      <div className="multiStore-menuCard__card">
         {item.category === "Meals" ? (
           <img src={mealImage} alt="meals" />
         ) : item.category === "Wine" ? (
@@ -29,38 +29,18 @@ function SingleCard({ item }: Props) {
         ) : (
           <img src={doughnut} alt="desserts" />
         )}
-        <p className="menuCard__title">{item.name}</p>
-        <p className="menuCard__price">{`₦${Number(
+        <p className="multiStore-menuCard__title">{item.name}</p>
+        <p className="multiStore-menuCard__price">{`₦${Number(
           item.price
         ).toLocaleString()}`}</p>
-        <div className="menuCard__icons">
-          <div className="edit__parent">
-            <div
-              className="edit"
-              onClick={() => setOpenEdit((prevValue) => !prevValue)}
-            >
-              <FaRegEdit size={25} />
-            </div>
-            <p>Edit</p>
-          </div>
-          <div className="delete__parent">
-            <div
-              className="delete"
-              onClick={() => setOpenDelete((prevValue) => !prevValue)}
-            >
-              <AiOutlineDelete size={20} />
-            </div>
-            <p>Delete</p>
-          </div>
-        </div>
       </div>
     </>
   );
 }
 
-function MenuCard() {
+function MultiStoreMenuCard() {
   return (
-    <div className="menuCard">
+    <div className="multiStore-menuCard">
       {Stock.map((item) => (
         <SingleCard key={item.id} item={item} />
       ))}
@@ -68,4 +48,4 @@ function MenuCard() {
   );
 }
 
-export default MenuCard;
+export default MultiStoreMenuCard;

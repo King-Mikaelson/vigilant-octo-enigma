@@ -1,0 +1,51 @@
+.food-categories {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.8rem;
+    box-sizing: border-box;
+    font-family: $inter-font;
+    background-color: $white-color;
+
+    .header {
+        @include flexCenter;
+        width: 100%;
+        margin-bottom: 1rem;
+
+        h2 {
+            margin-right: 0.5rem;
+            font-size: $extra-font;
+            font-weight: 600;
+            font-family: $inter-font;
+            color: $primary-color2;
+        }
+
+        .icon {
+            width: 14px;
+            height: 14px;
+            color: $primary-color2;
+        }
+    }
+
+    hr {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $placeholder-gray;
+        margin-bottom: 0.8rem;
+    }
+
+    .categories{
+    ul{
+    display: flex;
+    flex-direction: column;
+    gap:$lg-font;
+    padding: $lg-font $md-font;
+    font-weight: $inter-font;
+    font-weight: 500;
+    font-size: $sm-font;
+    color: $black-color;
+    }
+    }
+
+}

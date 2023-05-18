@@ -139,3 +139,75 @@
     }
   }
 }
+
+.multiStore-menuCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: $md-font;
+  padding: $md-font;
+
+  @include xl {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $md-font;
+    padding-top: $sm-font;
+  }
+
+  @include lg {
+    gap: $sm-font1;
+  }
+
+  &__card {
+    @include flexCenter;
+    flex-direction: column;
+    background-color: $white-color;
+    border-radius: 16px;
+    position: relative;
+    margin-top: $sm-font2;
+    cursor: pointer;
+    gap: $sm-font;
+    padding: $sm-font 0;
+    padding-top: $xxl-font1;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+
+    @include lg {
+      margin-top: $xl-font;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: $xs-font;
+    line-height: 130%;
+    word-wrap: break-word;
+    width: 16ch;
+    text-align: center;
+  }
+
+  &__price {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: $sm-font;
+    line-height: 19px;
+    letter-spacing: 0.0025em;
+  }
+
+  img {
+    position: absolute;
+    top: -$md-font;
+  }
+
+  &__price {
+    font-size: $sm-font;
+    font-weight: 700;
+    position: relative;
+  }
+}

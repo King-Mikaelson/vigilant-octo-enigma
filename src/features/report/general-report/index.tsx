@@ -8,8 +8,8 @@ import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 // import { Dayjs } from "dayjs";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useContext} from "react";
-import AuthContext from "../../../context/AppContext"
+import { useContext } from "react";
+import AuthContext from "../../../context/AppContext";
 // When using TypeScript 4.x and above
 import type {} from "@mui/x-date-pickers/themeAugmentation";
 
@@ -38,7 +38,7 @@ const theme = createTheme({
   },
 });
 
-export default function  GeneralReport() {
+export default function GeneralReport() {
   const navigate = useNavigate();
   // const params = useParams();
   const [filter, setFilter] = useState<boolean>(false);
@@ -46,8 +46,8 @@ export default function  GeneralReport() {
     generalReportFromDate,
     setGeneralReportFromDate,
     generalReportToDate,
-    setGeneralReportToDate} = useContext(AuthContext);
-
+    setGeneralReportToDate,
+  } = useContext(AuthContext);
 
   return (
     <div className="singleReports">
@@ -124,7 +124,11 @@ export default function  GeneralReport() {
 
         <div className="date__button">
           <p
-            className={generalReportFromDate && generalReportToDate ? `cancel` : `no-display`}
+            className={
+              generalReportFromDate && generalReportToDate
+                ? `cancel`
+                : `no-display`
+            }
             onClick={() => {
               setFilter(false);
               setGeneralReportFromDate?.(null);
@@ -134,11 +138,13 @@ export default function  GeneralReport() {
             Cancel
           </p>
           <p
-            className={generalReportFromDate && generalReportToDate ? `active` : `apply`}
+            className={
+              generalReportFromDate && generalReportToDate ? `active` : `apply`
+            }
             onClick={() => {
               if (generalReportFromDate && generalReportToDate) {
                 setFilter(true);
-                navigate("/reports/general-report/results")
+                navigate("/reports/general-report/results");
               }
             }}
           >
@@ -146,11 +152,10 @@ export default function  GeneralReport() {
           </p>
         </div>
       </div>
-    
-        <main className="singleReports__emptyContent">
-          <p>Select a Date Range to See Report</p>
-        </main>
+
+      <main className="singleReports__emptyContent">
+        <p>Select a Date Range to See Report</p>
+      </main>
     </div>
   );
 }
-

@@ -39,6 +39,7 @@ import IndividualReportResults from "../features/report/individual-report/indivi
 import GeneralReportResults from "../features/report/general-report/general-report-results/index";
 import MultistoreDashboard from "../features/multistore/dashboard";
 import StoresCard from "../features/multistore/dashboard/storesCard";
+import MultistoreMenuManager from "../features/multistore/menu-manager";
 
 const router = createBrowserRouter([
   {
@@ -118,8 +119,14 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "/dashboard",
+        path: "/menu_manager",
         element: <Admin />,
+        errorElement: <ErrorPage />,
+      },
+
+      {
+        path: "/multistore_menu_manager",
+        element: <MultistoreMenuManager />,
         errorElement: <ErrorPage />,
       },
 
@@ -133,7 +140,7 @@ const router = createBrowserRouter([
       //   element: <StoresCard />,
       // },
       {
-        path: "/menu_manager",
+        path: "/dashboard",
         element: <DashboardAdmin />,
         errorElement: <ErrorPage />,
       },
@@ -209,7 +216,7 @@ const router = createBrowserRouter([
             path: "/reports/general-report/results",
             element: <GeneralReportResults />,
             errorElement: <ErrorPage />,
-          }
+          },
         ],
       },
     ],
