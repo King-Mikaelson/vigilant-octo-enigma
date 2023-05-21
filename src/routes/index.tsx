@@ -35,8 +35,11 @@ import DeleteAccount from "../components/admin/settings/profile/deleteAccount";
 import Otp from "../features/authentication/otp";
 import ConfirmDelete from "../components/admin/settings/profile/deleteAccount/ConfirmDelete";
 import MigrateStore from "../components/admin/settings/profile/migrateStore";
+import IndividualReportResults from "../features/report/individual-report/individual-report-results/index";
+import GeneralReportResults from "../features/report/general-report/general-report-results/index";
 import MultistoreDashboard from "../features/multistore/dashboard";
 import StoresCard from "../features/multistore/dashboard/storesCard";
+import MultistoreMenuManager from "../features/multistore/menu-manager";
 
 const router = createBrowserRouter([
   {
@@ -116,8 +119,14 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "/dashboard",
+        path: "/menu_manager",
         element: <Admin />,
+        errorElement: <ErrorPage />,
+      },
+
+      {
+        path: "/multistore_menu_manager",
+        element: <MultistoreMenuManager />,
         errorElement: <ErrorPage />,
       },
 
@@ -131,7 +140,7 @@ const router = createBrowserRouter([
       //   element: <StoresCard />,
       // },
       {
-        path: "/menu_manager",
+        path: "/dashboard",
         element: <DashboardAdmin />,
         errorElement: <ErrorPage />,
       },
@@ -196,6 +205,16 @@ const router = createBrowserRouter([
           {
             path: "/reports/individual-report/:id",
             element: <UserReports />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/reports/individual-report/results",
+            element: <IndividualReportResults />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/reports/general-report/results",
+            element: <GeneralReportResults />,
             errorElement: <ErrorPage />,
           },
         ],

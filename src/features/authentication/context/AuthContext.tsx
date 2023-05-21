@@ -65,9 +65,6 @@ ContextProp) => {
   },[multipleStoreState])
 
 
-
-
-
   //CONTEXT DATA
   const contextData: any = { user, singleStoreState, setSingleStoreState, multipleStoreState, setMultipleStoreState };
 

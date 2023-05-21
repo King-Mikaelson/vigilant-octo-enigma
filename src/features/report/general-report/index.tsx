@@ -1,16 +1,17 @@
+// import { useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { createTheme } from "@mui/material/styles";
 import * as React from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
-import { Dayjs } from "dayjs";
+// import { Dayjs } from "dayjs";
 import { useState } from "react";
-import { filterTable } from "../../../frontendData/frontendData";
-
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../../context/AppContext";
 // When using TypeScript 4.x and above
 import type {} from "@mui/x-date-pickers/themeAugmentation";
-import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
   components: {
@@ -39,34 +40,22 @@ const theme = createTheme({
 
 export default function GeneralReport() {
   const navigate = useNavigate();
+  // const params = useParams();
   const [filter, setFilter] = useState<boolean>(false);
-  const [value, setValue] = React.useState<Dayjs | null>(null);
-  const [value1, setValue1] = React.useState<Dayjs | null>(null);
-
-  const current = new Date();
-  const date = `${current.getDate()}/${current.toLocaleString("en-US", {
-    month: "2-digit",
-  })}/${current.getFullYear()}`;
-
-  const valueString = new Date(`${value?.toDate()}`);
-  const valueString1 = new Date(`${value1?.toDate()}`);
-
-  const date2 = `${valueString.getDate()}-${valueString.toLocaleString(
-    "en-US",
-    { month: "long" }
-  )}-${valueString.getFullYear()}`;
-  const date3 = `${valueString1.getDate()}-${valueString1.toLocaleString(
-    "en-US",
-    { month: "long" }
-  )}-${valueString1.getFullYear()}`;
+  const {
+    generalReportFromDate,
+    setGeneralReportFromDate,
+    generalReportToDate,
+    setGeneralReportToDate,
+  } = useContext(AuthContext);
 
   return (
     <div className="singleReports">
       <div className="header">
         <div className="flex">
           <IoIosArrowBack
-            onClick={() => navigate(-1)}
             size={30}
+            onClick={() => navigate(-1)}
             color="#B1A9AD"
           />
           <h1>General Report</h1>
@@ -96,8 +85,8 @@ export default function GeneralReport() {
                       border: "4px solid red",
                     },
                   }}
-                  value={value}
-                  onChange={(newValue) => setValue(newValue)}
+                  value={generalReportFromDate}
+                  onChange={(newValue) => setGeneralReportFromDate?.(newValue)}
                 />
               </LocalizationProvider>
             </div>
@@ -125,8 +114,8 @@ export default function GeneralReport() {
                       display: "none",
                     },
                   }}
-                  value={value1}
-                  onChange={(newValue) => setValue1(newValue)}
+                  value={generalReportToDate}
+                  onChange={(newValue) => setGeneralReportToDate?.(newValue)}
                 />
               </LocalizationProvider>
             </div>
@@ -135,20 +124,27 @@ export default function GeneralReport() {
 
         <div className="date__button">
           <p
-            className={value && value1 ? `cancel` : `no-display`}
+            className={
+              generalReportFromDate && generalReportToDate
+                ? `cancel`
+                : `no-display`
+            }
             onClick={() => {
               setFilter(false);
-              setValue(null);
-              setValue1(null);
+              setGeneralReportFromDate?.(null);
+              setGeneralReportToDate?.(null);
             }}
           >
             Cancel
           </p>
           <p
-            className={value && value1 ? `active` : `apply`}
+            className={
+              generalReportFromDate && generalReportToDate ? `active` : `apply`
+            }
             onClick={() => {
-              if (value && value1) {
+              if (generalReportFromDate && generalReportToDate) {
                 setFilter(true);
+                navigate("/reports/general-report/results");
               }
             }}
           >
@@ -156,56 +152,10 @@ export default function GeneralReport() {
           </p>
         </div>
       </div>
-      {value && value1 && filter ? (
-        <main className="singleReports__content">
-          <div className="singleReports__content--header">
-            <div className="flex">
-              <h2>
-                <span className="bold">General Report</span>
-              </h2>
-              <p>
-                Date: <span className="bold">{date}</span>
-              </p>
-            </div>
 
-            <p>
-              Total Amount:<span className="bold">₦250,000</span>
-            </p>
-            <p>
-              Period of Report:{" "}
-              <span className="bold">
-                From {date2} To {date3}
-              </span>
-            </p>
-          </div>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Sub-Total</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {filterTable.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.name}</td>
-                  <td> ₦{item.price.toLocaleString()}</td>
-                  <td>{item.quantity.toLocaleString()}</td>
-                  <td>₦{item.subTotal.toLocaleString()}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </main>
-      ) : (
-        <main className="singleReports__emptyContent">
-          <p>Select a Date Range to See Report</p>
-        </main>
-      )}
+      <main className="singleReports__emptyContent">
+        <p>Select a Date Range to See Report</p>
+      </main>
     </div>
   );
 }
