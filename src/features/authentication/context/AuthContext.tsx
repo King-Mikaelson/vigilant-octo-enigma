@@ -89,6 +89,7 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
       : "one"
   );
 
+  // This code here is updating the local storage with the single store state
   useEffect(() => {
     if (localStorage.getItem("singleStore")) {
       setSingleStoreState(`${localStorage.getItem("singleStore")}`);

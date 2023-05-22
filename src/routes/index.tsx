@@ -27,7 +27,6 @@ import AddUsers from "../components/admin/settings/manageUsers/addUsers";
 import UserLists from "../components/admin/settings/manageUsers/userLists";
 import ProfileChangePassword from "../components/admin/settings/profile/changePassword";
 import SelectStore from "../features/authentication/select-store";
-import SignUp2 from "../features/authentication/signup/SignUp2";
 import AddCard from "../components/admin/settings/manageSub/addCard";
 import EditCard from "../components/admin/settings/manageSub/editCard";
 import CancelSubscription from "../components/admin/settings/manageSub/cancelSub";
@@ -57,10 +56,6 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
-  },
-  {
-    path: "/signup2",
-    element: <SignUp2 />,
   },
   {
     path: "/otp",
