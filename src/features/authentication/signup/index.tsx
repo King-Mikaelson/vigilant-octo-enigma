@@ -37,11 +37,14 @@ const FormOne = () => {
   });
 
   const submitForm = (values: Values) => {
-    console.log(values);
+    console.log(values.email)
+    console.log(values.userName)
+    console.log(values.fullName)
     setSingleStoreState?.("two");
   };
 
   const { setSingleStoreState } = useContext(AuthContext);
+
 
   return (
     <AuthLayout>
