@@ -10,22 +10,11 @@ import progressBar1 from "../../../assets/singleStoreProg1.png";
 import progressBar2 from "../../../assets/progressBar2.png";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../../features/authentication/context/AuthContext";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
+import { Values } from "../../../types";
 
 const FormOne = () => {
-  interface Values {
-    email?: string;
-    userName?: string;
-    fullName?: string;
-  }
-
-  const initialValues: Values = {
-    email: "",
-    userName: "",
-    fullName: "",
-  };
-
   const SignInSchema = Yup.object().shape({
     email: Yup.string().email().required("*email is required"),
     userName: Yup.string()
@@ -36,12 +25,10 @@ const FormOne = () => {
       .min(7, "*fullname is too short - should be 7 chars minimum"),
   });
 
-  const submitForm = (values: Values) => {
-    console.log(values);
-    setSingleStoreState?.("two");
-  };
-
-  const { setSingleStoreState } = useContext(AuthContext);
+  const { setSingleStoreState, state, dispatch, initialValues, submitForm } =
+    useContext(AuthContext);
+  const handleSubmit = () =>
+    submitForm?.(initialValues, {} as FormikHelpers<Values>);
 
   return (
     <AuthLayout>
@@ -49,7 +36,7 @@ const FormOne = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={SignInSchema}
-          onSubmit={submitForm}
+          onSubmit={handleSubmit}
         >
           {(formik: {
             errors: any;
@@ -57,7 +44,7 @@ const FormOne = () => {
             isValid: any;
             dirty: any;
           }) => {
-            const { errors, touched, isValid} = formik;
+            const { errors, touched, isValid } = formik;
             return (
               <section className="container">
                 <div style={{ textAlign: "center", marginTop: "4rem" }}>
@@ -172,7 +159,8 @@ const FormTwo = () => {
 
   const navigate = useNavigate();
 
-  const { setSingleStoreState } = useContext(AuthContext);
+  const { setSingleStoreState, state, dispatch, registerUser } =
+    useContext(AuthContext);
 
   // This function code updates the state of the name input
   const handleBusinessName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -240,8 +228,6 @@ const FormTwo = () => {
     }
   };
 
-  console.log(error, phoneError, passwordError);
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     validate();
@@ -258,7 +244,12 @@ const FormTwo = () => {
       checked
     ) {
       setSingleStoreState?.("one");
-      navigate("/admin");
+      dispatch?.({ type: "SET_PHONE", payload: value });
+      dispatch?.({ type: "SET_BUSINESS_NAME", payload: businessName });
+      dispatch?.({ type: "SET_PASSWORD", payload: password });
+      console.log(state);
+      registerUser && registerUser();
+      // navigate("/admin");
     }
   };
 
