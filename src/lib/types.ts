@@ -1,5 +1,15 @@
-export interface HeroType {
-  id: number;
-  name: string;
-  alterEgo: string;
+export interface User {
+  email: string;
+  username: string;
+  full_name: string;
+  phone_number: string;
+  role: string;
+  password: string;
+  works_at: string;
+}
+
+export interface Restaurant {
+  business_name: string;
+  business_address: string;
+  mode: "SINGLE STORE" | "MULTI STORE";
 }

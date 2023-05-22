@@ -1,50 +1,73 @@
 import { apiClient } from "../axiosInstance";
-import { HeroType } from "../types";
+import { Restaurant, User } from "../types";
 
 //CRUD OPERATIONS FOR USERS
-const findAll = async () => {
-  const response = await apiClient.get<HeroType[]>("/superheroes");
-  return response.data;
-};
-
-const findById = async (id: any) => {
-  const response = await apiClient.get<HeroType>(`/superheroes/${id}`);
-  return response.data;
-};
-
-const create = async ({ name, alterEgo }: HeroType) => {
-  const response = await apiClient.post<any>("/superheroes", {
-    name,
-    alterEgo,
+//Creates Restaurant
+const createRestaurant = async (
+  parent_restaurant_id: "",
+  { business_address, business_name, mode }: Restaurant | any
+) => {
+  const response = await apiClient.post<any>("/restaurant/create", {
+    parent_restaurant_id,
+    business_address,
+    business_name,
+    mode,
   });
   return response.data;
 };
 
-const update = async (id: any, { name, alterEgo }: HeroType) => {
-  const response = await apiClient.put<any>(`/superheroes/${id}`, {
-    name,
-    alterEgo,
+//Creates User
+const createUser = async ({
+  email,
+  username,
+  full_name,
+  phone_number,
+  role,
+  password,
+  works_at,
+}: User | any) => {
+  const response = await apiClient.post<any>("/users/create-user", {
+    email,
+    username,
+    full_name,
+    phone_number,
+    role,
+    password,
+    works_at,
   });
   return response.data;
 };
 
-const deleteById = async (id: any) => {
-  const response = await apiClient.delete<any>(`/superheroes/${id}`);
+//Sends OTP
+const sendOTP = async (email: string) => {
+  const response = await apiClient.post<any>("/send-otp", {
+    email,
+  });
   return response.data;
 };
 
-const deleteAll = async () => {
-  const response = await apiClient.delete<any>("/superheroes");
+//Resend OTP
+const resendOTP = async (email: string) => {
+  const response = await apiClient.post<any>("/resend-otp", {
+    email,
+  });
+  return response.data;
+};
+
+//Verify OTP
+const verifyOTP = async (email: string) => {
+  const response = await apiClient.post<any>("/verify-user-otp", {
+    email,
+  });
   return response.data;
 };
 
 const AuthService = {
-  findAll,
-  findById,
-  create,
-  update,
-  deleteById,
-  deleteAll,
+  createRestaurant,
+  createUser,
+  sendOTP,
+  resendOTP,
+  verifyOTP,
 };
 
 export default AuthService;
