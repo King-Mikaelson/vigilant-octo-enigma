@@ -37,9 +37,6 @@ const FormOne = () => {
   });
 
   const submitForm = (values: Values) => {
-    console.log(values.email)
-    console.log(values.userName)
-    console.log(values.fullName)
     setSingleStoreState?.("two");
   };
 
