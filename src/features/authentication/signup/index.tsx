@@ -27,8 +27,9 @@ const FormOne = () => {
 
   const { setSingleStoreState, state, dispatch, initialValues, submitForm } =
     useContext(AuthContext);
-  const handleSubmit = () =>
-    submitForm?.(initialValues, {} as FormikHelpers<Values>);
+  const handleSubmit = (values: Values) =>
+    {submitForm?.( values, {} as FormikHelpers<Values>);
+  }
 
   return (
     <AuthLayout>
