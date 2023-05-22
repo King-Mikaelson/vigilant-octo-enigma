@@ -4,7 +4,6 @@ import AuthLayout from "../../../layout/authLayout";
 import { useNavigate } from "react-router";
 import AuthContext from "../../../features/authentication/context/AuthContext";
 
-
 export default function SelectStore() {
   const { setStoreType } = useContext(AppContext);
   const { setSingleStoreState } = useContext(AuthContext);
@@ -20,7 +19,7 @@ export default function SelectStore() {
   //MULTISTORE
   const multiStoreActions = () => {
     setStoreType?.("multi");
-        // I am resetting the state for the forms for the signUp Page back to one, the first form
+    // I am resetting the state for the forms for the signUp Page back to one, the first form
     setSingleStoreState?.("one");
     navigate("/signup");
   };

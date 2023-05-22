@@ -148,10 +148,10 @@ const FormOne = () => {
 
 const FormTwo = () => {
   const [InputType, ToggleIcon] = useTogglePassword();
-  const [value, setValue] = useState<string>();
+  // const [value, setValue] = useState<string>();
   const [error, setError] = useState<string>("");
-  const [businessName, setBusinessName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  // const [businessName, setBusinessName] = useState<string>("");
+  // const [password, setPassword] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
   const [phoneError, setPhoneError] = useState<string>("");
   const [checked, setChecked] = useState<boolean>(false);
@@ -159,17 +159,27 @@ const FormTwo = () => {
 
   const navigate = useNavigate();
 
-  const { setSingleStoreState, state, dispatch, registerUser } =
-    useContext(AuthContext);
+  const {
+    setSingleStoreState,
+    state,
+    dispatch,
+    registerUser,
+    value,
+    setValue,
+    businessName,
+    setBusinessName,
+    password,
+    setPassword,
+  } = useContext(AuthContext);
 
   // This function code updates the state of the name input
   const handleBusinessName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBusinessName(e.currentTarget.value);
+    setBusinessName?.(e.currentTarget.value);
   };
 
   // This function code updates the state of the password input
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.currentTarget.value);
+    setPassword?.(e.currentTarget.value);
   };
 
   // This function code updates the state of the checkbox input
@@ -184,18 +194,18 @@ const FormTwo = () => {
   // Function that validates the input
   const validate = () => {
     if (
-      passwordRegex.test(password.trim()) === false &&
-      password.trim().length === 0
+      passwordRegex.test(password!.trim()) === false &&
+      password?.trim().length === 0
     ) {
       setPasswordError("*Password can not blank");
     } else if (
-      passwordRegex.test(password.trim()) === false &&
-      password.trim().length > 0
+      passwordRegex.test(password!.trim()) === false &&
+      password!.trim().length > 0
     ) {
       setPasswordError("*Password must contain at least one letter or number");
     } else if (
-      passwordRegex.test(password.trim()) &&
-      password.trim().length < 4
+      passwordRegex.test(password!.trim()) &&
+      password!.trim().length < 4
     ) {
       setPasswordError("*Password must contain at least four characters");
     } else {
@@ -203,18 +213,18 @@ const FormTwo = () => {
     }
 
     if (
-      nameRegex.test(businessName.trim()) === false &&
-      businessName.trim().length === 0
+      nameRegex.test(businessName!.trim()) === false &&
+      businessName!.trim().length === 0
     ) {
       setError("*business name can not be blank");
     } else if (
-      nameRegex.test(businessName.trim()) === false &&
-      businessName.trim().length > 0
+      nameRegex.test(businessName!.trim()) === false &&
+      businessName!.trim().length > 0
     ) {
       setError("*business name must contain at least one letter or number");
     } else if (
-      nameRegex.test(businessName.trim()) &&
-      businessName.trim().length < 4
+      nameRegex.test(businessName!.trim()) &&
+      businessName!.trim().length < 4
     ) {
       setError("*business name must contain at least four characters");
     } else {
@@ -233,22 +243,22 @@ const FormTwo = () => {
     validate();
 
     if (
-      businessName.trim().length > 0 &&
-      nameRegex.test(businessName) &&
+      businessName!.trim().length > 0 &&
+      nameRegex.test(businessName!) &&
       error === "" &&
-      password.trim().length > 0 &&
-      passwordRegex.test(password) &&
+      password!.trim().length > 0 &&
+      passwordRegex.test(password!) &&
       passwordError === "" &&
       value &&
       phoneError === "" &&
       checked
     ) {
-      setSingleStoreState?.("one");
       dispatch?.({ type: "SET_PHONE", payload: value });
       dispatch?.({ type: "SET_BUSINESS_NAME", payload: businessName });
       dispatch?.({ type: "SET_PASSWORD", payload: password });
       console.log(state);
       registerUser && registerUser();
+      // setSingleStoreState?.("one");
       // navigate("/admin");
     }
   };
@@ -302,7 +312,7 @@ const FormTwo = () => {
                     countryCallingCodeEditable={false}
                     value={value}
                     className="PhoneInput input__element"
-                    onChange={setValue}
+                    onChange={setValue!}
                   />
                   {phoneError ? (
                     <p className="auth__error">{phoneError}</p>
