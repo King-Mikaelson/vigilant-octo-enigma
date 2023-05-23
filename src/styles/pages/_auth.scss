@@ -1,6 +1,13 @@
 .container {
+
+  .progressBar {
+    @include sm {
+      width: 80%;
+    }
+  }
+
   .auth.signup {
-    width: 65%;
+    width: 70%;
   }
 
   .auth {
@@ -8,11 +15,19 @@
     flex-direction: column;
     font-family: $space-grotesk-font;
     width: 40%;
+    min-width: 500px;
     min-height: 100%;
     margin: $lg-font auto;
     border: 1.5px solid rgba($primary-color, 0.5);
     border-radius: 20px;
     padding: $xxl-font;
+
+    @include sm {
+      width: 100%;
+      min-width: 100%;
+      padding: $md-font;
+      margin: 1rem auto;
+    }
 
     &__heading {
       background: $linear-gradient-primary;
@@ -42,6 +57,7 @@
       max-width: 330px;
       text-align: center;
     }
+
     &__paragraph.otp {
       max-width: 100%;
       margin-top: $sm-font2;
@@ -50,16 +66,19 @@
     &__changeAcc {
       font-size: $xxs-font;
       margin-bottom: $lg-font;
+
       span {
         font-weight: 500;
         color: $dark-gray;
         margin-right: 5px;
       }
+
       a {
         text-transform: capitalize;
         text-decoration: underline;
         color: $primary-color;
         font-weight: 700;
+
         &:hover {
           color: rgba($primary-color, 0.5);
         }
@@ -74,6 +93,7 @@
       padding: 8px;
       background-color: #f1eef0;
       position: relative;
+
       .slider {
         background-color: $white-color;
         position: absolute;
@@ -84,6 +104,7 @@
         width: 50%;
         transition: 0.3s all ease;
       }
+
       .slider.selectedUsername {
         transform: translateX(92%);
       }
@@ -96,6 +117,7 @@
         bottom: 8px;
         left: 0;
         z-index: 2;
+
         span {
           width: 47%;
           text-align: center;
@@ -113,6 +135,7 @@
       gap: $xxl-font;
       margin: $md-font $md-font 0;
       width: 100%;
+
       p {
         @include flexCenter;
         border: 1px solid #7b7579;
@@ -125,6 +148,7 @@
         cursor: pointer;
         transition: all 0.2s ease;
         color: $light-gray;
+
         &:hover {
           background-color: $primary-color;
           transform: scale(1.05);
@@ -141,10 +165,12 @@
       margin-top: $sm-font;
       text-align: center;
       cursor: pointer;
+
       &:hover {
         text-decoration: underline;
       }
     }
+
     &__links.otp {
       margin-top: 0;
     }
@@ -166,7 +192,8 @@
         min-width: 100%;
       }
 
-      h3,label {
+      h3,
+      label {
         font-size: $sm-font;
         font-weight: 400;
         margin-bottom: 0.25rem;
@@ -180,13 +207,17 @@
       }
 
       .checkbox__label {
-        align-self: flex-start;
-        margin-bottom: $sm-font;
+        margin-bottom: $md-font;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        width: 100%;
-        font-size: $xs-font;
+        justify-content: center;
+        gap: $sm-font1;
+
+        .checkbox {
+          margin-top: -14px;
+
+          @include sm {}
+        }
 
         label {
           @include flexCenter;
@@ -216,9 +247,21 @@
 
       .auth__btns {
         @include flexSpaceCenter;
-        & > * {
+
+        &>* {
           width: 42%;
         }
+
+        @media (max-width: 1400px) {
+          flex-direction: column;
+          gap: $sm-font;
+          width: 100%;
+
+          &>* {
+            width: 100%;
+          }
+        }
+
         button:first-child {
           background-color: $white-color;
           color: $primary-color;
