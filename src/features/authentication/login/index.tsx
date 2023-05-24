@@ -16,7 +16,7 @@ export default function Login() {
   const [errorValue, setErrorValue] = useState<string>("");
   const [errorPassword, setErrorPassword] = useState<string>("");
 
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, loading } = useContext(AuthContext);
 
   const navigate = useNavigate();
   // This function code updates the state of the input
@@ -162,7 +162,7 @@ export default function Login() {
 
             <aside className="checkbox__label">
               <label>
-                <Input type="checkbox" />
+                <Input type="checkbox" checked />
                 <small>Remember me</small>
               </label>
 
@@ -171,7 +171,7 @@ export default function Login() {
             {disabled ? (
               <button className="button__element disabled">log in</button>
             ) : (
-              <Button text="log in" />
+              <Button text={loading ? "please wait" : "log in"} />
             )}
           </form>
           <SignInOptions />

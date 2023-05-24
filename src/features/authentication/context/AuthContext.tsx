@@ -1,7 +1,6 @@
 import { createContext, useReducer, useState, useContext } from "react";
 import { useEffect } from "react";
 import AuthService from "../../../lib/authData";
-import { initialState, reducer } from "./Reducer";
 import { AuthContextProp, Values } from "../../../types";
 import { FormikHelpers } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +23,7 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
   //General loading and error state
   const [loading, setLoading] = useState(false);
   const [errMsg, setErrMsg] = useState("");
-
+  console.log(loading);
   //Formik values
   const initialValues: any = {
     email: "",
@@ -44,8 +43,6 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
   const [businessName, setBusinessName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  //User Sign Up
-  const [state, dispatch] = useReducer(reducer, initialState);
   //Sign Up function
   const registerUser = async () => {
     const resData = {
@@ -99,15 +96,21 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
   const loginUser = async (email: string, password: string) => {
     try {
       const response = await AuthService.loginUser(email, password);
-
+      setLoading(true);
       // Handle the results as needed
       if (response) {
-        console.log(jwtDecode(response));
+        const decodedToken = jwtDecode(response);
+        console.log("login response", decodedToken);
+        setLoading(false);
+        setUser(decodedToken);
+        localStorage.setItem("user", JSON.stringify(decodedToken));
         localStorage.setItem("tokenStr", response);
+
         navigate("/dashboard");
       }
     } catch (error) {
       // Handle any errors
+      setLoading(false);
       console.error(error);
     }
   };
@@ -156,8 +159,6 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
     setLoading,
     setErrMsg,
     registerUser,
-    state,
-    dispatch,
     initialValues,
     submitForm,
     value,
