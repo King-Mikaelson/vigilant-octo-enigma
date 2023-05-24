@@ -6,22 +6,40 @@
     @include modalContent;
 
     p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
+      font-size: $md-font;
+      margin-bottom: $extra-font;
+      font-family: $inter-font;
+      font-weight:600;
+      color: $black-color2;
+
+      @include sm{
+        font-family: $inter-font;
+        font-size: $sm-font;
+        font-weight:600;
+        color: $black-color2;
+        white-space: nowrap
+
+      }
     }
 
     .close-btn {
       @include flexCenter;
-      background-color: #ff0000;
+      background-color: $primary-color;
       color: #fff;
-      padding: 0.5rem 1rem;
+      padding: $sm-font1 $sm-font;
       border: none;
-      border-radius: 0.5rem;
+      border-radius: $sm-font1;
       font-family: $inter-font;
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
       margin: 0 auto;
       cursor: pointer;
+
+      @include sm {
+        width: 100%;
+        border-radius: 4px;
+        padding: $sm-font $sm-font2;
+      }
 
       &:hover {
         background-color: #cc0000;
@@ -45,16 +63,24 @@
       border: none;
       cursor: pointer;
       font-family: $inter-font;
-      font-size: 1.5rem;
+      font-size: $md-font;
       color: $error-color;
-      padding-bottom: 1rem;
+      padding-bottom: $sm-font;
+
+      @include sm{
+        display: none;
+      }
     }
 
     p {
       font-size: 20px;
       font-weight: 600;
-      margin-bottom: 2rem;
+      margin-bottom: $sm-font2;
       text-align: center;
+
+      @include sm{
+        margin-bottom: 0;
+      }
     }
 
     .suspend-p {
@@ -69,7 +95,11 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      margin-top: 3rem;
+      margin-top: $xl-font;
+
+      @include sm{
+        margin-top: $md-font;
+      }
 
       .del-btn {
         width: 100%;
@@ -104,6 +134,10 @@
         border: none;
         outline: none;
         cursor: pointer;
+
+        @include sm{
+          display: none;
+        }
 
         &:hover {
           transform: scale(1.1);

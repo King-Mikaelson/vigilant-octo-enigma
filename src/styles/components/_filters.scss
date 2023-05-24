@@ -12,11 +12,24 @@
   @include xl {
     padding: $xl-font $sm-font1;
   }
+  @include sm {
+    padding:0;
+    padding-top: $sm-font;
+    overflow-x: scroll;
+    width: 100%;
+    top: 9rem;
+
+  }
   &__list {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
+
+    @include sm {
+      gap: $sm-font1;
+      overflow-x: scroll;
+    }
   }
   p {
     font-family: "Inter";
@@ -32,6 +45,7 @@
     color: $lighter-gray;
     user-select: none;
     cursor: pointer;
+
   }
   .filters__active {
     border-bottom: 3px solid $secondary-color;

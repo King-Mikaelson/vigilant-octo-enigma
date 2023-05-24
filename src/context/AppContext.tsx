@@ -18,7 +18,9 @@ interface ContextProp {
   individualReportFromDate?:Dayjs | null,
   individualReportToDate?:Dayjs | null,
   setIndividualReportFromDate?: React.Dispatch<React.SetStateAction<Dayjs | null>>,
-  setIndividualReportToDate?:React.Dispatch<React.SetStateAction<Dayjs | null>>
+  setIndividualReportToDate?:React.Dispatch<React.SetStateAction<Dayjs | null>>,
+  openAddItem?:boolean,
+  setOpenAddItem?:React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const AppContext = createContext<ContextProp>(null!);
@@ -37,6 +39,8 @@ export const AppProvider = ({ children }: ContextProp) => {
   const [generalReportToDate, setGeneralReportToDate] = useState<Dayjs | null>(null);
   const [individualReportFromDate, setIndividualReportFromDate] = useState<Dayjs | null>(null);
   const [individualReportToDate, setIndividualReportToDate] = useState<Dayjs | null>(null);
+  const [openAddItem, setOpenAddItem] = useState<boolean>(false);
+
 
   //CONTEXT DATA
   const contextData: any = {
@@ -59,6 +63,8 @@ export const AppProvider = ({ children }: ContextProp) => {
     setIndividualReportFromDate,
     individualReportToDate,
     setIndividualReportToDate,
+    openAddItem,
+    setOpenAddItem
   };
 
   return (

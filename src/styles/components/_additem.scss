@@ -9,10 +9,34 @@
     font-family: $inter-font;
     background-color: $white-color;
 
+    // CSS FOR ADD ITEMS COMPONENT ON MOBILE
+    @include sm {
+        position: fixed;
+        top: 0;
+        z-index: 200;
+        margin-top: 0;
+        overflow: scroll;
+        height: 100vh
+    }
+
     .header {
         @include flexCenter;
         width: 100%;
         margin-bottom: 1rem;
+
+        @include sm {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .back__icon{
+            display: none;
+        @include sm {
+            display: block;
+            font-size: 1.5rem;
+            color: $lighter-gray;
+        }
+        }
 
         h2 {
             margin-right: 0.5rem;
@@ -20,12 +44,16 @@
             font-weight: 600;
             font-family: $inter-font;
             color: $primary-color2;
+            margin: 0 auto;
         }
 
         .icon {
             width: 14px;
             height: 14px;
             color: $primary-color2;
+            @include sm {
+            display: none;
+            }
         }
     }
 

@@ -16,6 +16,16 @@
     gap: $sm-font1;
   }
 
+  @include sm{
+    grid-template-columns: 1fr 1fr;
+    padding:0 $lg-font;
+    margin: 0 auto;
+    gap: $sm-font2;
+
+    // display: flex;
+    // flex-wrap: wrap;
+  }
+
   &__card {
     @include flexCenter;
     flex-direction: column;
@@ -30,9 +40,23 @@
     margin-top: $sm-font2;
     cursor: pointer;
 
+    @include sm{
+      width:143px;
+      height: 191px;
+      padding-bottom: $xxl-font1;
+      padding-top: 8rem;
+
+
+    }
+
     img {
       width: 80px;
       height: 80px;
+
+      @include sm{
+        width:64px;
+        height: 64px;
+      }
     }
 
     @include lg {
@@ -78,6 +102,11 @@
     width: 100%;
     padding-top: $sm-font1;
 
+    @include sm{
+      padding: 0;
+      gap: $sm-font2;
+    }
+
     .edit__parent {
       position: relative;
       display: flex;
@@ -105,6 +134,10 @@
       top: 0.1rem;
       left: $xl-font;
       bottom: 0;
+
+      @include sm{
+        left: 2.5rem;
+      }
     }
 
     .edit * {
@@ -140,6 +173,13 @@
   }
 }
 
+// .menuCard > div{
+//   @include sm{
+//     width: 46%;
+//     box-sizing: border-box
+//   }
+// }
+
 .multiStore-menuCard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -156,6 +196,11 @@
 
   @include lg {
     gap: $sm-font1;
+  }
+
+  @include sm{
+    grid-template-columns: 250px 250px;
+    gap: $md-font;
   }
 
   &__card {

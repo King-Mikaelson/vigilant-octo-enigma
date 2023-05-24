@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState} from "react";
 import { FiEdit } from "react-icons/fi";
+import { MdArrowBackIosNew } from "react-icons/md";
 
 type Props ={
   setOpenEdit?:React.Dispatch<React.SetStateAction<boolean>>
@@ -19,10 +20,12 @@ const EditItem = ({setOpenEdit}:Props) => {
     setIsModalOpen(false);
   };
 
+
   return (
     <div className="item-pry-container">
       <div className="container-item">
         <div className="header">
+        <MdArrowBackIosNew size={20} className="back__icon" onClick={() => {setOpenEdit?.((prevValue) => !prevValue)}}/>
           <h2>Edit Item</h2>
           <FiEdit className="icon" />
         </div>
@@ -69,7 +72,7 @@ const EditItem = ({setOpenEdit}:Props) => {
         {isModalOpen && (
           <div className="modal">
             <div className="modal-content">
-              <p>Item changed successfully!</p>
+              <p>Item Edited Successsfully</p>
               <button className="close-btn" onClick={handleModalClose}>
                 Close
               </button>
