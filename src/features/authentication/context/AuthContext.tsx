@@ -64,7 +64,6 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
     };
 
     try {
-      console.log(resData, userData);
       const result1 = await AuthService.createRestaurant("", resData);
       const result2 = await AuthService.createUser(userData);
       const result3 = await AuthService.sendOTP(emailR!);

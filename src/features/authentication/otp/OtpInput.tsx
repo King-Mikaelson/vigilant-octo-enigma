@@ -132,7 +132,7 @@ export default function OtpInput({ value, valueLength, onChange }: Props) {
   const { emailR, verifyOtp }: any = useContext(AuthContext);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    verifyOtp("hamsaikemefuna@gmail.com", otpValue);
+    verifyOtp(emailR, otpValue);
   };
   return (
     <form className="form" onSubmit={handleSubmit}>
