@@ -32,6 +32,12 @@
         @include sm {
             overflow-y: scroll;
             height: 100vh;
+            width: 100vw;
+        }
+
+        @include sp {
+            padding-bottom: $xxl-font;
+    
         }
 
 

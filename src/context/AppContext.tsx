@@ -1,6 +1,8 @@
 import { createContext, useContext, useState } from "react";
 import AuthContext from "../features/authentication/context/AuthContext";
 import { Dayjs } from "dayjs";
+import { AppContextProp } from "../types";
+import AuthService from "../lib/authData";
 
 
 interface ContextProp {
@@ -23,10 +25,10 @@ interface ContextProp {
   setOpenAddItem?:React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const AppContext = createContext<ContextProp>(null!);
+const AppContext = createContext<AppContextProp>(null!);
 export default AppContext;
-export const AppProvider = ({ children }: ContextProp) => {
-  const { user }: any = useContext(AuthContext);
+export const AppProvider = ({ children }: AppContextProp) => {
+  const { user, emailR }: any = useContext(AuthContext);
   //STATES
   // User selects store
   const [storeType, setStoreType] = useState("");
@@ -42,6 +44,7 @@ export const AppProvider = ({ children }: ContextProp) => {
   const [openAddItem, setOpenAddItem] = useState<boolean>(false);
 
 
+
   //CONTEXT DATA
   const contextData: any = {
     //User from auth context
@@ -55,7 +58,7 @@ export const AppProvider = ({ children }: ContextProp) => {
     //otp
     otpState,
     setOtpState,
-    generalReportFromDate, 
+    generalReportFromDate,
     setGeneralReportFromDate,
     generalReportToDate,
     setGeneralReportToDate,

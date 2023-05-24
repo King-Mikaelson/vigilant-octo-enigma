@@ -3,6 +3,7 @@ import { RE_DIGIT } from "./constants";
 import Button from "../../../components/ui/button";
 import { Link } from "react-router-dom";
 import AppContext from "../../../context/AppContext";
+import AuthContext from "../context/AuthContext";
 
 export type Props = {
   value: string;
@@ -125,10 +126,16 @@ export default function OtpInput({ value, valueLength, onChange }: Props) {
     target.setSelectionRange(0, target.value.length);
   };
   const disabledBtn = valueItems.includes("");
+  const otpValue = valueItems.join("");
   //Otpstate
   const { setOtpState } = useContext(AppContext);
+  const { emailR, verifyOtp }: any = useContext(AuthContext);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    verifyOtp(emailR, otpValue);
+  };
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       <div className="otp-group">
         {valueItems.map((digit, idx) => (
           <input
@@ -149,7 +156,7 @@ export default function OtpInput({ value, valueLength, onChange }: Props) {
       {disabledBtn ? (
         <button className="button__element disabled">Verify Code</button>
       ) : (
-        <Button text="Verify Code" onclick={() => setOtpState?.("success")} />
+        <Button text="Verify Code" />
       )}
 
       <div className="auth__links otp" onClick={() => setOtpState?.("resent")}>

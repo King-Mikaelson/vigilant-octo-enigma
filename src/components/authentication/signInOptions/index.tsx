@@ -6,7 +6,7 @@ export default function SignInOptions() {
     <section className="signup__options">
       <p>
         <span>Don't have an account?</span>
-        <Link to={"/signup"} className="createAccount">
+        <Link to={"/select-store"} className="createAccount">
           Create Account
         </Link>{" "}
       </p>
