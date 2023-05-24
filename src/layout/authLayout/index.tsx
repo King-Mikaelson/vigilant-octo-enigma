@@ -5,12 +5,16 @@ export default function AuthLayout({ children }: ChildrenProp) {
   return (
     <section className="authlayout">
       <aside className="authlayout__left">
-        <a href="uppist.com" target="_blank" rel="noreferrer">
-          About us
-        </a>
-        <a href="uppist.com" target="_blank" rel="noreferrer">
-          Contact us
-        </a>
+        <div>
+          <a href="uppist.com" target="_blank" rel="noreferrer">
+            About us
+          </a>
+        </div>
+        <div>
+          <a href="uppist.com" target="_blank" rel="noreferrer">
+            Contact us
+          </a>
+        </div>
       </aside>
       <aside className="authlayout__right">{children}</aside>
       <aside className="authlayout__footer">

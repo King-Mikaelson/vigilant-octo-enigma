@@ -49,11 +49,15 @@ const FormOne = () => {
             return (
               <section className="container">
                 <div style={{ textAlign: "center", marginTop: "4rem" }}>
-                  <img src={progressBar1} alt="progress" />
+                  <img
+                    src={progressBar1}
+                    alt="progress"
+                    className="progressBar"
+                  />
                 </div>
                 <section className="auth">
                   <p className="auth__changeAcc">
-                    <span>Create account as a multiple store</span>
+                    <span>Create a multiple store account</span>
                     <Link to={"/"} className="changeAccount">
                       Change
                     </Link>
@@ -332,7 +336,7 @@ const FormTwo = () => {
                     handleNameFocus={handleNameFocus}
                     error={error}
                   />
-                  {error ? <p className="auth__error">{error}</p> : "mikeeee"}
+                  {error ? <p className="auth__error">{error}</p> : ""}
                 </div>
 
                 <div className="password__label input__container">
@@ -354,12 +358,14 @@ const FormTwo = () => {
                 </div>
 
                 <aside className="checkbox__label">
-                  <div>
+                  <div className="checkbox">
                     <Input
                       type="checkbox"
                       checked={checked}
                       handleChecked={handleChecked}
                     />
+                  </div>
+                  <div>
                     <small>
                       By signing up, I agree to the
                       <span className="text__purple">
