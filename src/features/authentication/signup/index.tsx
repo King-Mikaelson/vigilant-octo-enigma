@@ -336,7 +336,7 @@ const FormTwo = () => {
                     handleNameFocus={handleNameFocus}
                     error={error}
                   />
-                  {error ? <p className="auth__error">{error}</p> : "mikeeee"}
+                  {error ? <p className="auth__error">{error}</p> : ""}
                 </div>
 
                 <div className="password__label input__container">

@@ -39,6 +39,10 @@
       @include sm {
         font-size: 1.85rem;
       }
+
+      @include xs {
+        font-size: 1.3rem;
+      }
     }
 
     &__subHeading {
@@ -46,6 +50,12 @@
       font-weight: 500;
       font-size: $extra-font;
       margin-bottom: $lg-font;
+
+      @include xs {
+        font-size: $sm-font;
+        text-align: center;
+        padding-top: 5px;
+      }
     }
 
     &__paragraph {
@@ -134,7 +144,21 @@
       @include flexCenter;
       gap: $xxl-font;
       margin: $md-font $md-font 0;
+      padding: 0 1rem;
       width: 100%;
+      min-width: 500px;
+
+      @include sm {
+        min-width: 100%;
+        margin: $md-font auto;
+        padding: 0;
+        gap: $sm-font;
+      }
+
+      @include xs {
+        width: 100%;
+        flex-direction: column;
+      }
 
       p {
         @include flexCenter;
@@ -148,6 +172,15 @@
         cursor: pointer;
         transition: all 0.2s ease;
         color: $light-gray;
+
+        @include sm {
+          font-size: $sm-font;
+          height: 100px;
+        }
+
+        @include xs {
+          width: 100%;
+        }
 
         &:hover {
           background-color: $primary-color;
