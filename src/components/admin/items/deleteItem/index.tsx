@@ -12,7 +12,7 @@ const DeleteItem = ({setOpenDelete}:Props) => {
         <span className="close-btn" onClick={ () => {handleModalClose(); setOpenDelete?.((prevValue) => !prevValue) }}>
           <MdOutlineCancel />
         </span>
-        <p>Delete Item?</p>
+        <p>Delete Item</p>
 
         <div className="buttons">
           <button className="del-btn" type="submit">

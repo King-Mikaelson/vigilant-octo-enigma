@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { FaPlus } from "react-icons/fa";
+import AppContext from "../../../../context/AppContext";
+import {MdArrowBackIosNew} from "react-icons/md"
+
 
 const AddItem: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const {setOpenAddItem} = useContext(AppContext);
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -18,6 +23,7 @@ const AddItem: React.FC = () => {
   return (
     <div className="add-item">
       <div className="header">
+      <MdArrowBackIosNew size={20} className="back__icon" onClick={() => setOpenAddItem?.(false)}/>
         <h2>Add New Item</h2>
         <FaPlus className="icon" />
       </div>
@@ -68,7 +74,7 @@ const AddItem: React.FC = () => {
           <div className="modal-content">
             <p>Item added successfully!</p>
             <button className="close-btn" onClick={handleModalClose}>
-              Close
+              okay
             </button>
           </div>
         </div>

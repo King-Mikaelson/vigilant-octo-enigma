@@ -2,6 +2,13 @@
 // the menu pos_left occupies 1fr column and 1fr row while the other part dashboard LayoutLeft occupies the rest of the space
 // You dont to add position fixed to any class here because the grid layout system takes care of that
 
+.pos__addItem{
+    display: none;
+
+@include sm{
+    display: block;
+}
+}
 
 .pos {
     display: grid;

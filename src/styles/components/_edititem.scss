@@ -10,6 +10,16 @@
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 100;
 
+     // CSS FOR ADD ITEMS COMPONENT ON MOBILE
+     @include sm {
+            position: fixed;
+            z-index: 200;
+            overflow-y: scroll;
+            height: 100vh;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
     .container-item {
         width: 400px;
         background-color: #fff;
@@ -18,23 +28,54 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         padding: 20px;
 
+
+        @include sm {
+            overflow-y: scroll;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        @include sp {
+            padding-bottom: $xxl-font;
+    
+        }
+
+
         .header {
             @include flexCenter;
             width: 100%;
             margin-bottom: 1rem;
-
+    
+            @include sm {
+                display: flex;
+                justify-content: flex-start;
+            }
+    
+            .back__icon{
+                display: none;
+            @include sm {
+                display: block;
+                font-size: 1.5rem;
+                color: $lighter-gray;
+            }
+            }
+    
             h2 {
                 margin-right: 0.5rem;
                 font-size: $extra-font;
                 font-weight: 600;
                 font-family: $inter-font;
                 color: $primary-color2;
+                margin: 0 auto;
             }
-
+    
             .icon {
                 width: 14px;
                 height: 14px;
                 color: $primary-color2;
+                @include sm {
+                display: none;
+                }
             }
         }
 
