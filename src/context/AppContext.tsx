@@ -42,6 +42,8 @@ export const AppProvider = ({ children }: AppContextProp) => {
   const [individualReportFromDate, setIndividualReportFromDate] = useState<Dayjs | null>(null);
   const [individualReportToDate, setIndividualReportToDate] = useState<Dayjs | null>(null);
   const [openAddItem, setOpenAddItem] = useState<boolean>(false);
+  const [openDashboardContent, setOpenDashboardContent] = useState<boolean>(false);
+
 
 
 
@@ -67,7 +69,9 @@ export const AppProvider = ({ children }: AppContextProp) => {
     individualReportToDate,
     setIndividualReportToDate,
     openAddItem,
-    setOpenAddItem
+    setOpenAddItem,
+    openDashboardContent,
+    setOpenDashboardContent
   };
 
   return (

@@ -1,6 +1,7 @@
 import AppLogout from "../../features/logout";
 import SideBar from "../../components/sidebar";
 import { Outlet } from "react-router-dom";
+import BottomNavigation from "../../components/bottomNavigation";
 // import { ChildrenProp } from "../../types";
 export default function DashboardLayout() {
   return (
@@ -10,6 +11,7 @@ export default function DashboardLayout() {
           <SideBar />
         </aside>
         <aside className="dashboardlayout__right">
+        <BottomNavigation />
           <Outlet />
         </aside>
       </section>

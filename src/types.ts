@@ -65,6 +65,9 @@ export interface AppContextProp {
   >;
   openAddItem?:boolean,
   setOpenAddItem?:React.Dispatch<React.SetStateAction<boolean>>
+  openDashboardContent?:boolean,
+  setOpenDashboardContent?:React.Dispatch<React.SetStateAction<boolean>>
+
 }
 
 export interface UserListProps {
