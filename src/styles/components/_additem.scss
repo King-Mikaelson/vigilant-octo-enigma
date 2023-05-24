@@ -1,145 +1,176 @@
 .add-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.8rem;
+  box-sizing: border-box;
+  font-family: $inter-font;
+  background-color: $white-color;
+
+  // CSS FOR ADD ITEMS COMPONENT ON MOBILE
+  @include sm {
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    margin-top: 0;
+    overflow: scroll;
+    height: 100vh;
+  }
+
+  @include sp {
+    padding-bottom: $xxl-font;
+  }
+
+  .header {
+    @include flexCenter;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    @include sm {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .back__icon {
+      display: none;
+      @include sm {
+        display: block;
+        font-size: 1.5rem;
+        color: $lighter-gray;
+      }
+    }
+
+    h2 {
+      margin-right: 0.5rem;
+      font-size: $extra-font;
+      font-weight: 600;
+      font-family: $inter-font;
+      color: $primary-color2;
+      margin: 0 auto;
+    }
+
+    .icon {
+      width: 14px;
+      height: 14px;
+      color: $primary-color2;
+      @include sm {
+        display: none;
+      }
+    }
+  }
+
+  hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $placeholder-gray;
+    margin-bottom: 0.8rem;
+  }
+
+  .add-item-text {
+    margin-bottom: 3rem;
+    color: $light-gray;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: $inter-font;
+  }
+
+  form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
-    padding: 1rem;
-    margin-top: 1.8rem;
-    box-sizing: border-box;
-    font-family: $inter-font;
-    background-color: $white-color;
+    padding: 0 2rem;
 
-    .header {
-        @include flexCenter;
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 1.5rem;
+
+      label {
+        margin-bottom: 0.5rem;
+        color: $black-color;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      input,
+      select {
         width: 100%;
-        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        outline: none;
+        border: 1px solid $placeholder-gray;
+        box-sizing: border-box;
+        font-size: 14px;
+        padding: 0.8rem 1.5rem;
+      }
 
-        h2 {
-            margin-right: 0.5rem;
-            font-size: $extra-font;
-            font-weight: 600;
-            font-family: $inter-font;
-            color: $primary-color2;
-        }
+      input::placeholder {
+        color: $placeholder-gray;
+      }
 
-        .icon {
-            width: 14px;
-            height: 14px;
-            color: $primary-color2;
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.5rem center;
+        background-size: 1.5rem;
+        color: $placeholder-gray;
+
+        option {
+          color: black;
+
+          &:first-child {
+            color: $placeholder-gray;
+          }
         }
+      }
     }
 
-    hr {
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 1rem;
+
+      .add-btn {
         width: 100%;
+        outline: none;
+        background-color: $primary-color;
+        color: $white-color;
+        padding: 10px;
+        font-size: $sm-font;
+        font-weight: 700;
+        font-family: $space-grotesk-font;
         border: none;
-        border-bottom: 1px solid $placeholder-gray;
-        margin-bottom: 0.8rem;
-    }
+        border-radius: 4px;
+        cursor: pointer;
 
-    .add-item-text {
-        margin-bottom: 3rem;
-        color: $light-gray;
-        font-size: 12px;
-        font-weight: 400;
-        font-family: $inter-font;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 0 2rem;
-
-        .form-field {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            margin-bottom: 1.5rem;
-
-            label {
-                margin-bottom: 0.5rem;
-                color: $black-color;
-                font-weight: 500;
-                font-size: 14px;
-            }
-
-            input,
-            select {
-                width: 100%;
-                padding: 0.5rem;
-                border-radius: 0.25rem;
-                outline: none;
-                border: 1px solid $placeholder-gray;
-                box-sizing: border-box;
-                font-size: 14px;
-                padding: 0.8rem 1.5rem;
-            }
-
-            input::placeholder {
-                color: $placeholder-gray;
-            }
-
-            select {
-                appearance: none;
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-                background-repeat: no-repeat;
-                background-position: right 0.5rem center;
-                background-size: 1.5rem;
-                color: $placeholder-gray;
-
-                option {
-                    color: black;
-
-                    &:first-child {
-                        color: $placeholder-gray;
-                    }
-                }
-            }
+        &:hover {
+          background-color: rgba($primary-color, 0.8);
         }
+      }
 
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            margin-top: 1rem;
+      .cancel-btn {
+        @include flexCenter;
+        border: none;
+        background-color: transparent;
+        font-weight: 500;
+        color: $primary-color;
+        font-size: $sm-font;
+        font-family: $dm-sans-font;
+        text-align: center;
+        width: 100px;
+        margin: $md-font auto;
+        padding-top: 1rem;
+        cursor: pointer;
 
-            .add-btn {
-                width: 100%;
-                outline: none;
-                background-color: $primary-color;
-                color: $white-color;
-                padding: 10px;
-                font-size: $sm-font;
-                font-weight: 700;
-                font-family: $space-grotesk-font;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: rgba($primary-color, 0.8);
-                }
-            }
-
-            .cancel-btn {
-                @include flexCenter;
-                border: none;
-                background-color: transparent;
-                font-weight: 500;
-                color: $primary-color;
-                font-size: $sm-font;
-                font-family: $dm-sans-font;
-                text-align: center;
-                width: 100px;
-                margin: $md-font auto;
-                padding-top: 1rem;
-                cursor: pointer;
-
-                &:hover {
-                    transform: scale(1.1);
-                }
-            }
+        &:hover {
+          transform: scale(1.1);
         }
+      }
     }
-
+  }
 }

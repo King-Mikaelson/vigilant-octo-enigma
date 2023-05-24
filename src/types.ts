@@ -63,6 +63,8 @@ export interface AppContextProp {
   setIndividualReportToDate?: React.Dispatch<
     React.SetStateAction<Dayjs | null>
   >;
+  openAddItem?:boolean,
+  setOpenAddItem?:React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface UserListProps {

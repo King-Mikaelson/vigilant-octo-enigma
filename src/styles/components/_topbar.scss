@@ -10,11 +10,72 @@
     justify-content: space-between;
     background-color: $white-color;
 
+    @include sm{
+    flex-direction: column;
+    gap: $sm-font;
+}
+
+    .heading{
+    display: none;
+      @include sm{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding-bottom: $sm-font1;
+        border-bottom: 2px solid $placeholder-gray;
+      }  
+
+      .heading__back{
+        display: flex;
+        align-items: center;
+        gap: $sm-font1;
+        cursor: pointer;
+
+    .back__icon{
+        font-size: 1.5rem;
+        color: $lighter-gray;
+    }
+
+        h1{
+            font-family: $inter-font;
+            font-style: normal;
+            font-weight: 600;
+            font-size: $extra-font;
+            line-height: 140%;
+            color: $black-color;
+      }
+    }
+
+    .topbar__button{
+        display: flex;
+        align-items: center;
+        border: 1px solid $primary-color;
+        border-radius: 4px;
+        padding: $sm-font1 $sm-font1;
+        gap: $sm-font1;
+
+        h3{
+            font-family: $inter-font;
+            font-style: normal;
+            font-weight: 400;
+            font-size: $xxs-font;
+            line-height: 140%;
+            color: $primary-color;
+      }
+      }
+    }
+
+
+
+    
     &__search {
+        @include sm{
         display: flex;
         align-items: center;
         position: relative;
-
+        width: 100%;
+        }
     }
 
     .search__icon {
@@ -22,6 +83,12 @@
         top: $sm-font2;
         bottom: $sm-font2;
         left: $xxl-font;
+
+        @include sm{
+        left: $vs-font;
+        bottom: $sm-font;
+        top: $sm-font;
+        }
     }
 
     input {
@@ -32,6 +99,15 @@
         border-radius: 10px;
         border: 1px solid $placeholder-gray;
         box-shadow: 0px 2px 2px 2px rgba($placeholder-gray, 0.1);
+
+        @include sm{
+            padding: $sm-font $lg-font;
+        }
+
+        // @include sp{
+        //     padding: $sm-font $sm-font2;
+        //     width: 16rem;
+        // }
     }
 
     h1 {
@@ -64,6 +140,9 @@
         font-size: $sm-font;
         line-height: 19px;
         letter-spacing: 0.0015em;
+        @include sm{
+            display: none;
+        }
 
         @include md {
             font-size: 0.7rem;
