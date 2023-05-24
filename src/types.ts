@@ -1,5 +1,7 @@
 import { State } from "./features/authentication/context/Reducer";
 import { FormikHelpers } from "formik";
+import { Dayjs } from "dayjs";
+
 //LAYOUT TYPE
 export type ChildrenProp = {
   children: React.ReactNode;
@@ -37,6 +39,30 @@ export interface AuthContextProp {
     formikHelpers: FormikHelpers<any>
   ) => void | Promise<any>) &
     ((values: Values) => void);
+  verifyOtp?: (email: string, user_otp: string) => Promise<void>;
+  loginUser?: (email: string, password: string) => Promise<void>;
+}
+
+export interface AppContextProp {
+  children?: React.ReactNode;
+  storeType?: string;
+  setStoreType?: React.Dispatch<React.SetStateAction<string>>;
+  loginOption?: string;
+  setLoginOption?: React.Dispatch<React.SetStateAction<string>>;
+  otpState?: string;
+  setOtpState?: React.Dispatch<React.SetStateAction<string>>;
+  generalReportFromDate?: Dayjs | null;
+  generalReportToDate?: Dayjs | null;
+  setGeneralReportFromDate?: React.Dispatch<React.SetStateAction<Dayjs | null>>;
+  setGeneralReportToDate?: React.Dispatch<React.SetStateAction<Dayjs | null>>;
+  individualReportFromDate?: Dayjs | null;
+  individualReportToDate?: Dayjs | null;
+  setIndividualReportFromDate?: React.Dispatch<
+    React.SetStateAction<Dayjs | null>
+  >;
+  setIndividualReportToDate?: React.Dispatch<
+    React.SetStateAction<Dayjs | null>
+  >;
 }
 
 export interface UserListProps {

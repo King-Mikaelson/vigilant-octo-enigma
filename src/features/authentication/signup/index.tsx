@@ -57,8 +57,8 @@ const FormOne = () => {
                 </div>
                 <section className="auth">
                   <p className="auth__changeAcc">
-                    <span>Create a multiple store account</span>
-                    <Link to={"/"} className="changeAccount">
+                    <span>Create account as a multiple store</span>
+                    <Link to={"/select-store"} className="changeAccount">
                       Change
                     </Link>
                   </p>
@@ -398,7 +398,7 @@ const FormTwo = () => {
             <section className="signup__options">
               <p>
                 <span>Already a user?</span>
-                <Link to={"/login"} className="createAccount">
+                <Link to={"/"} className="createAccount">
                   Log In
                 </Link>{" "}
               </p>

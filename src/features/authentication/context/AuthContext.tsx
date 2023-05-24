@@ -1,9 +1,15 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer, useState, useContext } from "react";
 import { useEffect } from "react";
 import AuthService from "../../../lib/authData";
 import { initialState, reducer } from "./Reducer";
 import { AuthContextProp, Values } from "../../../types";
 import { FormikHelpers } from "formik";
+import { useNavigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+
+let fullnameR: string | undefined;
+let usernameR: string | undefined;
+let emailR: string | undefined;
 
 const AuthContext = createContext<AuthContextProp>(null!);
 export default AuthContext;
@@ -14,6 +20,7 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
       ? JSON.parse(localStorage.getItem("user") || "{}")
       : null
   );
+  const navigate = useNavigate();
   //General loading and error state
   const [loading, setLoading] = useState(false);
   const [errMsg, setErrMsg] = useState("");
@@ -25,10 +32,10 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
     fullName: "",
   };
   const submitForm = (values: Values, formikHelpers: FormikHelpers<Values>) => {
-    dispatch?.({ type: "SET_FULL_NAME", payload: values.fullName });
-    dispatch?.({ type: "SET_USERNAME", payload: values.userName });
-    dispatch?.({ type: "SET_EMAIL", payload: values.email });
-    console.log("state", state);
+    fullnameR = values.fullName;
+    usernameR = values.userName;
+    emailR = values.email;
+    console.log("values", values);
     setSingleStoreState?.("two");
   };
 
@@ -41,37 +48,65 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   //Sign Up function
   const registerUser = async () => {
-    const {
-      fullname,
-      username,
-      email,
-      phone_number,
-      business_name,
-      business_address,
-      password,
-    } = state;
     const resData = {
       business_address: "udorji",
-      business_name,
+      business_name: businessName,
       mode: "SINGLE STORE",
     };
     const userData = {
-      email,
-      username,
-      full_name: fullname,
-      phone_number,
+      email: emailR,
+      username: usernameR,
+      full_name: fullnameR,
+      phone_number: value,
       role: "admin",
       password,
-      works_at: business_name,
+      works_at: businessName,
     };
 
     try {
+      console.log(resData, userData);
       const result1 = await AuthService.createRestaurant("", resData);
       const result2 = await AuthService.createUser(userData);
-      const result3 = await AuthService.sendOTP(state.email);
-
+      const result3 = await AuthService.sendOTP(emailR!);
+      navigate("/otp");
       // Handle the results as needed
       console.log(result1, result2, result3);
+    } catch (error) {
+      // Handle any errors
+      console.error(error);
+    }
+  };
+
+  //Verify Otp
+  // const { setOtpState } = useContext(AppContext);
+  const verifyOtp = async (email: string, user_otp: string) => {
+    try {
+      const response = await AuthService.verifyOTP(email, user_otp);
+
+      // Handle the results as needed
+      navigate("/");
+      console.log(response);
+      if (response.ok) {
+        console.log("verified");
+      }
+    } catch (error) {
+      // Handle any errors
+      console.error(error);
+    }
+  };
+
+  //Login User
+  // const { setOtpState } = useContext(AppContext);
+  const loginUser = async (email: string, password: string) => {
+    try {
+      const response = await AuthService.loginUser(email, password);
+
+      // Handle the results as needed
+      if (response) {
+        console.log(jwtDecode(response));
+        localStorage.setItem("tokenStr", response);
+        navigate("/dashboard");
+      }
     } catch (error) {
       // Handle any errors
       console.error(error);
@@ -132,6 +167,9 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
     setBusinessName,
     password,
     setPassword,
+    emailR,
+    verifyOtp,
+    loginUser,
   };
 
   return (
