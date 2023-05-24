@@ -34,15 +34,17 @@ const OtpSuccess = () => {
   const navigate = useNavigate();
   return (
     <>
-      <h1 className="auth__heading">Email Verification Successful</h1>
-      <p className="auth__paragraph otp">Your email has been verified.</p>
-      <button
-        className="button__element"
-        style={{ width: "100%" }}
-        onClick={() => navigate("/login")}
-      >
-        Log in
-      </button>
+      <div className="auth__verify-email">
+        <h3 className="auth__email">Email Verification Successful</h3>
+        <p className="auth__paragraph otp">Your email has been verified.</p>
+        <button
+          className="button__element"
+          style={{ width: "100%" }}
+          onClick={() => navigate("/login")}
+        >
+          Log in
+        </button>
+      </div>
     </>
   );
 };

@@ -43,6 +43,7 @@
       @include xs {
         font-size: 1.3rem;
       }
+
     }
 
     &__subHeading {
@@ -55,6 +56,22 @@
         font-size: $sm-font;
         text-align: center;
         padding-top: 5px;
+      }
+    }
+
+    &__verify-email {
+      @include sm {
+        padding: 1.5rem;
+      }
+    }
+
+    &__email {
+      background: $linear-gradient-primary;
+      color: transparent;
+      background-clip: text;
+
+      @include xs {
+        font-size: 16px;
       }
     }
 
