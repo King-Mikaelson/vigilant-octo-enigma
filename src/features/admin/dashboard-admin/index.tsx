@@ -10,7 +10,7 @@ export default function DashboardAdmin() {
   const {openDashboardContent} = useContext(AppContext);
   return (
     <>
-    {/* This component and state displays Add Item on small mobile screens,set to false/hidden on big screens */}
+    {/* This component and state displays Dashboard Content on small mobile screens,set to false/hidden on big screens */}
     { openDashboardContent ? 
       <div className="pos__addItem">
       <DashBoardMobileContent />
