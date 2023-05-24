@@ -55,9 +55,19 @@ const resendOTP = async (email: string) => {
 };
 
 //Verify OTP
-const verifyOTP = async (email: string) => {
+const verifyOTP = async (email: string, user_otp: string) => {
   const response = await apiClient.post<any>("/verify-user-otp", {
     email,
+    user_otp,
+  });
+  return response.data;
+};
+
+//Login User
+const loginUser = async (email: string, password: string) => {
+  const response = await apiClient.post<any>("/users/login", {
+    email,
+    password,
   });
   return response.data;
 };
@@ -68,6 +78,7 @@ const AuthService = {
   sendOTP,
   resendOTP,
   verifyOTP,
+  loginUser,
 };
 
 export default AuthService;

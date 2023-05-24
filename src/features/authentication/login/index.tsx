@@ -6,6 +6,7 @@ import AuthLayout from "../../../layout/authLayout";
 import { useContext, useState } from "react";
 import SignInOptions from "../../../components/authentication/signInOptions";
 import AppContext from "../../../context/AppContext";
+import AuthContext from "../context/AuthContext";
 export default function Login() {
   //TOGGLING PASSWORD HIDE/SHOW
   const [InputType, ToggleIcon] = useTogglePassword();
@@ -14,6 +15,8 @@ export default function Login() {
 
   const [errorValue, setErrorValue] = useState<string>("");
   const [errorPassword, setErrorPassword] = useState<string>("");
+
+  const { loginUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
   // This function code updates the state of the input
@@ -72,7 +75,7 @@ export default function Login() {
       value.trim().length > 0 &&
       Regex.test(value.trim())
     ) {
-      // run Api call;
+      loginUser?.(value, passwordValue);
     }
   };
 
@@ -93,6 +96,7 @@ export default function Login() {
 
   //disabled button state
   const disabled = value === "" || passwordValue === "";
+
   return (
     <AuthLayout>
       <section className="container">
@@ -167,7 +171,7 @@ export default function Login() {
             {disabled ? (
               <button className="button__element disabled">log in</button>
             ) : (
-              <Button text="log in" onclick={() => navigate("/admin")} />
+              <Button text="log in" />
             )}
           </form>
           <SignInOptions />
