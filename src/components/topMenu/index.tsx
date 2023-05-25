@@ -12,7 +12,7 @@ function TopMenu({ name, branch }: Props) {
   })} ${current.getDate()}, ${current.getFullYear()}`;
 
   return (
-    <div className="topbar__container">
+    <div className="topMenu__container">
       <div className="topbar__search">
         <h1>
           {name} <span>- {branch}</span>
