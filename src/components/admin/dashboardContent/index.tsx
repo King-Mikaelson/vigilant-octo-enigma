@@ -1,9 +1,10 @@
-import mealImage from "../../../assets/mealImage.png";
-import wineImage from "../../../assets/wineImage.png";
+import mealImage from "../../../assets/fastFoodPic.png";
+import wineImage from "../../../assets/fastFoodPic1.png";
 import { orders, table } from "../../../frontendData/frontendData";
 
 export default function DashboardContent() {
   return (
+    <>
     <div className="dashboardContent">
       <div className="dashboardContent__main">
         <h2>Order List</h2>
@@ -55,5 +56,6 @@ export default function DashboardContent() {
         </div>
       </div>
     </div>
+    </>
   );
 }

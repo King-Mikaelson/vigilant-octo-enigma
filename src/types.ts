@@ -63,8 +63,7 @@ export interface AppContextProp {
   setIndividualReportToDate?: React.Dispatch<
     React.SetStateAction<Dayjs | null>
   >;
-  openAddItem?: boolean;
-  setOpenAddItem?: React.Dispatch<React.SetStateAction<boolean>>;
+
   allItems?: never[];
   activeCategory?: string;
   setActiveCategory?: React.Dispatch<React.SetStateAction<string>>;
@@ -73,6 +72,12 @@ export interface AppContextProp {
   state?: any;
   dispatch?: React.Dispatch<any>;
   transformItems?: (items: any) => any;
+  openAddItem?: boolean;
+  setOpenAddItem?: React.Dispatch<React.SetStateAction<boolean>>;
+  openDashboardContent?: boolean;
+  setOpenDashboardContent?: React.Dispatch<React.SetStateAction<boolean>>;
+  openMobileNavMenu?: boolean;
+  setOpenMobileNavMenu?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface UserListProps {

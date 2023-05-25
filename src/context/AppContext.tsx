@@ -136,6 +136,7 @@ export const AppProvider = ({ children }: AppContextProp) => {
   const [storeType, setStoreType] = useState("");
   const [loginOption, setLoginOption] = useState("email");
   const [otpState, setOtpState] = useState("");
+  // UseState for choosing a From and To Date in the Individual Reports
   const [generalReportFromDate, setGeneralReportFromDate] =
     useState<Dayjs | null>(null);
   const [generalReportToDate, setGeneralReportToDate] = useState<Dayjs | null>(
@@ -146,6 +147,9 @@ export const AppProvider = ({ children }: AppContextProp) => {
   const [individualReportToDate, setIndividualReportToDate] =
     useState<Dayjs | null>(null);
   const [openAddItem, setOpenAddItem] = useState<boolean>(false);
+  const [openDashboardContent, setOpenDashboardContent] =
+    useState<boolean>(false);
+  const [openMobileNavMenu, setOpenMobileNavMenu] = useState<boolean>(false);
 
   //CONTEXT DATA
   const contextData: any = {
@@ -174,6 +178,10 @@ export const AppProvider = ({ children }: AppContextProp) => {
     setIndividualReportToDate,
     openAddItem,
     setOpenAddItem,
+    openDashboardContent,
+    setOpenDashboardContent,
+    openMobileNavMenu,
+    setOpenMobileNavMenu,
   };
 
   return (

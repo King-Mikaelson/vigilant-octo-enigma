@@ -1,151 +1,333 @@
 .topbar__container {
-    display: flex;
-    gap: $sm-font2;
-    align-items: center;
-    position: sticky;
-    top: 0;
+  display: flex;
+  gap: $sm-font2;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding: $sm-font $md-font;
+  justify-content: space-between;
+  background-color: $white-color;
+
+  @include sm {
+    flex-direction: column;
+    gap: $sm-font;
+  }
+
+  .heading {
+    display: none;
+    @include sm {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      padding-bottom: $sm-font1;
+      border-bottom: 2px solid $placeholder-gray;
+    }
+
+    .heading__back {
+      display: flex;
+      align-items: center;
+      gap: $sm-font1;
+      cursor: pointer;
+
+      .back__icon {
+        font-size: 1.5rem;
+        color: $lighter-gray;
+      }
+
+      h1 {
+        font-family: $inter-font;
+        font-style: normal;
+        font-weight: 600;
+        font-size: $extra-font;
+        line-height: 140%;
+        color: $black-color;
+      }
+    }
+
+    .topbar__button {
+      display: flex;
+      align-items: center;
+      border: 1px solid $primary-color;
+      border-radius: 4px;
+      padding: $sm-font1 $sm-font1;
+      gap: $sm-font1;
+
+      h3 {
+        font-family: $inter-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $xxs-font;
+        line-height: 140%;
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__search {
+    @include sm {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  .search__icon {
+    position: absolute;
+    top: $sm-font2;
+    bottom: $sm-font2;
+    left: $xxl-font;
+
+    @include sm {
+      left: $vs-font;
+      bottom: $sm-font;
+      top: $sm-font;
+    }
+  }
+
+  input {
+    outline: none;
     width: 100%;
-    z-index: 1;
+    font-size: $sm-font;
+    padding: $sm-font $xxl-font2;
+    border-radius: 10px;
+    border: 1px solid $placeholder-gray;
+    box-shadow: 0px 2px 2px 2px rgba($placeholder-gray, 0.1);
+
+    @include sm {
+      padding: $sm-font $lg-font;
+    }
+
+    // @include sp{
+    //     padding: $sm-font $sm-font2;
+    //     width: 16rem;
+    // }
+  }
+
+  h1 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 140%;
+    color: $black-color;
+
+    @include md {
+      font-size: 1rem;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+
+      @include md {
+        font-size: 12px;
+      }
+    }
+  }
+
+  p {
+    font-family: $inter-font;
+    font-style: normal;
+    color: $black-color;
+    font-weight: 500;
+    font-size: $sm-font;
+    line-height: 19px;
+    letter-spacing: 0.0015em;
+    @include sm {
+      display: none;
+    }
+
+    @include md {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.topMenu__container {
+  display: flex;
+  gap: $sm-font2;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding: $sm-font $md-font;
+  justify-content: space-between;
+  background-color: $white-color;
+
+  @include sm {
+    flex-direction: column;
+    gap: $sm-font;
+    display: none;
+  }
+
+  .heading {
+    display: none;
+    @include sm {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      padding-bottom: $sm-font1;
+      border-bottom: 2px solid $placeholder-gray;
+    }
+    .heading__back {
+      display: flex;
+      align-items: center;
+      gap: $sm-font1;
+      cursor: pointer;
+
+      .back__icon {
+        font-size: 1.5rem;
+        color: $lighter-gray;
+      }
+
+      h1 {
+        font-family: $inter-font;
+        font-style: normal;
+        font-weight: 600;
+        font-size: $extra-font;
+        line-height: 140%;
+        color: $black-color;
+      }
+    }
+
+    .topbar__button {
+      display: flex;
+      align-items: center;
+      border: 1px solid $primary-color;
+      border-radius: 4px;
+      padding: $sm-font1 $sm-font1;
+      gap: $sm-font1;
+
+      h3 {
+        font-family: $inter-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $xxs-font;
+        line-height: 140%;
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__search {
+    @include sm {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 100%;
+    }
+  }
+  .search__icon {
+    position: absolute;
+    top: $sm-font2;
+    bottom: $sm-font2;
+    left: $xxl-font;
+
+    @include sm {
+      left: $vs-font;
+      bottom: $sm-font;
+      top: $sm-font;
+    }
+  }
+
+  input {
+    outline: none;
+    width: 100%;
+    font-size: $sm-font;
+    padding: $sm-font $xxl-font2;
+    border-radius: 10px;
+    border: 1px solid $placeholder-gray;
+    box-shadow: 0px 2px 2px 2px rgba($placeholder-gray, 0.1);
+
+    @include sm {
+      padding: $sm-font $lg-font;
+    }
+
+    // @include sp{
+    //     padding: $sm-font $sm-font2;
+    //     width: 16rem;
+    // }
+  }
+
+  h1 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 140%;
+    color: $black-color;
+
+    @include md {
+      font-size: 1rem;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+
+      @include md {
+        font-size: 12px;
+      }
+    }
+  }
+
+  p {
+    font-family: $inter-font;
+    font-style: normal;
+    color: $black-color;
+    font-weight: 500;
+    font-size: $sm-font;
+    line-height: 19px;
+    letter-spacing: 0.0015em;
+    @include sm {
+      display: none;
+    }
+
+    @include md {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.topBarMobile__dashboard {
+  display: none;
+  @include sm {
+    display: flex;
+    align-items: center;
     padding: $sm-font $md-font;
     justify-content: space-between;
     background-color: $white-color;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 
-    @include sm{
-    flex-direction: column;
-    gap: $sm-font;
-}
+  img {
+    width: 10.43rem;
+    height: 2.5rem;
+  }
 
-    .heading{
-    display: none;
-      @include sm{
-        display: flex;
-        align-items: center;
-        width: 100%;
-        justify-content: space-between;
-        padding-bottom: $sm-font1;
-        border-bottom: 2px solid $placeholder-gray;
-      }  
+  .topbar__button {
+    display: flex;
+    align-items: center;
+    border: 1px solid $dark-gray;
+    border-radius: 4px;
+    padding: $sm-font1 $sm-font1;
 
-      .heading__back{
-        display: flex;
-        align-items: center;
-        gap: $sm-font1;
-        cursor: pointer;
-
-    .back__icon{
-        font-size: 1.5rem;
-        color: $lighter-gray;
+    h3 {
+      font-family: $inter-font;
+      font-style: normal;
+      font-weight: 400;
+      font-size: $xxs-font;
+      line-height: 140%;
+      color: $dark-gray;
     }
-
-        h1{
-            font-family: $inter-font;
-            font-style: normal;
-            font-weight: 600;
-            font-size: $extra-font;
-            line-height: 140%;
-            color: $black-color;
-      }
-    }
-
-    .topbar__button{
-        display: flex;
-        align-items: center;
-        border: 1px solid $primary-color;
-        border-radius: 4px;
-        padding: $sm-font1 $sm-font1;
-        gap: $sm-font1;
-
-        h3{
-            font-family: $inter-font;
-            font-style: normal;
-            font-weight: 400;
-            font-size: $xxs-font;
-            line-height: 140%;
-            color: $primary-color;
-      }
-      }
-    }
-
-
-
-    
-    &__search {
-        @include sm{
-        display: flex;
-        align-items: center;
-        position: relative;
-        width: 100%;
-        }
-    }
-
-    .search__icon {
-        position: absolute;
-        top: $sm-font2;
-        bottom: $sm-font2;
-        left: $xxl-font;
-
-        @include sm{
-        left: $vs-font;
-        bottom: $sm-font;
-        top: $sm-font;
-        }
-    }
-
-    input {
-        outline: none;
-        width: 100%;
-        font-size: $sm-font;
-        padding: $sm-font $xxl-font2;
-        border-radius: 10px;
-        border: 1px solid $placeholder-gray;
-        box-shadow: 0px 2px 2px 2px rgba($placeholder-gray, 0.1);
-
-        @include sm{
-            padding: $sm-font $lg-font;
-        }
-
-        // @include sp{
-        //     padding: $sm-font $sm-font2;
-        //     width: 16rem;
-        // }
-    }
-
-    h1 {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 1.2rem;
-        line-height: 140%;
-        color: $black-color;
-
-        @include md {
-            font-size: 1rem;
-        }
-
-        span {
-            font-size: 14px;
-            font-weight: 500;
-
-            @include md {
-                font-size: 12px;
-            }
-        }
-    }
-
-    p {
-        font-family: $inter-font;
-        font-style: normal;
-        color: $black-color;
-        font-weight: 500;
-        font-size: $sm-font;
-        line-height: 19px;
-        letter-spacing: 0.0015em;
-        @include sm{
-            display: none;
-        }
-
-        @include md {
-            font-size: 0.7rem;
-        }
-    }
+  }
 }
