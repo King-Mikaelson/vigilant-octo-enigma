@@ -1,17 +1,34 @@
 import { useState, useContext } from "react";
 import { FaPlus } from "react-icons/fa";
 import AppContext from "../../../../context/AppContext";
-import {MdArrowBackIosNew} from "react-icons/md"
-
+import { MdArrowBackIosNew } from "react-icons/md";
+import PosService from "../../../../lib/posData";
 
 const AddItem: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [itemName, setItemName] = useState("");
+  const [itemCategory, setItemCategory] = useState("");
+  const [itemPrice, setItemPrice] = useState("");
 
-  const {setOpenAddItem} = useContext(AppContext);
+  const { setOpenAddItem } = useContext(AppContext);
 
+  const addItem = async () => {
+    try {
+      const data = {
+        item_name: itemName,
+        item_category: itemCategory,
+        item_price: itemPrice,
+      };
+      const response = await PosService.addItem(data);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsModalOpen(true);
+    addItem();
     const form = event.currentTarget;
     form.reset();
   };
@@ -23,7 +40,11 @@ const AddItem: React.FC = () => {
   return (
     <div className="add-item">
       <div className="header">
-      <MdArrowBackIosNew size={20} className="back__icon" onClick={() => setOpenAddItem?.(false)}/>
+        <MdArrowBackIosNew
+          size={20}
+          className="back__icon"
+          onClick={() => setOpenAddItem?.(false)}
+        />
         <h2>Add New Item</h2>
         <FaPlus className="icon" />
       </div>
@@ -36,19 +57,25 @@ const AddItem: React.FC = () => {
             type="text"
             id="itemName"
             placeholder="Enter Item Name"
+            value={itemName}
+            onChange={(e) => setItemName(e.target.value)}
             required
           />
         </div>
         <div className="form-field">
           <label htmlFor="itemCategory">Item Category</label>
-          <select id="itemCategory">
+          <select
+            id="itemCategory"
+            value={itemCategory}
+            onChange={(e) => setItemCategory(e.target.value)}
+          >
             <option value="category">Add Item Category</option>
-            <option value="category1">Meals</option>
-            <option value="category2">Drinks</option>
-            <option value="category3">Pastries</option>
-            <option value="category4">Sides</option>
-            <option value="category5">Grills</option>
-            <option value="category6">Desserts</option>
+            <option value="Meals">Meals</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Pastries">Pastries</option>
+            <option value="Sides">Sides</option>
+            <option value="Grills">Grills</option>
+            <option value="Desserts">Desserts</option>
           </select>
         </div>
         <div className="form-field">
@@ -57,6 +84,8 @@ const AddItem: React.FC = () => {
             type="number"
             id="sellingPrice"
             placeholder="Set Selling Price"
+            value={itemPrice}
+            onChange={(e) => setItemPrice(e.target.value)}
             required
           />
         </div>

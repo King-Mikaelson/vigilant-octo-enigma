@@ -7,19 +7,19 @@ import { useContext } from "react";
 import AppContext from "../../context/AppContext";
 // import { ChildrenProp } from "../../types";
 export default function DashboardLayout() {
-  const {openMobileNavMenu} = useContext(AppContext);
+  const { openMobileNavMenu } = useContext(AppContext);
   return (
-    <AppLogout>
-      <section className="dashboardlayout">
-        <aside className="dashboardlayout__left">
-          <SideBar />
-        </aside>
-        <aside className="dashboardlayout__right">
-        {openMobileNavMenu ? <MobileNavMenu/> : " "}
+    // <AppLogout>
+    <section className="dashboardlayout">
+      <aside className="dashboardlayout__left">
+        <SideBar />
+      </aside>
+      <aside className="dashboardlayout__right">
+        {openMobileNavMenu ? <MobileNavMenu /> : " "}
         <BottomNavigation />
-          <Outlet />
-        </aside>
-      </section>
-    </AppLogout>
+        <Outlet />
+      </aside>
+    </section>
+    // </AppLogout>
   );
 }

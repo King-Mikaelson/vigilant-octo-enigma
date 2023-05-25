@@ -37,3 +37,16 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.addToCart {
+  background-color: transparent;
+  color: $secondary-color;
+  font-family: $inter-font;
+  font-weight: 500;
+  font-size: $xs-font;
+  padding: 0;
+  text-transform: none;
+  &:hover {
+    background-color: transparent;
+  }
+}

@@ -174,28 +174,27 @@
 
 //Dashboard Card Designs
 .dashboardAdminCard {
-  .dashboardOpen__mobile{
+  .dashboardOpen__mobile {
     display: none;
-    @include sm{
-    display: flex;
-    border: 1px solid $gold-color;
-    border-radius: 4px;
-    padding: $sm-font1 $sm-font1;
-    gap: $sm-font1;
-    margin: $md-font;
-    width: fit-content;
-    margin-left: auto;
+    @include sm {
+      display: flex;
+      border: 1px solid $gold-color;
+      border-radius: 4px;
+      padding: $sm-font1 $sm-font1;
+      gap: $sm-font1;
+      margin: $md-font;
+      width: fit-content;
+      margin-left: auto;
 
-    h3 {
-      font-family: $inter-font;
-      font-style: normal;
-      font-weight: 400;
-      font-size: $xxs-font;
-      line-height: 140%;
-      color: $gold-color;
+      h3 {
+        font-family: $inter-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $xxs-font;
+        line-height: 140%;
+        color: $gold-color;
+      }
     }
-    }
-    
   }
 
   .dashboardAdminCard__child {
