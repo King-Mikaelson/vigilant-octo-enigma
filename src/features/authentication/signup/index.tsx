@@ -25,7 +25,7 @@ const FormOne = () => {
       .min(7, "*fullname is too short - should be 7 chars minimum"),
   });
 
-  const { setSingleStoreState, state, dispatch, initialValues, submitForm } =
+  const { setSingleStoreState, initialValues, submitForm } =
     useContext(AuthContext);
   const handleSubmit = (values: Values) => {
     submitForm?.(values, {} as FormikHelpers<Values>);
@@ -166,7 +166,6 @@ const FormTwo = () => {
 
   const {
     setSingleStoreState,
-    state,
     dispatch,
     registerUser,
     value,
@@ -261,7 +260,6 @@ const FormTwo = () => {
       dispatch?.({ type: "SET_PHONE", payload: value });
       dispatch?.({ type: "SET_BUSINESS_NAME", payload: businessName });
       dispatch?.({ type: "SET_PASSWORD", payload: password });
-      console.log(state);
       registerUser && registerUser();
       // setSingleStoreState?.("one");
       // navigate("/admin");

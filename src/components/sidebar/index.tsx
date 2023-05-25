@@ -99,10 +99,11 @@ export default function SideBar() {
           }
         >
           <NavLink
-            to={"/logOut"}
+            to={"/"}
             style={activeTab === "logOut" ? activeStyle : undefined}
             onClick={() => {
               setActiveTab("logOut");
+              localStorage.clear();
             }}
             className="sidebar__link"
           >

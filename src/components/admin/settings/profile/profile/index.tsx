@@ -3,8 +3,12 @@ import { CiEdit } from "react-icons/ci";
 import { BsLink45Deg, BsPersonCircle } from "react-icons/bs";
 import { RiArrowRightSLine } from "react-icons/ri";
 import Button from "../../../../ui/button";
+import { useContext } from "react";
+import AuthContext from "../../../../../features/authentication/context/AuthContext";
 
 const Profile = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -48,7 +52,9 @@ const Profile = () => {
         <span>
           <BsPersonCircle />
         </span>
-        <h3>John Doe</h3>
+        <h3 style={{ textTransform: "capitalize" }}>
+          {user.user || "John doe"}
+        </h3>
         <p>Company’s ID #12345678</p>
       </div>
       <div className="profile-body">

@@ -1,4 +1,3 @@
-import { State } from "./features/authentication/context/Reducer";
 import { FormikHelpers } from "formik";
 import { Dayjs } from "dayjs";
 
@@ -14,6 +13,7 @@ export interface Values {
 }
 
 export interface AuthContextProp {
+  user?: any;
   children?: React.ReactNode;
   singleStoreState?: string | null;
   setSingleStoreState?: React.Dispatch<React.SetStateAction<string>>;
@@ -23,7 +23,6 @@ export interface AuthContextProp {
   setLoading?: React.Dispatch<React.SetStateAction<boolean>>;
   errMsg?: string;
   setErrMsg?: React.Dispatch<React.SetStateAction<string>>;
-  state?: State;
   handleUserInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   registerUser?: () => Promise<void>;
   dispatch?: React.Dispatch<any>;
@@ -41,6 +40,7 @@ export interface AuthContextProp {
     ((values: Values) => void);
   verifyOtp?: (email: string, user_otp: string) => Promise<void>;
   loginUser?: (email: string, password: string) => Promise<void>;
+  logout?: () => void;
 }
 
 export interface AppContextProp {
@@ -63,8 +63,16 @@ export interface AppContextProp {
   setIndividualReportToDate?: React.Dispatch<
     React.SetStateAction<Dayjs | null>
   >;
-  openAddItem?:boolean,
-  setOpenAddItem?:React.Dispatch<React.SetStateAction<boolean>>
+  openAddItem?: boolean;
+  setOpenAddItem?: React.Dispatch<React.SetStateAction<boolean>>;
+  allItems?: never[];
+  activeCategory?: string;
+  setActiveCategory?: React.Dispatch<React.SetStateAction<string>>;
+  searchQuery?: string;
+  setSearchQuery?: React.Dispatch<React.SetStateAction<string>>;
+  state?: any;
+  dispatch?: React.Dispatch<any>;
+  transformItems?: (items: any) => any;
 }
 
 export interface UserListProps {

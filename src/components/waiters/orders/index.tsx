@@ -1,23 +1,39 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import Payment from "../../modals/Payment";
 import Button from "../../ui/button";
 import { AiOutlineDelete } from "react-icons/ai";
 import ConfirmPayment from "../../modals/ConfirmPayment";
+import AppContext from "../../../context/AppContext";
+import { CartTypes } from "../../../frontendData/frontendData";
 
 export default function Orders() {
   const [openModal, setOpenModal] = useState(false);
   const [confirmPayment, setConfirmPayment] = useState(false);
-  console.log(confirmPayment);
+  const [total, setTotal] = useState("");
+  const [discount] = useState(0);
+  console.log(total, discount);
+  const {
+    state: { cart },
+    dispatch,
+  } = useContext(AppContext);
   const handleModalClose = () => {
     setOpenModal(!openModal);
   };
   const handleConfirmModal = () => {
     setConfirmPayment(!confirmPayment);
   };
-  const itemName1 = "Salted Pasta with mushroom sauce";
+  useEffect(() => {
+    setTotal(
+      cart?.reduce(
+        ({ acc, curr }: any) => acc + Number(curr?.item_price) * curr?.quantity,
+        0
+      )
+    );
+  }, [cart]);
+  // const itemName1 = "Salted Pasta with mushroom sauce";
 
   function truncate(str: string, max: number) {
-    return str.length > max ? str.substr(0, max - 1) + "…" : str;
+    return str?.length > max ? str?.substr(0, max - 1) + "…" : str;
   }
   return (
     <section className="orders">
@@ -59,42 +75,76 @@ export default function Orders() {
       {/* CART SECTION */}
       <section className="orders__cart">
         <section className="top">
-          {/* <aside className="top__empty">No Orders yet.</aside> */}
+          {cart.length === 0 && (
+            <aside className="top__empty">No Orders yet.</aside>
+          )}
           <aside className="top__cartDetails">
-            <div className="cartItem">
-              <h3>
-                {truncate(itemName1, 16)} <br />
-                <small> ₦6,000</small>
-              </h3>
-              <span>
-                <button className="btn__cart">-</button>
-                <h1>2</h1>
-                <button className="btn__cart">+</button>
-              </span>
-              <h1>
-                ₦12,000
-                <AiOutlineDelete
-                  color="#D31717"
-                  size={25}
-                  className="delIcon"
-                />
-              </h1>
-            </div>
+            {cart.length > 0 && (
+              <>
+                {cart?.map((item: CartTypes, index: string) => (
+                  <div className="cartItem" key={index}>
+                    <h3>
+                      {truncate!(item?.item_name, 16)} <br />
+                      <small> ₦{parseInt(item?.item_price)}</small>
+                    </h3>
+                    <span>
+                      <button
+                        className="btn__cart"
+                        onClick={() => {
+                          dispatch!({
+                            type: "DECREMENT_QTY",
+                            payload: item,
+                          });
+                        }}
+                      >
+                        -
+                      </button>
+                      <h1>{item?.quantity}</h1>
+                      <button
+                        className="btn__cart"
+                        onClick={() => {
+                          dispatch!({
+                            type: "INCREMENT_QTY",
+                            payload: item,
+                          });
+                        }}
+                      >
+                        +
+                      </button>
+                    </span>
+                    <h1>
+                      ₦{item?.quantity * parseInt(item?.item_price)}
+                      <AiOutlineDelete
+                        color="#D31717"
+                        size={25}
+                        className="delIcon"
+                        onClick={() => {
+                          dispatch!({
+                            type: "REMOVE_FROM_CART",
+                            payload: item,
+                          });
+                        }}
+                      />
+                    </h1>
+                  </div>
+                ))}
+              </>
+            )}
           </aside>
         </section>
         <section className="bottom">
           <aside className="bottom__invoice">
             <div className="calc">
               <span>Subtotal</span>
-              <h3>₦0</h3>
+              <h3>₦{Math.round(parseInt(total))}</h3>
             </div>
             <div className="calc">
               <span>Discount</span>
-              <h3>₦0</h3>
+              <h3>₦{discount}</h3>
             </div>
             <div className="calc">
               <span>Grand total</span>
-              <h3>₦0</h3>
+              <h3>₦{Math.round(parseInt(total)) - discount}</h3>
             </div>
             <Button text="continue to payment" onclick={handleModalClose} />
           </aside>

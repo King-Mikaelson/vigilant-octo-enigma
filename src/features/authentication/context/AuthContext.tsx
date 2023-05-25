@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
     fullnameR = values.fullName;
     usernameR = values.userName;
     emailR = values.email;
-    console.log("values", values);
     setSingleStoreState?.("two");
   };
 
@@ -105,14 +104,21 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
         setUser(decodedToken);
         localStorage.setItem("user", JSON.stringify(decodedToken));
         localStorage.setItem("tokenStr", response);
-
-        navigate("/dashboard");
+        user?.role === "Owner"
+          ? navigate("/menu_manager")
+          : navigate("/pos-waiters");
       }
     } catch (error) {
       // Handle any errors
       setLoading(false);
       console.error(error);
     }
+  };
+
+  //Logout user
+  const logout = () => {
+    localStorage.clear();
+    navigate("/");
   };
 
   const [singleStoreState, setSingleStoreState]: any = useState(() =>
@@ -170,6 +176,7 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
     emailR,
     verifyOtp,
     loginUser,
+    logout,
   };
 
   return (

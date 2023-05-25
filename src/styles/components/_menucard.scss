@@ -16,9 +16,9 @@
     gap: $sm-font1;
   }
 
-  @include sm{
+  @include sm {
     grid-template-columns: 1fr 1fr;
-    padding:0 $lg-font;
+    padding: 0 $lg-font;
     margin: 0 auto;
     gap: $sm-font2;
     padding-bottom: $xxl-font2;
@@ -34,28 +34,26 @@
     gap: $sm-font;
     width: 184px;
     height: 231px;
-    padding: $lg-font;
+    padding: 0;
     padding-top: $xxl-font2;
     border-radius: 16px;
     position: relative;
     margin-top: $sm-font2;
     cursor: pointer;
 
-    @include sm{
-      width:143px;
+    @include sm {
+      width: 143px;
       height: 191px;
       padding-bottom: $xxl-font1;
       padding-top: 8rem;
-
-
     }
 
     img {
       width: 80px;
       height: 80px;
 
-      @include sm{
-        width:64px;
+      @include sm {
+        width: 64px;
         height: 64px;
       }
     }
@@ -103,7 +101,7 @@
     width: 100%;
     padding-top: $sm-font1;
 
-    @include sm{
+    @include sm {
       padding: 0;
       gap: $sm-font2;
     }
@@ -136,7 +134,7 @@
       left: $xl-font;
       bottom: 0;
 
-      @include sm{
+      @include sm {
         left: 2.5rem;
       }
     }
@@ -172,6 +170,19 @@
       }
     }
   }
+
+  &__cartAction {
+    border: 1px solid $secondary-color;
+    padding: $xs-font $md-font;
+    border-radius: 8px;
+    aside {
+      @include flexSpaceCenter;
+      gap: $sm-font;
+    }
+    &:hover {
+      background-color: $light-purple;
+    }
+  }
 }
 
 // .menuCard > div{
@@ -199,7 +210,7 @@
     gap: $sm-font1;
   }
 
-  @include sm{
+  @include sm {
     grid-template-columns: 250px 250px;
     gap: $md-font;
   }
