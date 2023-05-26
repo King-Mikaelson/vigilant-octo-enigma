@@ -159,7 +159,7 @@
   justify-content: space-between;
   background-color: $white-color;
 
-  @include sm {
+    @include lg{
     flex-direction: column;
     gap: $sm-font;
     display: none;

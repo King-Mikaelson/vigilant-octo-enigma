@@ -102,7 +102,7 @@ function MenuCard() {
   } = useContext(AppContext);
   return (
     <div className="menuCard">
-      {Stock.map((item: Store) => (
+      {Stock?.map((item: Store) => (
         <SingleCard key={item.id} item={item} />
       ))}
     </div>

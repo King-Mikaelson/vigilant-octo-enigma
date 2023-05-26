@@ -6,7 +6,6 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 import { HiOutlineChartSquareBar } from "react-icons/hi";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
-import { RxDashboard } from "react-icons/rx";
 
 function MobileNavMenu() {
   const { setOpenMobileNavMenu } = useContext(AppContext);
@@ -30,7 +29,7 @@ function MobileNavMenu() {
         </NavLink>
 
         <NavLink
-          to={"/reports/individual-report"}
+          to={"/reports"}
           className="mobileMenu__child"
           onClick={() => setOpenMobileNavMenu?.(false)}
         >
@@ -45,6 +44,7 @@ function MobileNavMenu() {
           <AiOutlineSetting size={25} />
           <p>Settings</p>
         </NavLink>
+
         <NavLink
           to={"/logOut"}
           className="mobileMenu__child"
