@@ -261,13 +261,13 @@ export const Stock: Store[] = [
   },
   {
     id: "3",
-    item_name: "Salted Pasta with mushroom sauce",
+    item_name: "Salted Pasta ",
     item_price: "10000",
     item_category: "Desserts",
   },
   {
     id: "4",
-    item_name: "Salted Pasta with mushroom sauce",
+    item_name: "Cashew nuts",
     item_price: "10000",
     item_category: "Meals",
   },

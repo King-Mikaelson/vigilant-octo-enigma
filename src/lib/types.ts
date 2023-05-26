@@ -19,3 +19,17 @@ export interface AddItemProps {
   item_category: string;
   item_price: string;
 }
+
+export interface OrderProps {
+  item_name: string;
+  item_category: string;
+  item_price: string;
+  quantity: string;
+  amount: string;
+}
+
+export interface PlaceOrders {
+  restaurant_id: string;
+  username: string;
+  order_items: OrderProps[];
+}

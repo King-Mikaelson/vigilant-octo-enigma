@@ -1,5 +1,4 @@
 .container {
-
   .progressBar {
     @include sm {
       width: 80%;
@@ -43,7 +42,6 @@
       @include xs {
         font-size: 1.3rem;
       }
-
     }
 
     &__subHeading {
@@ -249,7 +247,6 @@
         margin-bottom: 0.25rem;
       }
 
-
       .span {
         font-size: $xxs-font;
         font-weight: 300;
@@ -260,13 +257,14 @@
         margin-bottom: $md-font;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         gap: $sm-font1;
 
         .checkbox {
           margin-top: -14px;
 
-          @include sm {}
+          @include sm {
+          }
         }
 
         label {
@@ -298,7 +296,7 @@
       .auth__btns {
         @include flexSpaceCenter;
 
-        &>* {
+        & > * {
           width: 42%;
         }
 
@@ -307,7 +305,7 @@
           gap: $sm-font;
           width: 100%;
 
-          &>* {
+          & > * {
             width: 100%;
           }
         }
@@ -346,7 +344,7 @@
       .input__container {
         margin-bottom: $md-font;
         flex-direction: column;
-        display: flex
+        display: flex;
       }
     }
 

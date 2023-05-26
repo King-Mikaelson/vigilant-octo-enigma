@@ -3,7 +3,7 @@ import { FaMinus, FaPlus, FaRegEdit } from "react-icons/fa";
 import mealImage from "../../assets/fastFoodPic.png";
 import wineImage from "../../assets/fastFoodPic1.png";
 import doughnut from "../../assets/fastFoodPic2.png";
-import { CartTypes, Store } from "../../frontendData/frontendData";
+import { CartTypes, Stock, Store } from "../../frontendData/frontendData";
 import EditItem from "../admin/items/editItem";
 import DeleteItem from "../admin/items/deleteItem";
 import { useContext, useState } from "react";
@@ -21,8 +21,6 @@ function SingleCard({ item }: Props) {
     state: { cart },
     dispatch,
   } = useContext(AppContext);
-  const [add, setAdd] = useState(true);
-  const toggleAdd = () => setAdd(!add);
   return (
     <>
       {openEdit ? <EditItem setOpenEdit={setOpenEdit} /> : " "}
@@ -39,7 +37,7 @@ function SingleCard({ item }: Props) {
         <p className="menuCard__price">{`₦${Number(
           item.item_price
         ).toLocaleString()}`}</p>
-        <div className="menuCard__icons">
+        {/* <div className="menuCard__icons">
           <div className="edit__parent">
             <div
               className="edit"
@@ -58,8 +56,8 @@ function SingleCard({ item }: Props) {
             </div>
             <p>Delete</p>
           </div>
-        </div>
-        {/* <div className="menuCard__cartAction">
+        </div> */}
+        <div className="menuCard__cartAction">
           <aside>
             {cart.some((c: CartTypes) => c.item_name === item.item_name) ? (
               <div
@@ -91,7 +89,7 @@ function SingleCard({ item }: Props) {
               </div>
             )}
           </aside>
-        </div> */}
+        </div>
       </div>
     </>
   );
@@ -104,7 +102,7 @@ function MenuCard() {
   } = useContext(AppContext);
   return (
     <div className="menuCard">
-      {transformItems!(items)?.map((item: Store) => (
+      {Stock.map((item: Store) => (
         <SingleCard key={item.id} item={item} />
       ))}
     </div>
