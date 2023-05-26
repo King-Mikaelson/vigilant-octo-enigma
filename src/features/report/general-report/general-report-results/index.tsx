@@ -85,16 +85,16 @@ const ReportTable = () => {
       </table>
 
       <div className="mobile__table">
-      {filterTable.map((item, index) => (
-            <div key={index} className="card">
-              <h4>{item.name}</h4>
-              <p> ₦{item.price.toLocaleString()}</p>
-              <div className="flex">
+        {filterTable.map((item, index) => (
+          <div key={index} className="card">
+            <h4>{item.name}</h4>
+            <p> ₦{item.price.toLocaleString()}</p>
+            <div className="flex">
               <p>1x{item.quantity.toLocaleString()}</p>
-              <p>₦{item.subTotal.toLocaleString()}</ p>
-              </div>
+              <p>₦{item.subTotal.toLocaleString()}</p>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </main>
   );
@@ -203,16 +203,16 @@ const GeneralReportResults = () => {
       <div className="singleReports">
         <div className="header">
           <div className="flex-wrapper">
-
-          <div className="header__parent">
-        <div
-          className="header"
-        >
-          <MdArrowBackIosNew size={15} onClick={() => navigate(-1)}
- className="back__icon" />
-          <h2>General Report</h2>
-        </div>
-        <hr />
+            <div className="header__parent">
+              <div className="header">
+                <MdArrowBackIosNew
+                  size={15}
+                  onClick={() => navigate(-1)}
+                  className="back__icon"
+                />
+                <h2>General Report</h2>
+              </div>
+              <hr />
             </div>
             <div className="flex">
               <IoIosArrowBack

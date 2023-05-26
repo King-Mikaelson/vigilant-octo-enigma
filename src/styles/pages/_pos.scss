@@ -12,7 +12,8 @@
 
 .pos {
     display: grid;
-    grid-template-columns: 1fr 350px;
+    grid-template-columns: 1fr 450px;
+    // grid-template-columns: 1fr 350px;
     grid-template-rows: 1fr 70px;
     height: 100vh;
     grid-template-areas: "main nav"
@@ -20,7 +21,8 @@
     overflow-x: hidden;
 
     @include xl{
-        grid-template-columns: 1fr 300px;
+        // grid-template-columns: 1fr 300px;
+        grid-template-columns: 1fr 320px;
     }
 
     @include lg {

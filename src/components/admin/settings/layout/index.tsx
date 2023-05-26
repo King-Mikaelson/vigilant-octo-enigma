@@ -17,8 +17,10 @@ export default function SettingsLayout() {
 
   return (
     <>
-      <TopMenu name="Settings"
-        branch="Hot n’ Spicy Restaurant, New Haven, Enugu"/>
+      <TopMenu
+        name="Settings"
+        branch="Hot n’ Spicy Restaurant, New Haven, Enugu"
+      />
       <div className="settings-layout">
         <div className="settings-sidebar">
           <NavLink

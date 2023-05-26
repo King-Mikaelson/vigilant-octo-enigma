@@ -1,6 +1,6 @@
 .menuCard {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
   gap: $md-font;
@@ -37,6 +37,7 @@
     background-color: $white-color;
     gap: $sm-font;
     width: 184px;
+    // width: 150px;
     height: 231px;
     padding: $lg-font;
     padding-top: $xxl-font2;

@@ -3,7 +3,7 @@ import { FaMinus, FaPlus, FaRegEdit } from "react-icons/fa";
 import mealImage from "../../assets/fastFoodPic.png";
 import wineImage from "../../assets/fastFoodPic1.png";
 import doughnut from "../../assets/fastFoodPic2.png";
-import { CartTypes, Store } from "../../frontendData/frontendData";
+import { CartTypes, Stock, Store } from "../../frontendData/frontendData";
 import EditItem from "../admin/items/editItem";
 import DeleteItem from "../admin/items/deleteItem";
 import { useContext, useState } from "react";
@@ -104,7 +104,7 @@ function MenuCard() {
   } = useContext(AppContext);
   return (
     <div className="menuCard">
-      {transformItems!(items)?.map((item: Store) => (
+      {Stock?.map((item: Store) => (
         <SingleCard key={item.id} item={item} />
       ))}
     </div>
