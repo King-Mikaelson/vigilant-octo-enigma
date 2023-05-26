@@ -20,6 +20,15 @@
     align-items: center;
     border-radius: 8px;
     padding: 0 $extra-font;
+
+    @include lg{
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin-bottom: $xxl-font2;
+        padding-top:$xl-font;
+        padding-bottom: $xl-font;
+    }
     
     .header-parent{
         display: flex;
@@ -30,6 +39,10 @@
         background-color: #fff;
         width: 100%;
         padding: $extra-font 0;
+
+        @include lg{
+            padding: 0 $sm-font;
+        }
         .buttons {
             display: flex;
             align-items: center;
@@ -39,6 +52,10 @@
             z-index: 50;
             background-color: #fff;
             width: 100%;
+
+            @include lg{
+                padding-top:$sm-font;
+            }
     
             .add-btn {
                 outline: none;
@@ -107,6 +124,11 @@
         overflow: hidden;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         padding: 20px;
+
+        @include lg{
+            height: 100%;
+            width: 100%;
+        }
 
         .header {
             @include flexSpaceCenter;
@@ -219,6 +241,12 @@
         gap:3rem;
         justify-content: center;
         align-items: center;
+
+        @include lg{
+        padding: 3rem 0;
+        width: 80%;
+        margin: 0 auto;
+        }
 
     p{
         font-size: $extra-font;

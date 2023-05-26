@@ -44,6 +44,7 @@ import CancelSubscription from "./components/admin/settings/manageSub/cancelSub"
 import ConfirmDelete from "./components/admin/settings/profile/deleteAccount/ConfirmDelete";
 import DeleteAccount from "./components/admin/settings/profile/deleteAccount";
 import MigrateStore from "./components/admin/settings/profile/migrateStore";
+import MobileReportPage from "./features/report/mobile-report-page";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -138,6 +139,10 @@ function App() {
                   </Route>
 
                   <Route element={<ReportLayout />}>
+                  <Route
+                      path="/reports"
+                      element={<MobileReportPage/>}
+                    />
                     <Route
                       path="/reports/individual-report"
                       element={<IndividualReport />}

@@ -8,6 +8,7 @@ import EmailModal from "../../../../components/modals/EmailModal";
 import SuccessModal from "../../../../components/modals/SuccessModal";
 import WhatsappModal from "../../../../components/modals/WhatsappModal";
 import Logo from "../../../../assets/companyLogo.png";
+import { MdArrowBackIosNew } from "react-icons/md";
 
 type Props = {
   setOpenPrintModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,6 +41,7 @@ const ReportTable = () => {
           <h2>
             Name of Waiter: <span className="bold">Alucard</span>
           </h2>
+
           <p>
             Date: <span className="bold">{date}</span>
           </p>
@@ -48,8 +50,15 @@ const ReportTable = () => {
         <p>
           Total Amount: <span className="bold">₦250,000</span>
         </p>
-        <p>
+        <p className="date__desktop">
           Period of Report:{" "}
+          <span className="bold">
+            From {date2} To {date3}
+          </span>
+        </p>
+
+        <p className="date__mobile">
+          Duration:{" "}
           <span className="bold">
             From {date2} To {date3}
           </span>
@@ -77,6 +86,19 @@ const ReportTable = () => {
           ))}
         </tbody>
       </table>
+
+      <div className="mobile__table">
+        {filterTable.map((item, index) => (
+          <div key={index} className="card">
+            <h4>{item.name}</h4>
+            <p> ₦{item.price.toLocaleString()}</p>
+            <div className="flex">
+              <p>1x{item.quantity.toLocaleString()}</p>
+              <p>₦{item.subTotal.toLocaleString()}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </main>
   );
 };
@@ -184,6 +206,20 @@ const IndividualReportResults = () => {
       <div className="singleReports">
         <div className="header">
           <div className="flex-wrapper">
+            <div className="header__parent">
+              <div
+                onClick={() => {
+                  navigate(-1);
+                  navigate("/reports");
+                }}
+                className="header"
+              >
+                <MdArrowBackIosNew size={15} className="back__icon" />
+                <h2>Individual Report</h2>
+              </div>
+              <hr />
+            </div>
+
             <div className="flex">
               <IoIosArrowBack
                 size={30}
@@ -193,9 +229,9 @@ const IndividualReportResults = () => {
               <h1>Individual Report</h1>
             </div>
 
-            <div className="flex-wrapper">
+            <div className="print-wrapper">
               <div
-                className="flex-wrapper print"
+                className="print-wrapper print"
                 onClick={() => setOpenPrintModal(true)}
               >
                 <p>Print</p>

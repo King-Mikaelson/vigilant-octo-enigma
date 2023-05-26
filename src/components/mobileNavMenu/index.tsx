@@ -6,7 +6,6 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 import { HiOutlineChartSquareBar } from "react-icons/hi";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
-import { RxDashboard } from "react-icons/rx";
 
 function MobileNavMenu() {
   const { setOpenMobileNavMenu } = useContext(AppContext);
@@ -29,30 +28,37 @@ function MobileNavMenu() {
           <p>Menu Manager</p>
         </NavLink>
 
-        <NavLink
-          to={"/reports/individual-report"}
-          className="mobileMenu__child"
-          onClick={() => setOpenMobileNavMenu?.(false)}
-        >
-          <HiOutlineChartSquareBar size={25} />
-          <p>Report</p>
-        </NavLink>
-        <NavLink
-          to={"/settings/profile"}
-          className="mobileMenu__child"
-          onClick={() => setOpenMobileNavMenu?.(false)}
-        >
-          <AiOutlineSetting size={25} />
-          <p>Settings</p>
-        </NavLink>
-        <NavLink
-          to={"/logOut"}
-          className="mobileMenu__child"
-          onClick={() => setOpenMobileNavMenu?.(false)}
-        >
-          <BiLogOut size={25} />
-          <p>Log Out</p>
-        </NavLink>
+          <NavLink
+            to={"/reports"}
+            className="mobileMenu__child"
+            onClick={() => setOpenMobileNavMenu?.(false)}
+
+          >
+            <HiOutlineChartSquareBar size={25} />
+            <p>Report</p>
+          </NavLink>
+
+      
+          <NavLink
+            to={"/settings/profile"}
+            className="mobileMenu__child"
+            onClick={() => setOpenMobileNavMenu?.(false)}
+
+          >
+            <AiOutlineSetting size={25} />
+            <p>Settings</p>
+          </NavLink>
+
+
+          <NavLink
+            to={"/logOut"}
+            className="mobileMenu__child"
+            onClick={() => setOpenMobileNavMenu?.(false)}
+
+          >
+            <BiLogOut size={25} />
+            <p>Log Out</p>
+          </NavLink>
       </div>
     </div>
   );
