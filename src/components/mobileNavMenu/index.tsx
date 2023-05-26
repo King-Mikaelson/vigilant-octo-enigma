@@ -6,29 +6,27 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 import { HiOutlineChartSquareBar } from "react-icons/hi";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
-import { RxDashboard } from "react-icons/rx";
 
 function MobileNavMenu() {
-    const {setOpenMobileNavMenu} = useContext(AppContext);
+  const { setOpenMobileNavMenu } = useContext(AppContext);
   return (
     <div className="mobile__nav">
       <div className="topBarMobile__dashboard">
-      <img src={uppistLogo} alt=""  />
-      <div className="topbar__button">
-        <h3>Log out</h3>
+        <img src={uppistLogo} alt="" />
+        <div className="topbar__button">
+          <h3>Log out</h3>
+        </div>
       </div>
-    </div>
 
-    <div className="mobileMenu">
-
-          <NavLink
-            to={"/menu_manager"}
-            className="mobileMenu__child"
-            onClick={() => setOpenMobileNavMenu?.(false)}
-          >
-            <MdOutlineRestaurantMenu size={25} />
-            <p>Menu Manager</p>
-          </NavLink>
+      <div className="mobileMenu">
+        <NavLink
+          to={"/menu_manager"}
+          className="mobileMenu__child"
+          onClick={() => setOpenMobileNavMenu?.(false)}
+        >
+          <MdOutlineRestaurantMenu size={25} />
+          <p>Menu Manager</p>
+        </NavLink>
 
           <NavLink
             to={"/reports"}
@@ -63,7 +61,7 @@ function MobileNavMenu() {
           </NavLink>
       </div>
     </div>
-  )
+  );
 }
 
-export default MobileNavMenu
+export default MobileNavMenu;

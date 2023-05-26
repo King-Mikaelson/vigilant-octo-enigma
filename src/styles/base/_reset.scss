@@ -7,6 +7,10 @@
   transition: 0.2s all ease;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font-family: $inter-font;
   color: $black-color;

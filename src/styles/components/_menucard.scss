@@ -20,9 +20,9 @@
     padding-bottom: $xxl-font2;
   }
 
-  @include sm{
+  @include sm {
     grid-template-columns: 1fr 1fr;
-    padding:0 $lg-font;
+    padding: 0 $lg-font;
     margin: 0 auto;
     gap: $sm-font2;
     padding-bottom: $xxl-font2;
@@ -50,8 +50,6 @@
       height: 191px;
       padding-bottom: $xxl-font1;
       padding-top: 8rem;
-
-
     }
 
     img {
@@ -174,6 +172,19 @@
         line-height: 130%;
         color: $light-gray;
       }
+    }
+  }
+
+  &__cartAction {
+    border: 1px solid $secondary-color;
+    padding: $xs-font $md-font;
+    border-radius: 8px;
+    aside {
+      @include flexSpaceCenter;
+      gap: $sm-font;
+    }
+    &:hover {
+      background-color: $light-purple;
     }
   }
 }

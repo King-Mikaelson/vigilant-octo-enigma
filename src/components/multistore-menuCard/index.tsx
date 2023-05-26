@@ -22,16 +22,16 @@ function SingleCard({ item }: Props) {
       {openEdit ? <EditItem setOpenEdit={setOpenEdit} /> : " "}
       {openDelete ? <DeleteItem setOpenDelete={setOpenDelete} /> : " "}
       <div className="multiStore-menuCard__card">
-        {item.category === "Meals" ? (
+        {item.item_category === "Meals" ? (
           <img src={mealImage} alt="meals" />
-        ) : item.category === "Wine" ? (
+        ) : item.item_category === "Wine" ? (
           <img src={wineImage} alt="wines" />
         ) : (
           <img src={doughnut} alt="desserts" />
         )}
-        <p className="multiStore-menuCard__title">{item.name}</p>
+        <p className="multiStore-menuCard__title">{item.item_name}</p>
         <p className="multiStore-menuCard__price">{`₦${Number(
-          item.price
+          item.item_price
         ).toLocaleString()}`}</p>
       </div>
     </>
