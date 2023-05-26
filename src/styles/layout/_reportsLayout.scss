@@ -1,6 +1,12 @@
 .reports {
   height: 100vh;
   overflow: hidden;
+
+  @include lg{
+    height: 100%;
+    overflow: scroll;
+  }
+
   .reports-layout {
     display: grid;
     grid-template-columns: 250px 1fr;
@@ -13,11 +19,27 @@
     overflow-x: hidden;
     background-color: $gray-bg;
     gap: $sm-font2;
+
+    @include lg{
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas:
+        "main"
+        "main";
+      height: 100%;
+      margin: 0;
+      overflow: scroll;
+    }
     .reports-sidebar {
       background-color: $white-color;
       flex: 0 0 250px;
       grid-area: nav;
       border-radius: 8px;
+
+      @include lg{
+        display: none;
+      }
+
       ul {
         list-style-type: none;
         margin: 0;

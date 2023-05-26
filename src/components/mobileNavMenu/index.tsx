@@ -31,7 +31,7 @@ function MobileNavMenu() {
           </NavLink>
 
           <NavLink
-            to={"/reports/individual-report"}
+            to={"/reports"}
             className="mobileMenu__child"
             onClick={() => setOpenMobileNavMenu?.(false)}
 

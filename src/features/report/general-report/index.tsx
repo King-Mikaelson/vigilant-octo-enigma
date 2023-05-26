@@ -12,6 +12,8 @@ import { useContext } from "react";
 import AuthContext from "../../../context/AppContext";
 // When using TypeScript 4.x and above
 import type {} from "@mui/x-date-pickers/themeAugmentation";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { IoCloseOutline } from "react-icons/io5";
 
 const theme = createTheme({
   components: {
@@ -52,18 +54,37 @@ export default function GeneralReport() {
   return (
     <div className="singleReports">
       <div className="header">
-        <div className="flex">
+        <div className="flex" onClick={() => navigate(-1)}>
           <IoIosArrowBack
             size={30}
-            onClick={() => navigate(-1)}
             color="#B1A9AD"
           />
           <h1>General Report</h1>
         </div>
 
+        <div className="header__parent">
+        <div
+          onClick={() => {navigate(-1); navigate("/reports")}}
+          className="header"
+        >
+          <MdArrowBackIosNew size={15} className="back__icon" />
+          <h2>General Report</h2>
+        </div>
+        <hr />
+      </div>
+
         <div className="date">
           <h2 className="date__title">Select a Date Range</h2>
 
+          <div className="dateHeader__parent">
+        <div
+          className="header"
+        >
+        <h2>Select a Date Range</h2>
+          <IoCloseOutline size={20} className="back__icon" />
+        </div>
+        <hr />
+      </div>
           <div className="date__filter">
             <div className="date__filter--start">
               <p>From</p>

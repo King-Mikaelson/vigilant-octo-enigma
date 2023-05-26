@@ -1,6 +1,6 @@
 .mobile__nav {
   display: none;
-  @include sm {
+  @include lg {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -19,7 +19,7 @@
 
   .topBarMobile__dashboard {
     display: none;
-    @include sm {
+    @include lg {
       display: flex;
       align-items: center;
       padding: $sm-font $md-font;

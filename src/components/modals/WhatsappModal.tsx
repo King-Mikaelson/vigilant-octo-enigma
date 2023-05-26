@@ -15,7 +15,7 @@ const WhatsappModal = ({setOpenWhatsapp,handleModalClose,handleModalOpen, setSuc
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSuccessText("Report has been sent via whatsapp susccesssfully");
+    setSuccessText("Report has been sent via Whatsapp susccesssfully");
     handleModalOpen();
     setOpenWhatsapp(false)
     const form = event.currentTarget;

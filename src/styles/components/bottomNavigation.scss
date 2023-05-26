@@ -1,6 +1,6 @@
 .bottomBar__container {
     display: none;
-    @include  sm{
+    @include  lg{
     display: flex;
     gap: $sm-font2;
     position: fixed;

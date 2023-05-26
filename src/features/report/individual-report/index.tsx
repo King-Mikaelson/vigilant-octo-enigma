@@ -1,4 +1,7 @@
+import { MdArrowBackIosNew } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 type Users = {
   id: number;
@@ -21,9 +24,21 @@ const users: Users[] = [
 ];
 
 function IndividualReport() {
+  const navigate = useNavigate();
+
   return (
     <div className="individualReports">
       <h1>IndividualReport</h1>
+      <div className="header__parent">
+        <div
+         onClick={() => {navigate(-1); navigate("/reports")}}
+          className="header"
+        >
+          <MdArrowBackIosNew size={15} className="back__icon" />
+          <h2>Individual Report</h2>
+        </div>
+        <hr />
+      </div>
 
       <div className="waiters">
         <h2>Select a waiter/waitress to see their report</h2>
