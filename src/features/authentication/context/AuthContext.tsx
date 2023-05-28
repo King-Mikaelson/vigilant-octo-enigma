@@ -1,4 +1,5 @@
 import { createContext, useReducer, useState, useContext } from "react";
+import { toast } from "react-toastify";
 import { useEffect } from "react";
 import AuthService from "../../../lib/authData";
 import { AuthContextProp, Values } from "../../../types";
@@ -23,7 +24,6 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
   //General loading and error state
   const [loading, setLoading] = useState(false);
   const [errMsg, setErrMsg] = useState("");
-  console.log(loading);
   //Formik values
   const initialValues: any = {
     email: "",
@@ -49,26 +49,28 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
       business_name: businessName,
       mode: "SINGLE STORE",
     };
-    const userData = {
-      email: emailR,
-      username: usernameR,
-      full_name: fullnameR,
-      phone_number: value,
-      role: "admin",
-      password,
-      works_at: businessName,
-    };
 
     try {
       const result1 = await AuthService.createRestaurant("", resData);
+      const resId = result1.restaurant_id;
+      const userData = {
+        email: emailR,
+        username: usernameR,
+        full_name: fullnameR,
+        phone_number: value,
+        role: "admin",
+        password,
+        works_at: resId,
+      };
       const result2 = await AuthService.createUser(userData);
       const result3 = await AuthService.sendOTP(emailR!);
+      console.log("results", result2, result3);
       navigate("/otp");
       // Handle the results as needed
-      console.log(result1, result2, result3);
-    } catch (error) {
+    } catch (error: any) {
       // Handle any errors
-      console.error(error);
+
+      console.error(error?.statusText, "caught error");
     }
   };
 
@@ -104,14 +106,12 @@ export const AuthProvider = ({ children }: AuthContextProp) => {
         setUser(decodedToken);
         localStorage.setItem("user", JSON.stringify(decodedToken));
         localStorage.setItem("tokenStr", response);
-        user?.role === "Owner"
-          ? navigate("/menu_manager")
-          : navigate("/pos-waiters");
+        navigate("/menu_manager");
       }
-    } catch (error) {
+    } catch (error: any) {
       // Handle any errors
       setLoading(false);
-      console.error(error);
+      console.log(error.response.status);
     }
   };
 

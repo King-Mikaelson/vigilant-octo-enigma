@@ -39,7 +39,7 @@
     width: 184px;
     // width: 150px;
     height: 231px;
-    padding: $lg-font;
+    // padding: $lg-font;
     padding-top: $xxl-font2;
     border-radius: 16px;
     position: relative;
@@ -105,6 +105,8 @@
     align-items: center;
     width: 100%;
     padding-top: $sm-font1;
+    padding: 0 $lg-font;
+    margin-bottom: 0.5rem;
 
     @include lg{
       padding: 0;
@@ -113,6 +115,7 @@
 
     .edit__parent {
       position: relative;
+
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -178,8 +181,10 @@
 
   &__cartAction {
     border: 1px solid $secondary-color;
-    padding: $xs-font $md-font;
+    padding: $xxs-font $md-font;
     border-radius: 8px;
+    margin-bottom: 0.5rem;
+
     aside {
       @include flexSpaceCenter;
       gap: $sm-font;

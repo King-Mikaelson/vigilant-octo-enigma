@@ -1,5 +1,5 @@
 import { apiClientT } from "../axiosInstance";
-import { AddItemProps } from "../types";
+import { AddItemProps, PlaceOrders } from "../types";
 
 //CRUD OPERATIONS FOR POS
 const addItem = async ({
@@ -15,7 +15,7 @@ const addItem = async ({
   return response.data;
 };
 
-const importItem = async ({
+const importItems = async ({
   item_name,
   item_category,
   item_price,
@@ -33,6 +33,37 @@ const getAllItems = async () => {
   return response.data;
 };
 
-const PosService = { addItem, getAllItems };
+//ORDERS
+const placeOrder = async ({
+  restaurant_id,
+  username,
+  order_items,
+}: PlaceOrders) => {
+  const response = await apiClientT.post("/orders/create", {
+    restaurant_id,
+    username,
+    order_items,
+  });
+  return response.data;
+};
+
+const getOrder = async (order_id: string) => {
+  const response = await apiClientT.get<any>("/orders/get");
+  return response.data;
+};
+
+const getOrders = async (restaurant_id: string) => {
+  const response = await apiClientT.get<any>("/orders/all");
+  return response.data;
+};
+
+const PosService = {
+  addItem,
+  getAllItems,
+  importItems,
+  placeOrder,
+  getOrder,
+  getOrders,
+};
 
 export default PosService;
