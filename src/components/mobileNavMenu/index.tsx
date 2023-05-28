@@ -28,37 +28,31 @@ function MobileNavMenu() {
           <p>Menu Manager</p>
         </NavLink>
 
-          <NavLink
-            to={"/reports"}
-            className="mobileMenu__child"
-            onClick={() => setOpenMobileNavMenu?.(false)}
+        <NavLink
+          to={"/reports"}
+          className="mobileMenu__child"
+          onClick={() => setOpenMobileNavMenu?.(false)}
+        >
+          <HiOutlineChartSquareBar size={25} />
+          <p>Report</p>
+        </NavLink>
+        <NavLink
+          to={"/settings/profile"}
+          className="mobileMenu__child"
+          onClick={() => setOpenMobileNavMenu?.(false)}
+        >
+          <AiOutlineSetting size={25} />
+          <p>Settings</p>
+        </NavLink>
 
-          >
-            <HiOutlineChartSquareBar size={25} />
-            <p>Report</p>
-          </NavLink>
-
-      
-          <NavLink
-            to={"/settings/profile"}
-            className="mobileMenu__child"
-            onClick={() => setOpenMobileNavMenu?.(false)}
-
-          >
-            <AiOutlineSetting size={25} />
-            <p>Settings</p>
-          </NavLink>
-
-
-          <NavLink
-            to={"/logOut"}
-            className="mobileMenu__child"
-            onClick={() => setOpenMobileNavMenu?.(false)}
-
-          >
-            <BiLogOut size={25} />
-            <p>Log Out</p>
-          </NavLink>
+        <NavLink
+          to={"/logOut"}
+          className="mobileMenu__child"
+          onClick={() => setOpenMobileNavMenu?.(false)}
+        >
+          <BiLogOut size={25} />
+          <p>Log Out</p>
+        </NavLink>
       </div>
     </div>
   );

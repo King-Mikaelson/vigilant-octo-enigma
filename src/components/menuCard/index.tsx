@@ -21,8 +21,6 @@ function SingleCard({ item }: Props) {
     state: { cart },
     dispatch,
   } = useContext(AppContext);
-  const [add, setAdd] = useState(true);
-  const toggleAdd = () => setAdd(!add);
   return (
     <>
       {openEdit ? <EditItem setOpenEdit={setOpenEdit} /> : " "}
@@ -39,7 +37,7 @@ function SingleCard({ item }: Props) {
         <p className="menuCard__price">{`₦${Number(
           item.item_price
         ).toLocaleString()}`}</p>
-        <div className="menuCard__icons">
+        {/* <div className="menuCard__icons">
           <div className="edit__parent">
             <div
               className="edit"
@@ -58,8 +56,8 @@ function SingleCard({ item }: Props) {
             </div>
             <p>Delete</p>
           </div>
-        </div>
-        {/* <div className="menuCard__cartAction">
+        </div> */}
+        <div className="menuCard__cartAction">
           <aside>
             {cart.some((c: CartTypes) => c.item_name === item.item_name) ? (
               <div
@@ -91,7 +89,7 @@ function SingleCard({ item }: Props) {
               </div>
             )}
           </aside>
-        </div> */}
+        </div>
       </div>
     </>
   );
