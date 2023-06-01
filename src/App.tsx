@@ -45,6 +45,7 @@ import ConfirmDelete from './components/admin/settings/profile/deleteAccount/Con
 import DeleteAccount from './components/admin/settings/profile/deleteAccount';
 import MigrateStore from './components/admin/settings/profile/migrateStore';
 import MobileReportPage from './features/report/mobile-report-page';
+import Catalogue from './features/admin/items-catalogue';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -100,6 +101,7 @@ function App() {
                 <Route element={<DashboardLayout />}>
                   <Route path="/dashboard" element={<DashboardAdmin />} />
                   <Route path="/menu_manager" element={<Admin />} />
+                  <Route path="/items-catalogue" element={<Catalogue />} />
                   <Route
                     path="/multistore_menu_manager"
                     element={<MultiStoreMenuManager />}

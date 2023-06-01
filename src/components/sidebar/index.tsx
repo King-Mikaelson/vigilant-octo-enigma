@@ -1,36 +1,37 @@
-import { BiLogOut } from "react-icons/bi";
-import { MdOutlineRestaurantMenu } from "react-icons/md";
-import uppistLogo from "../../assets/uppistWhite.png";
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
-import { RxDashboard } from "react-icons/rx";
-import { HiOutlineChartSquareBar } from "react-icons/hi";
-import { AiOutlineSetting } from "react-icons/ai";
+import { BiLogOut } from 'react-icons/bi';
+import { MdOutlineRestaurantMenu } from 'react-icons/md';
+import uppistLogo from '../../assets/uppistWhite.png';
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
+import { RxDashboard } from 'react-icons/rx';
+import { HiOutlineChartSquareBar } from 'react-icons/hi';
+import { AiOutlineSetting } from 'react-icons/ai';
+import { SlNotebook } from 'react-icons/sl';
 
 export default function SideBar() {
-  const [activeTab, setActiveTab] = useState<string>("menu");
+  const [activeTab, setActiveTab] = useState<string>('menu');
 
   const activeStyle = {
-    color: "#51145a",
-    fontWeight: "bold",
+    color: '#51145a',
+    fontWeight: 'bold',
   };
 
   return (
     <div className="sidebar__container">
       <div className="sidebar__logo">
-        <img src={uppistLogo} alt="" width={"100%"} />
+        <img src={uppistLogo} alt="" width={'100%'} />
       </div>
       <div className="sidebar__wrapper">
         <div
           className={
-            activeTab === "dashboard" ? "active__parent" : "sidebar__parent"
+            activeTab === 'dashboard' ? 'active__parent' : 'sidebar__parent'
           }
         >
           <NavLink
-            to={"/dashboard"}
-            style={activeTab === "dashboard" ? activeStyle : undefined}
+            to={'/dashboard'}
+            style={activeTab === 'dashboard' ? activeStyle : undefined}
             onClick={() => {
-              setActiveTab("dashboard");
+              setActiveTab('dashboard');
             }}
             className="sidebar__link"
           >
@@ -41,14 +42,32 @@ export default function SideBar() {
 
         <div
           className={
-            activeTab === "menu" ? "active__parent" : "sidebar__parent"
+            activeTab === 'catalogue' ? 'active__parent' : 'sidebar__parent'
           }
         >
           <NavLink
-            to={"/menu_manager"}
-            style={activeTab === "menu" ? activeStyle : undefined}
+            to={'/items-catalogue'}
+            style={activeTab === 'catalogue' ? activeStyle : undefined}
             onClick={() => {
-              setActiveTab("menu");
+              setActiveTab('catalogue');
+            }}
+            className="sidebar__link"
+          >
+            <SlNotebook size={20} />
+            Items Catalogue
+          </NavLink>
+        </div>
+
+        <div
+          className={
+            activeTab === 'menu' ? 'active__parent' : 'sidebar__parent'
+          }
+        >
+          <NavLink
+            to={'/menu_manager'}
+            style={activeTab === 'menu' ? activeStyle : undefined}
+            onClick={() => {
+              setActiveTab('menu');
             }}
             className="sidebar__link"
           >
@@ -59,14 +78,14 @@ export default function SideBar() {
 
         <div
           className={
-            activeTab === "report" ? "active__parent" : "sidebar__parent"
+            activeTab === 'report' ? 'active__parent' : 'sidebar__parent'
           }
         >
           <NavLink
-            to={"/reports/individual-report"}
-            style={activeTab === "report" ? activeStyle : undefined}
+            to={'/reports/individual-report'}
+            style={activeTab === 'report' ? activeStyle : undefined}
             onClick={() => {
-              setActiveTab("report");
+              setActiveTab('report');
             }}
             className="sidebar__link"
           >
@@ -77,14 +96,14 @@ export default function SideBar() {
 
         <div
           className={
-            activeTab === "settings" ? "active__parent" : "sidebar__parent"
+            activeTab === 'settings' ? 'active__parent' : 'sidebar__parent'
           }
         >
           <NavLink
-            to={"/settings/profile"}
-            style={activeTab === "settings" ? activeStyle : undefined}
+            to={'/settings/profile'}
+            style={activeTab === 'settings' ? activeStyle : undefined}
             onClick={() => {
-              setActiveTab("settings");
+              setActiveTab('settings');
             }}
             className="sidebar__link"
           >
@@ -95,14 +114,14 @@ export default function SideBar() {
 
         <div
           className={
-            activeTab === "logOut" ? "active__parent" : "sidebar__parent"
+            activeTab === 'logOut' ? 'active__parent' : 'sidebar__parent'
           }
         >
           <NavLink
-            to={"/"}
-            style={activeTab === "logOut" ? activeStyle : undefined}
+            to={'/'}
+            style={activeTab === 'logOut' ? activeStyle : undefined}
             onClick={() => {
-              setActiveTab("logOut");
+              setActiveTab('logOut');
               localStorage.clear();
             }}
             className="sidebar__link"

@@ -1,11 +1,12 @@
-import { NavLink } from "react-router-dom";
-import uppistLogo from "../../assets/uppistWhite.png";
-import AppContext from "../../context/AppContext";
-import { useContext } from "react";
-import { AiOutlineSetting } from "react-icons/ai";
-import { BiLogOut } from "react-icons/bi";
-import { HiOutlineChartSquareBar } from "react-icons/hi";
-import { MdOutlineRestaurantMenu } from "react-icons/md";
+import { NavLink } from 'react-router-dom';
+import uppistLogo from '../../assets/uppistWhite.png';
+import AppContext from '../../context/AppContext';
+import { useContext } from 'react';
+import { AiOutlineSetting } from 'react-icons/ai';
+import { BiLogOut } from 'react-icons/bi';
+import { HiOutlineChartSquareBar } from 'react-icons/hi';
+import { MdOutlineRestaurantMenu } from 'react-icons/md';
+import { SlNotebook } from 'react-icons/sl';
 
 function MobileNavMenu() {
   const { setOpenMobileNavMenu } = useContext(AppContext);
@@ -20,7 +21,16 @@ function MobileNavMenu() {
 
       <div className="mobileMenu">
         <NavLink
-          to={"/menu_manager"}
+          to={'/items-catalogue'}
+          className="mobileMenu__child"
+          onClick={() => setOpenMobileNavMenu?.(false)}
+        >
+          <SlNotebook size={25} />
+          <p>Items Catalogue</p>
+        </NavLink>
+
+        <NavLink
+          to={'/menu_manager'}
           className="mobileMenu__child"
           onClick={() => setOpenMobileNavMenu?.(false)}
         >
@@ -29,7 +39,7 @@ function MobileNavMenu() {
         </NavLink>
 
         <NavLink
-          to={"/reports"}
+          to={'/reports'}
           className="mobileMenu__child"
           onClick={() => setOpenMobileNavMenu?.(false)}
         >
@@ -37,7 +47,7 @@ function MobileNavMenu() {
           <p>Report</p>
         </NavLink>
         <NavLink
-          to={"/settings/profile"}
+          to={'/settings/profile'}
           className="mobileMenu__child"
           onClick={() => setOpenMobileNavMenu?.(false)}
         >
@@ -46,7 +56,7 @@ function MobileNavMenu() {
         </NavLink>
 
         <NavLink
-          to={"/logOut"}
+          to={'/logOut'}
           className="mobileMenu__child"
           onClick={() => setOpenMobileNavMenu?.(false)}
         >

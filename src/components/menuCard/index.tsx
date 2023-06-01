@@ -1,13 +1,13 @@
-import { AiOutlineDelete } from "react-icons/ai";
-import { FaMinus, FaPlus, FaRegEdit } from "react-icons/fa";
-import mealImage from "../../assets/fastFoodPic.png";
-import wineImage from "../../assets/fastFoodPic1.png";
-import doughnut from "../../assets/fastFoodPic2.png";
-import { CartTypes, Stock, Store } from "../../frontendData/frontendData";
-import EditItem from "../admin/items/editItem";
-import DeleteItem from "../admin/items/deleteItem";
-import { useContext, useState } from "react";
-import AppContext from "../../context/AppContext";
+import { AiOutlineDelete } from 'react-icons/ai';
+import { FaMinus, FaPlus, FaRegEdit } from 'react-icons/fa';
+import mealImage from '../../assets/fastFoodPic.png';
+import wineImage from '../../assets/fastFoodPic1.png';
+import doughnut from '../../assets/fastFoodPic2.png';
+import { CartTypes, Stock, Store } from '../../frontendData/frontendData';
+import EditItem from '../admin/items/editItem';
+import DeleteItem from '../admin/items/deleteItem';
+import { useContext, useState } from 'react';
+import AppContext from '../../context/AppContext';
 
 interface Props {
   item: Store;
@@ -23,12 +23,12 @@ function SingleCard({ item }: Props) {
   } = useContext(AppContext);
   return (
     <>
-      {openEdit ? <EditItem setOpenEdit={setOpenEdit} /> : " "}
-      {openDelete ? <DeleteItem setOpenDelete={setOpenDelete} /> : " "}
+      {openEdit ? <EditItem setOpenEdit={setOpenEdit} /> : ' '}
+      {openDelete ? <DeleteItem setOpenDelete={setOpenDelete} /> : ' '}
       <div className="menuCard__card">
-        {item.item_category === "Meals" ? (
+        {item.item_category === 'Meals' ? (
           <img src={mealImage} alt="meals" />
-        ) : item.item_category === "Wine" ? (
+        ) : item.item_category === 'Wine' ? (
           <img src={wineImage} alt="wines" />
         ) : (
           <img src={doughnut} alt="desserts" />
@@ -63,7 +63,7 @@ function SingleCard({ item }: Props) {
               <div
                 onClick={() =>
                   dispatch!({
-                    type: "REMOVE_FROM_CART",
+                    type: 'REMOVE_FROM_CART',
                     payload: item,
                   })
                 }
@@ -77,7 +77,7 @@ function SingleCard({ item }: Props) {
               <div
                 onClick={() =>
                   dispatch!({
-                    type: "ADD_TO_CART",
+                    type: 'ADD_TO_CART',
                     payload: item,
                   })
                 }
