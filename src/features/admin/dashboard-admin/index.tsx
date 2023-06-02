@@ -1,11 +1,10 @@
-import TopMenu from "../../../components/topMenu";
-import DashboardCard from "../../../components/admin/dashboardCard";
-import DashboardContent from "../../../components/admin/dashboardContent";
-import AuthContext from "../../authentication/context/AuthContext";
-import uppistLogo from "../../../assets/uppistWhite.png";
-import AppContext from "../../../context/AppContext";
-import { useContext } from "react";
-import DashBoardMobileContent from "../../../components/admin/dashBoardContentMobile";
+import TopMenu from '../../../components/topMenu';
+import DashboardCard from '../../../components/admin/dashboardCard';
+import DashboardContent from '../../../components/admin/dashboardContent';
+import uppistLogo from '../../../assets/uppistWhite.png';
+import AppContext from '../../../context/AppContext';
+import { useContext } from 'react';
+import DashBoardMobileContent from '../../../components/admin/dashBoardContentMobile';
 
 export default function DashboardAdmin() {
   const { openDashboardContent } = useContext(AppContext);

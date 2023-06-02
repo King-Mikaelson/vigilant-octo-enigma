@@ -1,0 +1,102 @@
+.catalogue {
+  &__header {
+    text-align: center;
+    padding-top: $sm-font1;
+    position: fixed;
+    width: 23vw;
+    top: 0;
+    z-index: 9999 !important;
+
+    h1 {
+      font-size: $extra-font;
+      color: $primary-color;
+      font-weight: 600;
+      padding: $extra-font 0;
+      margin: 0 $extra-font;
+      border-bottom: 1px solid $placeholder-gray;
+    }
+    button {
+      margin-top: $sm-font;
+      font-weight: 500;
+      font-family: $inter-font;
+      font-size: $extra-font;
+      padding: $xs-font $xxl-font;
+      border-radius: 8px;
+      span {
+        font-size: $md-font;
+        margin-right: $sm-font1;
+      }
+    }
+  }
+  &__items {
+    margin-top: 10rem;
+    gap: $sm-font;
+    display: flex;
+    flex-direction: column;
+    padding-top: $lg-font;
+    height: 80vh;
+    overflow-y: scroll;
+
+    .empty {
+      margin: 0 auto;
+      font-weight: 500;
+      font-size: $sm-font;
+      color: #7b7579;
+      line-height: 20.8px;
+      text-align: center;
+      transform: translate3d(0, 33vh, 0);
+    }
+    h3 {
+      color: $secondary-color;
+      text-transform: capitalize;
+      font-weight: 500;
+      font-size: $sm-font;
+      border-bottom: 1px solid $secondary-color;
+      text-align: right;
+      width: fit-content;
+      margin-left: auto;
+      margin-bottom: $extra-font;
+      cursor: pointer;
+      margin-right: $lg-font;
+    }
+    .card {
+      border: 1px solid #ccc4c8;
+      height: 126px;
+      width: 184px;
+      margin: $sm-font2 auto $xl-font;
+      border-radius: 16px;
+      position: relative;
+      img {
+        position: absolute;
+        top: -$md-font;
+        left: 30%;
+      }
+      .title {
+        margin-top: 4.5rem;
+        text-align: center;
+        font-size: $xs-font;
+        font-weight: 500;
+      }
+    }
+
+    .forms {
+      align-self: flex-start;
+      padding: $sm-font1;
+      .form-field {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        label {
+          font-size: $xs-font;
+          margin-bottom: $sm-font1;
+        }
+        select,
+        input {
+          margin-bottom: $sm-font;
+          font-family: $inter-font;
+        }
+      }
+    }
+  }
+}
