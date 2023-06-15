@@ -236,8 +236,8 @@
       gap: $extra-font;
       width: 100%;
 
-      @include sm {
-        min-width: 100%;
+      @include lg {
+        width: 100%;
       }
 
       h3,

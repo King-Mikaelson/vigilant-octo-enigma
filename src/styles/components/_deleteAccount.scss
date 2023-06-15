@@ -9,6 +9,11 @@
     max-width: 60%;
     margin: 0 auto;
 
+    @include lg{
+    max-width: 100%;
+    width: 100%;
+    }
+
     .delete_account_header {
         font-size: 1.5rem;
         margin-bottom: 2rem;
@@ -25,6 +30,11 @@
         font-weight: 400;
         text-align: center;
         max-width: 500px;
+
+        @include lg{
+            max-width: 100%;
+            width: 100%;
+            }
     }
 
     .delete_account_info2 {
@@ -32,6 +42,11 @@
         max-width: 550px;
         text-align: center;
         margin-bottom: 1rem;
+
+        @include lg{
+            max-width: 100%;
+            width: 100%;
+            }
     }
 
     .form.mt-4 {
@@ -39,6 +54,11 @@
         width: 50%;
         padding: 0 1rem;
         min-width: 400px;
+
+        @include lg{
+            width: 100%;
+            min-width: 100%;
+        }
 
 
         h3 {
@@ -54,6 +74,34 @@
             margin-top: 1rem;
             margin-bottom: 1rem;
 
+            @include lg{
+                flex-direction: column;
+                gap: $sm-font1;
+                align-items: normal;
+                width: 100%;
+
+            }
+
+            .cancel-btn-div1{
+                display: none;
+                @include lg{
+                    display: flex;
+                }
+
+                .delete_cancel-btn1 {
+                    @include cancelBtnBorder;
+                    padding: 0.7rem 3rem;
+                    margin-top: 12px;
+                    font-weight: 700;
+                    font-size: $sm-font;
+                    font-family: $space-grotesk-font;
+    
+                    @include lg{
+                        width: 100%;
+                    }
+                }
+            }
+
             .delete_cancel-btn {
                 @include cancelBtnBorder;
                 padding: 0.7rem 3rem;
@@ -61,6 +109,11 @@
                 font-weight: 700;
                 font-size: $sm-font;
                 font-family: $space-grotesk-font;
+
+                @include lg{
+                    display: none;
+                    width: 100%;
+                }
             }
         }
     }
@@ -75,6 +128,13 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
 
+        @include lg{
+           flex-direction: column;
+           width: 100%;
+           gap:$sm-font1;
+           align-items: normal;
+            }
+
         .delete_cancel-btn {
             @include cancelBtnBorder;
             padding: 0.7rem 4rem;
@@ -82,11 +142,20 @@
             font-weight: 400;
             font-size: $sm-font;
             font-family: $space-grotesk-font;
+
+            @include lg{
+                width: 100%;
+            }
         }
 
         .yes-btn {
             padding: 0.7rem 4rem;
             font-weight: 400;
+
+            @include lg{
+                width: 100%;
+
+            }
         }
     }
 

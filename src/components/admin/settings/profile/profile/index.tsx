@@ -5,6 +5,7 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import Button from "../../../../ui/button";
 import { useContext } from "react";
 import AuthContext from "../../../../../features/authentication/context/AuthContext";
+import { MdArrowBackIosNew } from "react-icons/md";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -40,7 +41,16 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <div className="profile-header">
-        <h3>Profile</h3>
+        <div className="header">
+          <MdArrowBackIosNew
+            size={20}
+            className="back__icon"
+            onClick={() => {
+              navigate(-1);
+            }}
+          />
+          <h3>Profile</h3>
+        </div>
         <button>
           <Link to="/settings/profile/editprofile" className="profile-link-btn">
             <CiEdit />
@@ -48,6 +58,21 @@ const Profile = () => {
           </Link>
         </button>
       </div>
+      <hr className="horizontal-line" />
+
+      {/* <div className="header__parent">
+        <div
+        onClick={() => {
+            navigate(-1);
+          }}
+          className="header"
+        >
+          <MdArrowBackIosNew size={15} className="back__icon" />
+          <h2>Profile</h2>
+        </div>
+        <hr />
+      </div> */}
+
       <div className="profile-name">
         <span>
           <BsPersonCircle />

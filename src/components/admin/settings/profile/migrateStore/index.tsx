@@ -3,6 +3,8 @@ import AuthLayout from "../../../../../layout/authLayout";
 import { useState } from "react";
 import Input from "../../../../ui/Input";
 import Button from "../../../../ui/button";
+import uppistLogo from "../../../../../assets/logoImage.png";
+
 export default function MigrateStore() {
   const navigate = useNavigate();
   const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -113,6 +115,7 @@ export default function MigrateStore() {
   return (
     <AuthLayout>
       <section className="container migrate-store">
+      <img src={uppistLogo} alt="uppist Logo" className="setiings-logo" />
         <section className="auth migrate-store">
           <h3 className="header-text1">Migrate to a multiple store account</h3>
           <p className="header-text2">

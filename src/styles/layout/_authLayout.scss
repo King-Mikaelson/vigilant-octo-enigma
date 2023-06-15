@@ -7,8 +7,9 @@
   width: 100%;
   height: 100vh;
 
-  @include sm {
-    padding: 1.5rem;
+  @include lg {
+    padding: 1rem;
+    padding-top: 0rem;
   }
 
   &>* {
@@ -34,7 +35,7 @@
       }
     }
 
-    @include sm {
+    @include lg {
       font-size: $xs-font;
       margin-top: 1rem;
       display: flex;
@@ -42,6 +43,7 @@
       justify-content: center;
       gap: $sm-font;
       flex-direction: row;
+      display: none;
     }
   }
 

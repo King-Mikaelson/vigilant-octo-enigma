@@ -75,9 +75,9 @@ export default function UserLists() {
   return (
     <section className="users-list">
       <h3 className="header">
-        <MdArrowBackIos className="icon" onClick={handleBack} /> Manage Users -{" "}
-        <span className="add-new-user">Users List</span>
-      </h3>
+          <MdArrowBackIos className="edit-prof-icon" onClick={handleBack} />{" "}
+          Manage Users - <span className="add-new-user">Users List</span>
+        </h3>
       <section className="userslist-data">
         <table className="table">
           <thead>

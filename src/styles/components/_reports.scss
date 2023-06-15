@@ -1,6 +1,6 @@
 .individualReports {
   h1 {
-    font-family: "Inter";
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: $extra-font;
@@ -66,7 +66,7 @@
     flex-direction: column;
 
     h2 {
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 500;
       font-size: $sm-font;
@@ -92,7 +92,7 @@
         border-radius: 11.8264px;
         width: 35%;
         padding: $sm-font $xxl-font1;
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -221,7 +221,7 @@
       p {
         color: $light-gray;
         font-size: $sm-font;
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         font-weight: 500;
       }
     }
@@ -235,20 +235,20 @@
     .select {
       color: $light-gray;
       font-size: $sm-font;
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 500;
       cursor: pointer;
     }
     .options {
       color: $black-color;
       font-size: $sm-font;
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 400;
       padding: $sm-font;
     }
 
     h1 {
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 600;
       font-size: $extra-font;
@@ -267,7 +267,7 @@
       }
 
       &__title {
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
         font-size: $sm-font;
@@ -354,7 +354,7 @@
         }
 
         .apply {
-          font-family: "Inter";
+          font-family: 'Inter';
           font-style: normal;
           font-weight: 600;
           font-size: $xs-font;
@@ -370,7 +370,7 @@
         }
 
         .cancel {
-          font-family: "Inter";
+          font-family: 'Inter';
           font-style: normal;
           font-weight: 600;
           font-size: $xs-font;
@@ -385,7 +385,7 @@
         .active {
           background: $primary-color;
           color: $white-color;
-          font-family: "Inter";
+          font-family: 'Inter';
           font-style: normal;
           font-weight: 600;
           font-size: $xs-font;
@@ -408,7 +408,7 @@
     }
 
     p {
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 600;
       font-size: 20px;
@@ -447,7 +447,7 @@
 
       h2,
       p {
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
         font-size: $sm-font;
@@ -456,14 +456,14 @@
       }
 
       .bold {
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 600;
         color: $black-color;
       }
 
       .bold-heading {
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 600;
         font-size: $extra-font;
@@ -508,7 +508,7 @@
     }
     th {
       color: $black-color;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 600;
       font-size: $xs-font;
@@ -523,7 +523,7 @@
 
     td {
       color: $black-color;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
       font-size: $xs-font;
@@ -564,7 +564,7 @@
 
 .generalReports {
   h1 {
-    font-family: "Inter";
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: $extra-font;
@@ -601,6 +601,11 @@
       padding: 0 1rem;
       position: sticky;
       top: 0;
+      z-index: 10;
+      margin-top: 0;
+      overflow: scroll;
+      height: 100vh;
+      padding-bottom: $xxl-font;
     }
     .header {
       display: flex;

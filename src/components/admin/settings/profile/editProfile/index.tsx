@@ -132,6 +132,7 @@ export default function EditProfile() {
           <MdArrowBackIos className="edit-prof-icon" onClick={handleBack} />{" "}
           Edit Profile
         </h3>
+        
         <form className="form edit-prof" onSubmit={(e) => handleSubmit(e)}>
           <aside className="form-items">
             <label>
