@@ -47,7 +47,7 @@ function MobileNavMenu() {
           <p>Report</p>
         </NavLink>
         <NavLink
-          to={'/settings/profile'}
+          to={'/settings'}
           className="mobileMenu__child"
           onClick={() => setOpenMobileNavMenu?.(false)}
         >
