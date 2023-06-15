@@ -35,7 +35,7 @@ export default function AddUsers() {
       <section className="auth edit-prof">
         <h3 className="auth__heading edit-prof h3">
           <MdArrowBackIos className="edit-prof-icon" onClick={handleBack} />{" "}
-          Manage Users - <span className="add-new-user">Add New Users</span>
+          Manage Users - <span className="add-new-user"> Add New Users</span>
         </h3>
         <p className="adduser-text">
           To add new user, input their email address in the space provided below
@@ -73,7 +73,7 @@ export default function AddUsers() {
               type="submit"
               onClick={handleCancelEdit}
             >
-              Cancel
+              Go Back
             </button>
           </div>
         </form>

@@ -5,6 +5,7 @@ import useTogglePassword from "../../../../../features/authentication/hooks/useT
 import Input from "../../../../ui/Input";
 import Button from "../../../../ui/button";
 import { useState } from "react";
+import uppistLogo from "../../../../../assets/logoImage.png";
 
 export default function ProfileChangePassword() {
   const navigate = useNavigate();
@@ -72,6 +73,7 @@ export default function ProfileChangePassword() {
   return (
     <AuthLayout>
       <section className="container">
+      <img src={uppistLogo} alt="uppist Logo" className="setiings-logo" />
         <section className="auth">
           <h1 className="auth__heading">Change Password</h1>
 

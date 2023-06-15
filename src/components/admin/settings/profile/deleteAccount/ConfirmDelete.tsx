@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import AuthLayout from "../../../../../layout/authLayout";
+import uppistLogo from "../../../../../assets/logoImage.png";
 
 export default function ConfirmDelete() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function ConfirmDelete() {
   return (
     <AuthLayout>
       <section className="container delete_account">
+      <img src={uppistLogo} alt="uppist Logo" className="setiings-logo" />
         <h1 className="delete_account_header">Delete Account?</h1>
         <h5 className="delete_account_header2">
           You are about to delete this account permanently

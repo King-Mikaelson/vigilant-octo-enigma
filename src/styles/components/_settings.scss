@@ -3,12 +3,50 @@
     margin-top: 1rem;
     padding: 0 2rem 2rem 2rem;
 
+    @include lg{
+        // padding-bottom: $xxl-font2;
+        background-color: #fff;
+        padding: 0  1rem $xxl-font3 1rem;
+        margin-top: 0.5rem;
+    }
+
     .profile-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem 0;
         margin-bottom: 2rem;
+
+        @include lg{
+           padding: 0;
+           margin-bottom: 0;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: $sm-font1;
+            margin-top: 1rem;
+            padding-bottom: 0.5rem;
+      
+            .back__icon {
+            display: none;
+            @include lg {
+              display: block;
+              font-size: 1.2rem;
+              color: $lighter-gray;
+            }
+            }
+      
+            h2 {
+              margin-right: 0.5rem;
+              font-size: $extra-font;
+              font-weight: 600;
+              font-family: $inter-font;
+              color: #332f32;
+              font-size: 1.125rem;
+            }
+          }
 
         button {
             border-radius: 20px;
@@ -29,6 +67,69 @@
             }
         }
     }
+
+    hr {
+        display: none;
+        @include lg {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid $placeholder-gray;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       
+      }
+
+    .header__parent {
+        display: none;
+        @include lg {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 4rem;
+          background-color: $white-color;
+          padding: 0 1rem;
+          position: sticky;
+          top: 0;
+        }
+    
+        .header {
+          display: flex;
+          align-items: center;
+          gap: $sm-font1;
+          width: 100%;
+          margin-top: 1rem;
+          padding-bottom: 0.5rem;
+    
+          .back__icon {
+            display: block;
+            font-size: 1.2rem;
+            color: $lighter-gray;
+          }
+    
+          h2 {
+            margin-right: 0.5rem;
+            font-size: $extra-font;
+            font-weight: 600;
+            font-family: $inter-font;
+            color: #332f32;
+            font-size: 1.125rem;
+          }
+        }
+    
+        hr {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid $placeholder-gray;
+          margin-bottom: 0.8rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    
 
     .profile-name {
         @include flexCenter;
@@ -209,6 +310,17 @@
 }
 
 //EDIT PROFILE SETTINGS
+.setiings-logo{
+    display: none;
+
+    @include lg{
+    display: flex;
+    justify-content: center;
+    margin:0 auto;
+      } 
+    
+}
+
 .container.edit-prof {
     width: 100%;
 
@@ -221,6 +333,9 @@
         border: none;
         padding: 0 2rem 0 2rem;
 
+        @include lg{
+            padding:0rem  1rem;
+        }
 
         .auth__heading.edit-prof {
             display: flex;
@@ -231,6 +346,14 @@
             font-size: 20px;
             margin-bottom: 3rem;
 
+            @include lg{
+                margin-bottom: 0.5rem;
+                border-bottom: 1px solid $placeholder-gray;
+                padding-bottom: 0.3rem;
+                width: 100%;
+                gap: 0;
+            }
+
             .edit-prof-icon {
                 color: $light-gray;
                 cursor: pointer;
@@ -239,11 +362,18 @@
 
         .form.edit-prof {
             padding: 0 3.5rem;
-
+                @include lg{
+                    padding: 0;
+                }
 
             label {
                 display: flex;
                 justify-content: space-between;
+
+                @include lg{
+                    flex-direction: column;
+                    align-items: normal;
+                }
 
                 h3 {
                     padding-top: 1.5rem;
@@ -260,6 +390,11 @@
                     color: $black-color2;
                     outline: none;
 
+                    @include lg{
+                        width: 100%;
+                        min-width: 100%;
+                        padding: 0rem;
+                    }
                     .edit-error {
                         padding-top: 5px;
                     }
@@ -272,6 +407,9 @@
 
         .cancel-btn-div {
             margin-bottom: 4rem;
+            @include lg{
+            margin-bottom: 0rem;
+            }
 
             .cancel-btn {
                 @include flexCenter;
@@ -285,6 +423,9 @@
                 width: 100px;
                 margin: $md-font auto;
                 cursor: pointer;
+                @include lg{
+                    margin: 0rem auto;
+                    }
 
                 &:hover {
                     transform: scale(1.1);
@@ -300,15 +441,42 @@
 .manage-container {
     padding: 2rem;
 
+    @include lg{
+        padding: 1rem;
+    }
+
     h3 {
         font-size: 20px;
-    }
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: none;
+            color: black;
+            font-size: 20px;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            padding-bottom: 0rem;
+
+            @include lg{
+                margin-bottom: 0.5rem;
+                border-bottom: 1px solid $placeholder-gray;
+                padding-bottom: 0.3rem;
+                width: 100%;
+                margin: 0 auto;
+                padding: $sm-font1 0rem;
+            }
+
+            .edit-prof-icon {
+                color: $light-gray;
+                cursor: pointer;
+            }
+        }
 
     .links-container {
         @include flexCenter;
         flex-direction: column;
-        margin-top: 3rem;
-        gap: 3rem;
+        margin-top: $xl-font;
+        gap: $xl-font;
 
         .user-link {
             .user-link1 {
@@ -321,6 +489,10 @@
                 margin-bottom: 1.5rem;
                 font-size: 14px;
                 transition: all 0.3s ease-in-out;
+
+                @include lg{
+                    padding: $sm-font 8rem;
+                }
 
                 &:hover {
                     background-color: $primary-color;
@@ -335,6 +507,12 @@
 // Add User
 
 .addNewUser {
+    @include lg{
+    width: 100%;
+    height: auto;
+    overflow-y: scroll;
+    padding-bottom: $xxl-font1;
+    }
     .h3 {
         font-family: $inter-font;
 
@@ -353,12 +531,22 @@
         line-height: 19px;
         margin-bottom: 2rem;
         padding-left: 3rem;
+
+        @include lg{
+            padding: 0rem;
+            margin-bottom: $sm-font1;
+        }
     }
 
     .adduser-field {
         display: flex;
         justify-content: space-between;
         margin: 1rem 0 1.5rem 0;
+
+        @include lg{
+            flex-direction: column;
+            align-items: normal;
+        }
 
         label {
             margin-bottom: 0.5rem;
@@ -367,6 +555,10 @@
             font-size: 16px;
             padding-top: 10px;
             min-width: 150px;
+
+            @include lg{
+                min-width: 100%;
+            }
         }
 
         select {
@@ -379,6 +571,11 @@
             font-size: 14px;
             padding: 1rem 1.5rem;
             font-family: $inter-font;
+
+            @include lg{
+                min-width: 100%;
+                width: 100%;
+            }
         }
 
 
@@ -405,30 +602,52 @@
 // Users List
 .users-list {
     padding: 2rem;
+    background-color: #F6F6F6 !important;
+
+   @include lg{
+    width: 100%;
+    padding: 1rem;
+   }
 
     .header {
         display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 20px;
-        margin-bottom: 2rem;
-        margin-left: 0.8rem;
+            align-items: center;
+            gap: 10px;
+            background: none;
+            color: black;
+            font-size: 20px;
+            margin-bottom: 3rem;
+            background-color: #fff !important;
 
-        .icon {
-            color: $light-gray;
-            cursor: pointer;
-        }
+
+            @include lg{
+                margin-bottom: 0.5rem;
+                border-bottom: 1px solid $placeholder-gray;
+                padding-bottom: 0.3rem;
+                width: 100%;
+                gap: 0;
+            }
+
+            .edit-prof-icon {
+                color: $light-gray;
+                cursor: pointer;
+            }
 
         .add-new-user {
             font-size: 16px;
             font-weight: 400;
             font-family: $inter-font;
+            padding-left: $sm-font1;
         }
     }
 
     .table {
         width: 100%;
         border-collapse: collapse;
+
+        @include lg{
+            display: none;
+        }
 
         th {
             padding: 12px 0 24px 0;
@@ -740,12 +959,20 @@
     margin: 0 auto;
     font-family: $inter-font;
 
+    @include lg{
+        margin:0rem;
+    }
+
     .auth.migrate-store {
         display: flex;
         flex-direction: column;
         width: 100%;
         border: none;
         padding: 0 2rem;
+
+        @include lg{
+            padding:0rem  0.5rem;
+        }
 
         .header-text1 {
             text-align: center;
@@ -759,9 +986,17 @@
         .form.edit-prof {
             width: 70%;
 
+            @include lg{
+                width: 100%;
+            }
+
             label {
                 display: flex;
                 justify-content: space-between;
+
+                @include lg{
+                    flex-direction: column;
+                }
 
                 h3 {
                     padding-top: 1.5rem;
@@ -777,6 +1012,12 @@
                     font-weight: 500;
                     color: $black-color2;
                     outline: none;
+
+                    @include lg{
+                        width: 100%;
+                        min-width: 100%;
+                        padding: 0rem;
+                    }
 
                     .edit-error {
                         padding-top: 5px;
@@ -794,6 +1035,13 @@
                 justify-content: space-between;
                 margin: 1rem 0 1.5rem 0;
 
+                @include lg{
+                    margin:0;
+                    flex-direction: column;
+                    width: 100%;
+
+                }
+
                 label {
                     margin-bottom: 0.5rem;
                     color: $black-color;
@@ -801,6 +1049,11 @@
                     font-size: 16px;
                     padding-top: 10px;
                     min-width: 150px;
+
+                    @include lg{
+                        min-width: 100%;
+                        width: 100%;
+                    }
                 }
 
                 select {
@@ -813,6 +1066,12 @@
                     font-size: 14px;
                     padding: 1rem 1.5rem;
                     font-family: $inter-font;
+
+                    @include lg{
+                        min-width: 100%;
+                        width: 100%;
+    
+                    }
                 }
 
 
@@ -840,7 +1099,6 @@
 
         .cancel-btn-div {
             margin-bottom: 4rem;
-
             .cancel-btn {
                 @include flexCenter;
                 border: none;

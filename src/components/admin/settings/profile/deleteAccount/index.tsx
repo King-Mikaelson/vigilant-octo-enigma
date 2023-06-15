@@ -5,6 +5,8 @@ import useTogglePassword from "../../../../../features/authentication/hooks/useT
 import Input from "../../../../ui/Input";
 import Button from "../../../../ui/button";
 import { useState } from "react";
+import uppistLogo from "../../../../../assets/logoImage.png";
+
 
 export default function DeleteAccount() {
   const navigate = useNavigate();
@@ -72,6 +74,7 @@ export default function DeleteAccount() {
   return (
     <AuthLayout>
       <section className="container delete_account">
+      <img src={uppistLogo} alt="uppist Logo" className="setiings-logo" />
         <h1 className="delete_account_header">Delete Account?</h1>
         <h5 className="delete_account_header2">
           You are about to delete this account permanently
@@ -120,6 +123,16 @@ export default function DeleteAccount() {
                   onclick={(e) => handleDeleteAccount(e)}
                 />
               )}
+            </div>
+
+            <div className="cancel-btn-div1">
+              <button
+                className="delete_cancel-btn1"
+                type="submit"
+                onClick={handleBack}
+              >
+                Go Back
+              </button>
             </div>
           </div>
         </form>

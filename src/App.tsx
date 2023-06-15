@@ -45,6 +45,7 @@ import ConfirmDelete from "./components/admin/settings/profile/deleteAccount/Con
 import DeleteAccount from "./components/admin/settings/profile/deleteAccount";
 import MigrateStore from "./components/admin/settings/profile/migrateStore";
 import MobileReportPage from "./features/report/mobile-report-page";
+import MobileSettingsPage from "./components/admin/settings/mobile-settings-page";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -107,6 +108,10 @@ function App() {
                   <Route path="/pos-waiters" element={<PosWaiters />} />
 
                   <Route element={<SettingsLayout />}>
+                  <Route
+                      path="/settings"
+                      element={<MobileSettingsPage/>}
+                    />
                     <Route path="/settings/profile" element={<Settings />} />
                     <Route
                       path="/settings/profile/editprofile"
