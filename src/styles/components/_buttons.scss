@@ -26,6 +26,9 @@
   color: #afafaf;
   pointer-events: none;
   cursor: not-allowed;
+  border: none !important;
+  cursor: not-allowed !important;
+  user-select: none;
 }
 
 .btn__cart {

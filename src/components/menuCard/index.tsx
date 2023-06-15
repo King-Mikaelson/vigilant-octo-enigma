@@ -1,13 +1,13 @@
-import { AiOutlineDelete } from "react-icons/ai";
-import { FaMinus, FaPlus, FaRegEdit } from "react-icons/fa";
-import mealImage from "../../assets/fastFoodPic.png";
-import wineImage from "../../assets/fastFoodPic1.png";
-import doughnut from "../../assets/fastFoodPic2.png";
-import { CartTypes, Stock, Store } from "../../frontendData/frontendData";
-import EditItem from "../admin/items/editItem";
-import DeleteItem from "../admin/items/deleteItem";
-import { useContext, useState } from "react";
-import AppContext from "../../context/AppContext";
+import { AiOutlineDelete } from 'react-icons/ai';
+import { FaMinus, FaPlus, FaRegEdit } from 'react-icons/fa';
+import mealImage from '../../assets/fastFoodPic.png';
+import wineImage from '../../assets/fastFoodPic1.png';
+import doughnut from '../../assets/fastFoodPic2.png';
+import { CartTypes, Stock, Store } from '../../frontendData/frontendData';
+import EditItem from '../admin/items/editItem';
+import DeleteItem from '../admin/items/deleteItem';
+import { useContext, useState } from 'react';
+import AppContext from '../../context/AppContext';
 
 interface Props {
   item: Store;
@@ -21,16 +21,14 @@ function SingleCard({ item }: Props) {
     state: { cart },
     dispatch,
   } = useContext(AppContext);
-  const [add, setAdd] = useState(true);
-  const toggleAdd = () => setAdd(!add);
   return (
     <>
-      {openEdit ? <EditItem setOpenEdit={setOpenEdit} /> : " "}
-      {openDelete ? <DeleteItem setOpenDelete={setOpenDelete} /> : " "}
+      {openEdit ? <EditItem setOpenEdit={setOpenEdit} /> : ' '}
+      {openDelete ? <DeleteItem setOpenDelete={setOpenDelete} /> : ' '}
       <div className="menuCard__card">
-        {item.item_category === "Meals" ? (
+        {item.item_category === 'Meals' ? (
           <img src={mealImage} alt="meals" />
-        ) : item.item_category === "Wine" ? (
+        ) : item.item_category === 'Wine' ? (
           <img src={wineImage} alt="wines" />
         ) : (
           <img src={doughnut} alt="desserts" />
@@ -39,7 +37,7 @@ function SingleCard({ item }: Props) {
         <p className="menuCard__price">{`₦${Number(
           item.item_price
         ).toLocaleString()}`}</p>
-        <div className="menuCard__icons">
+        {/* <div className="menuCard__icons">
           <div className="edit__parent">
             <div
               className="edit"
@@ -58,14 +56,14 @@ function SingleCard({ item }: Props) {
             </div>
             <p>Delete</p>
           </div>
-        </div>
-        {/* <div className="menuCard__cartAction">
+        </div> */}
+        <div className="menuCard__cartAction">
           <aside>
             {cart.some((c: CartTypes) => c.item_name === item.item_name) ? (
               <div
                 onClick={() =>
                   dispatch!({
-                    type: "REMOVE_FROM_CART",
+                    type: 'REMOVE_FROM_CART',
                     payload: item,
                   })
                 }
@@ -79,7 +77,7 @@ function SingleCard({ item }: Props) {
               <div
                 onClick={() =>
                   dispatch!({
-                    type: "ADD_TO_CART",
+                    type: 'ADD_TO_CART',
                     payload: item,
                   })
                 }
@@ -91,7 +89,7 @@ function SingleCard({ item }: Props) {
               </div>
             )}
           </aside>
-        </div> */}
+        </div>
       </div>
     </>
   );

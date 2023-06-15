@@ -21,113 +21,113 @@ type Sides = {
 
 export const orders: Sides[] = [
   {
-    name: "Salted Pasta with mushroom sauce",
-    order: "150 orders",
+    name: 'Salted Pasta with mushroom sauce',
+    order: '150 orders',
   },
   {
-    name: "Hot spicy fried rice",
-    order: "126 orders",
+    name: 'Hot spicy fried rice',
+    order: '126 orders',
   },
   {
-    name: "Robertson sweet wine",
-    order: "150 orders",
+    name: 'Robertson sweet wine',
+    order: '150 orders',
   },
   {
-    name: "Chivita",
-    order: "126 orders",
+    name: 'Chivita',
+    order: '126 orders',
   },
   {
-    name: "Salted Pasta with mushroom sauce",
-    order: "150 orders",
+    name: 'Salted Pasta with mushroom sauce',
+    order: '150 orders',
   },
 ];
 
 export const table: Table[] = [
   {
-    orderNo: "#000010",
+    orderNo: '#000010',
     menu: [
-      { name: "Salted Pasta with mushroom sauce" },
-      { name: "Robertson sweet wine" },
+      { name: 'Salted Pasta with mushroom sauce' },
+      { name: 'Robertson sweet wine' },
     ],
     totalPayment: 12000,
   },
   {
-    orderNo: "#000009",
+    orderNo: '#000009',
     menu: [
-      { name: "Hot spicy fried rice " },
-      { name: "Fanta" },
-      { name: "Chivita" },
+      { name: 'Hot spicy fried rice ' },
+      { name: 'Fanta' },
+      { name: 'Chivita' },
     ],
     totalPayment: 4000,
   },
   {
-    orderNo: "#000008",
+    orderNo: '#000008',
     menu: [
-      { name: "Salted Pasta with mushroom sauce" },
-      { name: "Robertson sweet wine" },
+      { name: 'Salted Pasta with mushroom sauce' },
+      { name: 'Robertson sweet wine' },
     ],
     totalPayment: 12000,
   },
   {
-    orderNo: "#000007",
+    orderNo: '#000007',
     menu: [
-      { name: "Hot spicy fried rice " },
-      { name: "Fanta" },
-      { name: "Chivita" },
-    ],
-    totalPayment: 4000,
-  },
-
-  {
-    orderNo: "#000006",
-    menu: [
-      { name: "Salted Pasta with mushroom sauce" },
-      { name: "Robertson sweet wine" },
-    ],
-    totalPayment: 12000,
-  },
-  {
-    orderNo: "#000005",
-    menu: [
-      { name: "Hot spicy fried rice " },
-      { name: "Fanta" },
-      { name: "Chivita" },
+      { name: 'Hot spicy fried rice ' },
+      { name: 'Fanta' },
+      { name: 'Chivita' },
     ],
     totalPayment: 4000,
   },
 
   {
-    orderNo: "#000004",
+    orderNo: '#000006',
     menu: [
-      { name: "Salted Pasta with mushroom sauce" },
-      { name: "Robertson sweet wine" },
+      { name: 'Salted Pasta with mushroom sauce' },
+      { name: 'Robertson sweet wine' },
     ],
     totalPayment: 12000,
   },
   {
-    orderNo: "#000003",
+    orderNo: '#000005',
     menu: [
-      { name: "Hot spicy fried rice " },
-      { name: "Fanta" },
-      { name: "Chivita" },
+      { name: 'Hot spicy fried rice ' },
+      { name: 'Fanta' },
+      { name: 'Chivita' },
     ],
     totalPayment: 4000,
   },
 
   {
-    orderNo: "#000002",
+    orderNo: '#000004',
     menu: [
-      { name: "Salted Pasta with mushroom sauce" },
-      { name: "Robertson sweet wine" },
+      { name: 'Salted Pasta with mushroom sauce' },
+      { name: 'Robertson sweet wine' },
     ],
     totalPayment: 12000,
   },
   {
-    orderNo: "#000001",
+    orderNo: '#000003',
     menu: [
-      { name: "Hot spicy fried rice " },
-      { name: "Fanta" },
-      { name: "Chivita" },
+      { name: 'Hot spicy fried rice ' },
+      { name: 'Fanta' },
+      { name: 'Chivita' },
+    ],
+    totalPayment: 4000,
+  },
+
+  {
+    orderNo: '#000002',
+    menu: [
+      { name: 'Salted Pasta with mushroom sauce' },
+      { name: 'Robertson sweet wine' },
+    ],
+    totalPayment: 12000,
+  },
+  {
+    orderNo: '#000001',
+    menu: [
+      { name: 'Hot spicy fried rice ' },
+      { name: 'Fanta' },
+      { name: 'Chivita' },
     ],
     totalPayment: 4000,
   },
@@ -135,69 +135,69 @@ export const table: Table[] = [
 
 export const filterTable: FilterTable[] = [
   {
-    name: "Salted Pasta with mushroom sauce",
+    name: 'Salted Pasta with mushroom sauce',
     price: 10000,
-    quantity: "2",
+    quantity: '2',
     subTotal: 20000,
   },
   {
-    name: "Robertson sweet wine",
+    name: 'Robertson sweet wine',
     price: 2000,
-    quantity: "1",
+    quantity: '1',
     subTotal: 2000,
   },
   {
-    name: "Hot spicy fried rice",
+    name: 'Hot spicy fried rice',
     price: 10000,
-    quantity: "2",
+    quantity: '2',
     subTotal: 20000,
   },
   {
-    name: "Fanta",
+    name: 'Fanta',
     price: 2000,
-    quantity: "1",
+    quantity: '1',
     subTotal: 2000,
   },
   {
-    name: "Chivita",
+    name: 'Chivita',
     price: 2000,
-    quantity: "1",
+    quantity: '1',
     subTotal: 2000,
   },
   {
-    name: "Salted Pasta with mushroom sauce",
+    name: 'Salted Pasta with mushroom sauce',
     price: 10000,
-    quantity: "2",
+    quantity: '2',
     subTotal: 20000,
   },
   {
-    name: "Robertson sweet wine",
+    name: 'Robertson sweet wine',
     price: 2000,
-    quantity: "1",
+    quantity: '1',
     subTotal: 2000,
   },
   {
-    name: "Hot spicy fried rice",
+    name: 'Hot spicy fried rice',
     price: 10000,
-    quantity: "2",
+    quantity: '2',
     subTotal: 20000,
   },
   {
-    name: "Fanta",
+    name: 'Fanta',
     price: 2000,
-    quantity: "1",
+    quantity: '1',
     subTotal: 2000,
   },
   {
-    name: "Chivita",
+    name: 'Chivita',
     price: 2000,
-    quantity: "1",
+    quantity: '1',
     subTotal: 2000,
   },
   {
-    name: "Salted Pasta with mushroom sauce",
+    name: 'Salted Pasta with mushroom sauce',
     price: 10000,
-    quantity: "2",
+    quantity: '2',
     subTotal: 20000,
   },
 ];
@@ -209,17 +209,17 @@ type Card = {
 
 export const card: Card[] = [
   {
-    title: "Total Orders",
+    title: 'Total Orders',
     amount: 40,
   },
   {
-    title: "Total Revenue",
+    title: 'Total Revenue',
     amount: 148800,
   },
 
-  { title: "Cash Payments", amount: 1700 },
-  { title: "POS Payments", amount: 118500 },
-  { title: "Transfer Payments", amount: 28600 },
+  { title: 'Cash Payments', amount: 1700 },
+  { title: 'POS Payments', amount: 118500 },
+  { title: 'Transfer Payments', amount: 28600 },
 ];
 
 export interface Store {
@@ -234,42 +234,43 @@ export interface CartTypes {
   item_name: string;
   quantity: number;
   item_price: string;
+  item_category: string;
 }
 
 export const active: any = {
-  "0": "All",
-  "1": "Meals",
-  "2": "Drinks",
-  "3": "Pastries",
-  "4": "Sides",
-  "5": "Grills",
-  "6": "Desserts",
+  '0': 'All',
+  '1': 'Meals',
+  '2': 'Drinks',
+  '3': 'Pastries',
+  '4': 'Sides',
+  '5': 'Grills',
+  '6': 'Desserts',
 };
 
 export const Stock: Store[] = [
   {
-    id: "1",
-    item_name: "Salted Pasta with mushroom sauce",
-    item_price: "10000",
-    item_category: "Meals",
+    id: '1',
+    item_name: 'Salted Pasta with mushroom sauce',
+    item_price: '10000',
+    item_category: 'Meals',
   },
   {
-    id: "2",
-    item_name: "Salted with Rice pasta",
-    item_price: "10000",
-    item_category: "Wine",
+    id: '2',
+    item_name: 'Salted with Rice pasta',
+    item_price: '10000',
+    item_category: 'Wine',
   },
   {
-    id: "3",
-    item_name: "Salted Pasta with mushroom sauce",
-    item_price: "10000",
-    item_category: "Desserts",
+    id: '3',
+    item_name: 'Salted Pasta ',
+    item_price: '10000',
+    item_category: 'Desserts',
   },
   {
-    id: "4",
-    item_name: "Salted Pasta with mushroom sauce",
-    item_price: "10000",
-    item_category: "Meals",
+    id: '4',
+    item_name: 'Cashew nuts',
+    item_price: '10000',
+    item_category: 'Meals',
   },
 ];
 
@@ -463,31 +464,31 @@ interface Product {
 
 export const Items: Product[] = [
   {
-    id: "1",
-    name: "All",
+    id: '1',
+    name: 'All',
   },
   {
-    id: "2",
-    name: "Meals",
+    id: '2',
+    name: 'Meals',
   },
   {
-    id: "3",
-    name: "Drinks",
+    id: '3',
+    name: 'Drinks',
   },
   {
-    id: "4",
-    name: "Pastries",
+    id: '4',
+    name: 'Pastries',
   },
   {
-    id: "5",
-    name: "Sides",
+    id: '5',
+    name: 'Sides',
   },
   {
-    id: "6",
-    name: "Grills",
+    id: '6',
+    name: 'Grills',
   },
   {
-    id: "7",
-    name: "Desserts",
+    id: '7',
+    name: 'Desserts',
   },
 ];

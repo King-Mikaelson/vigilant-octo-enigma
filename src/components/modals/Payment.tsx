@@ -4,7 +4,10 @@ import naira from "../../assets/naira.svg";
 import pos from "../../assets/pos.svg";
 import transfer from "../../assets/transfer.svg";
 import Button from "../ui/button";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import PosService from "../../lib/posData";
+import AuthContext from "../../features/authentication/context/AuthContext";
+import AppContext from "../../context/AppContext";
 
 interface MethodType {
   img: any;
@@ -14,11 +17,13 @@ interface MethodType {
 interface ModalClose {
   closeModal: () => void;
   closeConfirmPayment: () => void;
+  total: number;
 }
 
 export default function Payment({
   closeModal,
   closeConfirmPayment,
+  total,
 }: ModalClose) {
   const paymentsMethods: MethodType[] = [
     {
@@ -35,11 +40,31 @@ export default function Payment({
     },
   ];
   const [activePayment, setActivePayment] = useState("");
-  const btnActions = () => {
+  const [amtPaid, setAmtPaid] = useState("");
+  const { user } = useContext(AuthContext);
+  const {
+    state: { cart },
+  } = useContext(AppContext);
+  const createOrder = async (e: any) => {
+    e.preventDefault();
     closeModal();
     closeConfirmPayment();
+    // try {
+    //   const data = {
+    //     restaurant_id: user.works_at,
+    //     username: user.username,
+    //     order_items: cart,
+    //   };
+    //   const response = await PosService.placeOrder(data);
+    //   console.log("ordersent", response);
+    //   closeModal();
+    //   closeConfirmPayment();
+    // } catch (error) {
+    //   console.log(error, "caught err");
+    // }
   };
 
+  const disabled = total !== Number(amtPaid);
   return (
     <section className="payment">
       <aside className="payment__top">
@@ -53,7 +78,7 @@ export default function Payment({
       <aside className="payment__mid">
         <div className="amount">
           <small>Total Amount to be Paid</small>
-          <h4>₦22,000</h4>
+          <h4>₦{total}</h4>
         </div>
 
         <div className="payment__methods">
@@ -83,15 +108,26 @@ export default function Payment({
         </div>
       </aside>
 
-      <form className="payment__bottom">
+      <form className="payment__bottom" onSubmit={createOrder}>
         <div className="payment__bottom--input">
           <h3>enter amount received:</h3>
-          <input type="number" className="input__ordinary" />
+          <input
+            type="number"
+            className="input__ordinary"
+            value={amtPaid}
+            onChange={(e) => setAmtPaid(e.target.value)}
+          />
         </div>
 
         <div className="payment__bottom--btns">
           <span onClick={closeModal}>cancel</span>
-          <Button text="confirm payment" onclick={btnActions} />
+          {disabled ? (
+            <button className="button__element disabled">
+              confirm payment
+            </button>
+          ) : (
+            <Button text="confirm payment" />
+          )}
         </div>
       </form>
     </section>

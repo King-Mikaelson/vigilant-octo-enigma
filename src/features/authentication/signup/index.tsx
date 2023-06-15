@@ -159,7 +159,7 @@ const FormTwo = () => {
   // const [password, setPassword] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
   const [phoneError, setPhoneError] = useState<string>("");
-  const [checked, setChecked] = useState<boolean>(false);
+  const [checked, setChecked] = useState<boolean>(true);
   const [disableSecondBtn, setDisableSecondBtn] = useState<boolean>(false);
 
   const navigate = useNavigate();

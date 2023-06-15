@@ -9,9 +9,9 @@ import { CartTypes } from "../../../frontendData/frontendData";
 export default function Orders() {
   const [openModal, setOpenModal] = useState(false);
   const [confirmPayment, setConfirmPayment] = useState(false);
-  const [total, setTotal] = useState("");
+  const [total, setTotal] = useState(0);
   const [discount] = useState(0);
-  console.log(total, discount);
+
   const {
     state: { cart },
     dispatch,
@@ -25,7 +25,8 @@ export default function Orders() {
   useEffect(() => {
     setTotal(
       cart?.reduce(
-        ({ acc, curr }: any) => acc + Number(curr?.item_price) * curr?.quantity,
+        (acc: number, curr: CartTypes) =>
+          acc + parseFloat(curr?.item_price) * curr?.quantity,
         0
       )
     );
@@ -46,6 +47,7 @@ export default function Orders() {
           <Payment
             closeModal={handleModalClose}
             closeConfirmPayment={handleConfirmModal}
+            total={total}
           />
         </>
       )}
@@ -136,7 +138,7 @@ export default function Orders() {
           <aside className="bottom__invoice">
             <div className="calc">
               <span>Subtotal</span>
-              <h3>₦{Math.round(parseInt(total))}</h3>
+              <h3>₦{Number(total)}</h3>
             </div>
             <div className="calc">
               <span>Discount</span>
@@ -144,7 +146,7 @@ export default function Orders() {
             </div>
             <div className="calc">
               <span>Grand total</span>
-              <h3>₦{Math.round(parseInt(total)) - discount}</h3>
+              <h3>₦{total - discount}</h3>
             </div>
             <Button text="continue to payment" onclick={handleModalClose} />
           </aside>

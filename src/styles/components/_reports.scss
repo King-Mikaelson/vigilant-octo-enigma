@@ -1,6 +1,6 @@
 .individualReports {
   h1 {
-    font-family: "Inter";
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: $extra-font;
@@ -66,7 +66,7 @@
     flex-direction: column;
 
     h2 {
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 500;
       font-size: $sm-font;
@@ -92,7 +92,7 @@
         border-radius: 11.8264px;
         width: 35%;
         padding: $sm-font $xxl-font1;
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -194,13 +194,12 @@
     }
 
     .print-wrapper {
-        display: flex;
-        align-items: center;
-        gap: $sm-font;
-        justify-content: space-between;
-        padding: $sm-font1;
-
-      }
+      display: flex;
+      align-items: center;
+      gap: $sm-font;
+      justify-content: space-between;
+      padding: $sm-font1;
+    }
 
     .flex-wrapper {
       display: flex;
@@ -222,7 +221,7 @@
       p {
         color: $light-gray;
         font-size: $sm-font;
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         font-weight: 500;
       }
     }
@@ -236,20 +235,20 @@
     .select {
       color: $light-gray;
       font-size: $sm-font;
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 500;
       cursor: pointer;
     }
     .options {
       color: $black-color;
       font-size: $sm-font;
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 400;
       padding: $sm-font;
     }
 
     h1 {
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 600;
       font-size: $extra-font;
@@ -268,14 +267,14 @@
       }
 
       &__title {
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
         font-size: $sm-font;
         line-height: 140%;
         color: $black-color2;
-        @include lg{
-        display: none;
+        @include lg {
+          display: none;
         }
       }
 
@@ -286,10 +285,10 @@
           flex-direction: column;
           width: 100%;
           background-color: $white-color;
-          padding:0 $sm-font;
+          padding: 0 $sm-font;
           padding-bottom: $sm-font1;
         }
-    
+
         .header {
           display: flex;
           align-items: center;
@@ -297,13 +296,13 @@
           gap: $sm-font1;
           width: 100%;
           padding-bottom: $sm-font;
-    
+
           .back__icon {
             display: block;
             font-size: 1.2rem;
             color: $lighter-gray;
           }
-    
+
           h2 {
             font-size: $extra-font;
             font-weight: 600;
@@ -312,7 +311,7 @@
             font-size: $sm-font;
           }
         }
-    
+
         hr {
           width: 100%;
           border: none;
@@ -330,7 +329,7 @@
 
         @include lg {
           flex-direction: column;
-          padding:0 $sm-font;
+          padding: 0 $sm-font;
         }
 
         &--start,
@@ -350,12 +349,12 @@
         cursor: pointer;
 
         @include lg {
-         padding: $sm-font;
-         padding-top: $sm-font2;
+          padding: $sm-font;
+          padding-top: $sm-font2;
         }
 
         .apply {
-          font-family: "Inter";
+          font-family: 'Inter';
           font-style: normal;
           font-weight: 600;
           font-size: $xs-font;
@@ -371,7 +370,7 @@
         }
 
         .cancel {
-          font-family: "Inter";
+          font-family: 'Inter';
           font-style: normal;
           font-weight: 600;
           font-size: $xs-font;
@@ -386,7 +385,7 @@
         .active {
           background: $primary-color;
           color: $white-color;
-          font-family: "Inter";
+          font-family: 'Inter';
           font-style: normal;
           font-weight: 600;
           font-size: $xs-font;
@@ -409,7 +408,7 @@
     }
 
     p {
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 600;
       font-size: 20px;
@@ -426,7 +425,7 @@
     padding: $md-font $sm-font;
     padding-bottom: 0rem;
     height: auto;
-    @include lg{
+    @include lg {
       margin: 0 $sm-font;
     }
 
@@ -438,17 +437,17 @@
       gap: $sm-font2;
       flex-direction: column;
 
-      @include lg{
+      @include lg {
         align-items: center;
         justify-content: center;
         gap: $sm-font1;
-        border-bottom: 1px solid #ECECEC;
+        border-bottom: 1px solid #ececec;
         padding-bottom: $sm-font;
       }
 
       h2,
       p {
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
         font-size: $sm-font;
@@ -457,14 +456,14 @@
       }
 
       .bold {
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 600;
         color: $black-color;
       }
 
       .bold-heading {
-        font-family: "Inter";
+        font-family: 'Inter';
         font-style: normal;
         font-weight: 600;
         font-size: $extra-font;
@@ -472,16 +471,16 @@
         color: $black-color2;
       }
 
-      .date__desktop{
+      .date__desktop {
         display: block;
-        @include lg{
+        @include lg {
           display: none;
         }
       }
 
-      .date__mobile{
+      .date__mobile {
         display: none;
-        @include lg{
+        @include lg {
           display: block;
         }
       }
@@ -492,7 +491,7 @@
         justify-content: space-between;
         gap: $sm-font;
 
-        @include lg{
+        @include lg {
           flex-direction: column;
         }
       }
@@ -502,23 +501,20 @@
       border-collapse: separate;
       border-spacing: 0 15px;
       table-layout: fixed;
-      width: 100%;         
-
-      @include lg{
+      width: 100%;
+      @include lg {
         display: none;
-      } 
+      }
     }
-
     th {
       color: $black-color;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 600;
       font-size: $xs-font;
       line-height: 140%;
       text-align: center;
     }
-
     th,
     td {
       padding: $extra-font 0rem;
@@ -527,7 +523,7 @@
 
     td {
       color: $black-color;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
       font-size: $xs-font;
@@ -535,13 +531,13 @@
       text-align: center;
     }
 
-    .mobile__table{
-      .card{
-        border-bottom: 1px solid #ECECEC;
+    .mobile__table {
+      .card {
+        border-bottom: 1px solid #ececec;
         padding-top: $sm-font2;
         padding-bottom: $sm-font;
-
-        h4,p{
+        h4,
+        p {
           font-family: $inter-font;
           font-weight: 400;
           font-size: 1rem;
@@ -549,19 +545,18 @@
           padding: $vs-font 0;
         }
 
-        .flex{
-          display:flex;
+        .flex {
+          display: flex;
           justify-content: space-between;
           padding-top: $sm-font;
 
-          :nth-child(2){
-          font-family: $inter-font;
-          font-weight: 500;
-          font-size: 1rem;
-          color: $black-color;
+          :nth-child(2) {
+            font-family: $inter-font;
+            font-weight: 500;
+            font-size: 1rem;
+            color: $black-color;
           }
         }
-
       }
     }
   }
@@ -569,7 +564,7 @@
 
 .generalReports {
   h1 {
-    font-family: "Inter";
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: $extra-font;
@@ -578,17 +573,33 @@
     padding: $sm-font2;
   }
 }
-
-.mobileReportsPage{
+.mobileReportsPage {
+  display: none;
+  @include lg {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: $inter-font;
+    background-color: #f5f5f5;
+    position: fixed;
+    top: 0;
+    z-index: 300;
+    margin-top: 0;
+    overflow: scroll;
+    height: 100vh;
+    padding-bottom: $xxl-font;
+  }
+  .header__parent {
     display: none;
     @include lg {
       display: flex;
       flex-direction: column;
       width: 100%;
-      box-sizing: border-box;
-      font-family: $inter-font;
-      background-color: #f5f5f5;
-      position: fixed;
+      height: 4rem;
+      background-color: $white-color;
+      padding: 0 1rem;
+      position: sticky;
       top: 0;
       z-index: 10;
       margin-top: 0;
@@ -596,85 +607,63 @@
       height: 100vh;
       padding-bottom: $xxl-font;
     }
-  
-
-    .header__parent {
-      display: none;
-      @include lg {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 4rem;
-        background-color: $white-color;
-        padding: 0 1rem;
-        position: sticky;
-        top: 0;
-      }
-  
-      .header {
-        display: flex;
-        align-items: center;
-        gap: $sm-font1;
-        width: 100%;
-        margin-top: 1rem;
-        padding-bottom: 0.5rem;
-  
-        .back__icon {
-          display: block;
-          font-size: 1.2rem;
-          color: $lighter-gray;
-        }
-  
-        h2 {
-          margin-right: 0.5rem;
-          font-size: $extra-font;
-          font-weight: 600;
-          font-family: $inter-font;
-          color: #332f32;
-          font-size: 1.125rem;
-        }
-      }
-  
-      hr {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid $placeholder-gray;
-        margin-bottom: 0.8rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  
-  
-    .mobileMenu {
-      padding: 1.5rem;
+    .header {
       display: flex;
-      flex-direction: column;
-      gap: $md-font;
-  
-      &__child {
-        display: flex;
-        align-items: center;
-        background-color: $white-color;
-        justify-content: center;
-        padding: $md-font;
-        gap: $sm-font;
-        color: $black-color2;
-        box-shadow: 0px -1px 2px rgba(2, 3, 3, 0.05),
-          0px 1px 1px rgba(2, 3, 3, 0.04), 0px 2px 1px rgba(2, 3, 3, 0.02);
-        border-radius: 4px;
-  
-        p {
-          font-family: $inter-font;
-          font-style: normal;
-          font-weight: 500;
-          font-size: $sm-font;
-          line-height: 20px;
-          letter-spacing: 0.0015em;
-          color: $black-color2;
-        }
+      align-items: center;
+      gap: $sm-font1;
+      width: 100%;
+      margin-top: 1rem;
+      padding-bottom: 0.5rem;
+      .back__icon {
+        display: block;
+        font-size: 1.2rem;
+        color: $lighter-gray;
+      }
+
+      h2 {
+        margin-right: 0.5rem;
+        font-size: $extra-font;
+        font-weight: 600;
+        font-family: $inter-font;
+        color: #332f32;
+        font-size: 1.125rem;
       }
     }
-  
+    hr {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $placeholder-gray;
+      margin-bottom: 0.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .mobileMenu {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: $md-font;
+    &__child {
+      display: flex;
+      align-items: center;
+      background-color: $white-color;
+      justify-content: center;
+      padding: $md-font;
+      gap: $sm-font;
+      color: $black-color2;
+      box-shadow: 0px -1px 2px rgba(2, 3, 3, 0.05),
+        0px 1px 1px rgba(2, 3, 3, 0.04), 0px 2px 1px rgba(2, 3, 3, 0.02);
+      border-radius: 4px;
+      p {
+        font-family: $inter-font;
+        font-style: normal;
+        font-weight: 500;
+        font-size: $sm-font;
+        line-height: 20px;
+        letter-spacing: 0.0015em;
+        color: $black-color2;
+      }
+    }
+  }
 }
