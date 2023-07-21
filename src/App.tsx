@@ -1,5 +1,5 @@
 import { QueryClientProvider, QueryClient } from 'react-query';
-import { RouterProvider } from 'react-router-dom';
+import { RouterProvider, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import Routes from "./routes";
@@ -49,7 +49,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './features/authentication/context/AuthContext';
 import { AppProvider } from './context/AppContext';
 import Login from './features/authentication/login';
-import SelectStore from './features/authentication/select-store';
 import StyleGuides from './styleGuides';
 import Otp from './features/authentication/otp';
 import SignUp from './features/authentication/signup';
@@ -89,6 +88,16 @@ import MigrateStore from './components/admin/settings/profile/migrateStore';
 import MobileReportPage from './features/report/mobile-report-page';
 import Catalogue from './features/admin/items-catalogue';
 import MobileSettingsPage from './components/admin/settings/mobile-settings-page';
+import { Provider } from 'react-redux';
+import { persistor } from '../src/redux/app/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import store from './redux/app/store';
+import ProtectedRoute from './utils/ProtectedRoute';
+import { useEffect } from 'react';
+import { supabase } from './supabase/client';
+import { updateSession, updateUser } from './redux/features/user/userSlice';
+import { useAppDispatch, useAppSelector } from '../src/redux/app/hooks';
+import { Navigate, useLocation } from 'react-router-dom';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -102,119 +111,169 @@ const queryClient = new QueryClient({
   },
 });
 
-function App() {
+const AppWrapper = () => {
   return (
-    <Router>
-      <AuthProvider>
-        <AppProvider>
-          <QueryClientProvider client={queryClient}>
-            <div className="App">
-              <Routes>
-                <Route path="/test" element={<StyleGuides />} />
-                <Route path="/" element={<Login />} />
-                <Route path="/select-store" element={<SelectStore />} />
-                <Route path="/otp" element={<Otp />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="*" element={<ErrorOutlined />} />
-                <Route path="/input-email" element={<ForgotPwd />} />
-                <Route path="/forgot-pwdlink" element={<LinkSent />} />
-                <Route
-                  path="/forgot-pwdlink-expired"
-                  element={<LinkExpired />}
-                />
-                <Route path="/forgot-pwdlink-resent" element={<LinkResent />} />
-                <Route path="/change-pwd" element={<ChangePassword />} />
-                <Route
-                  path="/settings/profile/changepassword"
-                  element={<ProfileChangePassword />}
-                />
-                <Route path="/pwd-updated" element={<PwdUpdated />} />
-                <Route path="/subscribe" element={<Subscribe />} />
-                <Route
-                  path="/cancel_subscription"
-                  element={<CancelSubscription />}
-                />
-                <Route
-                  path="/confirm_delete_account"
-                  element={<ConfirmDelete />}
-                />
-                <Route path="/delete_account" element={<DeleteAccount />} />
-                <Route path="/migrate_store" element={<MigrateStore />} />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+  );
+};
 
-                <Route element={<DashboardLayout />}>
-                  <Route path="/dashboard" element={<DashboardAdmin />} />
-                  <Route path="/menu_manager" element={<Admin />} />
-                  <Route path="/items-catalogue" element={<Catalogue />} />
+function App() {
+  const dispatch = useAppDispatch();
+  const { user } = useAppSelector((state) => state.user);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      dispatch(updateSession(session));
+      console.log(session, '.....');
+      dispatch(updateUser(session?.user ?? null));
+    });
+
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        console.log(`Supabase auth event: ${event}`);
+        dispatch(updateSession(session));
+        // if (
+        //   (session && location.pathname === '/') ||
+        //   location.pathname === '/signUp'
+        // ) {
+        //   <Navigate to="/dashboard" state={{ from: location }} replace />;
+        //   navigate('/dashboard');
+        // }
+        dispatch(updateUser(session?.user ?? null));
+      }
+    );
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
+
+  return (
+    <AuthProvider>
+      <ToastContainer />
+      <AppProvider>
+        <QueryClientProvider client={queryClient}>
+          <div className="App">
+            <Routes>
+              <Route path="/test" element={<StyleGuides />} />
+              <Route path="/" element={<Login />} />
+              <Route path="/otp" element={<Otp />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="*" element={<ErrorOutlined />} />
+              <Route
+                path="/input-email"
+                element={
+                  <ProtectedRoute>
+                    <ForgotPwd />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/forgot-pwdlink" element={<LinkSent />} />
+              <Route path="/forgot-pwdlink-expired" element={<LinkExpired />} />
+              <Route path="/forgot-pwdlink-resent" element={<LinkResent />} />
+              <Route path="/change-pwd" element={<ChangePassword />} />
+              <Route
+                path="/settings/profile/changepassword"
+                element={<ProfileChangePassword />}
+              />
+              <Route path="/pwd-updated" element={<PwdUpdated />} />
+              <Route path="/subscribe" element={<Subscribe />} />
+              <Route
+                path="/cancel_subscription"
+                element={<CancelSubscription />}
+              />
+              <Route
+                path="/confirm_delete_account"
+                element={<ConfirmDelete />}
+              />
+              <Route path="/delete_account" element={<DeleteAccount />} />
+              <Route path="/migrate_store" element={<MigrateStore />} />
+
+              <Route
+                element={
+                  <ProtectedRoute>
+                    <DashboardLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="/dashboard" element={<DashboardAdmin />} />
+                <Route path="/menu_manager" element={<Admin />} />
+                <Route path="/items-catalogue" element={<Catalogue />} />
+                <Route
+                  path="/multistore_menu_manager"
+                  element={<MultiStoreMenuManager />}
+                />
+                <Route path="/pos-waiters" element={<PosWaiters />} />
+
+                <Route element={<SettingsLayout />}>
+                  <Route path="/settings" element={<MobileSettingsPage />} />
+                  <Route path="/settings/profile" element={<Settings />} />
                   <Route
-                    path="/multistore_menu_manager"
-                    element={<MultiStoreMenuManager />}
+                    path="/settings/profile/editprofile"
+                    element={<EditProfile />}
                   />
-                  <Route path="/pos-waiters" element={<PosWaiters />} />
-
-                  <Route element={<SettingsLayout />}>
-                    <Route path="/settings" element={<MobileSettingsPage />} />
-                    <Route path="/settings/profile" element={<Settings />} />
-                    <Route
-                      path="/settings/profile/editprofile"
-                      element={<EditProfile />}
-                    />
-                    <Route
-                      path="/settings/manageusers"
-                      element={<ManageUsers />}
-                    />
-                    <Route
-                      path="/settings/manageusers/add-users"
-                      element={<AddUsers />}
-                    />
-                    <Route
-                      path="/settings/manageusers/users-list"
-                      element={<UserLists />}
-                    />
-                    <Route
-                      path="/settings/managesubscriptions"
-                      element={<ManageSubs />}
-                    />
-                    <Route
-                      path="/settings/managesubscriptions/add_card"
-                      element={<AddCard />}
-                    />
-                    <Route
-                      path="/settings/managesubscriptions/edit_card"
-                      element={<EditCard />}
-                    />
-                  </Route>
-
-                  <Route element={<ReportLayout />}>
-                    <Route path="/reports" element={<MobileReportPage />} />
-                    <Route
-                      path="/reports/individual-report"
-                      element={<IndividualReport />}
-                    />
-                    <Route
-                      path="/reports/general-report"
-                      element={<GeneralReport />}
-                    />
-                    <Route
-                      path="/reports/individual-report/:id"
-                      element={<UserReports />}
-                    />
-                    <Route
-                      path="/reports/individual-report/results"
-                      element={<IndividualReportResults />}
-                    />
-                    <Route
-                      path="/reports/general-report/results"
-                      element={<GeneralReportResults />}
-                    />
-                  </Route>
+                  <Route
+                    path="/settings/manageusers"
+                    element={<ManageUsers />}
+                  />
+                  <Route
+                    path="/settings/manageusers/add-users"
+                    element={<AddUsers />}
+                  />
+                  <Route
+                    path="/settings/manageusers/users-list"
+                    element={<UserLists />}
+                  />
+                  <Route
+                    path="/settings/managesubscriptions"
+                    element={<ManageSubs />}
+                  />
+                  <Route
+                    path="/settings/managesubscriptions/add_card"
+                    element={<AddCard />}
+                  />
+                  <Route
+                    path="/settings/managesubscriptions/edit_card"
+                    element={<EditCard />}
+                  />
                 </Route>
-              </Routes>
-            </div>
-          </QueryClientProvider>
-        </AppProvider>
-      </AuthProvider>
-    </Router>
+
+                <Route element={<ReportLayout />}>
+                  <Route path="/reports" element={<MobileReportPage />} />
+                  <Route
+                    path="/reports/individual-report"
+                    element={<IndividualReport />}
+                  />
+                  <Route
+                    path="/reports/general-report"
+                    element={<GeneralReport />}
+                  />
+                  <Route
+                    path="/reports/individual-report/:id"
+                    element={<UserReports />}
+                  />
+                  <Route
+                    path="/reports/individual-report/results"
+                    element={<IndividualReportResults />}
+                  />
+                  <Route
+                    path="/reports/general-report/results"
+                    element={<GeneralReportResults />}
+                  />
+                </Route>
+              </Route>
+            </Routes>
+          </div>
+        </QueryClientProvider>
+      </AppProvider>
+    </AuthProvider>
   );
 }
 
-export default App;
+export default AppWrapper;

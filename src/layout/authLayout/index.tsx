@@ -1,5 +1,5 @@
-import { ChildrenProp } from "../../types";
-import Trademark from "../../components/authentication/trademark/Trademark";
+import { ChildrenProp } from '../../types';
+// import Trademark from '../../components/authentication/trademark/Trademark';
 
 export default function AuthLayout({ children }: ChildrenProp) {
   return (
@@ -17,9 +17,9 @@ export default function AuthLayout({ children }: ChildrenProp) {
         </div>
       </aside>
       <aside className="authlayout__right">{children}</aside>
-      <aside className="authlayout__footer">
+      {/* <aside className="authlayout__footer">
         <Trademark />
-      </aside>
+      </aside> */}
     </section>
   );
 }

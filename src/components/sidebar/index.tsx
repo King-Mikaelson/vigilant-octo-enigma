@@ -7,13 +7,34 @@ import { RxDashboard } from 'react-icons/rx';
 import { HiOutlineChartSquareBar } from 'react-icons/hi';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { SlNotebook } from 'react-icons/sl';
+import { useAppDispatch, useAppSelector } from '../../redux/app/hooks';
+import {
+  logoutUser,
+  setIsAuthenticated,
+} from '../../redux/features/user/userSlice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SideBar() {
   const [activeTab, setActiveTab] = useState<string>('menu');
+  const auth = useAppSelector((state) => state.user.isAuthenticated);
+  const dispatch = useAppDispatch();
+  console.log(auth);
 
   const activeStyle = {
     color: '#51145a',
     fontWeight: 'bold',
+  };
+
+  const handleLogout = async () => {
+    try {
+      await dispatch(logoutUser());
+      // Logout successful, do something here (e.g., redirect, show success message)
+      toast('Logged Out Successfully!');
+    } catch (error) {
+      // Handle logout error here
+      console.error('Logout failed:', error);
+    }
   };
 
   return (
@@ -116,13 +137,14 @@ export default function SideBar() {
           className={
             activeTab === 'logOut' ? 'active__parent' : 'sidebar__parent'
           }
+          onClick={() => dispatch(setIsAuthenticated(false))}
         >
           <NavLink
             to={'/'}
             style={activeTab === 'logOut' ? activeStyle : undefined}
             onClick={() => {
-              setActiveTab('logOut');
-              localStorage.clear();
+              // localStorage.clear();
+              handleLogout();
             }}
             className="sidebar__link"
           >
